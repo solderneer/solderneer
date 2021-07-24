@@ -1,4 +1,5 @@
-Hi there, I'm Shan 👋
+# Hi there, I'm Shan 👋
+
 I’m an aspiring polymath, on a mission to bring optimism and curiosity back to the world. I want to help people by spreading positivity and creating technologies that solve real problems.
 
 Currently interested in mathematics, computer science, visual design and philosophy.
