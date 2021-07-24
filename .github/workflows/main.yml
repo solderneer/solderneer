@@ -9,129 +9,44 @@ jobs:
   github-metrics:
     runs-on: ubuntu-latest
     steps:
-      
-      # ======================================================================================
-      # 🖼️ TEMPLATES
-      # ======================================================================================
-      
-      # Classic template example
-      - name: 📗 Classic template
+    
+      - name: 🦑 Personal metrics (left)
         if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
+        uses: lowlighter/metrics@latest
         with:
-          filename: metrics.classic.svg
+          filename: metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          base: header, repositories
-          plugin_lines: yes
-          plugins_errors_fatal: ${{ github.repository == 'lowlighter/lowlighter' }}
-          output_action: pull-request
-          delay: 120
-      
-      # ======================================================================================
-      # 🧩 PLUGINS
-      # ======================================================================================
-
-      # ======================================================================================
-      # 🏆 Achievements
-
-      # Achievements
-      - name: 🏆 Achievements
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
-        with:
-          filename: metrics.plugin.achievements.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
-          plugin_achievements: yes
-          plugin_achievements_only: polyglot, stargazer, developer, contributor, octonaut
-          plugins_errors_fatal: ${{ github.repository == 'lowlighter/lowlighter' }}
-          output_action: pull-request
-          delay: 120
-      
-       # ======================================================================================
-      # 💡 Coding habits
-
-      # Display coding habits and recent activity (setup timezone for accurate metrics)
-      - name: 💡 Habits plugin
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
-        with:
-          filename: metrics.plugin.habits.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
-          plugin_habits: yes
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          plugins_errors_fatal: ${{ github.repository == 'lowlighter/lowlighter' }}
-          config_timezone: Asia/Singapore
-          output_action: pull-request
-          delay: 120
-  
-      # ======================================================================================
-      # 📅 Isometric commit calendar
-
-      # Display isometric calendar (180 days)
-      - name: 📅 Isocalendar plugin
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
-        with:
-          filename: metrics.plugin.isocalendar.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
+          base: header
           plugin_isocalendar: yes
-          plugins_errors_fatal: ${{ github.repository == 'lowlighter/lowlighter' }}
-          output_action: pull-request
-          delay: 120
-      
-      # Display most used languages (with some unwanted languages ignored)
-      - name: 🈷️ Languages plugin
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
-        with:
-          filename: metrics.plugin.languages.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
           plugin_languages: yes
-          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot, c, vhdl
-          plugin_languages_limit: 4
-          plugins_errors_fatal: ${{ github.repository == 'lowlighter/lowlighter' }}
-          output_action: pull-request
-          delay: 120
-      
-      # ======================================================================================
-      # 🐤 Latest tweets
-
-      # Display your latest tweets (token required)
-      # Don't forget to update your GitHub profile with your twitter username
-      - name: 🐤 Tweets plugin
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
-        with:
-          filename: metrics.plugin.tweets.svg
-          token: NOT_NEEDED
-          user: botlighter
-          plugin_tweets: yes
-          plugin_tweets_token: ${{ secrets.TWITTER_TOKEN }}
-          plugin_tweets_user: github
-          plugins_errors_fatal: ${{ github.repository == 'lowlighter/lowlighter' }}
-          output_action: pull-request
-          delay: 120
-          
-      # ======================================================================================
-      # 📌 Starred topics
-      - name: 📌 Topics plugin (mastered)
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
-        with:
-          filename: metrics.plugin.topics.mastered.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
+          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot, vue, scala, c, c++, python, ejs
+          plugin_languages_skipped: lowlighter
+          plugin_languages_details: lines, percentage
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_indepth: yes
+          plugin_languages_limit: 2
           plugin_topics: yes
           plugin_topics_limit: 0
           plugin_topics_mode: mastered
-          plugins_errors_fatal: ${{ github.repository == 'lowlighter/lowlighter' }}
-          output_action: pull-request
-          delay: 120
+          config_order: base.header, isocalendar, languages, topics
 
-
-
+      - name: 🦑 Personal metrics (right)
+        if: ${{ success() || failure() }}
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.personal.anilist.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          plugin_habits: yes
+          plugin_habits_from: 200         # Use 200 events to compute habits
+          plugin_habits_days: 14          # Keep only events from last 14 days
+          plugin_habits_facts: yes        # Display facts section
+          plugin_habits_charts: yes       # Display charts section
+          plugin_habits_trim: yes         # Trim unused hours on daily chart
+          config_timezone: Asia/Singapore # Set timezone
+          plugin_music: yes
+          plugin_music_provider: spotify # Use Spotify as provider
+          plugin_music_mode: recent      # Set plugin mode
+          plugin_music_limit: 4          # Limit to 4 entries
+          plugin_music_played_at: yes    # Show timestamp (for spotify only)
+          plugin_music_token: "${{ secrets.SPOTIFY_CLIENT_ID }}, ${{ secrets.SPOTIFY_CLIENT_SECRET }}, ${{ secrets.SPOTIFY_REFRESH_TOKEN }}"
+          config_order: habits, music
