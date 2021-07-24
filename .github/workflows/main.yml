@@ -34,7 +34,8 @@ jobs:
         if: ${{ success() || failure() }}
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.personal.anilist.svg
+          base: ""
+          filename: metrics.personal.svg
           token: ${{ secrets.METRICS_TOKEN }}
           plugin_habits: yes
           plugin_habits_from: 200         # Use 200 events to compute habits
@@ -44,9 +45,7 @@ jobs:
           plugin_habits_trim: yes         # Trim unused hours on daily chart
           config_timezone: Asia/Singapore # Set timezone
           plugin_music: yes
-          plugin_music_provider: spotify # Use Spotify as provider
-          plugin_music_mode: recent      # Set plugin mode
-          plugin_music_limit: 4          # Limit to 4 entries
-          plugin_music_played_at: yes    # Show timestamp (for spotify only)
-          plugin_music_token: "${{ secrets.SPOTIFY_CLIENT_ID }}, ${{ secrets.SPOTIFY_CLIENT_SECRET }}, ${{ secrets.SPOTIFY_REFRESH_TOKEN }}"
+          plugin_music_limit: 4                   # Limit to 4 entries
+          plugin_music_playlist: https://open.spotify.com/embed/playlist/7asVxeuHTrAx8LrxLTSrvf # Use extracted playlist link
+                                                  #   (plugin_music_provider and plugin_music_mode will be set automatically)
           config_order: habits, music
