@@ -13,3 +13,8 @@ Currently interested in mathematics, computer science, visual design and philoso
 - ⚡ Fun fact: I flunked out of my school CS program because I hated Java
 
 ![Metrics](https://github.com/solderneer/solderneer/blob/main/github-metrics.svg)
+![Recent](https://github.com/solderneer/solderneer/blob/main/metrics.plugin.habits.svg)
+![Achievements](https://github.com/solderneer/solderneer/blob/main/metrics.plugin.achievements.svg)
+![IsoCalendar](https://github.com/solderneer/solderneer/blob/main/metrics.plugin.isocalendar.svg)
+![Languages](https://github.com/solderneer/solderneer/blob/main/metrics.plugin.languages.svg)
+![Tweets](https://github.com/solderneer/solderneer/blob/main/metrics.plugin.tweets.svg)
