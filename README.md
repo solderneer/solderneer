@@ -11,3 +11,5 @@ Currently interested in mathematics, computer science, visual design and philoso
 - 📫 How to reach me: I'm pretty active on twitter, so DM/tweet at me [@solderneer](https://twitter.com/solderneer)
 - 😄 Pronouns: he/him
 - ⚡ Fun fact: I flunked out of my school CS program because I hated Java
+
+![Metrics](https://github.com/solderneer/solderneer/blob/main/github-metrics.svg)
