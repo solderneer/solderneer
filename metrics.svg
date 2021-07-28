@@ -2270,8 +2270,8 @@
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="447.88107122941125" height="8" fill="#00ADD8"/>
-                    <rect mask="url(#languages-bar)" x="447.88107122941125" y="0" width="12.118928770588795" height="8" fill="#f1e05a"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="445.3645636569702" height="8" fill="#00ADD8"/>
+                    <rect mask="url(#languages-bar)" x="445.3645636569702" y="0" width="14.635436343029845" height="8" fill="#f1e05a"/>
                 </svg>
                 <div class="row fill-width">
                     <section>
@@ -2281,8 +2281,8 @@
                       Go
                     </div>
                             <small>
-                                <div>2.96k lines</div>
-                                <div>97.37%</div>
+                                <div>2.42k lines</div>
+                                <div>96.82%</div>
                             </small>
                         </div>
                     </section>
@@ -2294,7 +2294,7 @@
                     </div>
                             <small>
                                 <div>121 lines</div>
-                                <div>2.63%</div>
+                                <div>3.18%</div>
                             </small>
                         </div>
                     </section>
