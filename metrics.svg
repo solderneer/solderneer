@@ -2281,15 +2281,15 @@
         Recently used languages
       </h3>
                 <small>
-            estimation from 20 edited files from 39 commits over last 14 days
+            estimation from 18 edited files from 38 commits over last 14 days
           </small>
                 <svg class="bar" xmlns="http://www.w3.org/2000/svg" width="460" height="8">
                     <mask id="languages-bar">
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="373.51333552848206" height="8" fill="#f1e05a"/>
-                    <rect mask="url(#languages-bar)" x="373.51333552848206" y="0" width="86.48666447151795" height="8" fill="#959DA5"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="376.4260826281732" height="8" fill="#f1e05a"/>
+                    <rect mask="url(#languages-bar)" x="376.4260826281732" y="0" width="83.57391737182678" height="8" fill="#959DA5"/>
                 </svg>
                 <div class="row fill-width">
                     <section>
@@ -2300,7 +2300,7 @@
                     </div>
                             <small>
                                 <div>195 lines</div>
-                                <div>81.2%</div>
+                                <div>81.83%</div>
                             </small>
                         </div>
                     </section>
@@ -2311,8 +2311,8 @@
                       Svelte
                     </div>
                             <small>
-                                <div>49 lines</div>
-                                <div>18.8%</div>
+                                <div>44 lines</div>
+                                <div>18.17%</div>
                             </small>
                         </div>
                     </section>
