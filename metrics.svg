@@ -2288,8 +2288,8 @@
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="376.4260826281732" height="8" fill="#f1e05a"/>
-                    <rect mask="url(#languages-bar)" x="376.4260826281732" y="0" width="83.57391737182678" height="8" fill="#959DA5"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="377.1770573566085" height="8" fill="#f1e05a"/>
+                    <rect mask="url(#languages-bar)" x="377.1770573566085" y="0" width="82.82294264339153" height="8" fill="#959DA5"/>
                 </svg>
                 <div class="row fill-width">
                     <section>
@@ -2300,7 +2300,7 @@
                     </div>
                             <small>
                                 <div>195 lines</div>
-                                <div>81.83%</div>
+                                <div>82%</div>
                             </small>
                         </div>
                     </section>
@@ -2311,8 +2311,8 @@
                       Svelte
                     </div>
                             <small>
-                                <div>44 lines</div>
-                                <div>18.17%</div>
+                                <div>38 lines</div>
+                                <div>18%</div>
                             </small>
                         </div>
                     </section>
