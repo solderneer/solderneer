@@ -2283,8 +2283,8 @@
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="436.61267040898156" height="8" fill="#00B4AB"/>
-                    <rect mask="url(#languages-bar)" x="436.61267040898156" y="0" width="23.387329591018442" height="8" fill="#701516"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="439.3375606645648" height="8" fill="#00B4AB"/>
+                    <rect mask="url(#languages-bar)" x="439.3375606645648" y="0" width="20.66243933543519" height="8" fill="#701516"/>
                 </svg>
                 <div class="row fill-width">
                     <section>
@@ -2294,8 +2294,8 @@
                       Dart
                     </div>
                             <small>
-                                <div>971 lines</div>
-                                <div>94.92%</div>
+                                <div>1.09k lines</div>
+                                <div>95.51%</div>
                             </small>
                         </div>
                     </section>
@@ -2307,7 +2307,7 @@
                     </div>
                             <small>
                                 <div>32 lines</div>
-                                <div>5.08%</div>
+                                <div>4.49%</div>
                             </small>
                         </div>
                     </section>
