@@ -2,12 +2,10 @@
 
 I’m an aspiring polymath, on a mission to bring optimism and curiosity back to the world. I want to help people by spreading positivity and creating technologies that solve real problems.
 
-Currently interested in mathematics, computer science, visual design and philosophy.
+eee student @ [UCL](https://www.ucl.ac.uk/) by day, coreteam @ [Happily Ever After](https://hea.care/) by night and web3 dev on the weekends 🚀
 
-* 🔭 I’m currently working on Axiom Academy, helping people become the most capable versions of themselves.
-* 🌱 I’m currently learning to draw and sketch stuff :')
-* 👯 I’m looking to collaborate on anything related to education and edtech!
-* 💬 Ask me about the origins of consciousness
+* 🔭 Working on: Happily Ever After, trying to add 10 billion years of healthy life to the planet.
+* 🌱 Learning: web3, possibly German soon
 * 📫 How to reach me: I'm pretty active on twitter, so DM/tweet at me @solderneer
 * 😄 Pronouns: he/him
 * ⚡ Fun fact: I flunked out of my school CS program because I hated Java
