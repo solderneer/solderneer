@@ -1,4 +1,4 @@
-baseURL = 'https://solderneer.me/'
+baseURL = 'https://blog.solderneer.me/'
 languageCode = 'en-us'
 title = "solderneer.eth"
 theme = 'main'
