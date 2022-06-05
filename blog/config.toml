@@ -1,4 +1,4 @@
-baseURL = 'https://solderneer.github.io/'
+baseURL = 'https://solderneer.github.io/solderneer/'
 languageCode = 'en-us'
 title = "solderneer's blog"
 theme = 'main'
