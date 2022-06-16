@@ -1,7 +1,7 @@
 ---
 title: "Top, Bottom, Up, Down"
 description: "Don't build web 3 startups top-down or bottom-up, build top-bottom-up-down"
-tldr: "Building web 3 startups is hard, as you have to balance product-market fit and iteration speed with your community. To achieve this balance, a mix of strategies must be deployed- using concepts from 20+ years of startup history, political science and human behaviour."
+tldr: "Building web 3 startups is hard, as you have to balance product-market fit and iteration speed with community and governance. To achieve this balance, a mix of strategies must be deployed- using concepts from 20+ years of startup history, political science and human behaviour."
 date: 2022-06-16T15:00:00+08:00
 draft: false
 ---
@@ -30,13 +30,13 @@ Furthermore, the computational primitives of the blockchain enable new governanc
 
 Before we look at market-protocol fit, it is essential to understand the [key differences between protocols and products](https://snikket.org/blog/products-vs-protocols/).
 
-Let's look at products first. Products are user-friendly, focus on implementation and aim to achieve a monoculture- a world where everyone uses the product. In contrast, protocols are open, built for developers, are composable and focus on achieving a diversity of applications that sit on top of them. For a more practical example, consider XMPP, the open messaging protocol and WhatsApp which is a product built on closed-source, centralized software. Anyone can build an XMPP client, propose changes to the protocol or build on top of it, however only WhatsApp coreteam can use the underlying WhatsApp system. With WhatsApp, there are no third party clients, and there is no thriving ecosystem of WhatsApp apps. At the same time, driving XMPP adoption and integrating new features must consider all of its third part clients, which means that it often takes much longer to develop new features into XMPP than into WhatsApp.
+Let's look at products first. Products are user-friendly, focus on implementation and aim to achieve a monoculture- a world where everyone uses the product. In contrast, protocols are open, built for developers, are composable and focus on achieving a diversity of applications that sit on top of them. For a more practical example, consider [XMPP](https://xmpp.org/), the open messaging protocol and [WhatsApp](https://www.whatsapp.com/) which is a product built on closed-source, centralized software. Anyone can build an XMPP client, propose changes to the protocol or build on top of it, however only WhatsApp's coreteam can use the underlying WhatsApp system. With WhatsApp, there are no third party clients, and there is no thriving ecosystem of WhatsApp apps. At the same time, driving XMPP adoption and integrating new features must consider all of its third part clients, which means that it often takes much longer to develop new features into XMPP than into WhatsApp.
 
 In short, protocols develop a lot slower than products as they cannot evolve at the same speed as a LEAN product team. However, protocols are generally more robust and have the potential to generate a pluralistic future with a diversity of composable applications.
 
 Ethereum is a great example of a successful developer protocol. It is open source, permissionless and allows developers to build vibrant services and applications on top of it- Uniswap, Compound, Balancer etc. It is well documented, cares about interoperability, software diversity and decentralization.
 
-Fundamentally, the core ideals of web 3 are decentralization, ownership and composability. This means, web 3 is about _protocols, not products._ With the composable primitives on Ethereum, Avalanche and other Layer 1s, it is possible to finally accrue value at the protocol layer instead of the product layer. In Web 2, HTTPS powers most of the world's product but accrues none of the captured value. Web 3 flips that model and lets protocols and open-source standards accrue value for the services they provide.
+Fundamentally, the core ideals of web 3 are decentralization, ownership and composability. This means, web 3 is about _protocols, not products._ With the composable primitives on Ethereum, Avalanche and other Layer 1s, it is possible to finally accrue value at the protocol layer instead of the product layer. In Web 2, HTTPS powers most of the world's products but accrues none of the captured value. Web 3 flips that model and lets protocols and open-source standards accrue value for the services they provide.
 
 In fact, in a Web 3 model, since all products are built on composable open standards- more value accrues to the [protocol layer than the product layer](https://www.youtube.com/watch?v=AI1N6dY8vSQ&list=PLK9Lwn4_TfLS3I9huJjd-k_FeMKiTkAff&index=6).
 
@@ -50,7 +50,7 @@ So how can we build and market protocols? We can start by trying to apply the pr
 4. Iterate and test and build [Uniswap: raise venture funds to pay contributors]
 5. Release the protocol
 
-But recall, the two of the core ideals of web 3 are decentralization and ownership. But herein lies the problem, Uniswap likely wouldn't have been able to build Uniswap so quickly if it was decentralized. Firstly, it is hard to achieve consensus on a vision amidst a large group of people. Even if that's possible, it is even harder to agree on a single approach to achieve that vision. Lastly, in large groups, no individual feels full ownership and responsibility, and coaxing this group to build and iterate requires a lot more effort than in a small LEAN team with more at stake.
+But recall, two of the core ideals of Web 3 are decentralization and ownership. But herein lies the problem, Uniswap likely wouldn't have been able to build Uniswap so quickly if it was decentralized. Firstly, it is hard to achieve consensus on a vision amidst a large group of people. Even if that's possible, it is even harder to agree on a single approach to achieve that vision. Lastly, in large groups, no individual feels full ownership and responsibility, and coaxing this group to build and iterate requires a lot more effort than in a small LEAN team with more at stake.
 
 In essence, smaller teams move faster, iterate quicker and converge on a solution even if the solution is a local minima which isn't the most optimal. Convincing large communities to achieve this directionality is quite impossible. A comparison can be drawn to a gradient descent operation. When a small team can quickly agree on the shape of the design space, they can quickly find a local minima to move towards. But in a large team, the landscape of the design space is fuzzy and not globally agreed upon, leading to a lot more difficulties in deciding which way to move.
 
@@ -82,13 +82,13 @@ In market-protocol fit, the founder does not have the sole responsibility for fi
 
 # Can the market fit the protocol?
 
-I can list numerous examples of product-market fit success stories but not a single instance of market-protocol fit. DAOs are the latest exploration into market-protocol fit, and they try to support unstructured exploration and solution discovery. But as anyone who's been in a DAO knows, this tends to make it chaotic and complicated to navigate.
+I can list numerous examples of product-market fit success stories but not a single instance of market-protocol fit. DAOs are the latest exploration into market-protocol fit, and they try to support unstructured exploration and solution discovery. But as anyone who's been in a DAO knows, this tends to make it chaotic, slow and complicated to navigate.
 
 Some would argue that the Ethereum Project is an example of market-protocol fit. I would humbly disagree. The Ethereum core team was addressing a specific problem, the ability to execute complex transactions and contracts in a trustless way on chain. Even before the community was around, the coreteam of Ethereum were building and iterating to achieve the product. The developer traction that Ethereum has is symbolic of product-market fit not market-protocol fit. Ethereum is a product for developers.
 
-However, the products built on top of Ethereum do serve to push a narrative that Ethereum wanted to achieve- building a new, fairer internet. If you take a big picture view, and look at Ethereum's problem statement as "Solving the information and power assymmetry in the internet", then Ethereum seems like a market-protocol fit approach. But on a smaller lens, Ethereum provides the **developer tools and substrate** for developers to build new applications. In that sense, Ethereum is a product persuing product-market fit.
+However, the products built on top of Ethereum do serve to push a narrative that Ethereum wanted to achieve- building a new, fairer internet. If you take a big picture view, and look at Ethereum's problem statement as "Solving the information and power assymmetry in the internet", then Ethereum seems like a market-protocol fit approach. But on a smaller lens, Ethereum provides the **developer tools and substrate** for developers to build new, fairer and more open applications. In that sense, Ethereum is a product persuing product-market fit.
 
-It seems to me that the conclusion would be that nom matter what, your initial product/protocol has to find product market fit. Ethereum could only achieve their strong developer ecosystem building out solutions for their vision **after** they built a strong product with product-market fit to attract developers. Possibly, the concepts of product-market fit and market-protocol fit are not exclusionary but rather different stages in a pipeline.
+It seems to me that the conclusion would be that no matter what, your initial product/protocol has to find product market fit. Ethereum could only lean on their strong developer ecosystem to build out solutions for their vision **after** they built a strong product with product-market fit to attract developers. Possibly, the concepts of product-market fit and market-protocol fit are not exclusionary but rather different stages in a pipeline.
 
 1. You set up a broad vision for what you want to achieve [Ethereum: building a fairer internet on a world computer]
 2. Create an initial substrate/protocol for people to build on that unlocks a design space for that vision [Ethereum chain]
@@ -100,17 +100,17 @@ Until this point, this was all about product-market fit. Now,
 5. Within some constraints in the protocol, allow builders to search the available design space [Dapps on Ethereum]
 6. Selectively reward projects and proposals that move towards the desired narrative [Grants, Gitcoin, etc.]
 
-This is the transition to market-protocol fit. The product, makes the market, makes the protocol. It's **product-market-protocol** fit. And this requires startup teams to make a transition in strategy similar to what progressive decentralization describes. At the start, in product-market fit more, it helps to raise equity rounds, build your initial substrate and have a LEAN team.
+This is the transition to market-protocol fit. The product, makes the market, makes the protocol. It's **product-market-protocol** fit. And this requires startup teams to make a transition in strategy similar to what progressive decentralization describes. At the start, in product-market fit mode, it helps to raise equity rounds, build your initial substrate and have a LEAN team.
 
 Once a certain critical mass of adoption has happened, the transition to market-protocol fit entails distribution of ownership, proper governance structures, ways to incentivize movement towards the original vision while preventing deviations. Startup founders in Web 3 act as CEOs of companies and then transition to members of parliment in states.
 
-# Product-market-protocol fit
+# Final words
 
-This transition can be both nerve-wreaking and complicated, but also exciting and rewarding for once you've successfully completed the transition, the protocol lives on, independently of your ability to contribute to it. It would have obtained a life of its own.
+This transition can be both nerve-wreaking and complicated, but also exciting and rewarding. Once you've successfully completed the transition, the protocol lives on, independent of your ability to contribute to it. It would have obtained a life of its own.
 
-The answer to how to build web 3 startups seems to be not "top-down" or "bottom-up" but rather, **top-bottom-up-down**.
+Given the arguments laid in this post, I believe that the answer to how to build web 3 startups seems to be not "top-down" or "bottom-up". We need to build **top-bottom-up-down**.
 
-# References
+# Further Reading
 
 1. [Market-Protocol Fit](https://otherinter.net/research/market-protocol-fit/)
 2. [Progressive Decentralization](https://a16z.com/2020/01/09/progressive-decentralization-crypto-product-management/)
