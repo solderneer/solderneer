@@ -68,11 +68,27 @@ we connect with people across the world instantaenously over social networks
 
 # What have cybersocial organisms accomplished so far
 
+These are with networks
+
 - https://en.wikipedia.org/wiki/2021_United_States_Capitol_attack
 - https://en.wikipedia.org/wiki/George_Floyd_protests or other global phenomenon protests
 - Any globally coordinated action using twitter, facebook or digital technology
 
+Those with economics as well
+
+- bitcoin
+
+# Public data vs Private data
+
+- Private Data makes cybersocial organisms less efficient
+- If all data is public the entire organism is able to function with perfect information
+- If data is private, individuals have more agency and control
+
 # How to you create cybersocial organisms with interesting emergent behaviour
+
+DAOs are attempts at engineering the behaviour of cybersocial organisms. Provide a medium for communication and a medium for directionality and the cybersocial organism does the rest. Similar to the Market-Protocol fit idea i talked about in a previous post.
+
+Bitcoin is a cyber-social organism that preserves the security of the coin. Graph Protocol is a cybersocial organism
 
 Tokenomics comes in here.
 Incentive mechanisms are important.
