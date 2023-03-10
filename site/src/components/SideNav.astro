@@ -1,0 +1,28 @@
+---
+import NavLink from "./NavLink.astro";
+---
+
+<nav class="w-3/12 flex flex-col">
+  <h2 class="text-sm italic">
+    ~ where Sudharshan (aka solderneer) practices technological magic
+  </h2>
+
+  <h3 class="uppercase text-sm font-bold mt-6 mb-1 tracking-wide">Chapters</h3>
+  <ul>
+    <NavLink href="/">Home</NavLink>
+    <NavLink href="/blog">Blog</NavLink>
+    <NavLink href="/about">About</NavLink>
+  </ul>
+
+  <h3 class="uppercase text-sm font-bold mt-6 mb-1 tracking-wide">
+    Follow me on
+  </h3>
+  <ul>
+    <NavLink href="https://twitter.com/solderneer" target="_blank">
+      Twitter
+    </NavLink>
+    <NavLink href="https://github.com/solderneer" target="_blank">
+      GitHub
+    </NavLink>
+  </ul>
+</nav>
