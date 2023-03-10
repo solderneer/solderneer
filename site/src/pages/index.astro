@@ -1,8 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import SideNav from "../components/SideNav.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../layouts/BlogPost.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -13,25 +12,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   </head>
   <body class="flex py-12 pl-12">
     <SideNav />
-    <div class="w-9/12">
-      <Header title={SITE_TITLE} />
-      <main class="prose">
-        <p>
-          I’m an aspiring polymath, fiercely passionate about human well-being
-          and flourishing.
-        </p>
-        <p>
-          I’m an advocate for Veriditas, and think that solving the hard
-          problems around the human condition will bring paradigm shifts around
-          how we function as a society.
-        </p>
-        <p>
-          Talk to me about longevity science, DAOs, and decentralized systems!
-          Have a fascination (some might call it a problem) with brewing
-          speciality coffee ☕.
-        </p>
-      </main>
-      <Footer />
-    </div>
+    <main class="w-9/12">
+      <div class="flex">
+        <img src="/pfp-min.png" class="w-2/12" />
+        <div class="flex flex-col w-full">
+          <h1>👋 Hi, I'm Shan!</h1>
+          <div class="flex flex-col bg-gray-200 p-5 rounded-md drop-shadow">
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

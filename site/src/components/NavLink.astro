@@ -1,15 +1,9 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
-type Props = HTMLAttributes<"a">;
-
-const { href, class: className, ...props } = Astro.props;
-
-const { pathname } = Astro.url;
-const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+const { href, emoji } = Astro.props;
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class="py-1 px-1 hover:bg-white/30 rounded text-black">
+  <span class="mr-1 text-xl">{emoji}</span>
   <slot />
 </a>
 
