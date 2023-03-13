@@ -1,0 +1,48 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,300&display=swap");
+
+:root {
+  font-family: "Merriweather", serif;
+}
+
+@keyframes example {
+  0% {
+    color: #ff0000;
+  }
+  15% {
+    color: #ffa500;
+  }
+  30% {
+    color: #ffff00;
+  }
+  45% {
+    color: #008000;
+  }
+  60% {
+    color: #0000ff;
+  }
+  75% {
+    color: #4b0082;
+  }
+  90% {
+    color: #ee82ee;
+  }
+  100% {
+    color: red;
+  }
+}
+
+a:hover {
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+a:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}

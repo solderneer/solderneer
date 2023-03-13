@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/BlogPost.astro";
+import { frontmatter, Content } from "../content/blog/home.md";
+---
+
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  emoji="🏠"
+  pubDate={new Date("August 08 2022")}
+>
+  <Content />
+</Layout>
