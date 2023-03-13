@@ -1,26 +1,13 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import SideNav from "../components/SideNav.astro";
 import Layout from "../layouts/BlogPost.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { frontmatter, Content } from "../content/blog/home.md";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="flex py-12 pl-12">
-    <SideNav />
-    <main class="w-9/12">
-      <div class="flex">
-        <img src="/pfp-min.png" class="w-2/12" />
-        <div class="flex flex-col w-full">
-          <h1>👋 Hi, I'm Shan!</h1>
-          <div class="flex flex-col bg-gray-200 p-5 rounded-md drop-shadow">
-          </div>
-        </div>
-      </div>
-    </main>
-  </body>
-</html>
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  emoji="🏠"
+  pubDate={new Date("August 08 2022")}
+>
+  <Content />
+</Layout>

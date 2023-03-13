@@ -1,6 +1,7 @@
 ---
 title: "Mind, Body, Network"
 description: "This article talks about my personal principles for well-being, and the strategies I employ in my daily life to feel healthy, happy and fulfilled."
+emoji: "💪"
 pubDate: "Aug 28 2022"
 ---
 

@@ -2,48 +2,27 @@
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import SideNav from "../components/SideNav.astro";
+import NavLink from "../components/NavLink.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import Main from "./Main.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, emoji, pubDate } = Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-    <style>
-      .title {
-        font-size: 2em;
-        margin: 0.25em 0 0;
-      }
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-    </style>
-  </head>
-
-  <body class="flex py-12 pl-12">
-    <SideNav />
-    <main class="w-9/12">
-      <article>
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1 class="title">{title}</h1>
-        <FormattedDate date={pubDate} />
-        {
-          updatedDate && (
-            <div class="last-updated-on">
-              Last updated on <FormattedDate date={updatedDate} />
-            </div>
-          )
-        }
-        <hr />
-        <slot />
-      </article>
-    </main>
-  </body>
-</html>
+<Main title={title} description={description}>
+  <h1 class="text-8xl p-5 px-0 rounded-md w-fit mb-3">{emoji}</h1>
+  <h1 class="text-6xl font-bold mb-0 text-neutral-800">{title}</h1>
+  <h2 class="text-lg font-bold text-neutral-500 mt-5 mb-2">
+    {description}
+  </h2>
+  <span class="text-lg text-neutral-500"
+    >Published on <FormattedDate date={pubDate} /></span
+  >
+  <article
+    class="prose prose-lg prose-neutral prose-headings:text-neutral-800 mt-8"
+  >
+    <slot />
+  </article>
+</Main>
