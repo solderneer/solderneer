@@ -28,6 +28,15 @@ const { title, description } = Astro.props;
       <div class="flex flex-col bg-violet-200 p-5 rounded-md drop-shadow">
         <NavLink href="/solderneer/" emoji="🏠">Home</NavLink>
         <NavLink href="/solderneer/blog" emoji="📝">Thoughts</NavLink>
+        <NavLink href="https://thoughts.solderneer.me/" emoji="🌳">
+          Garden
+        </NavLink>
+        <NavLink
+          href="https://solderneer.notion.site/7f580c6801a1407a849d2dd01752c815?v=fb709826213142b7b9bd8f2e7d91b02c"
+          emoji="📚"
+        >
+          Library
+        </NavLink>
       </div>
 
       <h3 class="text-sky-500 font-black mt-10 mb-2 text-xl">Socials</h3>
@@ -41,13 +50,13 @@ const { title, description } = Astro.props;
       </div>
 
       <div class="bg-neutral-100 px-5 py-4 rounded-md mt-10 hidden lg:block">
-        <NavLink href="/solderneer/#top" emoji="🐦">Back to Top</NavLink>
+        <NavLink href="/solderneer/#top" emoji="🆙">Back to Top</NavLink>
       </div>
     </nav>
     <div
       class="sticky top-10 mt-6 mb-10 bg-neutral-100 px-5 py-4 rounded-md block lg:hidden"
     >
-      <NavLink href="/solderneer/#top" emoji="🐦">Back to Top</NavLink>
+      <NavLink href="/solderneer/#top" emoji="🆙">Back to Top</NavLink>
     </div>
     <main class="max-w-3xl"><slot /></main>
   </body>

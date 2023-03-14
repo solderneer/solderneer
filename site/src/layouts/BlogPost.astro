@@ -9,16 +9,16 @@ const { title, description, emoji, pubDate } = Astro.props;
 ---
 
 <Main title={title} description={description}>
-  <h1 class="text-8xl p-5 px-0 rounded-md w-fit mb-3">{emoji}</h1>
-  <h1 class="text-6xl font-bold mb-0 text-neutral-800">{title}</h1>
-  <h2 class="text-lg font-bold text-neutral-500 mt-5 mb-2">
+  <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-3">{emoji}</h1>
+  <h1 class="text-5xl lg:text-6xl font-bold mb-0 text-neutral-800">{title}</h1>
+  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-5 mb-2">
     {description}
   </h2>
-  <span class="text-lg text-neutral-500"
+  <span class="text-md lg:text-lg text-neutral-500"
     >Published on <FormattedDate date={pubDate} /></span
   >
   <article
-    class="prose prose-lg prose-neutral prose-headings:text-neutral-800 mt-8"
+    class="prose lg:prose-lg prose-neutral prose-headings:mt-16 prose-headings:text-neutral-800 mt-8"
   >
     <slot />
   </article>
