@@ -17,7 +17,7 @@ I find joy in intertwining threads between the disciplines, and need a malleable
 
 # Who am I?
 
-<img src="/solderneer/pfp-min.png" class="w-36 h-36" />
+<img src="/pfp-min.png" class="w-36 h-36" />
 
 Welcome weary internet traveller, you might know me as Shan / **solderneer** / or if you know me really well _Sudharshan Sundaramahlingam_.
 

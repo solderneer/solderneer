@@ -17,10 +17,9 @@ And this is me now at 21:
 
 These days I have much less time, but being aware of my well-being is something I consider essential to my life. This means that over these years, I have had to invent many systems of living which assist in maintaining my sense of well-being. This weekend I found myself reflecting on and reviewing those systems, and I wanted to share them so that people could learn from them and I could gather feedback to improve them.
 
-* * * * *
+---
 
-The principal components of well-being
-======================================
+# The principal components of well-being
 
 I hear the phrase "Mind, Body, Soul" thrown around a lot when it comes to human well-being. I am not a big believer in the spiritual soul, I prefer to believe that [we are insignificant specks in an infinite uncaring universe](https://www.youtube.com/watch?v=MBRqu0YOH14). However, one can think about the soul differently, as an [intersubjective entity](https://en.wikipedia.org/wiki/Intersubjectivity) encapsulating fuzzy concepts like *purpose*, *fulfilment* and *meaning*.
 
@@ -34,8 +33,7 @@ Having said that, my big three for human well-being are:
 2.  The Body - the pursuit of health through the main pillars of sleep, nutrition and movement
 3.  The Network - the pursuit of the soul through surrounding yourself with the right people
 
-Managing the Mind
-=================
+# Managing the Mind
 
 In 22 years of life, I have truly realized that I am incompetent. I have one interesting idea every week, but give it 2 minutes and I would have forgotten what it was. I deal with conflicts instinctively and fall prey to heuristics such as the [peak-end rule](https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule) and the [hot-hand fallacy](https://en.wikipedia.org/wiki/Hot_hand). I read and learn new concepts only to completely forget them in a couple of months.
 
@@ -52,8 +50,7 @@ As of now, the Notion Systems that I use to manage the mind are:
 
 On top of this, another system I rely on heavily is [Getting Things Done](https://gettingthingsdone.com/) by David Allen and [Todoist](https://todoist.com/) which is how I manage my tasks. The Getting Things Done philosophy emphasizes *"mind like water"* where if everything important is off the mind and on a recording device then the mind is free to flexibly switch and solve context-dependent problems. If you ever feel like the things that you have to do are weighing down on your mind, Getting Things Done is how I solved that problem for myself.
 
-Building the Body
-=================
+# Building the Body
 
 I am not a health coach - there are [many](https://hubermanlab.com/) people who are giving great advice on this subject. However, one common problem that I see among my peers is that they have the priorities for their body mixed up. I am going to list the strategies I use to ensure bodily well-being in order of priority.
 
@@ -81,15 +78,15 @@ To me, human well-being isn't just about being healthy, it's about being able to
 
 To track the metrics on performance, I highly recommend [Hevy](https://www.hevyapp.com/) for weight routines and I use a Garmin Watch to track general activity and steps.
 
-Assembling the Network
-======================
+# Assembling the Network
 
 And lastly, this section talks about how I'm building my network to give myself intersubjective meaning. As I discussed earlier, building the network is about finding the right peers to build your purpose and sense of shared meaning. It is about creating *an environment of affection*.
 
 Humans are social organisms and our well-being is intrinsically connected to those around us. [Loneliness is a silent killer](https://www.youtube.com/watch?v=n3Xv_g3g-mA) but surrounding yourself with the wrong people can be equally bad.
 
 > Communities are made of individuals and individuals are made of communities
-> -   Decentralized Society: Finding Web3's Soul
+>
+> - Decentralized Society: Finding Web3's Soul
 
 Surrounding yourself with people that you admire and aspire to be like, is the best way to achieve well-being and move towards your goals. Building the network is something that I am still working on, but I have a strategy.
 
@@ -102,8 +99,7 @@ Through a combination of the above network-building tools, I plan on assembling 
 
 As I start to see the importance of networks and intersubjective meaning, I find myself feeling extremely grateful towards [Gavin](https://twitter.com/consigli3re), [Ambrose](https://twitter.com/serverwentdown) and the [extended community at Audacity](https://audacity.world/) for helping me build my soul.
 
-Mind, Body, Network
-===================
+# Mind, Body, Network
 
 This is where I am right now. This weekend has been a period of recalibration and self-discovery, writing this article is solidifying the reasons for why I monitor my well-being and why I'm building [Happily Ever After](https://hea.care/). It reminds me of why I believe in concepts like the [Quantified Self](https://quantifiedself.com/) and the idea of [trans-humanism](https://en.wikipedia.org/wiki/Transhumanism).
 
