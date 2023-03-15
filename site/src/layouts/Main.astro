@@ -13,16 +13,31 @@ const { title, description } = Astro.props;
 
   <body
     id="top"
-    class="flex flex-col lg:flex-row p-8 lg:p-12 max-w-7xl mx-auto"
+    class="flex flex-col lg:flex-row p-8 lg:p-12 max-w-7xl mx-auto lining-nums"
   >
-    <nav class="w-full lg:w-80 lg:sticky top-0 h-fit py-4 lg:mr-16">
+    <nav
+      class="w-full lg:w-80 lg:sticky top-0 h-fit py-4 lg:mr-16 text-neutral-800"
+    >
       <h1 class="text-5xl font-bold text-neutral-800 rainbow">
-        <a href="/solderneer/">{SITE_TITLE}</a>
+        <a href="/">{SITE_TITLE}</a>
       </h1>
 
       <p class="mt-2 text-sm italic">
         ~ where Sudharshan (aka solderneer) practices technological magic
       </p>
+
+      <span class="text-2xl flex gap-3 mt-4 text-neutral-800">
+        <a href="https://twitter.com/solderneer"
+          ><i class="fa-brands fa-twitter"></i></a
+        >
+        <a href="https://www.linkedin.com/in/solderneer/"
+          ><i class="fa-brands fa-linkedin"></i></a
+        >
+        <a href="https://github.com/solderneer"
+          ><i class="fa-brands fa-github"></i></a
+        >
+        <a href=""><i class="fa-solid fa-rss"></i></a>
+      </span>
 
       <h3 class="text-violet-500 font-black mt-10 mb-2 text-xl">Pages</h3>
       <div class="flex flex-col bg-violet-200 p-5 rounded-md drop-shadow">
@@ -36,16 +51,6 @@ const { title, description } = Astro.props;
           emoji="📚"
         >
           Library
-        </NavLink>
-      </div>
-
-      <h3 class="text-sky-500 font-black mt-10 mb-2 text-xl">Socials</h3>
-      <div class="flex flex-col bg-sky-200 p-5 rounded-md drop-shadow">
-        <NavLink href="https://twitter.com/solderneer" emoji="🐦">
-          Twitter
-        </NavLink>
-        <NavLink href="https://github.com/solderneer" emoji="💻">
-          GitHub
         </NavLink>
       </div>
 

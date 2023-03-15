@@ -6,7 +6,6 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     emoji: z.string(),
-    // Transform string to Date object
     pubDate: z
       .string()
       .or(z.date())
@@ -15,6 +14,8 @@ const blog = defineCollection({
       .string()
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
+    tags: z.array(z.string()),
+    originalPost: z.string().optional(),
   }),
 });
 

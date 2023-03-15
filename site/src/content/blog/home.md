@@ -3,6 +3,7 @@ title: "Home"
 description: "WaRNiNG: this website, like my life, is constantly under construction."
 emoji: "🏠"
 pubDate: "Aug 28 2022"
+tags: ["life"]
 ---
 
 **This website is a memex**, a tool for thought that helps me ingress, link and process information. Think of this as a scratchbook, personal notes, musings, resume and knowledge base, all rolled into a single place.

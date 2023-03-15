@@ -1,22 +1,45 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+import Callout from "../components/Callout.astro";
 import Main from "./Main.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, emoji, pubDate } = Astro.props;
+const { title, description, emoji, pubDate, originalPost } = Astro.props;
+
+let showOP = false;
+let hostname = "";
+if (originalPost != undefined) {
+  showOP = true;
+  hostname = new URL(originalPost).hostname;
+}
 ---
 
 <Main title={title} description={description}>
   <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-3">{emoji}</h1>
   <h1 class="text-5xl lg:text-6xl font-bold mb-0 text-neutral-800">{title}</h1>
-  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-5 mb-2">
+  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-6 mb-2">
     {description}
   </h2>
-  <span class="text-md lg:text-lg text-neutral-500"
+  <span class="text-md lg:text-lg italic text-neutral-500"
     >Published on <FormattedDate date={pubDate} /></span
   >
+
+  <!-- Original Post -->
+  {
+    showOP && (
+      <Callout color="bg-neutral-100" emoji="👀">
+        <p class="text-md">
+          Read the original post on{" "}
+          <a class="underline text-neutral-800" href={originalPost}>
+            {hostname}
+          </a>{" "}
+        </p>
+      </Callout>
+    )
+  }
+
   <article
     class="prose lg:prose-lg prose-neutral prose-headings:mt-16 prose-headings:text-neutral-800 mt-8"
   >

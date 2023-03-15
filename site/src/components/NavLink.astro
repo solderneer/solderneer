@@ -2,10 +2,7 @@
 const { href, emoji } = Astro.props;
 ---
 
-<a
-  href={href}
-  class="py-1 px-1 hover:bg-white/30 rounded text-black/80 font-bold"
->
+<a href={href} class="p-1 hover:bg-white/30 rounded text-black/80 font-bold">
   <span class="mr-1 text-xl text-black">{emoji}</span>
   <slot />
 </a>
