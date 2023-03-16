@@ -19,11 +19,7 @@ Hypermedia was a novel concept for the early internet, for the first time, you c
 
 By the year 2000, 500 million people were using the web. Most of the web back then consisted of janky sites with search bars viewed over [a 56k dialup connection](https://www.youtube.com/watch?v=gsNaR6FRuO0). Looking at these early websites, the focus on hyperlinks and web navigation between pages is clear. Amazon’s website heavily relied on hyperlinks to different pages, each with its own unique URI. Accessing different resources from content providers like Amazon, wasn’t just a part of the internet, it was the internet. The read-only web was all about links, pages and resources.
 
-![](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27830%27%20height=%271590%27/%3e)![The Amazon website in the year 2000](data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)
-
-![The Amazon website in the year 2000](/_next/image?url=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F-q4beIGKfk5AlxL-Sq2QX.png&w=1920&q=90)
-
-The Amazon website in the year 2000
+![](/data-structures-data-control/1.png)
 
 # IP addresses as Identity
 
@@ -39,11 +35,7 @@ Rather than deal with the whims of changing IP addresses, early web applications
 
 Emails became a form of defacto identity, through platforms like Yahoo! and Hotmail. Email addresses were static and could be contacted through a standard peer-to-peer protocol: [SMTP](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol).
 
-![](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271126%27%20height=%27854%27/%3e)![My terrible illustration of web1 architecture](data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)
-
-![My terrible illustration of web1 architecture](/_next/image?url=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FrD97CpOTkfKuGt6rrfsN8.png&w=3840&q=90)
-
-My terrible illustration of web1 architecture
+![](/data-structures-data-control/2.png)
 
 This email identity allowed applications to store and persist user-related data between login sessions. Amazon could remember what items a user had added to their cart, and Google could remember what searches they had previously made. In the read-only web, where websites were just content providers, this web architecture worked extremely well and enabled many useful features.
 
@@ -61,11 +53,7 @@ Without a native identity system, the bloated `User` structures held data in sil
 
 The initial client-server design of web architecture is what gave rise to this centralization. While companies like Facebook have been quick to monetise and monopolize their data advantage, they are not solely to blame for the current system.
 
-![](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271122%27%20height=%27854%27/%3e)![The downsides of web1 architecture as data becomes user-generated](data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)
-
-![The downsides of web1 architecture as data becomes user-generated](/_next/image?url=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F4RVIKIz9ywzYBOQsbW5uB.png&w=3840&q=90)
-
-The downsides of web1 architecture as data becomes user-generated
+![](/data-structures-data-control/3.png)
 
 # Data architecture from first principles
 
@@ -75,11 +63,7 @@ A pre-requisite for that future is self-sovereign and internet-native identity. 
 
 Data stores could then be attached to global user identities rather than application-specific identities. In that way, the holder of a digital identity has the final say in which applications access their data and in what way, through cryptographic methods like W3C’s Verifiable Credentials.
 
-![](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271360%27%20height=%27786%27/%3e)![A personal data store sitting on top of cryptographic identity (ENS)](data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)
-
-![A personal data store sitting on top of cryptographic identity (ENS)](/_next/image?url=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F9Dn8f56Q_41yyBSnPOF40.png&w=3840&q=90)
-
-A personal data store sitting on top of cryptographic identity (ENS)
+![](/data-structures-data-control/4.png)
 
 **Global identity systems which power personal data stores with broad interoperability would be the first-principles answer to creating web applications that maximise human autonomy.** Some projects like [Solid Protocol](https://solidproject.org/) and [Distributed Web Node](https://identity.foundation/decentralized-web-node/spec/) are already working towards that ideal.
 

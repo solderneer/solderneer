@@ -31,20 +31,6 @@ This method of thinking doesn't just apply to universities and public education,
 
 At this juncture, it's important to notice the distinctions between schools and academies. Schools are formal education institutions that follow a pre-determined path, and are obligatory in most parts of the world. Academies are groups of like-minded individuals, brought together by some common topic of interest. Schools have curriculum, academies do not. But people in academies do learn a lot, and it tends to be powered by [intrinsic motivation](https://makerforce.io/learning-used-to-be-fun/).
 
-[
-
-Learning used to be fun
-
-Think back to when you were just growing up. When you were 4 or 5, enjoying the little things you did. Maybe you loved to draw on paper, maybe you were more of a musical person or maybe you loved to dance- but it doesn’t matter what you did. You were just having fun.
-
-![](https://makerforce.io/favicon.png)MakerForceSudharshan
-
-![](https://makerforce.io/content/images/2021/07/the-starry-night-1889-1-.jpg-Blog.jpg)
-
-](https://makerforce.io/learning-used-to-be-fun/)
-
-I talked about the importance of intrinsic motivation here!
-
 An academy can be structured as 3 distinct groups of people- the learners, the skilled instructors and the educators. Each group of individuals provide a key aspect of learning, customised to the learner without any centralised curriculum.
 
 ![](https://makerforce.io/content/images/2021/08/Screenshot-2021-08-01-at-7.29.08-PM.png)
