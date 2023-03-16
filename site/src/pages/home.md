@@ -20,7 +20,7 @@ I find joy in intertwining threads between the disciplines, and need a malleable
 
 <img src="/pfp-min.png" class="w-36 h-36" />
 
-Welcome weary internet traveller, you might know me as Shan / **solderneer** / or if you know me really well _Sudharshan Sundaramahlingam_.
+Welcome weary internet traveller, you might know me as Shan / **solderneer** / or if you know me really well _Sudharshan Sundaramahlingam._
 
 **Evolutionary Purpose:** To spread love and optimism by nudging the world towards a path of collective flourishing.
 
