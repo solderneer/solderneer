@@ -1,0 +1,21 @@
+---
+import { string } from "astro/zod";
+const { name } = Astro.props;
+
+function stringToPastelColor(str: String) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = Math.abs(hash % 360);
+  return hue;
+}
+
+const hue = stringToPastelColor(name);
+---
+
+<span
+  class="py-1 px-2 text-sm rounded-md italic"
+  style={`background-color: hsl(${hue}, 100%, 93%);color: hsla(${hue}, 100%, 15%, 0.7)`}
+  >{name}</span
+>

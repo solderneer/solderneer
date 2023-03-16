@@ -1,13 +1,16 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+
 import Callout from "../components/Callout.astro";
+import Tag from "../components/Tag.astro";
 import Main from "./Main.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, emoji, pubDate, originalPost } = Astro.props;
+const { title, description, emoji, pubDate, tags, originalPost } = Astro.props;
 
+// Extract hostname from original post
 let showOP = false;
 let hostname = "";
 if (originalPost != undefined) {
@@ -22,9 +25,20 @@ if (originalPost != undefined) {
   <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-6 mb-2">
     {description}
   </h2>
-  <span class="text-md lg:text-lg italic text-neutral-500"
-    >Published on <FormattedDate date={pubDate} /></span
-  >
+  <span class="text-md lg:text-lg italic text-neutral-500">
+    Published on <FormattedDate date={pubDate} />
+  </span>
+  <ul class="flex gap-2 mt-4 flex-wrap">
+    {
+      tags.map((tag) => (
+        <li>
+          <a href={`/tag/${tag}`}>
+            <Tag name={`#${tag}`} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 
   <!-- Original Post -->
   {

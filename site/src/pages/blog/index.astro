@@ -2,7 +2,9 @@
 import Main from "../../layouts/Main.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
+
+import BlogItem from "../../components/BlogItem.astro";
+import Tag from "../../components/Tag.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -10,26 +12,25 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Main title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <ul>
+  <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-3">📝</h1>
+  <h1 class="text-5xl lg:text-6xl font-bold mb-0 text-neutral-800">Feed</h1>
+  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-6 mb-10">
+    The Feed contains blog posts across a wide range of topics like health,
+    technology, culture, philosophy, and economics: arranged in reverse
+    chronological order.
+  </h2>
+  <ul class="flex flex-col gap-6">
     {
       posts.map((post) => (
         <li>
-          <a
-            class="flex flex-col my-6 max-w-xl hover:bg-neutral-100 p-2 rounded-md"
-            href={`/blog/${post.slug}/`}
-          >
-            <h1>
-              <span class="text-xl">{post.data.emoji}</span>
-              &nbsp;
-              <span class="text-lg font-bold">{post.data.title}</span>
-            </h1>
-            <h2 class="text-md text-neutral-600 mt-1">
-              {post.data.description}
-            </h2>
-            <span class="mt-2 text-neutral-600">
-              <FormattedDate date={post.data.pubDate} />
-            </span>
-          </a>
+          <BlogItem
+            slug={post.slug}
+            emoji={post.data.emoji}
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            tags={post.data.tags}
+          />
         </li>
       ))
     }
