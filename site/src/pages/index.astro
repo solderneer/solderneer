@@ -4,11 +4,12 @@ import { frontmatter, Content } from "./home.mdx";
 ---
 
 <Layout
-  title={frontmatter.title}
+  title="Home"
   description={frontmatter.description}
-  emoji="🏠"
+  emoji="🌈"
   pubDate={new Date("August 08 2022")}
   tags={frontmatter.tags}
+  heroImage="/main-art.jpeg"
 >
   <Content />
 </Layout>

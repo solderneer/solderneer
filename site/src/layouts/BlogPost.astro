@@ -8,7 +8,8 @@ import Main from "./Main.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, emoji, pubDate, tags, originalPost } = Astro.props;
+const { title, description, emoji, pubDate, tags, originalPost, heroImage } =
+  Astro.props;
 
 // Extract hostname from original post
 let showOP = false;
@@ -19,16 +20,27 @@ if (originalPost != undefined) {
 }
 ---
 
-<Main title={title} description={description}>
-  <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-3">{emoji}</h1>
-  <h1 class="text-5xl lg:text-6xl font-bold mb-0 text-neutral-800">{title}</h1>
-  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-6 mb-2">
+<Main title={title} description={description} emoji={emoji}>
+  {
+    heroImage != undefined ? (
+      <div
+        class="w-full h-64 bg-cover rounded-md mb-4"
+        style={`background-image: url(${heroImage})`}
+      />
+    ) : (
+      <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-4">
+        {emoji}
+      </h1>
+    )
+  }
+  <h1 class="text-5xl lg:text-6xl font-bold mb-4 text-neutral-800">{title}</h1>
+  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mb-2">
     {description}
   </h2>
   <span class="text-md lg:text-lg italic text-neutral-500">
     Published on <FormattedDate date={pubDate} />
   </span>
-  <ul class="flex gap-2 mt-4 flex-wrap">
+  <ul class="flex gap-2 flex-wrap mt-4">
     {
       tags.map((tag) => (
         <li>

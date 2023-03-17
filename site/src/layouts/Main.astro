@@ -1,14 +1,14 @@
 ---
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseHead from "../components/BaseHead.astro";
 import NavLink from "../components/NavLink.astro";
 
-const { title, description } = Astro.props;
+const { title, description, emoji } = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} emoji={emoji} />
   </head>
 
   <body
@@ -23,7 +23,7 @@ const { title, description } = Astro.props;
       </h1>
 
       <p class="mt-2 text-sm italic">
-        ~ where Sudharshan (aka solderneer) practices technological magic
+        {SITE_DESCRIPTION}
       </p>
 
       <span class="text-2xl flex gap-3 mt-4 text-neutral-800">
