@@ -3,6 +3,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PostItem from "../../components/PostItem.astro";
 import { getCollection } from "astro:content";
+import { stringToPastelColor } from "../../utils";
 
 export async function getStaticPaths() {
   const allPosts = (await getCollection("posts")).sort(
@@ -24,10 +25,20 @@ export async function getStaticPaths() {
   });
 }
 
+const { slug } = Astro.params;
 const { posts } = Astro.props;
+
+const hue = stringToPastelColor(`#${slug!}`);
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h1 class="text-5xl lg:text-3xl font-bold text-neutral-700">Tagged with:</h1>
+  <h1
+    class="py-1 px-2 text-3xl my-4 rounded-md italic"
+    style={`background-color: hsl(${hue}, 100%, 93%);color: hsla(${hue}, 100%, 15%, 0.7)`}
+  >
+    #{slug}
+  </h1>
   <ul class="flex flex-col gap-6">
     {
       posts.map((post) => (

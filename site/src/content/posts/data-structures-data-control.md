@@ -4,7 +4,6 @@ description: "Global identity systems which power personal data stores could be 
 emoji: "🗄️"
 pubDate: "Sep 11 2022"
 tags: ["web3", "infrastructure"]
-originalPost: "https://mirror.xyz/solderneer.eth/XXtGU8Lo_gwtCUHlz7gJuhtgHg6XmpsjZVk0JEZ3PzQ"
 ---
 
 Web 3 is a conversation about control. The core principle of the new web is to return control over all aspects of digital life to its rightful users, in contrast to the internet oligopoly we see today. Organizations like [Disco](https://disco.xyz/), [Ceramic Network](https://ceramic.network/) and [Snapshot](https://snapshot.org/) are reimagining the web as a place where individuals have a say in who they are, what data they own and how the digital platforms they use are governed.

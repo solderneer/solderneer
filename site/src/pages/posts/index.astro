@@ -6,7 +6,7 @@ import PostItemMinimal from "../../components/PostItemMinimal.astro";
 
 const title = "Posts";
 const description =
-  "Posts across a wide range of topics like health, technology, culture, philosophy, and economics: arranged in reverse chronological order.";
+  "Writing on health, technology, culture, philosophy, and economics: arranged in reverse chronological order.";
 
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -15,8 +15,8 @@ const posts = (await getCollection("posts")).sort(
 
 <BaseLayout title={title} description={description}>
   <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-3">📝</h1>
-  <h1 class="text-5xl lg:text-6xl font-bold mb-0 text-neutral-700">{title}</h1>
-  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-6 mb-10">
+  <h1 class="text-5xl lg:text-6xl font-bold text-neutral-700">{title}</h1>
+  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-4 mb-10">
     {description}
   </h2>
   <ul class="flex flex-col gap-4">
