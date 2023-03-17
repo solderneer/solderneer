@@ -6,7 +6,7 @@ import Callout from "../components/Callout.astro";
 import Tag from "../components/Tag.astro";
 import BaseLayout from "./BaseLayout.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"posts">["data"];
 
 const { title, description, emoji, pubDate, tags, originalPost, heroImage } =
   Astro.props;
@@ -33,7 +33,7 @@ if (originalPost != undefined) {
       </h1>
     )
   }
-  <h1 class="text-5xl lg:text-6xl font-bold mb-4 text-neutral-800">{title}</h1>
+  <h1 class="text-5xl lg:text-6xl font-bold mb-4 text-neutral-700">{title}</h1>
   <h2 class="text-md lg:text-lg font-bold text-neutral-500 mb-2">
     {description}
   </h2>
@@ -58,7 +58,7 @@ if (originalPost != undefined) {
       <Callout color="bg-neutral-100" emoji="👀">
         <p class="text-md">
           Read the original post on{" "}
-          <a class="underline text-neutral-800" href={originalPost}>
+          <a class="underline text-neutral-700" href={originalPost}>
             {hostname}
           </a>{" "}
         </p>
@@ -67,7 +67,7 @@ if (originalPost != undefined) {
   }
 
   <article
-    class="prose lg:prose-lg prose-neutral prose-a:rounded prose-a:bg-neutral-100 prose-a:text-neutral-500 prose-a:p-0.5 prose-a:font-bold prose-a:no-underline hover:prose-a:bg-neutral-200 prose-headings:mt-12 prose-headings:text-neutral-800 mt-8"
+    class="prose lg:prose-lg prose-neutral prose-a:rounded prose-a:bg-neutral-100 prose-a:text-neutral-500 prose-a:p-0.5 prose-a:no-underline hover:prose-a:bg-neutral-200 prose-headings:mt-12 prose-headings:text-neutral-700 mt-8"
   >
     <slot />
   </article>

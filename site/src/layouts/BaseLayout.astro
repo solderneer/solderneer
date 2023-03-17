@@ -13,12 +13,10 @@ const { title, description, emoji } = Astro.props;
 
   <body
     id="top"
-    class="flex flex-col lg:flex-row p-4 lg:p-12 max-w-7xl mx-auto lining-nums"
+    class="flex flex-col lg:flex-row p-4 lg:p-12 max-w-7xl mx-auto lining-nums text-neutral-700"
   >
-    <nav
-      class="w-full lg:w-80 lg:sticky top-0 h-fit py-4 lg:mr-16 text-neutral-800"
-    >
-      <h1 class="text-4xl lg:text-5xl font-bold text-neutral-800 rainbow">
+    <nav class="w-full lg:w-80 lg:sticky top-0 h-fit py-4 lg:mr-16">
+      <h1 class="text-4xl lg:text-5xl font-bold rainbow">
         <a href="/">{SITE_TITLE}</a>
       </h1>
 
@@ -26,7 +24,7 @@ const { title, description, emoji } = Astro.props;
         {SITE_DESCRIPTION}
       </p>
 
-      <span class="text-2xl flex gap-3 mt-4 text-neutral-800">
+      <span class="text-2xl flex gap-3 mt-4">
         <a href="https://twitter.com/solderneer"
           ><i class="fa-brands fa-twitter"></i></a
         >
@@ -44,7 +42,7 @@ const { title, description, emoji } = Astro.props;
       </h3>
       <div class="flex flex-col bg-violet-100 p-5 rounded-md drop-shadow">
         <NavLink href="/" emoji="🏠">Home</NavLink>
-        <NavLink href="/blog" emoji="📝">Feed</NavLink>
+        <NavLink href="/posts" emoji="📝">Feed</NavLink>
         <NavLink href="https://thoughts.solderneer.me/" emoji="🌳">
           Garden
         </NavLink>

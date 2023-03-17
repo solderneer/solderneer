@@ -5,14 +5,14 @@ import { getCollection } from "astro:content";
 
 import BlogItem from "../../components/BlogItem.astro";
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-3">📝</h1>
-  <h1 class="text-5xl lg:text-6xl font-bold mb-0 text-neutral-800">Feed</h1>
+  <h1 class="text-5xl lg:text-6xl font-bold mb-0 text-neutral-700">Feed</h1>
   <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-6 mb-10">
     The Feed contains blog posts across a wide range of topics like health,
     technology, culture, philosophy, and economics: arranged in reverse

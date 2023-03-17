@@ -1,15 +1,46 @@
 ---
-import Layout from "../layouts/BlogPost.astro";
-import { frontmatter, Content } from "./home.mdx";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogItemMinimal from "../components/BlogItemMinimal.astro";
+import { getCollection } from "astro:content";
+import { Content } from "./home.mdx";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
-<Layout
-  title="Home"
-  description={frontmatter.description}
-  emoji="🌈"
-  pubDate={new Date("August 08 2022")}
-  tags={frontmatter.tags}
-  heroImage="/main-art.jpeg"
->
-  <Content />
-</Layout>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div
+    class="w-full h-64 bg-cover rounded-md mb-4"
+    style={`background-image: url(/main-art.jpeg)`}
+  >
+  </div>
+  <h1 class="text-5xl lg:text-6xl font-bold text-neutral-700">Home</h1>
+  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-4 mb-10">
+    WaRNiNG: this website, like my life, is constantly under construction.
+  </h2>
+
+  <article
+    class="prose lg:prose-lg prose-neutral prose-a:rounded prose-a:bg-neutral-100 prose-a:text-neutral-500 prose-a:p-0.5 prose-a:font-bold prose-a:no-underline hover:prose-a:bg-neutral-200 prose-headings:mt-12 prose-headings:text-neutral-700"
+  >
+    <Content />
+    <hr />
+  </article>
+
+  <h3 class="text-3xl font-bold text-neutral-700 mt-12">Recent Writing</h3>
+
+  <ul class="flex flex-col gap-6 my-6">
+    {
+      posts.slice(0, 3).map((post) => (
+        <li>
+          <BlogItemMinimal slug={post.slug} {...post.data} />
+        </li>
+      ))
+    }
+  </ul>
+
+  <a href="/posts" class="font-bold text-md text-neutral-700"
+    >{`See ${posts.length} more →`}</a
+  >
+</BaseLayout>
