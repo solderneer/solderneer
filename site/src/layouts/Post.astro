@@ -1,9 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
 
+import FormattedDate from "../components/FormattedDate.astro";
 import Callout from "../components/Callout.astro";
 import Tag from "../components/Tag.astro";
+
+import Markdown from "./Markdown.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 type Props = CollectionEntry<"posts">["data"];
@@ -66,9 +68,7 @@ if (originalPost != undefined) {
     )
   }
 
-  <article
-    class="prose lg:prose-lg prose-neutral prose-a:rounded prose-a:bg-neutral-100 prose-a:text-neutral-500 prose-a:p-0.5 prose-a:no-underline hover:prose-a:bg-neutral-200 prose-headings:mt-12 prose-headings:text-neutral-700 mt-8"
-  >
+  <Markdown>
     <slot />
-  </article>
+  </Markdown>
 </BaseLayout>

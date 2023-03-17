@@ -1,7 +1,7 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import BlogItem from "../../components/BlogItem.astro";
+import PostItem from "../../components/PostItem.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -32,7 +32,7 @@ const { posts } = Astro.props;
     {
       posts.map((post) => (
         <li>
-          <BlogItem slug={post.slug} {...post.data} />
+          <PostItem slug={post.slug} {...post.data} />
         </li>
       ))
     }

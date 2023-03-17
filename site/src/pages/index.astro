@@ -1,7 +1,10 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import BlogItemMinimal from "../components/BlogItemMinimal.astro";
+import Markdown from "../layouts/Markdown.astro";
+
+import PostItemMinimal from "../components/PostItemMinimal.astro";
+
 import { getCollection } from "astro:content";
 import { Content } from "./home.mdx";
 
@@ -21,26 +24,24 @@ const posts = (await getCollection("posts")).sort(
     WaRNiNG: this website, like my life, is constantly under construction.
   </h2>
 
-  <article
-    class="prose lg:prose-lg prose-neutral prose-a:rounded prose-a:bg-neutral-100 prose-a:text-neutral-500 prose-a:p-0.5 prose-a:font-bold prose-a:no-underline hover:prose-a:bg-neutral-200 prose-headings:mt-12 prose-headings:text-neutral-700"
-  >
+  <Markdown>
     <Content />
     <hr />
-  </article>
+  </Markdown>
 
   <h3 class="text-3xl font-bold text-neutral-700 mt-12">Recent Writing</h3>
 
-  <ul class="flex flex-col gap-6 my-6">
+  <ul class="flex flex-col gap-4 my-6">
     {
       posts.slice(0, 3).map((post) => (
         <li>
-          <BlogItemMinimal slug={post.slug} {...post.data} />
+          <PostItemMinimal slug={post.slug} post={post} />
         </li>
       ))
     }
   </ul>
 
-  <a href="/posts" class="font-bold text-md text-neutral-700"
+  <a href="/posts" class="font-bold text-neutral-400 text-md text-neutral-700"
     >{`See ${posts.length} more →`}</a
   >
 </BaseLayout>

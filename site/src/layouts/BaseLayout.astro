@@ -42,7 +42,7 @@ const { title, description, emoji } = Astro.props;
       </h3>
       <div class="flex flex-col bg-violet-100 p-5 rounded-md drop-shadow">
         <NavLink href="/" emoji="🏠">Home</NavLink>
-        <NavLink href="/posts" emoji="📝">Feed</NavLink>
+        <NavLink href="/posts" emoji="📝">Posts</NavLink>
         <NavLink href="https://thoughts.solderneer.me/" emoji="🌳">
           Garden
         </NavLink>
@@ -55,13 +55,13 @@ const { title, description, emoji } = Astro.props;
       </div>
 
       <div
-        class="bg-neutral-100 px-5 py-4 rounded-md mt-10 hidden lg:flex flex-col drop-shadow"
+        class="bg-neutral-100 px-5 py-2 rounded-md mt-5 hidden lg:flex flex-col drop-shadow"
       >
         <NavLink href="/#top" emoji="🆙">Back to Top</NavLink>
       </div>
     </nav>
     <div
-      class="sticky top-10 mt-3 mb-10 bg-neutral-100 px-5 py-4 rounded-md block lg:hidden drop-shadow"
+      class="sticky top-10 mt-3 mb-10 bg-neutral-100 px-5 py-2 rounded-md block lg:hidden drop-shadow"
     >
       <NavLink href="/#top" emoji="🆙">Back to Top</NavLink>
     </div>
