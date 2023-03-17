@@ -4,7 +4,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 import Callout from "../components/Callout.astro";
 import Tag from "../components/Tag.astro";
-import Main from "./Main.astro";
+import BaseLayout from "./BaseLayout.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -20,7 +20,7 @@ if (originalPost != undefined) {
 }
 ---
 
-<Main title={title} description={description} emoji={emoji}>
+<BaseLayout title={title} description={description} emoji={emoji}>
   {
     heroImage != undefined ? (
       <div
@@ -44,7 +44,7 @@ if (originalPost != undefined) {
     {
       tags.map((tag) => (
         <li>
-          <a href={`/tag/${tag}`}>
+          <a href={`/tags/${tag}`}>
             <Tag name={`#${tag}`} />
           </a>
         </li>
@@ -67,8 +67,8 @@ if (originalPost != undefined) {
   }
 
   <article
-    class="prose lg:prose-lg prose-neutral prose-headings:mt-16 prose-headings:text-neutral-800 mt-8"
+    class="prose lg:prose-lg prose-neutral prose-a:rounded prose-a:bg-neutral-100 prose-a:text-neutral-500 prose-a:p-0.5 prose-a:font-bold prose-a:no-underline hover:prose-a:bg-neutral-200 prose-headings:mt-12 prose-headings:text-neutral-800 mt-8"
   >
     <slot />
   </article>
-</Main>
+</BaseLayout>
