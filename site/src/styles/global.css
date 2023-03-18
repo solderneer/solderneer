@@ -11,28 +11,37 @@
 
 @keyframes example {
   0% {
-    color: #ff0000;
+    color: #e920ff;
   }
-  15% {
-    color: #ffa500;
+  10% {
+    color: #0023ff;
+  }
+  20% {
+    color: #1bd700;
   }
   30% {
     color: #ffff00;
   }
-  45% {
-    color: #008000;
+  40% {
+    color: #ff8600;
+  }
+  50% {
+    color: #ff0d0d;
   }
   60% {
-    color: #0000ff;
+    color: #ff8600;
   }
-  75% {
-    color: #4b0082;
+  70% {
+    color: #ffff00;
+  }
+  80% {
+    color: #1bd700;
   }
   90% {
-    color: #ee82ee;
+    color: #0023ff;
   }
   100% {
-    color: red;
+    color: #e920ff;
   }
 }
 
