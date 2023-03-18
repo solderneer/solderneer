@@ -1,7 +1,7 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PostItem from "../../components/PostItem.astro";
+import PostItemMinimal from "../../components/PostItemMinimal.astro";
 import { getCollection } from "astro:content";
 import { stringToPastelColor } from "../../utils";
 
@@ -43,7 +43,7 @@ const hue = stringToPastelColor(`#${slug!}`);
     {
       posts.map((post) => (
         <li>
-          <PostItem slug={post.slug} {...post.data} />
+          <PostItemMinimal slug={post.slug} post={post} />
         </li>
       ))
     }
