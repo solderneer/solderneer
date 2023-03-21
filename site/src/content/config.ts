@@ -20,4 +20,20 @@ const posts = defineCollection({
   }),
 });
 
-export const collections = { posts: posts };
+const notes = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    emoji: z.string(),
+    pubDate: z
+      .string()
+      .or(z.date())
+      .transform((val) => new Date(val)),
+    updatedDate: z
+      .string()
+      .optional()
+      .transform((str) => (str ? new Date(str) : undefined)),
+    tags: z.array(z.string()),
+  }),
+});
+
+export const collections = { posts, notes };
