@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "27f590d3d9cb043b",
+    "id": "bc8d8d7309591c09",
     "type": "split",
     "children": [
       {
-        "id": "b3bbd950af1e08ff",
+        "id": "0c68c2cb6881804c",
         "type": "tabs",
         "children": [
           {
-            "id": "edfef515ad9d72c9",
+            "id": "8512fdc7d28af425",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -25,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "731ff57bd9138343",
+    "id": "acd7c014c364cee8",
     "type": "split",
     "children": [
       {
-        "id": "5cffd220dbb380bd",
+        "id": "99c97f5bb317898d",
         "type": "tabs",
         "children": [
           {
-            "id": "a975ccb149bb2107",
+            "id": "300c9d369c1856f1",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "976786cd1bd60b04",
+            "id": "b84c8abaa3753949",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +58,7 @@
             }
           },
           {
-            "id": "a2fce2285a7f911c",
+            "id": "ab4c7ed649ef6b05",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -72,15 +72,15 @@
     "width": 300
   },
   "right": {
-    "id": "7cf1f76733562362",
+    "id": "6eaaab29c84ea46f",
     "type": "split",
     "children": [
       {
-        "id": "c370936a741523c2",
+        "id": "bb03ee6b2032fbfd",
         "type": "tabs",
         "children": [
           {
-            "id": "0827aa63dbb4a3a7",
+            "id": "aae2d61ef6c6f230",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -97,7 +97,7 @@
             }
           },
           {
-            "id": "fbb9dec57bee9066",
+            "id": "2df6cd4df57c23b8",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -109,7 +109,7 @@
             }
           },
           {
-            "id": "6abae91c4aa7b309",
+            "id": "7a6182159cdbfa59",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,7 +120,7 @@
             }
           },
           {
-            "id": "085e045dd64d91ea",
+            "id": "a90310aebee1a747",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -129,7 +129,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -146,11 +147,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "edfef515ad9d72c9",
+  "active": "8512fdc7d28af425",
   "lastOpenFiles": [
-    "singapore-sg.md",
+    "colombia-bogota.md",
+    "indonesia-bali.md",
+    "uk-birmingham.md",
+    "sg-singapore.md",
     "places-ive-been-to.md",
-    "Singapore, Singapore.md",
-    "bali-indonesia.md"
+    "uk-london.md",
+    "austria-vienna.md"
   ]
 }

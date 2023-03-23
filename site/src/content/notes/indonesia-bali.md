@@ -3,7 +3,7 @@ title: "Bali, Indonesia"
 emoji: "🇮🇩"
 pubDate: "Nov 02 2022"
 updatedDate: "Nov 16 2022"
-tags: ["status/evergreen", "place"]
+tags: ["place"]
 ---
 
 Vacation time?

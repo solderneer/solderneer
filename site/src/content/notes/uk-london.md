@@ -3,15 +3,14 @@ title: "London, United Kingdom"
 emoji: "🇬‍🇧"
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["status/evergreen", "place"]
+tags: ["place"]
 ---
 
-> [!NOTE] What I am doing here
 > Since I am studying the Electrical and Engineering degree in [University College London](https://www.ucl.ac.uk/), I spend a good portion of my year here. This page is a mosaic of various reflections and lists related to London.
 
 **London is a nostalgic city**, the first time I saw London it felt familiar, almost like I had been here before. Part of that could be because of how frequently it is featured in movies and shows. It is home to amazingly diverse people, incredible museums and a great nightlife.
 
-It started out feeling intimidating, especially being the first time being away from [[Singapore, Singapore]] for me. But it grew on me quickly, I find myself feeling comfortably in place in [[London, United Kingdom]] now.
+It started out feeling intimidating, especially being the first time being away from [[sg-singapore|Singapore]] for me. But it grew on me quickly, I find myself feeling comfortably in place in [[uk-london|London]] now.
 
 Amidst the chaos, and the banker bros, there are pockets of highly interesting people working on fascinating problems. Finding my tribe is the key, I think that applies more broadly to other countries as well. I do find myself missing the sense of creative ambition, or the impetus to do things to change the world here.
 

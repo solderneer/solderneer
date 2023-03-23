@@ -3,14 +3,12 @@ title: "Vienna, Austria"
 emoji: "🇦‍🇹"
 pubDate: 13-Nov-2022
 updatedDate: 15-Nov-2022
-tags: ["status/evergreen", "place"]
+tags: ["place"]
 ---
 
 I love Vienna. I loved everything about it, except the fact that no one understood me. In fact, I think Vienna is going to inspire me to learn German. The aesthetic short buildings, trams, the people, the food, the coffee, it was all incredible. Plus everything looks like this!
 
-![](https://urbit-dock.fra1.digitaloceanspaces.com/thoughts/vienna.jpeg)
-
-The energy in [[Vienna, Austria]] is definitely a lot slower than [[London, United Kingdom]] and [[Singapore, Singapore]]. People seem to be intentional, appreciating the small facts of life. At the same time, the entire city is rich with culture and history, and it feels like there is tons of knowledge to be gleaned from this place. Granted, by the third day, I felt that I had seen everything there was to see, it is unclear if I would enjoy a longer stay there.
+The energy in [[austria-vienna|Vienna]] is definitely a lot slower than [[uk-london|London]] and [[sg-singapore|Singapore]]. People seem to be intentional, appreciating the small facts of life. At the same time, the entire city is rich with culture and history, and it feels like there is tons of knowledge to be gleaned from this place. Granted, by the third day, I felt that I had seen everything there was to see, it is unclear if I would enjoy a longer stay there.
 
 # 🥘 Food
 

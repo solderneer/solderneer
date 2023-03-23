@@ -9,7 +9,7 @@
   font-family: "Merriweather", serif;
 }
 
-@keyframes example {
+@keyframes rainbow {
   0% {
     color: #e920ff;
   }
@@ -45,13 +45,19 @@
   }
 }
 
-a:hover {
-  animation-name: example;
+.rainbow-link a:hover {
+  animation-name: rainbow;
   animation-duration: 4s;
   animation-iteration-count: infinite;
 }
 
-a:active {
+.rainbow-button:active {
   transform: scale(0.95);
   transition: transform 0.1s;
+}
+
+.rainbow-button:hover {
+  animation-name: rainbow;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }

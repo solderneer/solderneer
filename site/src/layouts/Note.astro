@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import FormattedDate from "../components/FormattedDate.astro";
+import Tag from "../components/Tag.astro";
+
+import MarkdownBlock from "../components/MarkdownBlock.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+type Props = CollectionEntry<"notes">["data"];
+
+const { title, emoji, pubDate, updatedDate, tags } = Astro.props;
+---
+
+<BaseLayout title={title} emoji={emoji}>
+  <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit">
+    {emoji}
+  </h1>
+  <h1 class="text-4xl lg:text-5xl font-bold mb-2 text-neutral-700">
+    {title}
+  </h1>
+  <span class="text-md lg:text-lg italic text-neutral-500">
+    <FormattedDate date={pubDate} /> • Updated <FormattedDate
+      date={updatedDate}
+    />
+  </span>
+  <ul class="flex gap-2 flex-wrap mt-2">
+    {
+      tags.map((tag) => (
+        <li>
+          <a href={`/tags/${tag}`}>
+            <Tag name={`#${tag}`} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <MarkdownBlock>
+    <slot />
+  </MarkdownBlock>
+</BaseLayout>

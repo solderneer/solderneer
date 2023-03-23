@@ -1,7 +1,7 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Markdown from "../layouts/Markdown.astro";
+import MarkdownBlock from "../components/MarkdownBlock.astro";
 
 import PostItemMinimal from "../components/PostItemMinimal.astro";
 
@@ -24,10 +24,10 @@ const posts = (await getCollection("posts")).sort(
     WaRNiNG: this website, like my life, is constantly under construction.
   </h2>
 
-  <Markdown>
+  <MarkdownBlock>
     <Content />
     <hr />
-  </Markdown>
+  </MarkdownBlock>
 
   <h3 class="text-3xl font-bold text-neutral-700 mt-12">Recent Writing</h3>
 

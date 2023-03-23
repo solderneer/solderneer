@@ -3,7 +3,7 @@ title: "Singapore, Singapore"
 emoji: "🇸‍🇬"
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["status/evergreen", "place"]
+tags: ["place"]
 ---
 
 Singapore is 🏠 home.

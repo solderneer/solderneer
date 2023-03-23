@@ -6,6 +6,7 @@ import tailwind from "@astrojs/tailwind";
 // Remark
 import { wikiLinkPlugin } from "remark-wiki-link-plus";
 import { remarkReadingTime, remarkWordCount } from "./remarkPlugins.mjs";
+import remarkObsidianCallout from "remark-obsidian-callout";
 
 const wikiLinkOptions = {
   hrefTemplate: (permalink) => `/notes/${permalink}`,
@@ -19,6 +20,7 @@ export default defineConfig({
       remarkReadingTime,
       remarkWordCount,
       [wikiLinkPlugin, wikiLinkOptions],
+      remarkObsidianCallout,
     ],
     extendDefaultPlugins: true,
   },

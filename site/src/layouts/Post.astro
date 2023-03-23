@@ -5,7 +5,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Callout from "../components/Callout.astro";
 import Tag from "../components/Tag.astro";
 
-import Markdown from "./Markdown.astro";
+import MarkdownBlock from "../components/MarkdownBlock.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 type Props = CollectionEntry<"posts">["data"];
@@ -68,7 +68,7 @@ if (originalPost != undefined) {
     )
   }
 
-  <Markdown>
+  <MarkdownBlock>
     <slot />
-  </Markdown>
+  </MarkdownBlock>
 </BaseLayout>

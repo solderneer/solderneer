@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import Note from "../../layouts/Note.astro";
 import { CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -16,6 +16,6 @@ const note = Astro.props;
 const { Content } = await note.render();
 ---
 
-<BaseLayout>
+<Note {...note.data}>
   <Content />
-</BaseLayout>
+</Note>
