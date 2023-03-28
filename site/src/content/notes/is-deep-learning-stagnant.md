@@ -1,3 +1,10 @@
+---
+title: "quick-notes"
+emoji: "🇮🇩"
+pubDate: "Nov 02 2022"
+updatedDate: "Nov 16 2022"
+tags: ["place"]
+---
 
 ## Introduction
 1. The technology hype cycle. (?)
