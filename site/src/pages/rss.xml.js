@@ -8,8 +8,11 @@ export async function get(context) {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: context.site,
+    stylesheet: "/rss/pretty-feed-v3.xsl",
     items: posts.map((post) => ({
-      ...post.data,
+      title: post.data.title,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
       link: `/posts/${post.slug}/`,
     })),
   });
