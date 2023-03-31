@@ -1030,7 +1030,7 @@
             </section>
             <section class="column">
                 <h3 class="field">Most used languages</h3>
-                <small>estimation from 215mb of code in 8134 edited files across 1148 commits</small>
+                <small>estimation from 214mb of code in 7897 edited files across 1137 commits</small>
                 <svg class="bar" xmlns="http://www.w3.org/2000/svg" width="460" height="8">
                     <mask id="languages-bar">
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
@@ -1080,14 +1080,14 @@
             </section>
             <section class="column">
                 <h3 class="field">Recently used languages</h3>
-                <small>estimation from 248kb of code in 104 edited files across 34 commits over last 14 days</small>
+                <small>estimation from 243kb of code in 91 edited files across 32 commits over last 14 days</small>
                 <svg class="bar" xmlns="http://www.w3.org/2000/svg" width="460" height="8">
                     <mask id="languages-bar">
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="406.6134039546451" height="8" fill="#EB8CEB"/>
-                    <rect mask="url(#languages-bar)" x="406.6134039546451" y="0" width="53.386596045354906" height="8" fill="#ff5a03"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="428.1823721028333" height="8" fill="#EB8CEB"/>
+                    <rect mask="url(#languages-bar)" x="428.1823721028333" y="0" width="31.817627897166698" height="8" fill="#ff5a03"/>
                 </svg>
                 <div class="row fill-width">
                     <section>
@@ -1100,7 +1100,7 @@
                             </div>
                             <small>
                                 <div>113 lines</div>
-                                <div>88.39%</div>
+                                <div>93.08%</div>
                             </small>
                         </div>
                     </section>
@@ -1113,8 +1113,8 @@
                                 Astro
                             </div>
                             <small>
-                                <div>250 lines</div>
-                                <div>11.61%</div>
+                                <div>132 lines</div>
+                                <div>6.92%</div>
                             </small>
                         </div>
                     </section>
