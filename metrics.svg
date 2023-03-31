@@ -1080,14 +1080,14 @@
             </section>
             <section class="column">
                 <h3 class="field">Recently used languages</h3>
-                <small>estimation from 277kb of code in 149 edited files across 40 commits over last 14 days</small>
+                <small>estimation from 275kb of code in 138 edited files across 38 commits over last 14 days</small>
                 <svg class="bar" xmlns="http://www.w3.org/2000/svg" width="460" height="8">
                     <mask id="languages-bar">
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="370.6116694895486" height="8" fill="#EB8CEB"/>
-                    <rect mask="url(#languages-bar)" x="370.6116694895486" y="0" width="89.38833051045142" height="8" fill="#ff5a03"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="377.4837816619148" height="8" fill="#EB8CEB"/>
+                    <rect mask="url(#languages-bar)" x="377.4837816619148" y="0" width="82.51621833808521" height="8" fill="#ff5a03"/>
                 </svg>
                 <div class="row fill-width">
                     <section>
@@ -1100,7 +1100,7 @@
                             </div>
                             <small>
                                 <div>113 lines</div>
-                                <div>80.57%</div>
+                                <div>82.06%</div>
                             </small>
                         </div>
                     </section>
@@ -1113,8 +1113,8 @@
                                 Astro
                             </div>
                             <small>
-                                <div>482 lines</div>
-                                <div>19.43%</div>
+                                <div>437 lines</div>
+                                <div>17.94%</div>
                             </small>
                         </div>
                     </section>
