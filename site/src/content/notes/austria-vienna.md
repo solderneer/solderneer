@@ -34,4 +34,3 @@ There was a single day **where I drank coffee from 7 different cafes**. These ar
 - Cafe Sacher
 - Kleines Cafe (Before Sunrise)
 - Coffee equipment shop
-

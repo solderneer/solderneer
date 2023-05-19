@@ -1,9 +1,10 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import MarkdownBlock from "../components/MarkdownBlock.astro";
 
+import MarkdownBlock from "../components/MarkdownBlock.astro";
 import PostItemMinimal from "../components/PostItemMinimal.astro";
+import LinkGraph from "../components/LinkGraph.astro";
 
 import { getCollection } from "astro:content";
 import { Content } from "./home.mdx";
@@ -44,4 +45,5 @@ const posts = (await getCollection("posts")).sort(
   <a href="/posts" class="font-bold text-neutral-400 text-md text-neutral-700"
     >{`See ${posts.length} more →`}</a
   >
+  <LinkGraph rootPath="notes/austria-vienna/" />
 </BaseLayout>

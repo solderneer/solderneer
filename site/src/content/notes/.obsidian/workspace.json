@@ -4,17 +4,29 @@
     "type": "split",
     "children": [
       {
-        "id": "0c68c2cb6881804c",
+        "id": "2379c118fd13e64c",
         "type": "tabs",
         "children": [
           {
-            "id": "8512fdc7d28af425",
+            "id": "3fa57dd09e50e038",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "places-ive-been-to.md",
-                "mode": "preview",
+                "file": "question-2.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1b6cb37008de0738",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "question-2.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,6 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "question-2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,6 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "question-2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -122,7 +136,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "question-2.md"
+              }
             }
           }
         ],
@@ -143,11 +159,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "300c9d369c1856f1",
+  "active": "3fa57dd09e50e038",
   "lastOpenFiles": [
+    "intelligent-systems-report.md",
+    "question-2.md",
     "is-deep-learning-stagnant.md",
-    "full-report.md",
     "places-ive-been-to.md",
+    "full-report.md",
     "colombia-bogota.md",
     "indonesia-bali.md",
     "austria-vienna.md",

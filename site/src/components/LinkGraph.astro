@@ -1,0 +1,265 @@
+---
+const { rootPath } = Astro.props;
+---
+
+<link-graph data-message={rootPath}>
+  <svg class="linkGraph" width="960" height="600"></svg>
+</link-graph>
+
+<script is:inline src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+  const STROKE_COLOR = "#e5e5e5";
+  const STROKE_ACTIVE_COLOR = "#ff8600";
+  const ROOT_COLOR = "#e920ff";
+  const NODE_COLOR = "#ff8600";
+  const NODE_INACTIVE_COLOR = "#e5e5e5";
+
+  class LinkGraph extends HTMLElement {
+    constructor() {
+      super();
+      this.run();
+    }
+
+    async run() {
+      const rootPath = "notes/places-ive-been-to/";
+      const indexPath = "mdindex.json";
+      const baseUrl = "http://localhost:3000/";
+      const indexUrl = new URL(indexPath, baseUrl);
+
+      // Fetch data
+      const fetchIndex = await fetch(indexUrl);
+      const indexJson = await fetchIndex.json();
+      const copyLinks = JSON.parse(JSON.stringify(indexJson));
+
+      const links = [
+        ...(copyLinks.forwardLinks[rootPath] ?? []),
+        ...(copyLinks.backLinks[rootPath] ?? []),
+      ];
+      const nodeList = new Set();
+      for (const link of links) {
+        nodeList.add(link.source);
+        nodeList.add(link.target);
+      }
+
+      let nodes = [];
+      let i = 0;
+      for (const node of nodeList) {
+        nodes.push({
+          id: node,
+          name: node,
+        });
+      }
+
+      console.log(nodes);
+      console.log(links);
+
+      // Setting up the graph and positioning
+      const svg = d3.select(".linkGraph");
+      const width = +svg.attr("width");
+      const height = +svg.attr("height");
+      const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+      const graphWidth = width - margin.left - margin.right;
+      const graphHeight = height - margin.top - margin.bottom;
+
+      const drag = (simulation) => {
+        function dragstarted(event) {
+          if (!event.active) simulation.alphaTarget(1).restart();
+          event.subject.fx = event.subject.x;
+          event.subject.fy = event.subject.y;
+        }
+
+        function dragged(event) {
+          event.subject.fx = event.x;
+          event.subject.fy = event.y;
+        }
+
+        function dragended(event) {
+          if (!event.active) simulation.alphaTarget(0);
+          event.subject.fx = null;
+          event.subject.fy = null;
+        }
+
+        return d3
+          .drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended);
+      };
+
+      // Let's list the force we wanna apply on the network
+      let simulation = d3
+        .forceSimulation(nodes) // Force algorithm is applied to data.nodes
+        .force("charge", d3.forceManyBody().strength(-400)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+        .force(
+          "link",
+          d3
+            .forceLink(links) // This force provides links between nodes
+            .id(function (d) {
+              return d.id;
+            }) // This provide  the id of a node
+            .distance(40)
+        )
+        .force("center", d3.forceCenter(graphWidth / 2, graphHeight / 2)); // This force attracts nodes to the center of the svg area
+
+      const container = svg
+        .append("g")
+        .attr("width", graphWidth)
+        .attr("height", graphHeight)
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+      const link = container
+        .append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(links)
+        .enter()
+        .append("line")
+        .attr("class", "link")
+        .attr("stroke", STROKE_COLOR)
+        .attr("stroke-width", 2)
+        .attr("data-source", (d) => d.source)
+        .attr("data-target", (d) => d.target);
+
+      const nodeRadius = (d) => {
+        const numOut = indexJson.forwardLinks[d.id]?.length || 0;
+        const numIn = indexJson.backLinks[d.id]?.length || 0;
+        return 2 + Math.sqrt(numOut + numIn);
+      };
+
+      const color = (d) => {
+        return d.id === rootPath ? ROOT_COLOR : NODE_COLOR;
+      };
+
+      const graphNode = container
+        .append("g")
+        .attr("class", "nodes")
+        .selectAll("g")
+        .data(nodes)
+        .enter()
+        .append("g");
+
+      const node = graphNode
+        .append("circle")
+        .attr("class", "node")
+        .attr("id", (d) => d.id)
+        .attr("r", nodeRadius)
+        .style("fill", color)
+        .style("cursor", "pointer")
+        .on("click", (_, d) => {
+          const targ = `${baseUrl}${d.id.substring(-1)}`;
+          window.location.href = targ;
+        })
+        .on("mouseover", function (_, d) {
+          d3.selectAll(".node")
+            .transition()
+            .duration(100)
+            .style("fill", NODE_INACTIVE_COLOR);
+
+          // Find neighbours
+          const neighbours = [
+            ...(indexJson.forwardLinks[d.id] ?? []),
+            ...(indexJson.backLinks[d.id] ?? []),
+          ];
+          console.log(neighbours);
+          const neighbourList = new Set();
+          for (const neighbour of neighbours) {
+            neighbourList.add(neighbour.source);
+            neighbourList.add(neighbour.target);
+          }
+
+          const neighbourNodes = d3
+            .selectAll(".node")
+            .filter((d) => neighbourList.has(d.id));
+          const currentId = d.id;
+          const linkNodes = d3
+            .selectAll(".link")
+            .filter(
+              (d) => d.source.id === currentId || d.target.id === currentId
+            );
+
+          neighbourNodes.transition().duration(200).style("fill", color);
+          linkNodes
+            .transition()
+            .duration(200)
+            .attr("stroke", STROKE_ACTIVE_COLOR);
+
+          // show text for self
+          d3.select(this.parentNode)
+            .raise()
+            .select("text")
+            .transition()
+            .duration(200)
+            .attr(
+              "opacityOld",
+              d3.select(this.parentNode).select("text").style("opacity")
+            )
+            .style("opacity", 1)
+            .style("font-size", "1em")
+            .attr("dy", (d) => nodeRadius(d) + 20 + "px"); // radius is in px
+        })
+        .on("mouseleave", function (_, d) {
+          d3.selectAll(".node").transition().duration(200).style("fill", color);
+
+          const currentId = d.id;
+          const linkNodes = d3
+            .selectAll(".link")
+            .filter(
+              (d) => d.source.id === currentId || d.target.id === currentId
+            );
+
+          linkNodes.transition().duration(200).attr("stroke", STROKE_COLOR);
+
+          d3.select(this.parentNode)
+            .select("text")
+            .transition()
+            .duration(200)
+            .style(
+              "opacity",
+              d3.select(this.parentNode).select("text").attr("opacityOld")
+            )
+            .style("font-size", "0.5em")
+            .attr("dy", (d) => nodeRadius(d) + 8 + "px"); // radius is in px
+        })
+        .call(drag(simulation));
+
+      const labels = graphNode
+        .append("text")
+        .attr("dy", (d) => nodeRadius(d) + 8 + "px")
+        .attr("text-anchor", "middle")
+        .text((d) => d.id)
+        .style("pointer-events", "none")
+        .style("opacity", 0.5)
+        .style("font-size", "0.5em")
+        .raise()
+        .call(drag(simulation));
+
+      simulation.on("tick", () => {
+        link
+          .attr("x1", function (d) {
+            return d.source.x;
+          })
+          .attr("y1", function (d) {
+            return d.source.y;
+          })
+          .attr("x2", function (d) {
+            return d.target.x;
+          })
+          .attr("y2", function (d) {
+            return d.target.y;
+          });
+
+        node
+          .attr("cx", function (d) {
+            return d.x;
+          })
+          .attr("cy", function (d) {
+            return d.y;
+          });
+
+        labels.attr("x", (d) => d.x).attr("y", (d) => d.y);
+      });
+    }
+  }
+
+  customElements.define("link-graph", LinkGraph);
+</script>

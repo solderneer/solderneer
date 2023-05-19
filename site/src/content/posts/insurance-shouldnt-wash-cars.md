@@ -3,7 +3,7 @@ title: "Insurance shouldn’t wash cars"
 description: "We don't expect car insurance to subsidize car washes or tyre repairs. Then, why do we expect health insurance to subsidize preventive care?"
 emoji: "🚗"
 pubDate: "Feb 09 2023"
-tags: ["healthcare", "systems"]
+tags: ["healthcare"]
 originalPost: "https://heacare.substack.com/p/insurance-shouldnt-wash-cars"
 ---
 
