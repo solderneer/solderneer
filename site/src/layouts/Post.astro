@@ -35,8 +35,13 @@ if (originalPost != undefined) {
       </h1>
     )
   }
-  <h1 class="text-5xl lg:text-6xl font-bold mb-4 text-neutral-700">{title}</h1>
-  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mb-2">
+  <h1 id="title" class="text-5xl lg:text-6xl font-bold mb-4 text-neutral-700">
+    {title}
+  </h1>
+  <h2
+    id="description"
+    class="text-md lg:text-lg font-bold text-neutral-500 mb-2"
+  >
     {description}
   </h2>
   <span class="text-md lg:text-lg italic text-neutral-500">
