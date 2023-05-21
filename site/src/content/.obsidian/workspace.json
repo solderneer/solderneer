@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "9053bf24a1dc2e9f",
+        "id": "5917ce56b0ed035f",
         "type": "tabs",
         "children": [
           {
-            "id": "a63e7087e4738593",
+            "id": "277633a41b51fd1f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/places-ive-been-to.md",
+                "file": "_private/notes/Transistor Lab.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "a study can prove",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,15 +69,32 @@
       }
     ],
     "direction": "horizontal",
-    "width": 319.5
+    "width": 319.5,
+    "collapsed": true
   },
   "right": {
     "id": "ed19a5b37135bd0a",
     "type": "split",
     "children": [
       {
+        "id": "cbcca2cec69ebe26",
+        "type": "tabs",
+        "dimension": 41.11111111111111,
+        "children": [
+          {
+            "id": "eb72978cd4a29ed5",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
         "id": "5bb875cb3e94d3a5",
         "type": "tabs",
+        "dimension": 58.88888888888889,
         "children": [
           {
             "id": "dc912136a51e952f",
@@ -85,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/places-ive-been-to.md",
+                "file": "_private/notes/Transistor Lab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,9 +119,19 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/places-ive-been-to.md",
+                "file": "_private/notes/Transistor Lab.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "79d39cd3bbb9701d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_private/notes/Transistor Lab.md"
               }
             }
           },
@@ -115,22 +142,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
-            }
-          },
-          {
-            "id": "79d39cd3bbb9701d",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "notes/places-ive-been-to.md"
+                "useHierarchy": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -138,43 +155,62 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
+      "switcher:Open quick switcher": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false
     }
   },
-  "active": "a63e7087e4738593",
+  "active": "a8d8fc4ca46ae5d9",
   "lastOpenFiles": [
-    "notes/about-these-notes.md",
-    "notes/learning-in-seasons.md",
-    "notes/public-goods.md",
-    "notes/yearly-retrospective.md",
-    "notes/with-fake-news-imagine-history.md",
-    "notes/wellness-is-premium-mediocre.md",
-    "notes/web2-is-for-self-expression-not-thought.md",
-    "notes/under-the-api.md",
-    "notes/tokens-are-products.md",
-    "notes/the-web-is-a-stream.md",
-    "notes/the-vibe-economy.md",
-    "notes/the-opposite-of-a-trap-is-a-garden.md",
-    "notes/the-one-man-brand.md",
-    "notes/the-marginal-cost-to-distribute-is-low.md",
-    "notes/the-eight-metaphors-of-organisation.md",
-    "notes/the-dao-contains-infinite-relations.md",
-    "notes/the-cuban-paradox.md",
-    "notes/the-better-we-get-the-less-creative-we-become.md",
-    "notes/systems-not-goals.md",
-    "notes/subtraction-is-a-virtue.md",
-    "notes/society-is-scripted.md",
-    "notes/social-determinants-of-health.md",
-    "notes/quantum-thought.md",
-    "notes/progress-is-understudied.md",
-    "notes/premium-mediocre.md",
-    "notes/personalities-are-points-of-failure.md",
-    "_tags.json",
-    "tags.json"
+    "_private/notes/Happily Ever After.md",
+    "_private/notes/2022 Retrospective.md",
+    "_private/life/2022/31-Dec-2022.md",
+    "_private/people/Yeshuai Yang.md",
+    "_private/people/Zachary Desker.md",
+    "_private/people/Toby (Yui To) Wong.md",
+    "_private/people/Tatiana Rosa.md",
+    "_private/people/Aashraya Rao.md",
+    "_private/notes/Conditioning.md",
+    "_private/life/2022/08-Nov-2022.md",
+    "_private/people/Jae.md",
+    "_private/people/Rithika Thomas.md",
+    "_private/people/Shuen Hwee.md",
+    "_private/people/Nandin Porwal.md",
+    "_private/people/Jennifer Keswani.md",
+    "_private/people/Shruthi.md",
+    "_private/people/Nithiya N Laila.md",
+    "_private/people/Auyok Ryan.md",
+    "_private/people/Fu Ziyi.md",
+    "_private/people/Yang En.md",
+    "_private/people/Adam Nasser.md",
+    "_private/people/Molly Casey.md",
+    "_private/people/Nikita Vattas.md",
+    "_private/people/Shane Kelly.md",
+    "_private/people/Rohan Tagri.md",
+    "_private/people/Pratyay Didwania.md",
+    "_private/people/photos/zach.jpeg",
+    "_private/people/photos/yi-hein.jpeg",
+    "_private/people/photos/yeshuai.jpeg",
+    "_private/people/photos/yang-en.jpeg",
+    "_private/people/photos/wilgene-tan.jpeg",
+    "_private/people/photos/vishram-mishra.jpeg",
+    "_private/people/photos/ty-hagler.jpeg",
+    "_private/people/photos/toby-wong.jpeg",
+    "_private/people/photos/steve-kerrison.jpeg",
+    "_private/people/photos/sri-ayangar.jpeg",
+    "_private/people/photos/Hihi.pdf",
+    "_private/people/photos",
+    "_private/people",
+    "_private/attachments/how-we-gather.pdf",
+    "_private/attachments/IMG_5364.mov.mov",
+    "_private/attachments",
+    "_private/notes",
+    "_private/dreams",
+    "_private/life/2021",
+    "_private/life/2023",
+    "Untitled.canvas"
   ]
 }

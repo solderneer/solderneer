@@ -6,7 +6,7 @@ updatedDate: 13-Nov-2022
 tags: ["index"]
 ---
 
-Hello, my name is [Shan](https://solderneer.me), and these are my personal notes that are used to incubate and grow all of my strange ideas and musings. Althought they are primarily intended as a personal reference, I like the idea of treating this as a public garden which is open for anyone to take a stroll through.
+Hello, my name is [Shan](https://solderneer.me), and these are my personal notes that are used to incubate and grow all of my strange ideas and musings. Although they are primarily intended as a personal reference, I like the idea of treating this as a public garden which is open for anyone to take a stroll through.
 
 I first stumbled into the idea of [digital gardening](https://hapgood.us/2015/10/17/the-garden-and-the-stream-a-technopastoral/) while doing research on ways to nurture and my knowledge and I was almost immediately drawn to this idea of hyperlinks as a tool to represent associative webs of thought. **A densely hyperlinked set of notes that slowly grows over time feels strangely alive and organic**.
 

@@ -3,14 +3,14 @@
 :root {
   font-family: "Merriweather", serif;
 
-  --bg-color: #f5f5dc;
+  --bg-color: #f9f5eb;
   --text-color: #454545;
   --primary-color: #ff6000;
   --secondary-color: #ffa559;
 
-  --beige-light: #f2f2d0;
-  --beige-medium: #f4f1c8;
-  --beige-dark: #eaeab4;
+  --beige-light: #f6efe0;
+  --beige-medium: #f3ebd8;
+  --beige-dark: #ede2c4;
 
   --green: #5ebd3e;
   --yellow: #ffb900;

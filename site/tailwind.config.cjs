@@ -4,13 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "text-color": "#454545",
-        "primary-color": "#ff6000",
-        "secondary-color": "#ffa559",
+        "text-color": "var(--text-color)",
+        "primary-color": "var(--primary-color)",
+        "secondary-color": "var(--secondary-color)",
 
-        "beige-light": "#F2F2D0",
-        "beige-medium": "#F6F1C8",
-        "beige-dark": "#EAEAB4",
+        "beige-light": "var(--beige-light)",
+        "beige-medium": "var(--beige-medium)",
+        "beige-dark": "var(--beige-dark)",
       },
       typography: ({ theme }) => ({
         pink: {

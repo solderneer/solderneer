@@ -1,3 +1,7 @@
 {
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "spellcheck": true,
+  "vimMode": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "_inbox"
 }
