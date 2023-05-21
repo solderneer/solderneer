@@ -2,6 +2,9 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import indexmd from "./integrations/astrojs-indexmd";
+
+import { SITE_BASEURL } from "./src/consts";
 
 // Remark
 import { wikiLinkPlugin } from "remark-wiki-link-plus";
@@ -22,6 +25,6 @@ export default defineConfig({
     ],
     extendDefaultPlugins: true,
   },
-  site: "https://solderneer.me",
-  integrations: [mdx(), sitemap(), tailwind()],
+  site: SITE_BASEURL,
+  integrations: [mdx(), sitemap(), tailwind(), indexmd()],
 });

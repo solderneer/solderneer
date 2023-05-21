@@ -15,8 +15,8 @@ const posts = (await getCollection("posts")).sort(
 
 <BaseLayout title={title} description={description}>
   <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-3">📝</h1>
-  <h1 class="text-5xl lg:text-6xl font-bold text-neutral-700">{title}</h1>
-  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-4 mb-10">
+  <h1 class="text-5xl lg:text-6xl font-bold">{title}</h1>
+  <h2 class="text-md lg:text-lg font-bold text-text-color/80 mt-4 mb-10">
     {description}
   </h2>
   <ul class="flex flex-col gap-4">

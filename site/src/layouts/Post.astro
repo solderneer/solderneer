@@ -35,11 +35,16 @@ if (originalPost != undefined) {
       </h1>
     )
   }
-  <h1 class="text-5xl lg:text-6xl font-bold mb-4 text-neutral-700">{title}</h1>
-  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mb-2">
+  <h1 id="title" class="text-5xl lg:text-6xl font-bold mb-4">
+    {title}
+  </h1>
+  <h2
+    id="description"
+    class="text-md lg:text-lg font-bold text-text-color/80 mb-2"
+  >
     {description}
   </h2>
-  <span class="text-md lg:text-lg italic text-neutral-500">
+  <span class="text-md lg:text-lg italic text-text-color/80">
     Published on <FormattedDate date={pubDate} />
   </span>
   <ul class="flex gap-2 flex-wrap mt-4">
@@ -47,7 +52,7 @@ if (originalPost != undefined) {
       tags.map((tag) => (
         <li>
           <a href={`/tags/${tag}`}>
-            <Tag name={`#${tag}`} />
+            <Tag name={`${tag}`} />
           </a>
         </li>
       ))

@@ -6,20 +6,22 @@ import Tag from "../components/Tag.astro";
 
 import MarkdownBlock from "../components/MarkdownBlock.astro";
 import BaseLayout from "./BaseLayout.astro";
+import LinkGraph from "../components/LinkGraph.astro";
 
 type Props = CollectionEntry<"notes">["data"];
 
 const { title, emoji, pubDate, updatedDate, tags } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
 <BaseLayout title={title} emoji={emoji}>
   <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit">
     {emoji}
   </h1>
-  <h1 class="text-4xl lg:text-5xl font-bold mb-2 text-neutral-700">
+  <h1 id="title" class="text-4xl lg:text-5xl font-bold mb-2">
     {title}
   </h1>
-  <span class="text-md lg:text-lg italic text-neutral-500">
+  <span class="text-md lg:text-lg italic text-text-color/80">
     <FormattedDate date={pubDate} /> • Updated <FormattedDate
       date={updatedDate}
     />
@@ -29,7 +31,7 @@ const { title, emoji, pubDate, updatedDate, tags } = Astro.props;
       tags.map((tag) => (
         <li>
           <a href={`/tags/${tag}`}>
-            <Tag name={`#${tag}`} />
+            <Tag name={`${tag}`} />
           </a>
         </li>
       ))
@@ -39,4 +41,8 @@ const { title, emoji, pubDate, updatedDate, tags } = Astro.props;
   <MarkdownBlock>
     <slot />
   </MarkdownBlock>
+
+  <hr />
+  <h3 class="text-3xl font-bold mt-12">Related Notes</h3>
+  <LinkGraph rootPath={pathname.substring(1)} />
 </BaseLayout>

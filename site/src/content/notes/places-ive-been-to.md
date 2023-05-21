@@ -15,14 +15,14 @@ Other places I've been:
 - [[sg-singapore|Singapore, Singapore]]
 - [[Cambridge, United Kingdom]]
 - [[austria-vienna|Vienna, Austria]]
-- [[Ho Chi Minh, Vietnam]]
+- [[hochiminh-vietnam|Ho Chi Minh, Vietnam]]
 - [[colombia-bogota|Bogota, Colombia]]
 - [[indonesia-bali|Bali, Indonesia]]
-- [[Bonn, Germany]]
+- [[bonn-germany|Bonn, Germany]]
 - [[Virudhunagar, India]]
-- [[Madurai, India]]
-- [[Chennai, India]]
-- [[Johor Bahru, Malaysia]]
-- [[Kuala Lampur, Malaysia]]
-- [[Genting, Malysia]]
+- Madurai, India
+- Chennai, India
+- Johor Bahru, Malaysia
+- Kuala Lampur, Malaysia
+- Genting, Malysia
 - [[uk-birmingham|Birmingham, UK]]

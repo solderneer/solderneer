@@ -1,12 +1,17 @@
 ---
 import { stringToPastelColor } from "../utils";
-const { name } = Astro.props;
+import tagsJson from "../content/_tags.json";
+const { name = "life" } = Astro.props;
 
 const hue = stringToPastelColor(name);
+let styleString = `background-color: hsl(${hue}, 100%, 93%);color: hsla(${hue}, 100%, 15%, 0.7)`;
+
+if (tagsJson[name].color) {
+  styleString = `color: ${tagsJson[name].color}`;
+}
 ---
 
 <span
-  class="py-1 px-2 text-sm rounded-md italic whitespace-nowrap"
-  style={`background-color: hsl(${hue}, 100%, 93%);color: hsla(${hue}, 100%, 15%, 0.7)`}
-  >{name}</span
+  class="py-1 px-2 text-sm rounded-md italic whitespace-nowrap bg-beige-light"
+  style={styleString}>{name}</span
 >

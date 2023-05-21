@@ -2,7 +2,7 @@
 title: "Vienna, Austria"
 emoji: "🇦‍🇹"
 pubDate: 13-Nov-2022
-updatedDate: 15-Nov-2022
+updatedDate: 13-Nov-2022
 tags: ["place"]
 ---
 
@@ -34,4 +34,3 @@ There was a single day **where I drank coffee from 7 different cafes**. These ar
 - Cafe Sacher
 - Kleines Cafe (Before Sunrise)
 - Coffee equipment shop
-

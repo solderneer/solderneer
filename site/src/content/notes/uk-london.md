@@ -66,4 +66,3 @@ Amidst the chaos, and the banker bros, there are pockets of highly interesting p
 - Brick Lane (sunday)
 - Borough (weekend)
 - Camden Market (weekend)
-

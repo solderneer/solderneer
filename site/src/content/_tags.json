@@ -1,0 +1,86 @@
+{
+  "life": {
+    "description": "",
+    "color": "var(--green)"
+  },
+  "engineering": {
+    "description": "",
+    "color": "var(--red)"
+  },
+  "young-shan": {
+    "description": "",
+    "color": "var(--orange)"
+  },
+  "healthcare": {
+    "description": "",
+    "color": "var(--red)"
+  },
+  "project": {
+    "description": "",
+    "color": "var(--blue)"
+  },
+  "web3": {
+    "descriptiion": "",
+    "color": "var(--blue)"
+  },
+  "ai": {
+    "description": "",
+    "color": "var(--purple)"
+  },
+  "culture": {
+    "description": "",
+    "color": "var(--yellow)"
+  },
+  "philosophy": {
+    "description": "",
+    "color": "var(--orange)"
+  },
+  "startups": {
+    "description": "",
+    "color": "var(--blue)"
+  },
+  "education": {
+    "description": "",
+    "color": "var(--purple)"
+  },
+  "place": {
+    "description": "",
+    "color": "var(--orange)"
+  },
+  "institutions": {
+    "description": "",
+    "color": "var(--orange)"
+  },
+  "principles": {
+    "description": "",
+    "color": "var(--blue)"
+  },
+  "economics": {
+    "description": "",
+    "color": "var(--blue)"
+  },
+  "science": {
+    "description": "",
+    "color": "var(--green)"
+  },
+  "index": {
+    "description": "",
+    "color": "var(--red)"
+  },
+  "politics": {
+    "description": "",
+    "color": "var(--red)"
+  },
+  "literature": {
+    "description": "",
+    "color": "var(--green)"
+  },
+  "technology": {
+    "description": "",
+    "color": "var(--green)"
+  },
+  "ongoing": {
+    "description": "",
+    "color": "var(--red)"
+  }
+}
