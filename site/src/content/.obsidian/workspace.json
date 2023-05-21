@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/public-goods.md",
+                "file": "notes/places-ive-been-to.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/public-goods.md",
+                "file": "notes/places-ive-been-to.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/public-goods.md",
+                "file": "notes/places-ive-been-to.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/public-goods.md"
+                "file": "notes/places-ive-been-to.md"
               }
             }
           }
@@ -148,31 +148,33 @@
   },
   "active": "a63e7087e4738593",
   "lastOpenFiles": [
-    "notes/progress-is-understudied.md",
-    "notes/public-goods.md",
-    "notes/multitemporality.md",
-    "notes/networked-branding-is-permissionless.md",
-    "notes/organize-brains-with-tags.md",
-    "notes/personalities-are-points-of-failure.md",
-    "notes/premium-mediocre.md",
     "notes/about-these-notes.md",
-    "notes/social-determinants-of-health.md",
-    "notes/systems-not-goals.md",
-    "notes/a-study-can-prove-anything.md",
-    "notes/austria-vienna.md",
-    "notes/figures-of-rhetoric.md",
-    "notes/just-in-time-person.md",
-    "posts/mind-body-network.md",
-    "notes/funnel-plot-signal-noise.md",
+    "notes/learning-in-seasons.md",
+    "notes/public-goods.md",
     "notes/yearly-retrospective.md",
-    "posts/building-a-diy-solder-oven.md",
-    "posts/droid-project.md",
-    "notes/the-eight-metaphors-of-organisation.md",
-    "notes/the-dao-contains-infinite-relations.md",
-    "notes/companies-constrain-relations-for-legibility.md",
-    "notes/better-orgs-lower-transaction-costs.md",
     "notes/with-fake-news-imagine-history.md",
     "notes/wellness-is-premium-mediocre.md",
-    "notes/under-the-api.md"
+    "notes/web2-is-for-self-expression-not-thought.md",
+    "notes/under-the-api.md",
+    "notes/tokens-are-products.md",
+    "notes/the-web-is-a-stream.md",
+    "notes/the-vibe-economy.md",
+    "notes/the-opposite-of-a-trap-is-a-garden.md",
+    "notes/the-one-man-brand.md",
+    "notes/the-marginal-cost-to-distribute-is-low.md",
+    "notes/the-eight-metaphors-of-organisation.md",
+    "notes/the-dao-contains-infinite-relations.md",
+    "notes/the-cuban-paradox.md",
+    "notes/the-better-we-get-the-less-creative-we-become.md",
+    "notes/systems-not-goals.md",
+    "notes/subtraction-is-a-virtue.md",
+    "notes/society-is-scripted.md",
+    "notes/social-determinants-of-health.md",
+    "notes/quantum-thought.md",
+    "notes/progress-is-understudied.md",
+    "notes/premium-mediocre.md",
+    "notes/personalities-are-points-of-failure.md",
+    "_tags.json",
+    "tags.json"
   ]
 }

@@ -11,5 +11,3 @@ I want to know everything, but being a polymath is hard and unfocused. I often f
 This jumping around between topics also makes it difficult to keep up my writing habit, [[about-these-notes]]. Context-switching is expensive. Instead, a better approach is to learn in seasons. 
 
 **Every season has a start date, a duration and a theme.** During the season, all learning activity is aligned to the season's theme, and all the noise is ignored (save a few regular newsletters that I will continue to read). This will let me achieve a modicum of depth in each topic I want to be well-informed on, and the duration of the season can be adjusted based on how deep I would like to go.
-
-**Other Related Meanderings:**

@@ -13,13 +13,13 @@ Currently I'm based at [[uk-london|London, UK]].
 Other places I've been:
 
 - [[sg-singapore|Singapore, Singapore]]
-- [[Cambridge, United Kingdom]]
+- Cambridge, UK
 - [[austria-vienna|Vienna, Austria]]
 - [[hochiminh-vietnam|Ho Chi Minh, Vietnam]]
 - [[colombia-bogota|Bogota, Colombia]]
 - [[indonesia-bali|Bali, Indonesia]]
 - [[bonn-germany|Bonn, Germany]]
-- [[Virudhunagar, India]]
+- Virudhunagar, India
 - Madurai, India
 - Chennai, India
 - Johor Bahru, Malaysia
