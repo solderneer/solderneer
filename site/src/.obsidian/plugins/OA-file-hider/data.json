@@ -1,0 +1,9 @@
+{
+  "hidden": true,
+  "hiddenList": [
+    "components",
+    "layouts",
+    "pages",
+    "styles"
+  ]
+}

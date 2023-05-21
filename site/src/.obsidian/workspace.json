@@ -13,8 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_private/notes/Transistor Lab.md",
+                "file": "_private/life/2023/21-May-2023.md",
                 "mode": "source",
+                "backlinks": true,
                 "source": false
               }
             }
@@ -69,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 319.5,
-    "collapsed": true
+    "width": 319.5
   },
   "right": {
     "id": "ed19a5b37135bd0a",
@@ -102,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_private/notes/Transistor Lab.md",
+                "file": "_private/life/2023/21-May-2023.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_private/notes/Transistor Lab.md",
+                "file": "_private/life/2023/21-May-2023.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_private/notes/Transistor Lab.md"
+                "file": "_private/life/2023/21-May-2023.md"
               }
             }
           },
@@ -163,8 +163,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a8d8fc4ca46ae5d9",
+  "active": "277633a41b51fd1f",
   "lastOpenFiles": [
+    "_private/notes/Transistor Lab.md",
+    "_private/life/2023/21-May-2023.md",
     "_private/notes/Happily Ever After.md",
     "_private/notes/2022 Retrospective.md",
     "_private/life/2022/31-Dec-2022.md",
@@ -189,8 +191,6 @@
     "_private/people/Molly Casey.md",
     "_private/people/Nikita Vattas.md",
     "_private/people/Shane Kelly.md",
-    "_private/people/Rohan Tagri.md",
-    "_private/people/Pratyay Didwania.md",
     "_private/people/photos/zach.jpeg",
     "_private/people/photos/yi-hein.jpeg",
     "_private/people/photos/yeshuai.jpeg",
