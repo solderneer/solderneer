@@ -4,4 +4,4 @@
 export const SITE_TITLE = "memex";
 export const SITE_DESCRIPTION =
   "A blog where Shan (@solderneer) tries to string words together better than LLMs.";
-export const SITE_BASEURL = "http://localhost:3000/";
+export const SITE_BASEURL = "https://solderneer.me/";
