@@ -10,5 +10,5 @@ I visited [[colombia-bogota|Bogota]] to attend Devcon VI - which is one of the b
 
 But the conference really outdid itself by serving local cuisine and attempting to immerse its attendees in the culture. Somewhat disappointingly, I am not a fan of Colombian cuisine, and food is so important to me that this alone is a dealbreaker for me visiting again for leisure.
 
-Similar to [[Ho Chi Minh, Vietnam]], [[colombia-bogota|Bogota]] is filled with a vibrant, chaotic energy: the Colombians at Devcon VI were all incredible in their own unique ways. This to me really shows me the potential in developing regions like Latin America and South East Asia.
+Similar to [[hochiminh-vietnam]], [[colombia-bogota|Bogota]] is filled with a vibrant, chaotic energy: the Colombians at Devcon VI were all incredible in their own unique ways. This to me really shows me the potential in developing regions like Latin America and South East Asia.
 

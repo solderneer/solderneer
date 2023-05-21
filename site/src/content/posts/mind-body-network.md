@@ -91,7 +91,7 @@ Humans are social organisms and our well-being is intrinsically connected to tho
 
 Surrounding yourself with people that you admire and aspire to be like, is the best way to achieve well-being and move towards your goals. Building the network is something that I am still working on, but I have a strategy.
 
-1.  University Networking - I want to assemble a community that resonates with my #regen beliefs, my position as president of UCL Entrepreneurs is going to be my point of leverage to build that
+1.  University Networking - I want to assemble a community that resonates with my regen beliefs, my position as president of UCL Entrepreneurs is going to be my point of leverage to build that
 2.  Twitter - I believe that the community on twitter is amazing and I would love to engage with more likeminded people there
 3.  DeveloperDAO - I've been a holder of [Devs For Revolution](https://opensea.io/collection/devs-for-revolution) since May of this year and I would like to be more active there
 4.  This blog - I enjoy reading and writing about things that I'm passionate about and I hope this blog attracts people who align with me

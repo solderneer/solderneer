@@ -1,18 +1,34 @@
 ---
-const { rootPath } = Astro.props;
+import { SITE_BASEURL } from "../consts";
+const { rootPath, indexPath = "mdindex.json" } = Astro.props;
+
+// Sanitize input path
+const regex = /\/$/;
+let rootPathFix = "";
+if (regex.test(rootPath)) {
+  rootPathFix = rootPath;
+} else {
+  rootPathFix = rootPath.replace(/^\/+/, "") + "/";
+}
+console.log(rootPathFix);
 ---
 
-<link-graph data-message={rootPath}>
-  <svg class="linkGraph" width="960" height="600"></svg>
+<link-graph
+  data-rootpath={rootPathFix}
+  data-baseurl={SITE_BASEURL}
+  data-indexpath={indexPath}
+>
+  <svg class="linkGraph border border-beige-dark w-full h-60 my-6 rounded-lg"
+  ></svg>
 </link-graph>
 
 <script is:inline src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-  const STROKE_COLOR = "#e5e5e5";
-  const STROKE_ACTIVE_COLOR = "#0023ff";
-  const ROOT_COLOR = "#ff0d0d";
-  const NODE_COLOR = "#0023ff";
-  const NODE_INACTIVE_COLOR = "#e5e5e5";
+  const STROKE_COLOR = "var(--beige-medium)";
+  const STROKE_ACTIVE_COLOR = "var(--secondary-color)";
+  const ROOT_COLOR = "var(--primary-color)";
+  const NODE_COLOR = "var(--secondary-color)";
+  const NODE_INACTIVE_COLOR = "var(--beige-medium)";
 
   class LinkGraph extends HTMLElement {
     constructor() {
@@ -21,9 +37,9 @@ const { rootPath } = Astro.props;
     }
 
     async run() {
-      const rootPath = "notes/places-ive-been-to/";
-      const indexPath = "mdindex.json";
-      const baseUrl = "http://localhost:3000/";
+      const rootPath = this.dataset.rootpath;
+      const indexPath = this.dataset.indexpath;
+      const baseUrl = this.dataset.baseurl;
       let depth = 1;
       const indexUrl = new URL(indexPath, baseUrl);
 
@@ -32,12 +48,11 @@ const { rootPath } = Astro.props;
       const indexJson = await fetchIndex.json();
       const copyLinks = JSON.parse(JSON.stringify(indexJson));
 
-      console.log(indexJson.nodes);
-      const allNodes = Object.keys(indexJson.nodes).map(
-        (n) => indexJson.nodes[n].id
+      const allNodes = Object.keys(copyLinks.nodes).map(
+        (n) => copyLinks.nodes[n].id
       );
+
       const neighbours = new Set();
-      const neighbourLinksSet = new Set();
 
       const wl = [rootPath || "/", "__SENTINEL"];
       if (depth >= 0) {
@@ -51,20 +66,6 @@ const { rootPath } = Astro.props;
             neighbours.add(cur);
             const outgoing = copyLinks.forwardLinks[cur] ?? [];
             const incoming = copyLinks.backLinks[cur] ?? [];
-            outgoing.forEach((link) => {
-              if (
-                allNodes.includes(link.source) &&
-                allNodes.includes(link.target)
-              )
-                neighbourLinksSet.add(JSON.stringify(link));
-            });
-            incoming.forEach((link) => {
-              if (
-                allNodes.includes(link.source) &&
-                allNodes.includes(link.target)
-              )
-                neighbourLinksSet.add(JSON.stringify(link));
-            });
             wl.push(
               ...outgoing.map((l) => l.target),
               ...incoming.map((l) => l.source)
@@ -73,31 +74,31 @@ const { rootPath } = Astro.props;
         }
       }
 
-      // Convert back to link
-      let neighbourLinks = [];
-      neighbourLinksSet.forEach((link) =>
-        neighbourLinks.push(JSON.parse(link))
-      );
+      const nodes = [...neighbours].filter((id) => allNodes.includes(id));
 
       const data = {
-        nodes: [...neighbours]
-          .filter((id) => allNodes.includes(id))
-          .map((id) => ({
-            id: id,
-            name: copyLinks.nodes[id].name,
-          })),
-        links: neighbourLinks,
+        nodes: nodes.map((id) => ({
+          id: id,
+          name: copyLinks.nodes[id].name,
+        })),
+        links: copyLinks.links.filter(
+          (l) => nodes.includes(l.source) && nodes.includes(l.target)
+        ),
       };
 
       console.log(data);
 
       // Setting up the graph and positioning
       const svg = d3.select(".linkGraph");
-      const width = +svg.attr("width");
-      const height = +svg.attr("height");
       const margin = { top: 20, right: 20, bottom: 20, left: 20 };
-      const graphWidth = width - margin.left - margin.right;
-      const graphHeight = height - margin.top - margin.bottom;
+      const graphWidth =
+        parseInt(window.getComputedStyle(svg.node()).width) -
+        margin.left -
+        margin.right;
+      const graphHeight =
+        parseInt(window.getComputedStyle(svg.node()).height) -
+        margin.top -
+        margin.bottom;
 
       const drag = (simulation) => {
         function dragstarted(event) {
@@ -217,6 +218,7 @@ const { rootPath } = Astro.props;
 
           neighbourNodes.transition().duration(200).style("fill", color);
           linkNodes
+            .raise()
             .transition()
             .duration(200)
             .attr("stroke", STROKE_ACTIVE_COLOR);

@@ -1,47 +1,67 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,300&display=swap");
 
 :root {
   font-family: "Merriweather", serif;
+
+  --bg-color: #f5f5dc;
+  --text-color: #454545;
+  --primary-color: #ff6000;
+  --secondary-color: #ffa559;
+
+  --beige-light: #f2f2d0;
+  --beige-medium: #f4f1c8;
+  --beige-dark: #eaeab4;
+
+  --green: #5ebd3e;
+  --yellow: #ffb900;
+  --orange: #f78200;
+  --red: #e23838;
+  --purple: #973999;
+  --blue: #009cdf;
+}
+
+.font-writing {
+  font-family: "Kalam", cursive;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 @keyframes rainbow {
   0% {
-    color: #e920ff;
+    color: var(--green);
   }
   10% {
-    color: #0023ff;
+    color: var(--yellow);
   }
   20% {
-    color: #1bd700;
+    color: var(--orange);
   }
   30% {
-    color: #ffff00;
+    color: var(--red);
   }
   40% {
-    color: #ff8600;
+    color: var(--purple);
   }
   50% {
-    color: #ff0d0d;
+    color: var(--blue);
   }
   60% {
-    color: #ff8600;
+    color: var(--purple);
   }
   70% {
-    color: #ffff00;
+    color: var(--red);
   }
   80% {
-    color: #1bd700;
+    color: var(--orange);
   }
   90% {
-    color: #0023ff;
+    color: var(--yellow);
   }
   100% {
-    color: #e920ff;
+    color: var(--green);
   }
 }
 
@@ -52,7 +72,7 @@
 }
 
 .rainbow-button:active {
-  transform: scale(0.95);
+  transform: scale(0.95) !important;
   transition: transform 0.1s;
 }
 
@@ -60,4 +80,7 @@
   animation-name: rainbow;
   animation-duration: 4s;
   animation-iteration-count: infinite;
+
+  transform: scale(1.05);
+  transition: transform 0.1s;
 }

@@ -8,7 +8,7 @@ const wordCount = remarkPluginFrontmatter.wordCount;
 ---
 
 <a
-  class="flex flex-col text-neutral-700 max-w-xl hover:bg-neutral-100 p-2 rounded-md rainbow-button"
+  class="flex flex-col max-w-xl hover:bg-beige-light p-2 rounded-md rainbow-button"
   href={`/posts/${slug}/`}
 >
   <h1>
@@ -16,14 +16,14 @@ const wordCount = remarkPluginFrontmatter.wordCount;
     &nbsp;
     <span class="text-lg font-bold">{post.data.title}</span>
   </h1>
-  <span class="mt-1 text-sm text-neutral-600">
+  <span class="mt-1 text-sm">
     {wordCount} words on <FormattedDate date={post.data.pubDate} />
   </span>
   <ul class="flex gap-2 mt-2">
     {
       post.data.tags.map((tag: String) => (
         <li>
-          <Tag name={`#${tag}`} />
+          <Tag name={`${tag}`} />
         </li>
       ))
     }

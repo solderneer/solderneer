@@ -2,7 +2,7 @@
 title: "Vienna, Austria"
 emoji: "🇦‍🇹"
 pubDate: 13-Nov-2022
-updatedDate: 15-Nov-2022
+updatedDate: 13-Nov-2022
 tags: ["place"]
 ---
 

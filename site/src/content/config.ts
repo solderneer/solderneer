@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { hasDuplicate } from "../utils";
-import tagsJson from "./tags.json";
+import tagsJson from "./_tags.json";
 
 const validTags = new Set<string>(Object.keys(tagsJson));
 

@@ -16,7 +16,8 @@ interface Node {
 interface Index {
   forwardLinks: Record<string, Link[]>;
   backLinks: Record<string, Link[]>;
-  nodes: Node[];
+  links: Link[];
+  nodes: Record<string, Node>;
 }
 
 function findLinksInHTML(source: string, html: string): [Link[], Node] {
@@ -102,6 +103,7 @@ const createPlugin = (): AstroIntegration => {
         const index: Index = {
           forwardLinks: groupLinksBySource(linkList),
           backLinks: groupLinksByDestination(linkList),
+          links: linkList,
           nodes: nodeMap,
         };
 

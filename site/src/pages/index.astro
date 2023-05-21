@@ -7,7 +7,7 @@ import PostItemMinimal from "../components/PostItemMinimal.astro";
 import LinkGraph from "../components/LinkGraph.astro";
 
 import { getCollection } from "astro:content";
-import { Content } from "./home.mdx";
+import { Content } from "./home.md";
 
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -20,8 +20,8 @@ const posts = (await getCollection("posts")).sort(
     style={`background-image: url(/main-art.jpeg)`}
   >
   </div>
-  <h1 class="text-5xl lg:text-6xl font-bold text-neutral-700">Home</h1>
-  <h2 class="text-md lg:text-lg font-bold text-neutral-500 mt-4">
+  <h1 class="text-5xl lg:text-6xl font-bold">Home</h1>
+  <h2 class="text-md lg:text-lg font-bold mt-4 text-text-color/80">
     WaRNiNG: this website, like my life, is constantly under construction.
   </h2>
 
@@ -30,7 +30,7 @@ const posts = (await getCollection("posts")).sort(
     <hr />
   </MarkdownBlock>
 
-  <h3 class="text-3xl font-bold text-neutral-700 mt-12">Recent Writing</h3>
+  <h3 class="text-3xl font-bold mt-12">Recent Posts</h3>
 
   <ul class="flex flex-col gap-4 my-6">
     {
@@ -42,8 +42,12 @@ const posts = (await getCollection("posts")).sort(
     }
   </ul>
 
-  <a href="/posts" class="font-bold text-neutral-400 text-md text-neutral-700"
-    >{`See ${posts.length} more →`}</a
-  >
-  <LinkGraph rootPath="notes/austria-vienna/" />
+  <a href="/posts" class="font-bold text-md">{`See ${posts.length} more →`}</a>
+
+  <MarkdownBlock>
+    <hr />
+  </MarkdownBlock>
+
+  <h3 class="text-3xl font-bold mt-12">My Notebook</h3>
+  <LinkGraph rootPath="notes/about-these-notes/" />
 </BaseLayout>
