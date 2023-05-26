@@ -38,6 +38,6 @@ Based on the theme, outline and set 5 overarching goals for the next year. These
 1. Clean and refresh any outstanding projects and tasks in Todoist
 
 Past Retrospectives:
-[[2022 Retrospective]]
+[[2022-retrospective]]
 
 **Other Related Meanderings:**

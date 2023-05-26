@@ -12,17 +12,18 @@ Currently I'm based at [[uk-london|London, UK]].
 
 Other places I've been:
 
-- [[sg-singapore|Singapore, Singapore]]
+- [[sg-singapore]]
 - Cambridge, UK
-- [[austria-vienna|Vienna, Austria]]
-- [[hochiminh-vietnam|Ho Chi Minh, Vietnam]]
-- [[colombia-bogota|Bogota, Colombia]]
-- [[indonesia-bali|Bali, Indonesia]]
-- [[bonn-germany|Bonn, Germany]]
+- [[austria-vienna]]
+- [[hochiminh-vietnam]]
+- [[colombia-bogota]]
+- [[indonesia-bali]]
+- [[bonn-germany]]
 - Virudhunagar, India
 - Madurai, India
 - Chennai, India
 - Johor Bahru, Malaysia
 - Kuala Lampur, Malaysia
 - Genting, Malysia
-- [[uk-birmingham|Birmingham, UK]]
+- [[uk-birmingham]]
+- [[edinburgh-uk]]

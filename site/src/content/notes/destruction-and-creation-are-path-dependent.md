@@ -10,4 +10,4 @@ Destruction is path-dependent as the specific situation of the collapse of a con
 
 And because [[ideas-are-cannibals]] and feed off the destructive energy of unravelling scripts, creation is necessarily tied to being path-dependent as well. This is what people in venture capital call "timing", does the unravelling of the existing script line up with the scaling of this idea?
 
-This means that to create, it is crucial to deeply understand what is being destroyed. In a sense, we must  _become what we're trying to destroy_.
+This means that to create, it is crucial to deeply understand what is being destroyed. In a sense, we must _become what we're trying to destroy_.
