@@ -3,12 +3,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseHead from "../components/BaseHead.astro";
 import NavLink from "../components/NavLink.astro";
 
-const { title, description, emoji } = Astro.props;
+const { title, description, emoji, image } = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
   <head>
-    <BaseHead title={title} description={description} emoji={emoji} />
+    <BaseHead
+      title={title}
+      description={description}
+      emoji={emoji}
+      image={image ?? "/main-art.jpeg"}
+    />
   </head>
 
   <body
