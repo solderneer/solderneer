@@ -2,7 +2,7 @@
 title: "Answer the Call"
 description: "On connectedness, beauty and meaning."
 emoji: "🥨"
-pubDate: 28-May-2023
+pubDate: 02-Jun-2023
 tags: ["type/life"]
 heroImage: "https://files.solderneer.me/edinburgh-uk/1.jpeg"
 ---
@@ -23,7 +23,7 @@ Something about the extremely focused flow states of examinations have always di
 
 This sense of _transcendence_ comes through a call in the world, which I must answer. These powerful words by Saffron Huang remind me of the importance of this call, as a technologist with the agency to encode my ideological preferences into the things I make.
 
->We are an unprecedentedly self-augmenting species, with a fundamental drive to organize, imagine, construct and exercise our will in the world. And we can measure our technological success on the basis of how much they increase our humanity. What we need is a vision for that humanity, and to enact this vision. What do we, humans, want to become?
+> We are an unprecedentedly self-augmenting species, with a fundamental drive to organize, imagine, construct and exercise our will in the world. And we can measure our technological success on the basis of how much they increase our humanity. What we need is a vision for that humanity, and to enact this vision. What do we, humans, want to become?
 
 But until now, I've never thought to write the call down, and in moments of intensity, I forget myself. This letter to you, is a letter to myself, on the call I feel moved to answer today.
 
@@ -31,17 +31,17 @@ But until now, I've never thought to write the call down, and in moments of inte
 
 The social imaginary of contributions towards a better world has gently drifted over time. From the 1900s to the present day, Albert Einstein gave way to Steve Jobs, and the Nobel Prize gave way to the billion-dollar acquisition. But it is the view of Richard Hamming, that sticks with me the most:
 
->In Hamming's world, great achievements are _gifts of knowledge_ to humanity.
+> In Hamming's world, great achievements are _gifts of knowledge_ to humanity.
 
 Perhaps I interpret this more loosely than Hamming intended, but to me a gift of knowledge is not **just** research. It's a lens through which someone sees possibilities that they just didn't see before.
 
 The challenge for me, is to think and feel and find the gifts I can offer. And those gifts are simultaneously the answer to my call. To trace my steps and find these gifts, I decided to start by looking in my own past through a piece I wrote titled: [Technology's purpose is vitality](https://solderneer.me/letters/technologys-ultimate-purpose-is-vitality/).
 
->If the proximate purpose of technology is flourishing, the ultimate purpose of technology is vitality.
+> If the proximate purpose of technology is flourishing, the ultimate purpose of technology is vitality.
 
 And it just _has_ to be. If we just open our eyes to what is possible, technology can be a force for good, for optimism, for love, hope and joy. What gifts might show people that the broken promises made by technologists can be mended? That we are capable of looking beyond technology, and acknowledging the interdependent and infinite relations that constitute the world's problems.
 
-It took a lot of touching grass, and staring at a blank page for me to get to an answer that felt  satisfactory. I expect these gifts and calls to be evolutionary with my own growth and trajectory in life, and thus a humble request to you, my dear reader, to be vocal in any suggestions or criticisms to what I've written down.
+It took a lot of touching grass, and staring at a blank page for me to get to an answer that felt satisfactory. I expect these gifts and calls to be evolutionary with my own growth and trajectory in life, and thus a humble request to you, my dear reader, to be vocal in any suggestions or criticisms to what I've written down.
 
 For clarity, I've separated my calls into three levels of abstraction. _Let's begin._
 
@@ -53,7 +53,7 @@ My first call relates to the individual. An inspiring story from the past is the
 
 Today, the available design space for extending human flourishing has expanded past computing, biotechnology for example is a promising new field. But given my prior interests, and the unprecedented advancements in artificial intelligence over recent years, the call I feel at the level of the individual is **to contribute to augmentation technologies that keep humans firmly in control of our own destiny**.
 
-In other words, unlike the researchers rolling the red-carpet for super-intelligent AI, I don't see why we shouldn't *be* the super-intelligence. 
+In other words, unlike the researchers rolling the red-carpet for super-intelligent AI, I don't see why we shouldn't _be_ the super-intelligence.
 
 _Why go down without a fight?_
 
@@ -67,7 +67,7 @@ The internet which emerged alongside personal computing tells the story of how s
 
 A quote by the sociobiologist, EO Wilson, clarifies this point:
 
->The real problem of humanity is the following: we have Paleolithic emotions, medieval institutions, and god-like technology.
+> The real problem of humanity is the following: we have Paleolithic emotions, medieval institutions, and god-like technology.
 
 Institutions and other societal systems are interdependent with us and the relations we hold with one another. _We make the systems, and then the systems make us._ But given the rapid change of pace in technology, I find it unlikely that previous methods of social organization will remain relevant for very much longer. The fundamental assumptions of religion, capitalism, communism and other mechanisms are being tested to their limits by our god-like technology.
 
@@ -84,15 +84,15 @@ On this call are tangible themes like decentralized and evolutionary organizatio
 
 [Braiding Sweetgrass](https://www.goodreads.com/book/show/17465709-braiding-sweetgrass) by Robin Wall Kimmerer is still today, one of the most profound books I've had the opportunity to read. Robin reminds us of who we are, situated within the interdependent web of life that sustains us. We share this planet not just with other people, but all other forms of life, which calls upon us (and me) to think: what are we responsible for?
 
-Robin calls on us to appreciate the gifts of sunlight, food, water and air, and to notice that the currency of a gift economy, at its root, is reciprocity. 
+Robin calls on us to appreciate the gifts of sunlight, food, water and air, and to notice that the currency of a gift economy, at its root, is reciprocity.
 
->If citizenship is a matter of shared beliefs, then I believe in the democracy of species. If citizenship means an oath of loyalty to a leader, then I choose the leader of the trees. If good citizens agree to uphold the laws of the nation, then I choose natural law, the law of reciprocity, of regeneration, of mutual flourishing.
+> If citizenship is a matter of shared beliefs, then I believe in the democracy of species. If citizenship means an oath of loyalty to a leader, then I choose the leader of the trees. If good citizens agree to uphold the laws of the nation, then I choose natural law, the law of reciprocity, of regeneration, of mutual flourishing.
 
 This is a call, not for me to create or invent, but to breathe and notice that _the transcendence I am seeking is seeking me_. To realize my place in the broader, beautiful web of life that surrounds me everyday.
 
 And then, to protect that web, and remember that as technologists it is on us to consider what we can give, rather that what we can take.
 
->All powers have two sides, the power to create and the power to destroy. We must recognize them both, but invest our gifts on the side of creation.
+> All powers have two sides, the power to create and the power to destroy. We must recognize them both, but invest our gifts on the side of creation.
 
 ---
 
@@ -107,3 +107,4 @@ _Special gratitude to [Yegor Lisle](https://www.linkedin.com/in/yegorlisle/), [Z
 **Related Notes:**
 
 [[daos-are-digital-organisms]] [[edinburgh-uk]] [[heterarchies-are-the-ideal-civil-society]]
+
