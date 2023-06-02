@@ -3,7 +3,7 @@ title: "A study can prove anything"
 emoji: "📘"
 pubDate: 29-Nov-2022
 updatedDate: 29-Nov-2022
-tags: ["science"]
+tags: ["topic/science"]
 ---
 
 [Beware the man of one study](https://slatestarcodex.com/2014/12/12/beware-the-man-of-one-study/)

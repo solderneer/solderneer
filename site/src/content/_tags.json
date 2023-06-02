@@ -1,83 +1,71 @@
 {
-  "life": {
+  "topic/social-sciences": {
     "description": "",
     "color": "var(--green)"
   },
-  "engineering": {
+  "topic/technology": {
     "description": "",
-    "color": "var(--red)"
+    "color": "var(--blue)"
   },
-  "young-shan": {
+  "topic/philosophy": {
     "description": "",
     "color": "var(--orange)"
   },
-  "healthcare": {
+  "topic/science": {
     "description": "",
     "color": "var(--red)"
   },
-  "project": {
-    "description": "",
-    "color": "var(--blue)"
-  },
-  "web3": {
-    "descriptiion": "",
-    "color": "var(--blue)"
-  },
-  "ai": {
-    "description": "",
-    "color": "var(--purple)"
-  },
-  "culture": {
+  "topic/arts": {
     "description": "",
     "color": "var(--yellow)"
   },
-  "philosophy": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "startups": {
+  "topic/computer-science": {
     "description": "",
     "color": "var(--blue)"
   },
-  "education": {
+  "topic/history-and-geography": {
+    "description": "",
+    "color": "var(--blue)"
+  },
+  "topic/literature": {
     "description": "",
     "color": "var(--purple)"
   },
-  "place": {
+  "type/life": {
+    "description": "",
+    "color": "var(--green)"
+  },
+  "type/young-shan": {
     "description": "",
     "color": "var(--orange)"
   },
-  "institutions": {
+  "type/principles": {
+    "description": "",
+    "color": "var(--blue)"
+  },
+  "type/place": {
     "description": "",
     "color": "var(--orange)"
   },
-  "principles": {
-    "description": "",
-    "color": "var(--blue)"
-  },
-  "economics": {
-    "description": "",
-    "color": "var(--blue)"
-  },
-  "science": {
-    "description": "",
-    "color": "var(--green)"
-  },
-  "index": {
+  "type/index": {
     "description": "",
     "color": "var(--red)"
   },
-  "politics": {
+  "project/axiom": {
+    "description": "",
+    "color": "var(--purple)"
+  },
+  "project/hea": {
     "description": "",
     "color": "var(--red)"
   },
-  "literature": {
+  "project/speechless": {
     "description": "",
-    "color": "var(--green)"
+    "color": "var(--orange)"
   },
-  "technology": {
+  "project/90-day-transformation": {
     "description": "",
-    "color": "var(--green)"
+    "color": "var(--orange)"
   },
   "ongoing": {
     "description": "",

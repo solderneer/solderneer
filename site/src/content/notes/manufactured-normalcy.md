@@ -3,7 +3,7 @@ title: "Manufactored Normalcy"
 emoji: "😑"
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
-tags: ["culture"]
+tags: ["topic/social-sciences"]
 ---
 
 The idea of [[manufactured-normalcy]] is that most of us live in a present that reuses metaphors that are familiar to us. It reasons that even though we live with technology that vastly outpaces our wildest dreams in the 1900s, everything feel _strangely normal_.

@@ -1,7 +1,7 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PostItemMinimal from "../../components/PostItemMinimal.astro";
+import LetterItemMinimal from "../../components/LetterItemMinimal.astro";
 import { CollectionEntry, getCollection } from "astro:content";
 import type {
   InferGetStaticParamsType,
@@ -12,7 +12,7 @@ import { stringToPastelColor } from "../../utils";
 
 export async function getStaticPaths() {
   // Fetch all the content
-  const allPosts = (await getCollection("posts")).sort(
+  const allLetters = (await getCollection("letters")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
   );
   const allNotes = (await getCollection("notes")).sort(
@@ -21,13 +21,13 @@ export async function getStaticPaths() {
 
   // List of dynamically generated tags
   const uniqueTags = [
-    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+    ...new Set(allLetters.map((letter) => letter.data.tags).flat()),
     ...new Set(allNotes.map((note) => note.data.tags).flat()),
   ];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) =>
-      post.data.tags.includes(tag)
+    const filteredLetters = allLetters.filter((letter) =>
+      letter.data.tags.includes(tag)
     );
     const filteredNotes = allNotes.filter((note) =>
       note.data.tags.includes(tag)
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 
     return {
       params: { slug: tag },
-      props: { posts: filteredPosts, notes: filteredNotes },
+      props: { letters: filteredLetters, notes: filteredNotes },
     };
   });
 }
@@ -44,7 +44,7 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { slug } = Astro.params as Params;
-const { posts, notes } = Astro.props as Props;
+const { letters, notes } = Astro.props as Props;
 
 const hue = stringToPastelColor(`#${slug!}`);
 ---
@@ -57,12 +57,12 @@ const hue = stringToPastelColor(`#${slug!}`);
   >
     #{slug}
   </h1>
-  <h2>Posts</h2>
+  <h2>Letters</h2>
   <ul class="flex flex-col gap-6">
     {
-      posts.map((post) => (
+      letters.map((letter) => (
         <li>
-          <PostItemMinimal slug={post.slug} post={post} />
+          <LetterItemMinimal slug={letter.slug} letter={letter} />
         </li>
       ))
     }
@@ -72,7 +72,7 @@ const hue = stringToPastelColor(`#${slug!}`);
     {
       notes.map((note) => (
         <li>
-          <PostItemMinimal slug={note.slug} post={note} />
+          <LetterItemMinimal slug={note.slug} letter={note} />
         </li>
       ))
     }

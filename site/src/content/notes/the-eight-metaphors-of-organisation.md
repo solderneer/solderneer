@@ -3,7 +3,7 @@ title: "The Eight Metaphors of Organisation"
 emoji: "💼"
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
-tags: ["institutions"]
+tags: ["topic/social-sciences"]
 ---
 
 > [!NOTE] This is not original

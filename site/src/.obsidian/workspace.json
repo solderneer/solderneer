@@ -4,32 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "991fd9b82d41850f",
+        "id": "16209309d925d2b8",
         "type": "tabs",
         "children": [
           {
-            "id": "37b237cc6f8efbf3",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "e8a3c0f8914ed9f0",
+            "id": "ac018686d73e694c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_private/_inbox/silent-speech-interface-proposal-1.md",
+                "file": "content/letters/answer-the-call.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -111,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_private/_inbox/silent-speech-interface-proposal-1.md",
+                "file": "content/letters/answer-the-call.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_private/_inbox/silent-speech-interface-proposal-1.md",
+                "file": "content/letters/answer-the-call.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_private/_inbox/silent-speech-interface-proposal-1.md"
+                "file": "content/letters/answer-the-call.md"
               }
             }
           },
@@ -172,42 +163,47 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e8a3c0f8914ed9f0",
+  "active": "ac018686d73e694c",
   "lastOpenFiles": [
-    "_private/_inbox/intentions-are-purpose-and-meaning.md",
-    "content/notes/places-ive-been-to.md",
-    "_private/life/2023/26-May-2023.md",
     "content/notes/edinburgh-uk.md",
-    "_private/_inbox/silent-speech-interface-proposal-1.md",
-    "_private/life/2023/22-May-2023.md",
-    "_private/dreams/The Brief.md",
-    "content/notes/organize-brains-with-tags.md",
-    "_private/projects/90-day-transformation.md",
-    "content/notes/destruction-and-creation-are-path-dependent.md",
-    "content/notes/james-phillips-creative-destruction.md",
-    "_private/projects/happily-ever-after/proposal-to-chun.md",
-    "_private/projects/happily-ever-after/intern-interviews-2023.md",
-    "_private/_inbox/Feedback for Ritual Beta Test.md",
-    "_private/_inbox/n-dimensional-oopsies.md",
-    "content/notes/uk-london.md",
-    "_private/_inbox/London, United Kingdom.md",
-    "content/notes/bonn-germany.md",
-    "content/notes/birmingham-uk.md",
-    "_private/life/2023/21-May-2023.md",
-    "_private/projects/valentines-day-2023.md",
-    "_private/people/Aashraya Rao.md",
-    "_private/projects/happily-ever-after/happily-ever-after.md",
-    "_private/projects/axiom/axiom.md",
-    "_private/projects/axiom/axiom-open-letter.md",
-    "_private/projects/axiom/axiom-0.1-summary.md",
-    "_private/Untitled",
-    "_private/dreams",
-    "_private/untitled folder",
-    "_private/projects/valentines-day-2023",
-    "_private/projects/untitled folder",
-    "_private/projects/axiom",
-    "_private/projects/happily-ever-after",
-    "_private/projects",
+    "content/letters/answer-the-call.md",
+    "content/notes/top-of-mind.md",
+    "pages/home.md",
+    "content/notes/daos-are-digital-organisms.md",
+    "_private/life/2023/01-Jun-2023.md",
+    "components/LetterItemMinimal.astro",
+    "components/LetterItem.astro",
+    "pages/letters/index.astro",
+    "pages/letters/[...slug].astro",
+    "pages/letters",
+    "pages/notes/[...slug].astro",
+    "pages/notes",
+    "layouts/Letter.astro",
+    "content/posts/technologys-ultimate-purpose-is-vitality.md",
+    "content/letters/top-bottom-up-down.md",
+    "content/letters/tkkyia-2016.md",
+    "content/letters/the-nature-of-care.mdx",
+    "content/letters/the-cuban-paradox.md",
+    "content/letters/technologys-ultimate-purpose-is-vitality.md",
+    "content/letters/taught-to-teach.md",
+    "content/letters/pcb-making-in-singapore.md",
+    "content/letters/mind-body-network.md",
+    "content/letters/maker-faire-2016.md",
+    "content/letters/learning-used-to-be-fun.md",
+    "content/letters/learn-dont-study.md",
+    "content/letters/insurance-shouldnt-wash-cars.md",
+    "content/letters/institutionalised-learning.md",
+    "content/letters/honeybee-healthcare.mdx",
+    "content/letters/hephaestus-project.md",
+    "content/letters/from-startups-to-scams.md",
+    "content/letters/droid-project.md",
+    "content/letters/deep-learning-deep-divide.md",
+    "content/letters/data-structures-data-control.md",
+    "content/letters/building-a-diy-solder-oven.md",
+    "content/letters/arguments-for-universal-coaching.md",
+    "Untitled 2.canvas",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
     "_private/people/photos/zach.jpeg",
     "_private/people/photos/yi-hein.jpeg",
     "_private/people/photos/yeshuai.jpeg",
@@ -217,9 +213,6 @@
     "_private/people/photos/ty-hagler.jpeg",
     "_private/people/photos/toby-wong.jpeg",
     "_private/people/photos/steve-kerrison.jpeg",
-    "_private/people/photos/sri-ayangar.jpeg",
-    "_private/people/photos/Hihi.pdf",
-    "_private/people/photos",
-    "Untitled.canvas"
+    "_private/people/photos/sri-ayangar.jpeg"
   ]
 }

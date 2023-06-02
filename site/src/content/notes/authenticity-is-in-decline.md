@@ -3,7 +3,7 @@ title: "Authenticity is in decline"
 emoji: "⏬"
 pubDate: 15-Nov-2022
 updatedDate: 15-Nov-2022
-tags: ["culture"]
+tags: ["topic/social-sciences"]
 ---
 
 Authenticity as a concept came out of the hipster movement which primarily focuses on a sense of individuality. Of knowing and doing things that no one else is doing. Toby Shurin says in his essay [After Authenticity](https://subpixel.space/entries/after-authenticity/)

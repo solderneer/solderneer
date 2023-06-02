@@ -3,7 +3,7 @@ title: "DAOs should be communication-first"
 emoji: "📢"
 pubDate: 05-Nov-2022
 updatedDate: 15-Nov-2022
-tags: ["web3", "institutions"]
+tags: ["topic/technology", "topic/social-sciences"]
 ---
 
 > When I imagine an organization I have in mind ... an interlocking network of communication processes” (Taylor, 2003: 12)

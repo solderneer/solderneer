@@ -3,7 +3,7 @@ title: "Market-Protocol Fit"
 emoji: "🤙"
 pubDate: 15-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["startups"]
+tags: ["topic/technology"]
 ---
 
 > Cryptoeconomic protocols are market frameworks looking for potential product applications.

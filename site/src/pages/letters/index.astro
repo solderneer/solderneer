@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+import LetterItemMinimal from "../../components/LetterItemMinimal.astro";
+
+const title = "Letters";
+const description =
+  "Writing on health, technology, culture, philosophy, and economics: arranged in reverse chronological order.";
+
+const letters = (await getCollection("letters")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title={title} description={description}>
+  <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-3">📝</h1>
+  <h1 class="text-5xl lg:text-6xl font-bold">{title}</h1>
+  <h2 class="text-md lg:text-lg font-bold text-text-color/80 mt-4 mb-10">
+    {description}
+  </h2>
+  <ul class="flex flex-col gap-4">
+    {
+      letters.map((letter) => (
+        <li>
+          <LetterItemMinimal slug={letter.slug} letter={letter} />
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

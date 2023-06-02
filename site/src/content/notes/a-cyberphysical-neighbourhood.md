@@ -3,7 +3,7 @@ title: "A cyberphysical neighbourhood"
 emoji: "🏘"
 pubDate: 27-Nov-2022
 updatedDate: 27-Nov-2022
-tags: ["culture"]
+tags: ["topic/social-sciences"]
 ---
 
 This is a thought inspired by books like [The Network State](https://thenetworkstate.com/). As we move towards digital connection, and are able to communicate instantaenously all across the world: the definition of neighbours has shifted.

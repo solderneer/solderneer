@@ -3,7 +3,7 @@ title: "Society is scripted"
 emoji: "🧑‍🤝‍🧑"
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["culture"]
+tags: ["topic/social-sciences"]
 ---
 
 In the article [On the Unraveling of Scripts](https://www.ribbonfarm.com/2013/06/06/on-the-unraveling-of-scripts/), my favourite digital writer Venkatesh Rao writes about scripts and scriptlessness.

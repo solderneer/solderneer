@@ -3,7 +3,7 @@ title: "Public Goods"
 emoji: "🤗"
 pubDate: 27-Nov-2022
 updatedDate: 27-Nov-2022
-tags: ["economics", "web3"]
+tags: ["topic/social-sciences", "topic/technology"]
 ---
 
 In the economical sense, a public good is any good where no individual can be stopped from accessing it, and one individual accessing the good does not exclude another individual from using it.

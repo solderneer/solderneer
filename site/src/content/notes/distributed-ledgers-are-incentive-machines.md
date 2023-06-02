@@ -3,7 +3,7 @@ title: "Distributed ledgers are incentive machines"
 emoji: "🥕"
 pubDate: 26-Nov-2022
 updatedDate: 27-Nov-2022
-tags: ["web3"]
+tags: ["topic/technology"]
 ---
 
 >The blockchain community understands that blockchains can help **align incentives** among a tribe of token holders. Each token holder has [**skin in the game**](https://www.amazon.com/Skin-Game-Hidden-Asymmetries-Daily/dp/042528462X). But the benefit is actually more general than simply _aligning_ incentives: you can _design_ incentives of your choosing, by giving them block rewards. Put another way: **you can get people to do stuff, by rewarding them with tokens.** Blockchains are **incentive machines**.

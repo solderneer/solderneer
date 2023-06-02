@@ -3,7 +3,7 @@ title: "web2 is built for self-expression not thought"
 emoji: "🙊"
 pubDate: 13-Nov-2022
 updatedDate: 15-Nov-2022
-tags: ["web3"]
+tags: ["topic/technology"]
 ---
 
 [[the-web-is-a-stream]]. A nice piece of visual imagery from this analogy is that of standing in the middle of a river. The current simply rushes past, giving one just enough time to consider a thought, before replacing it with the next.

@@ -3,7 +3,7 @@ title: "DAOs are digital organisms, coordinating through collective vibes"
 emoji: "👽"
 pubDate: 2-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["web3", "institutions"]
+tags: ["topic/technology", "topic/social-sciences"]
 ---
 
 > In 2021, a DAO _could_ be described as a voluntary association with the operating principles of digital cooperativism. - [A Prehistory of DAOs](https://gnosisguild.mirror.xyz/t4F5rItMw4-mlpLZf5JQhElbDfQ2JRVKAzEpanyxW1Q)

@@ -3,11 +3,11 @@ title: "Local care for global health"
 emoji: "💙"
 pubDate: 25-Nov-2022
 updatedDate: 28-Nov-2022
-tags: ["healthcare"]
+tags: ["topic/social-sciences", "project/hea"]
 ---
 
 ## Cuba and local care
-In [[notes/the-cuban-paradox]], the preventive primary care system was shown to have immense benefits and greater efficiency than a reactive system.
+In [[on-the-cuban-paradox]], the preventive primary care system was shown to have immense benefits and greater efficiency than a reactive system.
 
 This community-driven healthcare model means that there is one doctor for every 20-30 families, which enables care to be provided in a highly contextualized manner. Locally care works very well, but why?
 

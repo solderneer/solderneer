@@ -3,13 +3,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import MarkdownBlock from "../components/MarkdownBlock.astro";
-import PostItemMinimal from "../components/PostItemMinimal.astro";
+import LetterItemMinimal from "../components/LetterItemMinimal.astro";
 import LinkGraph from "../components/LinkGraph.astro";
 
 import { getCollection } from "astro:content";
 import { Content } from "./home.md";
 
-const posts = (await getCollection("posts")).sort(
+const letters = (await getCollection("letters")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -30,24 +30,26 @@ const posts = (await getCollection("posts")).sort(
     <hr />
   </MarkdownBlock>
 
-  <h3 class="text-3xl font-bold mt-12">Recent Posts</h3>
+  <h3 class="text-3xl font-bold mt-12">Recent Letters</h3>
 
   <ul class="flex flex-col gap-4 my-6">
     {
-      posts.slice(0, 3).map((post) => (
+      letters.slice(0, 3).map((letter) => (
         <li>
-          <PostItemMinimal slug={post.slug} post={post} />
+          <LetterItemMinimal slug={letter.slug} letter={letter} />
         </li>
       ))
     }
   </ul>
 
-  <a href="/posts" class="font-bold text-md">{`See ${posts.length} more →`}</a>
+  <a href="/letters" class="font-bold text-md"
+    >{`See ${letters.length} more →`}</a
+  >
 
   <MarkdownBlock>
     <hr />
   </MarkdownBlock>
 
   <h3 class="text-3xl font-bold mt-12">My Notebook</h3>
-  <LinkGraph rootPath="notes/about-these-notes/" />
+  <LinkGraph rootPath="notes/top-of-mind/" />
 </BaseLayout>

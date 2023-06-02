@@ -3,7 +3,7 @@ title: "Tokens are Products"
 emoji: "🪙"
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["web3"]
+tags: ["topic/technology"]
 ---
 
 When designing a token, it is essential to take the user into consideration.

@@ -2,8 +2,8 @@
 title: "Edinburgh, UK"
 emoji: "🇬‍🇧"
 pubDate: 22-May-2023
-updatedDate: 22-May-2023
-tags: ["ongoing", "place"]
+updatedDate: 28-May-2023
+tags: ["type/place"]
 ---
 
 People have told me Edinburgh is a site to see, and I quote _one of the prettiest, if not the prettiest capital city of any country in the world_. So, I just had to go take a look, in a 4-day solo-trip :)
@@ -64,6 +64,7 @@ Café Portrait
 # Trip Logs
 
 **Log #1 \[08:50 AM, 23 May 2023\]** 
+
 So I've just arrived and unloaded my bag at Castle Rock. That hostel was really incredible btw, the lounges were fancy and the people were so polite and kind. At least from the brief interactions I had with them. I maybe spent around 15 minutes there, before setting out to walk around Old Town, Edinburgh.
 
 And it is pretty. Like really pretty. And it is very walkable. I managed to check out St Giles, Greyfriars Kirkyard, and the University of Edinburgh. And then I walked over to perhaps pickup some coffee from [The Milkman](https://themilkman.coffee/). Unfortunately, it was kinda full, so I had to go over to the other cafe on my list, which was the [Union Brew Lab](https://www.brewlabcoffee.co.uk/).
@@ -75,6 +76,7 @@ After this coffee, I guess I'll be heading over to the walking tour that is star
 ---
 
 **Log #2 \[19:24, 23 May 2023\]**
+
 Somehow, I've managed to keep the sickness at bay and keep it from getting worse. Although, hitting 24000 steps and just the tiredness from being sick and not sleeping enough is getting to be.
 
 The free walking tours of cities is a godsend, for understanding more about a city and gaining a richer appreciation for it. My guide was absolutely hilarious. We visited all of the local spots in the [Old Town](https://en.wikipedia.org/wiki/Old_Town%2C_Edinburgh), [The Royal Mile](https://en.wikipedia.org/wiki/Royal_Mile) , [Parliament House](https://en.wikipedia.org/wiki/Parliament_House,_Edinburgh), [St Giles' Cathedral](https://en.wikipedia.org/wiki/St_Giles%27_Cathedral) and all the other majestic buildings.
@@ -89,6 +91,8 @@ A short break in the hostel's lounge room, and I head out again to Edinburgh Cas
 At this point, I was so tired that I just needed food and a bed. So I popped over to [Haggis Box](https://www.thehaggisbox.com/), for my fix of the national delicacy, and got it to go. Which brings me to where I am, in my bed, and ready to sleep at 8 PM on a Tuesday night. (also the haggis was really good, esp with the whisky sauce)
 
 Probably going to watch a movie, and then catch an early night. I'll need the strength for tomorrow's hike up to Arthur's Seat. Ciao!
+
+![A view of St. Giles Cathedral](https://files.solderneer.me/edinburgh-uk/1.jpeg)
 
 ---
 
@@ -117,6 +121,10 @@ Eventually, I circled back around to Victoria Street, near the Royal Mile. Decid
 
 Movie was good though. Just got back to my accommodation to type this out. Now I'm probably heading to bed. good night.
 
+![Me climbing up to Arthur's Seat](https://files.solderneer.me/edinburgh-uk/2.jpeg)
+
+---
+
 **Log #5 \[08:14, 26 May 2023\]**
 
 I didn't have any energy to do a log at all yesterday. It was a long day trip, and a lot of time spent on a bus. By the time we rolled back into Edinburgh, it was just past 9 at night, and I just barely had the energy to crawl to Mcdonalds, grab dinner, and then get to bed.
@@ -144,3 +152,24 @@ And that was mostly it. An incredible day, with beautiful sights, and great stor
 Today, I'm taking a bit of a chill day. Probably going to do some shopping, and I think I'll visit the Scottish National Gallery and a couple of other museums. We'll keep it light, I've already checkout out of the hostel, and I have until about 9pm to kill.
 
 Cheers, to a good last day.
+
+![A rock from glen coe](https://files.solderneer.me/edinburgh-uk/3.jpeg)
+
+---
+**Log #5 \[13:42, 28 May 2023\]**
+
+This is something of a delayed log. I find myself back in London now, in fact I've been in London for more than a day at this point. But, I had to circle around the wrap up what I started. For the most part, the last day was exactly what I said I would be doing. I started off by taking a nice walk through the Scottish National Gallery, and taking a look at the art collections. Sometimes, especially when I have a calmer and peaceful mind, it's a lot easier for me to spend time to appreciate art.
+
+It was definitely one of those days, I managed to spend almost 2 hours walking around in there, and it was beautiful. One of my favourite pieces was the [portrait of Margarita Macdonald, by the Scottish painter Raeburn](Scottish painter Raeburn: portrait of Margarita Macdonald.).
+
+I also had a bit of time to head over to the Scottish Museum, and take a quick walk around. Didn't spend too much time there however, I was started to get hungry at around 13:00. Nothing to mention of note here, other than the fact that they had a Makerbot on display in a booth, which made me feel very old. _Early 21st Century_, those were the tools of my childhood!
+
+After that, I went over to the [Edinburgh Larder](https://www.edinburghlarder.co.uk/), a local and very well rated cafe, where I dared to try Cullen skink, a Scottish traditional soup made out of smoked fish. Funnily, the waiter seemed almost shocked when I ordered it, I suppose he wasn't expecting a tourist to take the leap. It was delicious though, I enjoyed it, maybe not something I would actively seek out, but still very good nonetheless.
+
+To be honest, I didn't feel like doing much after that. I wrapped up some souvenir shopping, visiting [Armchair Books](https://www.armchairbooks.co.uk/) for some second hands books and the [Makers Market](https://supportthemakersuk.com/about-us/). Then, I spent the evening reading some of my own books while taking in the scenery.
+
+The trip back was bittersweet. On the one hand, I felt like I'd spent enough time in Edinburgh, I was excited to get back to London and get back to some work. On the other, I felt sad, or maybe even some sort of hesitant to return home. I bumped into a friend I'd made the previous day on my Scottish Highlands tour, who was on an earlier coach home, and we had a nice conversation about what we enjoyed on our trip. It's interesting how there are some people who just blip in and out of your life, brought together and then apart by pure happenstance.
+
+A day after coming back to London, and reality resumes. The glenns, castles, stories and cobbled paths linger in my thoughts but are starting to feel more like vivid memories and less like reality. It feels good to be home though, adventures have way of clearing the mind and putting me in a new headspace. And Edinburgh was one of the most mythical adventures yet.
+
+![Margaritta MacDonald by Sir Henry Raeburn](https://files.solderneer.me/edinburgh-uk/4.jpeg)

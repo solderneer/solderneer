@@ -3,7 +3,7 @@ title: "Malthusian Traps"
 emoji: "👹"
 pubDate: 01-Dec-2022
 updatedDate: 04-Jan-2023
-tags: ["economics"]
+tags: ["topic/social-sciences"]
 ---
 
 Thomas Malthus started being featured as a byline, after he wrote "An Essay on the Principle of Population". This gave rise to the concept of the multi-polar trap (or Malthusian Trap), driven by compeition causing coordination failure.

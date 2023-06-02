@@ -3,7 +3,7 @@ title: "Mastodon is antiviral"
 emoji: "🐘"
 pubDate: 15-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["web3"]
+tags: ["topic/technology"]
 ---
 
 **Mastodon is a brilliant example of [antiviral design](https://uxdesign.cc/mastodon-is-antiviral-design-42f090ab8d51): it was specifically designed to slow things down a little bit.** After Elon Musk turned Twitter into a blue-tick commodity-driven negative-sum game, I started looking for a new space to bring my social business.

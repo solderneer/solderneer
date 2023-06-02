@@ -3,7 +3,7 @@ title: "Evolutionary Organizations"
 emoji: "♻"
 pubDate: 28-Nov-2022
 updatedDate: 28-Nov-2022
-tags: ["institutions"]
+tags: ["topic/social-sciences"]
 ---
 
 The idea of Evolutionary or "Teal" Organizations, was first popularized in the book [Reinventing Organizations](https://reinventingorganizationswiki.com/en/). 

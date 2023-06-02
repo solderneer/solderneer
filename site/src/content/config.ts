@@ -17,7 +17,7 @@ function validateTags(tags: string[]): boolean {
   return true;
 }
 
-const posts = defineCollection({
+const letters = defineCollection({
   // Type-check frontmatter using a schema
   schema: z.object({
     title: z.string(),
@@ -57,4 +57,4 @@ const notes = defineCollection({
   }),
 });
 
-export const collections = { posts, notes };
+export const collections = { letters, notes };
