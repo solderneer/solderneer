@@ -15,11 +15,11 @@ Recently, I've been thinking about this quality of _connectedness, beauty and me
 
 Percolating in my mind, is a video by [Ellie Hain](https://twitter.com/ellie__hain) where she refers to the self-awareness of one's sacred as [Exiting The Void](https://www.youtube.com/watch?v=BqB-1ABZJSM). My own experiences of participating in my sacred, have been the deepest instances of wonder, hope, resilience and love in my life.
 
-And speaking of new beginnings, some of you might know of my recent solo-trip to [[edinburgh-uk]], capping the second year my undergraduate course at [UCL](https://www.ucl.ac.uk/). That was much needed time for introspection into my own sources of meaning, and a realization that a part of me felt lost.
+And speaking of new beginnings, some of you might know of my recent solo-trip to [[edinburgh-uk]], capping the second year of my undergraduate course at [UCL](https://www.ucl.ac.uk/). That was some much needed time for introspection into my own sources of meaning, and a realization that a part of me felt lost.
 
 ![Ice cream in Edinburgh](https://files.solderneer.me/answer-the-call/1.jpeg)
 
-Something about the extremely focused flow states of examinations have always disconnected me from the bigger picture. Ever since I was 12, I've always put myself in a story as a participant working towards something larger than myself. Being part of a movement towards some grand vision for a better world, cheesy as it sounds, forms a core component of my sacred.
+Something about the extremely focused flow state of examinations has always disconnected me from the bigger picture. Ever since I was 12, I've put myself in a story as a participant working towards something larger than myself. Being part of a movement towards some grand vision for a better world, cheesy as it sounds, forms a core component of my sacred.
 
 This sense of _transcendence_ comes through a call in the world, which I must answer. These powerful words by Saffron Huang remind me of the importance of this call, as a technologist with the agency to encode my ideological preferences into the things I make.
 
@@ -51,9 +51,9 @@ For clarity, I've separated my calls into three levels of abstraction. _Let's be
 
 My first call relates to the individual. An inspiring story from the past is the one of J.C.R Licklider and the invention of interactive personal computing. Licklider's fundamental belief, as stated in [Man-Computer Symbiosis](https://en.wikipedia.org/wiki/Man-Computer_Symbiosis), was that technology can and should be used to enhance an individual's agency. Part of my initial statement, "Technology's proximal purpose is human flourishing", very well matches Licklider's own sentiment.
 
-Today, the available design space for extending human flourishing has expanded past computing, biotechnology for example is a promising new field. But given my prior interests, and the unprecedented advancements in artificial intelligence over recent years, the call I feel at the level of the individual is **to contribute to augmentation technologies that keep humans firmly in control of our own destiny**.
+Today, the available design space for extending human flourishing has expanded past computing: biotechnology for example is a promising new field. But given my prior interests, and the unprecedented advancements in artificial intelligence over recent years, the call I feel at the level of the individual is **to contribute to augmentation technologies that keep humans firmly in control of our own destiny**.
 
-In other words, unlike the researchers rolling the red-carpet for super-intelligent AI, I don't see why we shouldn't _be_ the super-intelligence.
+In other words, unlike the researchers rolling out the red-carpet for super-intelligent AI, I don't see why we shouldn't _be_ the super-intelligence.
 
 _Why go down without a fight?_
 
@@ -63,28 +63,28 @@ For some specificity, consider brain-computer interfaces, peripheral neural inte
 
 One lesson from the history of technology is that the interplay between technology and society is a radically important part of determining the benefits (and costs!) to our collective good.
 
-The internet which emerged alongside personal computing tells the story of how something that was designed once to be decentralized, open, transparent and interoperable can quickly become the exact opposite when exposed to larger societal systems.
+The internet which emerged alongside personal computing tells the story of how something that was once designed to be decentralized, open, transparent and interoperable can quickly become the exact opposite when exposed to larger societal systems.
 
 A quote by the sociobiologist, EO Wilson, clarifies this point:
 
 > The real problem of humanity is the following: we have Paleolithic emotions, medieval institutions, and god-like technology.
 
-Institutions and other societal systems are interdependent with us and the relations we hold with one another. _We make the systems, and then the systems make us._ But given the rapid change of pace in technology, I find it unlikely that previous methods of social organization will remain relevant for very much longer. The fundamental assumptions of religion, capitalism, communism and other mechanisms are being tested to their limits by our god-like technology.
+Institutions and other societal systems are interdependent with us and the relations we hold with one another. _We make the systems, and then the systems make us._ But given the rapid change of pace in technology, I find it unlikely that previous methods of social organization will remain relevant for very much longer. The fundamental assumptions of religion, capitalism, communism and other mechanisms are being tested to their limits by our technology.
 
 As a student, this is terrifying, like staring down the barrel of a gun and waiting for the trigger to go off. But hidden in the risk, is also opportunity to **participate in the reimagining of our social systems from first-principles**. Questions come to mind like:
 
 1. How might we imagine [plurality](https://pluriverse.world/) encoded into the fabric of society?
 2. How might we encourage mutualism and belonging?
-3. How might we create more paratelic spaces within our society?
+3. How might we create more [paratelic](https://en.wikipedia.org/wiki/Reversal_theory#Serious/Playful_(Telic/Paratelic)) spaces within our society?
 4. How might we have systems which work towards human flourishing rather than perpetual GDP growth?
 
-On this call are tangible themes like decentralized and evolutionary organizations, cryptocurrencies, digital governance, peer-to-peer, pluralism and mutualism. My ongoing work with [Happily Ever After](https://hea.care), is an experiment on these ideas, starting with just a very important social system- healthcare.
+Within this call are tangible themes like decentralized and evolutionary organizations, cryptocurrencies, digital governance, peer-to-peer, pluralism and mutualism. My ongoing work with [Happily Ever After](https://hea.care), is an experiment on these ideas, starting with a very important social system- healthcare.
 
 # _And it All_
 
-[Braiding Sweetgrass](https://www.goodreads.com/book/show/17465709-braiding-sweetgrass) by Robin Wall Kimmerer is still today, one of the most profound books I've had the opportunity to read. Robin reminds us of who we are, situated within the interdependent web of life that sustains us. We share this planet not just with other people, but all other forms of life, which calls upon us (and me) to think: what are we responsible for?
+[Braiding Sweetgrass](https://www.goodreads.com/book/show/17465709-braiding-sweetgrass) by Robin Wall Kimmerer is still today, one of the most profound books I've had the opportunity to read. Robin reminds us of who we are, situated within the interdependent web of life that sustains us. We share this planet not just with other people, but all other forms of life, which call upon us (and me) to think: what are we responsible for?
 
-Robin calls on us to appreciate the gifts of sunlight, food, water and air, and to notice that the currency of a gift economy, at its root, is reciprocity.
+Robin asks us to appreciate the gifts of sunlight, food, water and air, and to notice that the currency of a gift economy, at its root, is reciprocity.
 
 > If citizenship is a matter of shared beliefs, then I believe in the democracy of species. If citizenship means an oath of loyalty to a leader, then I choose the leader of the trees. If good citizens agree to uphold the laws of the nation, then I choose natural law, the law of reciprocity, of regeneration, of mutual flourishing.
 
