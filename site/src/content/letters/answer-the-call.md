@@ -80,7 +80,7 @@ As a student, this is terrifying, like staring down the barrel of a gun and wait
 
 Within this call are tangible themes like decentralized and evolutionary organizations, cryptocurrencies, digital governance, peer-to-peer, pluralism and mutualism. My ongoing work with [Happily Ever After](https://hea.care), is an experiment on these ideas, starting with a very important social system- healthcare.
 
-# _And it All_
+# _And it All:_
 
 [Braiding Sweetgrass](https://www.goodreads.com/book/show/17465709-braiding-sweetgrass) by Robin Wall Kimmerer is still today, one of the most profound books I've had the opportunity to read. Robin reminds us of who we are, situated within the interdependent web of life that sustains us. We share this planet not just with other people, but all other forms of life, which call upon us (and me) to think: what are we responsible for?
 
@@ -100,7 +100,7 @@ Reader, if you are fortunate as I am, to have a bright sunny day today, remember
 
 ~Shan
 
-_Special gratitude to [Yegor Lisle](https://www.linkedin.com/in/yegorlisle/), [Zuzanna Kosobudzka](https://www.linkedin.com/in/zuzanna-kosobudzka-749164201/), [Aaron Chung-Jukko](https://www.linkedin.com/in/aaronchungjukko/) and [Daniel Lim](https://www.linkedin.com/in/aaronchungjukko/) for a delightful dinner and thoughtful conversations which finally unblocked me to be able to articulate my thoughts in this article._
+_Special gratitude to [Yegor Lisle](https://www.linkedin.com/in/yegorlisle/), [Zuzanna Kosobudzka](https://www.linkedin.com/in/zuzanna-kosobudzka-749164201/), [Aaron Chung-Jukko](https://www.linkedin.com/in/aaronchungjukko/) and [Daniel Lim](https://instagram.com/grandiose.grampus) for a delightful dinner and thoughtful conversations which finally unblocked me to be able to articulate my thoughts in this article._
 
 ---
 
