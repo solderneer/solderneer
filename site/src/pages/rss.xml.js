@@ -13,12 +13,15 @@ export async function get(context) {
     description: SITE_DESCRIPTION,
     site: context.site,
     stylesheet: "/rss/pretty-feed-v3.xsl",
-    items: letters.map((letter) => ({
-      title: letter.data.title,
-      pubDate: letter.data.pubDate,
-      description: letter.data.description,
-      content: sanitizeHtml(parser.render(letter.body)),
-      link: `/letters/${letter.slug}/`,
-    })),
+    items: letters
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) // Sort latest first
+      .slice(0, 20) //Get first 20
+      .map((letter) => ({
+        title: letter.data.title,
+        pubDate: letter.data.pubDate,
+        description: letter.data.description,
+        content: sanitizeHtml(parser.render(letter.body)),
+        link: `/letters/${letter.slug}/`,
+      })),
   });
 }
