@@ -1,0 +1,31 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import Tag from "./Tag.astro";
+const { slug, note } = Astro.props;
+
+const { remarkPluginFrontmatter } = await note.render();
+const wordCount = remarkPluginFrontmatter.wordCount;
+---
+
+<a
+  class="flex flex-col max-w-xl hover:bg-beige-light p-2 rounded-md rainbow-button"
+  href={`/notes/${slug}/`}
+>
+  <h1>
+    <span class="text-xl">{note.data.emoji}</span>
+    &nbsp;
+    <span class="text-lg font-bold">{note.data.title}</span>
+  </h1>
+  <span class="mt-1 text-sm">
+    {wordCount} words on <FormattedDate date={note.data.pubDate} />
+  </span>
+  <ul class="flex gap-2 mt-2">
+    {
+      note.data.tags.map((tag: String) => (
+        <li>
+          <Tag name={`${tag}`} />
+        </li>
+      ))
+    }
+  </ul>
+</a>

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/letters/answer-the-call.md",
+                "file": "_private/life/2023/03-Jun-2023.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/letters/answer-the-call.md",
+                "file": "_private/life/2023/03-Jun-2023.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/letters/answer-the-call.md",
+                "file": "_private/life/2023/03-Jun-2023.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/letters/answer-the-call.md"
+                "file": "_private/life/2023/03-Jun-2023.md"
               }
             }
           },
@@ -165,8 +165,10 @@
   },
   "active": "ac018686d73e694c",
   "lastOpenFiles": [
-    "_private/life/2023/02-Jun-2023.md",
+    "components/NoteItemMinimal.astro",
     "content/letters/answer-the-call.md",
+    "_private/life/2023/03-Jun-2023.md",
+    "_private/life/2023/02-Jun-2023.md",
     "content/notes/edinburgh-uk.md",
     "content/notes/top-of-mind.md",
     "pages/home.md",
@@ -199,8 +201,6 @@
     "content/letters/from-startups-to-scams.md",
     "content/letters/droid-project.md",
     "content/letters/deep-learning-deep-divide.md",
-    "content/letters/data-structures-data-control.md",
-    "content/letters/building-a-diy-solder-oven.md",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas",

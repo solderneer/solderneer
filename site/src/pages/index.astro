@@ -4,12 +4,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import MarkdownBlock from "../components/MarkdownBlock.astro";
 import LetterItemMinimal from "../components/LetterItemMinimal.astro";
+import NoteItemMinimal from "../components/NoteItemMinimal.astro";
 import LinkGraph from "../components/LinkGraph.astro";
 
 import { getCollection } from "astro:content";
 import { Content } from "./home.md";
 
 const letters = (await getCollection("letters")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const notes = (await getCollection("notes")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -50,6 +55,19 @@ const letters = (await getCollection("letters")).sort(
     <hr />
   </MarkdownBlock>
 
-  <h3 class="text-3xl font-bold mt-12">My Notebook</h3>
+  <h3 class="text-3xl font-bold mt-12">Recent Notes</h3>
+
+  <ul class="flex flex-col gap-4 my-6">
+    {
+      notes.slice(0, 3).map((note) => (
+        <li>
+          <NoteItemMinimal slug={note.slug} note={note} />
+        </li>
+      ))
+    }
+  </ul>
+
+  <span class="font-bold text-md">{`Explore ${notes.length} more`}</span>
+
   <LinkGraph rootPath="notes/top-of-mind/" />
 </BaseLayout>
