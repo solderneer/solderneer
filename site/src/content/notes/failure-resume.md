@@ -2,7 +2,7 @@
 title: "Failure Resume"
 emoji: "😞"
 pubDate: 28-May-2023
-updatedDate: 28-May-2023
+updatedDate: 7-Jun-2023
 tags: ["type/life"]
 ---
 
@@ -18,6 +18,13 @@ So in this note, I talk about the downtimes, the struggles, and the pain, in the
 
 # 2023
 
-- Rejected from the [Summer of Protocols](https://efdn.notion.site/Summer-of-Protocols-3d7983d922184c4eb72749e9cb60d076)
+- 07 June 2023: Rejected from the [Open Government Products](https://www.open.gov.sg/) Internship
+	- Maybe my timing was wrong, I did apply for the August batch, when I could only be there from July to September
+	- Or maybe I messed up my coding interview by not checking for performance. Oops? Not bad though, this was the first coding interview I've ever done, and I got a decent 75% overall.
+- Sometime in April: Rejected from the [Summer of Protocols](https://efdn.notion.site/Summer-of-Protocols-3d7983d922184c4eb72749e9cb60d076)
 	- This was a real blow because the work over at [Happily Ever After](https://hea.care), I thought was super aligned to the work - given that we're essentially trying to build self-organizing healthcare.
 	- Also I spent a lot of time reworking my [entire website](https://solderneer.me) for it, but I suppose that is useful in any case
+
+# 2022
+
+* 11 November 2022: Rejected from the [Polaris Fellowship by EF](https://www.polaris-fellowship.com/)

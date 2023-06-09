@@ -33,10 +33,9 @@ Both Teal organizations and DAOs are heterarchical ([[heterarchies-are-the-ideal
 6) Support personal development
 
 **Evolutionary Purpose:**
+
 >The Teal paradigm accepts that each organization has its own identity, life force and calling.
 
 >Teal for-profit organizations have a different perspective on profit. Profit is necessary and investors deserve a fair return, but the objective is purpose, not profit. Teal founders often use the same metaphor: profit is like the air we breathe. We need air to live, but we don’t live to breathe.
 
-Profit is a byproduct of a job well done
-
-**Other Related Meanderings:**
+**Profit is a byproduct of a job well done.**

@@ -27,4 +27,4 @@ There are three important things here
 In this sense building a DAO is more about designing an organism ([[daos-are-digital-organisms]]) which is able to attract resources and thrive.
 
 **Other Related Meanderings:**
-[[the-eight-metaphors-of-organisation]]
+[[the-eight-metaphors-of-organization]]

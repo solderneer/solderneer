@@ -47,6 +47,10 @@
     "description": "",
     "color": "var(--orange)"
   },
+  "type/practices": {
+    "description": "",
+    "color": "var(--orange)"
+  },
   "type/index": {
     "description": "",
     "color": "var(--red)"

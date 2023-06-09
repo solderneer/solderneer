@@ -1,5 +1,5 @@
 ---
-title: "DAOs display organisationality"
+title: "DAOs display organizationality"
 emoji: "🕴"
 pubDate: 2-Nov-2022
 updatedDate: 16-Nov-2022

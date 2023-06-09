@@ -10,11 +10,11 @@ People who have known me since 2016 would know that I have had a hell of a relat
 
 For reference, this is a photo from when I was 16:
 
-![](/mind-body-network/1.jpeg)
+![](https://files.solderneer.me/blog/mind-body-network/1.jpeg)
 
 And this is me now at 21:
 
-![](/mind-body-network/2.jpeg)
+![](https://files.solderneer.me/blog/mind-body-network/2.jpeg)
 
 These days I have much less time, but being aware of my well-being is something I consider essential to my life. This means that over these years, I have had to invent many systems of living which assist in maintaining my sense of well-being. This weekend I found myself reflecting on and reviewing those systems, and I wanted to share them so that people could learn from them and I could gather feedback to improve them.
 

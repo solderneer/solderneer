@@ -27,5 +27,6 @@ Principles are rules, beliefs, or ideas that remind me to be _me_. The principle
 8. [[break-habits-as-you-build-them]]
 9. [[be-radically-skeptical]]
 10. [[i-write-for-thought-lego]]
-11. [[technomorality]]
 12. [[understand-the-past]]
+13. [[you-get-what-you-measure]]
+14. [[random-walks-are-sqrtn]]

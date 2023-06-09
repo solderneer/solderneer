@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "16209309d925d2b8",
+        "id": "04a30e8ce6644562",
         "type": "tabs",
         "children": [
           {
-            "id": "ac018686d73e694c",
+            "id": "9ad6d9847e06b364",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_private/life/2023/03-Jun-2023.md",
+                "file": "content/notes/posse.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -32,6 +32,7 @@
       {
         "id": "a2e15cb649b3d1ca",
         "type": "tabs",
+        "dimension": 63.16455696202532,
         "children": [
           {
             "id": "a8d8fc4ca46ae5d9",
@@ -40,6 +41,56 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b8bfa45d406bdfed",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "bc8d791daa99af69",
+        "type": "tabs",
+        "dimension": 36.835443037974684,
+        "children": [
+          {
+            "id": "d30703d55cd62618",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "content/notes/posse.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.9272955132899,
+                  "close": true
+                }
               }
             }
           },
@@ -56,14 +107,6 @@
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
-            }
-          },
-          {
-            "id": "b8bfa45d406bdfed",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {}
             }
           }
         ]
@@ -102,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_private/life/2023/03-Jun-2023.md",
+                "file": "content/notes/posse.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_private/life/2023/03-Jun-2023.md",
+                "file": "content/notes/posse.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_private/life/2023/03-Jun-2023.md"
+                "file": "content/notes/posse.md"
               }
             }
           },
@@ -163,44 +206,49 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ac018686d73e694c",
+  "active": "9ad6d9847e06b364",
   "lastOpenFiles": [
+    "content/letters/networks-work-in-healthcare-and-beyond.md",
+    "content/letters/arguments-for-universal-coaching.md",
+    "content/notes/random-walks-are-sqrtn.md",
+    "content/notes/the-sacred.md",
+    "_private/projects/happily-ever-after/vital-design-drafts.md",
+    "_private/projects/happily-ever-after/happily-ever-after.md",
+    "_private/_inbox/organizations-as-myth-and-ceremony.md",
+    "_private/_inbox/i-want-to-be-free.md",
+    "_private/_inbox/diverge-converge.md",
+    "_private/_inbox/n-dimensional-oopsies.md",
+    "pages/notes/one-hand-behind-your-back.md",
+    "content/notes/posse.md",
+    "content/notes/practices.md",
+    "_private/_inbox/💙 Happily Ever After.md",
+    "_private/life/2022/17-Aug-2022.md",
+    "_private/life/2022/12-Aug-2022.md",
+    "_private/life/2022/05-Jan-2022.md",
+    "content/notes/hawthorne-effects-are-good-for-coaching.md",
+    "content/notes/hawthorne-effect.md",
+    "_private/_inbox/computational-irreducibility.md",
+    "content/notes/daos-as-cities.md",
+    "content/notes/the-eight-metaphors-of-organization.md",
+    "content/notes/daos-display-organizationality.md",
+    "_private/life/2022/26-Nov-2022.md",
+    "content/notes/companies-constrain-relations-for-legibility.md",
+    "_private/_inbox/Distributed ledgers are incentive machines.md",
+    "_private/attachments/ens-airdrop.png",
+    "_private/attachments/how-we-gather.pdf",
+    "_private/attachments/IMG_5364.mov.mov",
+    "_private/attachments/mind-map.png",
+    "_private/attachments/Screen Shot 2023-06-05 at 4.31.26 PM.png",
+    "_private/attachments/Screen Shot 2023-01-30 at 10.47.44 PM.png",
+    "_private/attachments/Screen Shot 2023-01-30 at 10.46.05 PM.png",
+    "mind-body-network",
     "components/NoteItemMinimal.astro",
-    "content/letters/answer-the-call.md",
-    "_private/life/2023/03-Jun-2023.md",
-    "_private/life/2023/02-Jun-2023.md",
-    "content/notes/edinburgh-uk.md",
-    "content/notes/top-of-mind.md",
-    "pages/home.md",
-    "content/notes/daos-are-digital-organisms.md",
-    "_private/life/2023/01-Jun-2023.md",
     "components/LetterItemMinimal.astro",
     "components/LetterItem.astro",
     "pages/letters/index.astro",
     "pages/letters/[...slug].astro",
     "pages/letters",
     "pages/notes/[...slug].astro",
-    "pages/notes",
-    "layouts/Letter.astro",
-    "content/posts/technologys-ultimate-purpose-is-vitality.md",
-    "content/letters/top-bottom-up-down.md",
-    "content/letters/tkkyia-2016.md",
-    "content/letters/the-nature-of-care.mdx",
-    "content/letters/the-cuban-paradox.md",
-    "content/letters/technologys-ultimate-purpose-is-vitality.md",
-    "content/letters/taught-to-teach.md",
-    "content/letters/pcb-making-in-singapore.md",
-    "content/letters/mind-body-network.md",
-    "content/letters/maker-faire-2016.md",
-    "content/letters/learning-used-to-be-fun.md",
-    "content/letters/learn-dont-study.md",
-    "content/letters/insurance-shouldnt-wash-cars.md",
-    "content/letters/institutionalised-learning.md",
-    "content/letters/honeybee-healthcare.mdx",
-    "content/letters/hephaestus-project.md",
-    "content/letters/from-startups-to-scams.md",
-    "content/letters/droid-project.md",
-    "content/letters/deep-learning-deep-divide.md",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas",
@@ -208,11 +256,6 @@
     "_private/people/photos/yi-hein.jpeg",
     "_private/people/photos/yeshuai.jpeg",
     "_private/people/photos/yang-en.jpeg",
-    "_private/people/photos/wilgene-tan.jpeg",
-    "_private/people/photos/vishram-mishra.jpeg",
-    "_private/people/photos/ty-hagler.jpeg",
-    "_private/people/photos/toby-wong.jpeg",
-    "_private/people/photos/steve-kerrison.jpeg",
-    "_private/people/photos/sri-ayangar.jpeg"
+    "_private/people/photos/wilgene-tan.jpeg"
   ]
 }

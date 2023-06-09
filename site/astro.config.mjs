@@ -9,6 +9,10 @@ import { SITE_BASEURL } from "./src/consts";
 // Remark
 import { wikiLinkPlugin } from "remark-wiki-link-plus";
 import { remarkReadingTime, remarkWordCount } from "./remarkPlugins.mjs";
+import remarkMath from "remark-math";
+
+// Rehype
+import rehypeKatex from "rehype-katex";
 
 const wikiLinkOptions = {
   hrefTemplate: (permalink) => `/notes/${permalink}`,
@@ -19,10 +23,12 @@ const wikiLinkOptions = {
 export default defineConfig({
   markdown: {
     remarkPlugins: [
+      remarkMath,
       remarkReadingTime,
       remarkWordCount,
       [wikiLinkPlugin, wikiLinkOptions],
     ],
+    rehypePlugins: [rehypeKatex],
     extendDefaultPlugins: true,
   },
   site: SITE_BASEURL,

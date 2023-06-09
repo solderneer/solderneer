@@ -71,12 +71,26 @@ At about 4 weeks in, we can start to introduce a refeed day every 10 or so days,
 
 ---
 
-## Logs
+# Logs
 
-**\[29 May 2023  - 16:47\] \[Weight: 66.4\]**
+## \[29 May 2023  - 16:47\] \[Weight: 66.4\]
 
 I promised myself I would log more. I really did. But well, I guess today is a good day to start as ever. Tomorrow, will be my third week in, and I'm doing... not bad. Curiously, I had to break routine last week because of my trip to [[edinburgh-uk]] and so, my diet habits weren't exactly in line with what I said above, but hey, we move.
 
 I was expecting to take a hit and reverse some progress, but honestly, it's not that bad at all. I didn't make any progress, but I didn't reverse it either, which is great. Before the trip, I weighed 66.4 kg, and now two days after, I weigh exactly the same. This is probably a sign that my caloric restriction is just right, and I should keep it at this pace.
 
 Other than that, my performance in the gym is looking good, and I haven't seen any plateaus with my weight loss yet. Which is great! So, it looks like things are more or less moving as per planned. I'll do these logs every Tuesday, I promise this time.
+
+## \[08 Jun 2023  - 21:35\] \[Weight: 65.8\]
+
+See, I promised I'd write these more regularly. Anyway, I think i hit my first plateau at the start of this week. Last Friday, I had gone down to a weight of 65.2, and I was expecting to breach into the 64 region this week. But rather unfortunately, it started going back up again over the weekend, peaking out at 66.2 on Monday this week.
+
+Those were all the tell-tale signs that my metabolism was falling, because I was eating the same amount of calories, if not less. The only thing that had changed really, was that my average daily step count had decreased drastically, as my workload increased.
+
+To walk 10,000 steps a day, I need to be walking for about an hour or so. That only happens if, 1) I'm having a fairly chill day when I can afford to take a walk, or 2) If it just so happens that a lot of my work in the day is walking about. Neither of those are necessarily consistently true. So I've decided to bite the bullet, and start incorporating some cardio into my workout routine.
+
+So, the path I took to get my weight back on the downer was. 1) I deployed a refeed day on Monday, which should have boosted my metabolism. I went back to eating a nice three meals a day. 2) From Tuesday onwards, I went back to my planned diet and on Wednesday I did my workout routine. Instead of walking, I started incorporating run days into my rest days.
+
+So on Tuesday, Thursday, Saturday and Sunday, I will do runs instead of weights as a form of active recovery. A run lasts about 20 minutes, and it's a pretty efficient form of maintaining metabolism without spending an hour walking.
+
+That's it for this log. Tune back in next week.

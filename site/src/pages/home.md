@@ -13,7 +13,7 @@ As a quick primer, on this blog you will find [[top-of-mind|notes]] and [letters
 **Some links you might find interesting:**
 
 1. [[top-of-mind|the things I'm currently doing/thinking/building]]
-2. [[principles|my core beliefs and practices]]
+2. [[principles]]
 3. [[places-ive-been-to|my travel journals]]
 4. [[failure-resume|the opposite of a resume]]
 
