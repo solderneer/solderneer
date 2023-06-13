@@ -15,7 +15,7 @@ The _90 day transformation_ is a systemic recalibration of my routines around my
 
 **Objectives and Measurements** The primary objective of the transformation is to get to a state where I feel healthier and happier with my body. In the last year, I’ve gained about 7kg of weight from the stress and fairly sedentary life I’ve been living in university. The 90 day challenge is a call to correct that.
 
-_Primary objective: Lose 10kg of weight while retaining my muscle mass_ measurements:
+_Primary objective: Lose 10kg of weight while retaining my muscle_:
 
 -   Daily weight measurements (weight)
 -   Weekly Progress photos (muscle)

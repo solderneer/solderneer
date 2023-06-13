@@ -12,7 +12,7 @@ This notebook is a playground, a rough scratchpad for my thoughts and ideas, a p
 
 With that in mind, I want this digital space to be approachable for as many people as possible. So, to get you started, this page contains paths you might enjoy meandering along, by pulling together thoughts that are on the [[top-of-mind]]. Currently, expect to find notes on:
 
-* 🧠  Human-Machine Interfaces
+- 🧠  Human-Machine Interfaces
 - 💻  Decentralized Organizations
 - 🥳  Culture and Brands
 - 💡  Electrical Engineering
@@ -20,18 +20,18 @@ With that in mind, I want this digital space to be approachable for as many peop
 - 🌱  Self-improvement and personal growth
 
 ---
-### I've been thinking about
+**I've been working on:**
+[[summer-2023]]
+[[90-day-transformation]]
+[[104-days-of-summer-vacation]]
+
+**I've been thinking about:**
 [[daos-are-digital-organisms]]
 [[local-care-for-global-health]]
 [[evolutionary-organizations]]
-[[technomorality]]
 [[technology-is-ideology]]
 
-### I've been working on
-[[90-day-transformation]]
-
-
-### And also...
+**Evergreen:**
 [[places-ive-been-to]]
 [[principles]]
 [[failure-resume]]

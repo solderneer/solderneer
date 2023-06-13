@@ -71,6 +71,10 @@
     "description": "",
     "color": "var(--orange)"
   },
+  "project/104-days": {
+    "description": "",
+    "color": "var(--blue)"
+  },
   "ongoing": {
     "description": "",
     "color": "var(--red)"

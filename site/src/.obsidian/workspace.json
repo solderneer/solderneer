@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "04a30e8ce6644562",
+        "id": "53e084ede44aa03d",
         "type": "tabs",
         "children": [
           {
-            "id": "9ad6d9847e06b364",
+            "id": "f292bfb31e82d32f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/posse.md",
+                "file": "content/notes/play-fully-1.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -32,7 +32,7 @@
       {
         "id": "a2e15cb649b3d1ca",
         "type": "tabs",
-        "dimension": 63.16455696202532,
+        "dimension": 63.164556962025316,
         "children": [
           {
             "id": "a8d8fc4ca46ae5d9",
@@ -57,7 +57,7 @@
       {
         "id": "bc8d791daa99af69",
         "type": "tabs",
-        "dimension": 36.835443037974684,
+        "dimension": 36.83544303797468,
         "children": [
           {
             "id": "d30703d55cd62618",
@@ -65,7 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/posse.md",
+                "file": "content/notes/play-fully-1.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/posse.md",
+                "file": "content/notes/play-fully-1.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/posse.md",
+                "file": "content/notes/play-fully-1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/posse.md"
+                "file": "content/notes/play-fully-1.md"
               }
             }
           },
@@ -206,34 +206,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9ad6d9847e06b364",
+  "active": "f292bfb31e82d32f",
   "lastOpenFiles": [
+    "content/notes/104-days-of-summer-vacation.md",
+    "content/notes/play-fully-1.md",
+    "_private/_inbox/computational-irreducibility.md",
+    "_private/_inbox/The better we get, the less creative we become.md",
+    "_private/life/2021/09-Apr-2021.md",
+    "content/notes/summer-2023.md",
+    "_private/life/2023/13-Jun-2023.md",
+    "_private/_inbox/path-to-30u30.md",
+    "content/notes/top-of-mind.md",
+    "_private/life/2023/12-Jun-2023.md",
+    "content/notes/90-day-transformation.md",
+    "content/notes/failure-resume.md",
+    "content/notes/you-get-what-you-measure.md",
+    "_private/projects/how-to-change-the-world.md",
+    "_private/projects/valentines-day-2023.md",
+    "_private/_inbox/reversal-theory.md",
+    "_private/_inbox/radical-design-and-technology-epiphanies.md",
+    "_private/people/Adam Nasser.md",
+    "_private/_inbox/market-feedback-is-all-you-need.md",
+    "content/notes/posse.md",
     "content/letters/networks-work-in-healthcare-and-beyond.md",
     "content/letters/arguments-for-universal-coaching.md",
     "content/notes/random-walks-are-sqrtn.md",
     "content/notes/the-sacred.md",
     "_private/projects/happily-ever-after/vital-design-drafts.md",
     "_private/projects/happily-ever-after/happily-ever-after.md",
-    "_private/_inbox/organizations-as-myth-and-ceremony.md",
-    "_private/_inbox/i-want-to-be-free.md",
-    "_private/_inbox/diverge-converge.md",
-    "_private/_inbox/n-dimensional-oopsies.md",
-    "pages/notes/one-hand-behind-your-back.md",
-    "content/notes/posse.md",
-    "content/notes/practices.md",
-    "_private/_inbox/💙 Happily Ever After.md",
-    "_private/life/2022/17-Aug-2022.md",
-    "_private/life/2022/12-Aug-2022.md",
-    "_private/life/2022/05-Jan-2022.md",
-    "content/notes/hawthorne-effects-are-good-for-coaching.md",
-    "content/notes/hawthorne-effect.md",
-    "_private/_inbox/computational-irreducibility.md",
-    "content/notes/daos-as-cities.md",
-    "content/notes/the-eight-metaphors-of-organization.md",
-    "content/notes/daos-display-organizationality.md",
-    "_private/life/2022/26-Nov-2022.md",
-    "content/notes/companies-constrain-relations-for-legibility.md",
-    "_private/_inbox/Distributed ledgers are incentive machines.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",
