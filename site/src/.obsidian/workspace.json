@@ -8,25 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "42190b713c4cf726",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/notes/the-zuzalan-dream-2.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "866770d6630ee7c5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/play-fully-1.md",
+                "file": "content/notes/the-zuzalan-dream-2.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -219,14 +206,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "42190b713c4cf726",
+  "active": "866770d6630ee7c5",
   "lastOpenFiles": [
+    "_private/_inbox/foresight-fellowship-application.md",
     "content/notes/play-fully-1.md",
     "content/notes/the-zuzalan-dream-2.md",
     "content/notes/104-days-of-summer-vacation.md",
     "content/notes/design-fictions.md",
     "_private/_inbox/hypercerts-funding-model.md",
-    "_private/_inbox/foresight-fellowship-application.md",
     "pages/home.md",
     "content/letters/answer-the-call.md",
     "content/notes/top-of-mind.md",

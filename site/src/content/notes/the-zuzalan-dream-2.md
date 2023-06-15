@@ -3,7 +3,7 @@ title: "The Zuzalan Dream"
 emoji: "🏳"
 pubDate: 14-Jun-2023
 updatedDate: 14-Jun-2023
-tags: ["type/life"]
+tags: ["type/life", "project/104-days"]
 ---
 
 This note is the **second** letter in the [[104-days-of-summer-vacation]] series.
@@ -12,7 +12,7 @@ This note is the **second** letter in the [[104-days-of-summer-vacation]] series
 
 **Dearest Reader,**
 
-_It’s impressive to me that we live in a time where we can gather 200 (revolutionary-ish) people looking to start a new country in already sovereign country, without getting suppressed or attacked in any form._
+_It’s impressive to me that we live in a time where we can gather 200 (revolutionary-ish) people looking to start a new country in an already sovereign country, without getting suppressed or attacked in any form._
 
 I'm talking about [Zuzalu](https://zuzalu.city/), a pop up city in Montenegro which brought together longevity advocates, web3 developers, artists, lawyers, community builders, and aspiring nation builders for two months of intentional co-living.
 
