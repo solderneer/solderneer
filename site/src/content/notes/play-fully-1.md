@@ -6,7 +6,7 @@ updatedDate: 13-Jun-2023
 tags: ["type/life", "project/104-days"]
 ---
 
-This note is a part of the [[104-days-of-summer-vacation]] series.
+This note is the **first** letter in the [[104-days-of-summer-vacation]] series.
 
 ---
 
@@ -26,7 +26,7 @@ With a [paratelic](https://en.wikipedia.org/wiki/Reversal_theory) mindset, P&F r
 
 And that is really the theme for this summer and this experiment. In [[104-days-of-summer-vacation]], the test is for me to resist the urge of perfectionism, and learn to be content with a playful _good-enough_. As I'm writing this approaching midnight, there's a nagging voice in my head asking me to write more, and develop these ideas further. 
 
-But **Enough**. My dear reader, this is a proposal, for you too to snatch a break today from the perfectionism hamster wheel. It's okay. it's late. it's time to rest. Good night.
+But **Enough**. My dear reader, this is a proposal, for you too to snatch a break today from the perfectionism hamster wheel. It's okay, it's late, it's time to rest. Good night.
 
-~ shan
+~ Shan
 

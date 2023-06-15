@@ -26,10 +26,10 @@ With that in mind, I want this digital space to be approachable for as many peop
 [[104-days-of-summer-vacation]]
 
 **I've been thinking about:**
+[[hypercerts]]
 [[daos-are-digital-organisms]]
 [[local-care-for-global-health]]
 [[evolutionary-organizations]]
-[[technology-is-ideology]]
 
 **Evergreen:**
 [[places-ive-been-to]]
