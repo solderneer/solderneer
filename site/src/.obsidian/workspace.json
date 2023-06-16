@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "53e084ede44aa03d",
+        "id": "e58bbe4467325bbc",
         "type": "tabs",
         "children": [
           {
-            "id": "866770d6630ee7c5",
+            "id": "e097548ea23cabd7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/the-zuzalan-dream-2.md",
+                "file": "content/notes/on-doubt-and-distortion-fields-3.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -65,7 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/the-zuzalan-dream-2.md",
+                "file": "content/notes/on-doubt-and-distortion-fields-3.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/the-zuzalan-dream-2.md",
+                "file": "content/notes/on-doubt-and-distortion-fields-3.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/the-zuzalan-dream-2.md",
+                "file": "content/notes/on-doubt-and-distortion-fields-3.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/the-zuzalan-dream-2.md"
+                "file": "content/notes/on-doubt-and-distortion-fields-3.md"
               }
             }
           },
@@ -206,12 +206,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "866770d6630ee7c5",
+  "active": "e097548ea23cabd7",
   "lastOpenFiles": [
+    "content/notes/random-walks-are-sqrtn.md",
+    "content/notes/on-doubt-and-distortion-fields-3.md",
+    "content/notes/104-days-of-summer-vacation.md",
+    "content/notes/the-zuzalan-dream-2.md",
     "_private/_inbox/foresight-fellowship-application.md",
     "content/notes/play-fully-1.md",
-    "content/notes/the-zuzalan-dream-2.md",
-    "content/notes/104-days-of-summer-vacation.md",
     "content/notes/design-fictions.md",
     "_private/_inbox/hypercerts-funding-model.md",
     "pages/home.md",
@@ -232,8 +234,6 @@
     "_private/_inbox/path-to-30u30.md",
     "_private/life/2023/12-Jun-2023.md",
     "content/notes/90-day-transformation.md",
-    "content/notes/failure-resume.md",
-    "content/notes/you-get-what-you-measure.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",

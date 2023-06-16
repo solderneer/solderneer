@@ -12,4 +12,6 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 
 1. [[play-fully-1]] on 13-Jun-2023
 2. [[the-zuzalan-dream-2]] on 14-Jun-2023
-3. 
+3. [[on-doubt-and-distortion-fields-3]] on 15-Jun-2023
+
+Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)
