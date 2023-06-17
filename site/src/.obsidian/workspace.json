@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/in-every-meaning-4.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -78,7 +78,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/in-every-meaning-4.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -158,7 +158,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/in-every-meaning-4.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,7 +175,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/in-every-meaning-4.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -187,7 +187,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/in-every-meaning-4.md"
+                "file": "content/notes/104-days-of-summer-vacation.md"
               }
             }
           },
@@ -221,9 +221,9 @@
   },
   "active": "e097548ea23cabd7",
   "lastOpenFiles": [
+    "content/notes/in-every-meaning-4.md",
     "content/notes/the-zuzalan-dream-2.md",
     "content/notes/summer-2023.md",
-    "content/notes/in-every-meaning-4.md",
     "content/notes/on-doubt-and-distortion-fields-3.md",
     "_private/life/2023/17-Jun-2023.md",
     "_private/life/2023/16-Jun-2023.md",

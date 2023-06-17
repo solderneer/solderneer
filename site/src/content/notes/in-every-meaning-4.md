@@ -1,6 +1,6 @@
 ---
 title: "In Every Meaning"
-emoji: "👩‍👩‍👦‍👦"
+emoji: "🌲"
 pubDate: 16-Jun-2023
 updatedDate: 16-Jun-2023
 tags: ["topic/social-sciences", "project/104-days"]
