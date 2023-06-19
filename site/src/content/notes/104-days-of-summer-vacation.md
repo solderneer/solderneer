@@ -15,5 +15,6 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 3. [[on-doubt-and-distortion-fields-3]] on 15-Jun-2023
 4. [[in-every-meaning-4]] on 16-Jun-2023
 5. [[magic-in-hand-holding-5]] on 17-Jun-2023
+6. [[to-be-free]] on 19-Jun-2023
 
 Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)

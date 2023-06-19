@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6382c223fe90a882",
+            "id": "1e65f77579d95fd7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/organizations-as-myth-and-ceremony.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -65,7 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/organizations-as-myth-and-ceremony.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/organizations-as-myth-and-ceremony.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/organizations-as-myth-and-ceremony.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/organizations-as-myth-and-ceremony.md"
+                "file": "content/notes/104-days-of-summer-vacation.md"
               }
             }
           },
@@ -206,34 +206,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6382c223fe90a882",
+  "active": "1e65f77579d95fd7",
   "lastOpenFiles": [
-    "_private/_inbox/i-want-to-be-free.md",
+    "content/notes/to-be-free.md",
+    "content/notes/104-days-of-summer-vacation.md",
+    "content/notes/magic-in-hand-holding-5.md",
+    "content/notes/full-circle-leadership.md",
+    "content/notes/play-fully-1.md",
+    "_private/_inbox/foresight-fellowship-application.md",
+    "_private/projects/happily-ever-after/hypercerts-funding-model.md",
+    "_private/projects/happily-ever-after/happily-ever-after.md",
+    "content/notes/evolutionary-organizations.md",
+    "content/notes/organizations-as-myth-and-ceremony.md",
     "_private/_inbox/computational-irreducibility.md",
-    "_private/_inbox/hypercerts-funding-model.md",
     "_private/life/2023/31-May-2023.md",
     "_private/_inbox/diverge-converge.md",
     "content/notes/pattern-languages.md",
     "_private/_inbox/path-to-30u30.md",
-    "_private/_inbox/foresight-fellowship-application.md",
     "_private/_inbox/market-feedback-is-all-you-need.md",
     "content/notes/reversal-theory.md",
     "content/notes/radical-design-and-technology-epiphanies.md",
-    "content/notes/organizations-as-myth-and-ceremony.md",
     "content/notes/microsolidarity.md",
-    "content/notes/magic-in-hand-holding-5.md",
-    "content/notes/104-days-of-summer-vacation.md",
     "_private/life/2023/19-Jun-2023.md",
-    "content/notes/play-fully-1.md",
     "content/notes/the-zuzalan-dream-2.md",
     "content/notes/in-every-meaning-4.md",
     "_private/life/2023/18-Jun-2023.md",
     "content/notes/summer-2023.md",
     "content/notes/on-doubt-and-distortion-fields-3.md",
     "_private/life/2023/17-Jun-2023.md",
-    "_private/life/2023/16-Jun-2023.md",
-    "content/notes/random-walks-are-sqrtn.md",
-    "content/notes/design-fictions.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",
