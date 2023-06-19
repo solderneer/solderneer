@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Organizations as Myth and Ceremony"
 emoji: "🤝"
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023

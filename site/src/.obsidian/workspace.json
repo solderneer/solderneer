@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "e58bbe4467325bbc",
+        "id": "243e388396cfa7a4",
         "type": "tabs",
         "children": [
           {
-            "id": "0ab2480c1433a143",
+            "id": "6382c223fe90a882",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_private/_inbox/i-want-to-be-free.md",
+                "file": "content/notes/organizations-as-myth-and-ceremony.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -65,7 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "_private/_inbox/i-want-to-be-free.md",
+                "file": "content/notes/organizations-as-myth-and-ceremony.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_private/_inbox/i-want-to-be-free.md",
+                "file": "content/notes/organizations-as-myth-and-ceremony.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_private/_inbox/i-want-to-be-free.md",
+                "file": "content/notes/organizations-as-myth-and-ceremony.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_private/_inbox/i-want-to-be-free.md"
+                "file": "content/notes/organizations-as-myth-and-ceremony.md"
               }
             }
           },
@@ -206,10 +206,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0ab2480c1433a143",
+  "active": "6382c223fe90a882",
   "lastOpenFiles": [
-    "_private/_inbox/computational-irreducibility.md",
     "_private/_inbox/i-want-to-be-free.md",
+    "_private/_inbox/computational-irreducibility.md",
     "_private/_inbox/hypercerts-funding-model.md",
     "_private/life/2023/31-May-2023.md",
     "_private/_inbox/diverge-converge.md",
