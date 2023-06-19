@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/magic-in-hand-holding-5.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a17078783dd819f3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/notes/in-every-meaning-4.md",
+                "file": "_private/_inbox/i-want-to-be-free.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -78,7 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/magic-in-hand-holding-5.md",
+                "file": "_private/_inbox/i-want-to-be-free.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -158,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/magic-in-hand-holding-5.md",
+                "file": "_private/_inbox/i-want-to-be-free.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/magic-in-hand-holding-5.md",
+                "file": "_private/_inbox/i-want-to-be-free.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -187,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/magic-in-hand-holding-5.md"
+                "file": "_private/_inbox/i-want-to-be-free.md"
               }
             }
           },
@@ -221,32 +208,32 @@
   },
   "active": "0ab2480c1433a143",
   "lastOpenFiles": [
+    "_private/_inbox/computational-irreducibility.md",
+    "_private/_inbox/i-want-to-be-free.md",
+    "_private/_inbox/hypercerts-funding-model.md",
+    "_private/life/2023/31-May-2023.md",
+    "_private/_inbox/diverge-converge.md",
+    "content/notes/pattern-languages.md",
+    "_private/_inbox/path-to-30u30.md",
+    "_private/_inbox/foresight-fellowship-application.md",
+    "_private/_inbox/market-feedback-is-all-you-need.md",
+    "content/notes/reversal-theory.md",
+    "content/notes/radical-design-and-technology-epiphanies.md",
+    "content/notes/organizations-as-myth-and-ceremony.md",
+    "content/notes/microsolidarity.md",
+    "content/notes/magic-in-hand-holding-5.md",
     "content/notes/104-days-of-summer-vacation.md",
+    "_private/life/2023/19-Jun-2023.md",
     "content/notes/play-fully-1.md",
     "content/notes/the-zuzalan-dream-2.md",
-    "content/notes/magic-in-hand-holding-5.md",
     "content/notes/in-every-meaning-4.md",
-    "_private/_inbox/microsolidarity.md",
     "_private/life/2023/18-Jun-2023.md",
     "content/notes/summer-2023.md",
     "content/notes/on-doubt-and-distortion-fields-3.md",
     "_private/life/2023/17-Jun-2023.md",
     "_private/life/2023/16-Jun-2023.md",
     "content/notes/random-walks-are-sqrtn.md",
-    "_private/_inbox/foresight-fellowship-application.md",
     "content/notes/design-fictions.md",
-    "_private/_inbox/hypercerts-funding-model.md",
-    "pages/home.md",
-    "content/letters/answer-the-call.md",
-    "content/notes/top-of-mind.md",
-    "content/notes/continuity of care.md",
-    "content/notes/hypercerts.md",
-    "_private/_inbox/reversal-theory.md",
-    "_private/_inbox/radical-design-and-technology-epiphanies.md",
-    "_private/_inbox/pattern-language.md",
-    "_private/_inbox/computational-irreducibility.md",
-    "_private/projects/happily-ever-after/happily-ever-after.md",
-    "_private/projects/happily-ever-after/vital-design-drafts.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",
