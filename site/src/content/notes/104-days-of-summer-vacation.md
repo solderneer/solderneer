@@ -16,5 +16,6 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 4. [[in-every-meaning-4]] on 16-Jun-2023
 5. [[magic-in-hand-holding-5]] on 17-Jun-2023
 6. [[to-be-free]] on 19-Jun-2023
+7. [[anti-agency]] on 20-Jun-2023
 
 Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)

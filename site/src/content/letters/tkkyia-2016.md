@@ -25,7 +25,7 @@ The rapidly developing field of UAV's is proving to be incredibly effective and 
 
 If recognizing this problem is the first step, solving it should follow suit. We designed SentiBots to be an optimal drone for use in the military. The rare dual motor propulsion system with the 4 flap navigation reduces complexity, cost, and increases the efficiency of a system. In addition it is also swarm optimized, and the ability to move in a swarm offers benefits unmatched by any other drone system. You can also see that the electronics and processing is based on the [Ediplane](https://makerforce.io/an-edison-based-flight-controller/) PCB which provides the necessary computing power.
 
-This should give the Singapore military an edge over the competition and the SentiBot project is an ongoing project with regular updates being made to the design. You can follow our progress on our [project page](//sentibots.makerforce.io).
+This should give the Singapore military an edge over the competition and the SentiBot project is an ongoing project with regular updates being made to the design.
 
 ![](https://makerforce.io/content/images/2016/04/DSC_0686.JPG)
 

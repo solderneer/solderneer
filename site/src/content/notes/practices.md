@@ -12,6 +12,7 @@ If [[principles]] are the things I believe in the abstract, [[practices]] are th
 2. [[yearly-retrospective]]
 3. [[great-thoughts-time]]
 4. [[learning-in-seasons]]
+5. [[i-write-for-thought-lego]]
 
 **These are some things I want to do but don't do quite yet:**
 [[posse]]

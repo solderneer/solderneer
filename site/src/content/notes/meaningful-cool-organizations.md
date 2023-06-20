@@ -17,7 +17,7 @@ This list is more for myself, to collect organizations that I think are cool. Th
 [Gingko Bioworks](https://www.ginkgobioworks.com/)
 >Biology by design
 
-[vac.dev](vac.dev)
+[vac.dev](https://vac.dev)
 >Vac builds [public good](https://en.wikipedia.org/wiki/Public_good) protocols for the decentralized web.
 
 [Protocol Labs](https://protocol.ai/)

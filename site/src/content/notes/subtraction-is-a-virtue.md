@@ -8,6 +8,5 @@ tags: ["type/principles"]
 
 See:
 * [Aya talk's on subtraction](https://www.youtube.com/watch?v=R7FjX0GEiAM)
-* [[Our Brain Typically Overlooks This Brilliant Problem-Solving Strategy]]
 
 **Other Related Meanderings:**

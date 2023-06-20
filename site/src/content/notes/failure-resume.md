@@ -8,7 +8,7 @@ tags: ["type/life"]
 
 > The nature of resumes means that most people only choose to highlight their successes and wins, but rarely the work, effort, and failures on the way. I think this creates an unhealthy culture of [idolizing perfection](https://jzhao.xyz/thoughts/idolization) and sets unrealistic standards for what ‘real success’ should look like.
 
-I first came across failure resumes on, [jzhao.xyz](jzhao.xyz), an internet inspiration of mine, check out [his failure resume here](https://jzhao.xyz/posts/a-failure-resume/).
+I first came across failure resumes on, [jzhao.xyz](https://jzhao.xyz), an internet inspiration of mine, check out [his failure resume here](https://jzhao.xyz/posts/a-failure-resume/).
 
 My intention behind [[failure-resume]] comes back to the principle of humility. In a way, it reminds me that the past wasn't easy, and isn't to be taken for granted. And at the same time, it tells me everything's okay even when things are going sideways. In a culture where everything is supposed to be easy and effortless, where you're _just_ supposed to be good enough, my [[failure-resume]] tells me no. It's okay that things are hard sometimes.
 

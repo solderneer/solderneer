@@ -16,7 +16,7 @@ The core idea of market protocol fit is that in a highly decentalized system, th
 
 This means that crypto projects necessarily start with nothing but token-based incentives and narratives. And we must start with the circulation of "potential value" rather than a real product.
 
-This happens in parallel with [[a-decentralized-brand-is-a-meme]] and [[a-brand-is-consensus]] to create [[Headless Brands]]. 
+This happens in parallel with [[a-decentralized-brand-is-a-meme]] and [[a-brand-is-consensus]] to create Headless Brands. 
 
 There are three important things here
 

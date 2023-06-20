@@ -9,13 +9,13 @@ tags: ["topic/social-sciences"]
 **Brands are currently driven by the consumerist profit-motive. But, they don't have to be and we can look at cults for some inspiration.**
 
 ![](https://subpixel.space/uploads/horseshoebrands.png)
-Credits: [[Life After Lifestyle]]
+Credits: Life After Lifestyle
 
 [[brands-form-identities]], but cults show us that identity-forming is about more than consuming content and goods. Cultural participation is about action, and owning products is an insignificant form of participation.
 
 Example: _Buying Nike shoes doesn't mean that you are fit_
 
-What people crave are forms of true cultural membership, meaningful narratives, but DTC brands were never incentivized to meet those needs. Some quotes from [[Life After Lifestyle]]:
+What people crave are forms of true cultural membership, meaningful narratives, but DTC brands were never incentivized to meet those needs. Some quotes from [Life After Lifestyle](https://subpixel.space/entries/life-after-lifestyle/):
 
 > The Lifestyle era was not about creating culture; it was about attaching brands onto existing cultural contexts.
 

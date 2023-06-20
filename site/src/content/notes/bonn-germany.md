@@ -12,4 +12,4 @@ Bonn was the first time I had been outside Asia, coincidentally I also managed t
 
 My host in Bonn was probably the biggest culture shock for me. Of the 6 subjects he took in school, 3 were English, French and Latin which I had to sit through classes for. This is starkly contrasted to the STEM focused education in Singapore.
 
-The fact that I also like [[Vienna, Austria]] seems to be a sign telling me learn German. And to visit [[Berlin, Germany]] at some point.
+The fact that I also like [[vienna-austria]] seems to be a sign telling me learn German. And to visit Berlin at some point.

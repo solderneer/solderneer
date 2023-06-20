@@ -6,7 +6,7 @@ updatedDate: 16-Nov-2022
 tags: ["topic/social-sciences"]
 ---
 
-Multitemporality is the idea that we have lost coherent narratives to stand behind and that we are in the [[The Garden of Forking Memes]].
+Multitemporality is the idea that we have lost coherent narratives to stand behind and that we are in the The Garden of Forking Memes.
 
 [The Internet of Beefs](https://www.ribbonfarm.com/2020/01/16/the-internet-of-beefs/) - Venkatesh Rao is talking about the beefing on the internet (mainly Twitter) as being an endless conflict powered by the fear of a non-existent narrative.
 
@@ -16,7 +16,7 @@ Multitemporality is the idea that we have lost coherent narratives to stand behi
 
 >We fractally fragment understandings, then algorithmically amplify the confusion to maximize engagement.
 
-Talks about the intersection of [[The Garden of Forking Memes]], context collapse with [[web2-is-for-self-expression-not-thought]] which creates viral behaviour.
+Talks about the intersection of The Garden of Forking Memes, context collapse with [[web2-is-for-self-expression-not-thought]] which creates viral behaviour.
 
 **Other Related Meanderings:**
 

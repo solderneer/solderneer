@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "243e388396cfa7a4",
+        "id": "76e8a81002a47497",
         "type": "tabs",
         "children": [
           {
-            "id": "1e65f77579d95fd7",
+            "id": "8818bf7bac60dfae",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/anti-agency.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -65,7 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/anti-agency.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -100,7 +100,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#project/104-days",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -109,7 +109,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -145,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/anti-agency.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/anti-agency.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md"
+                "file": "content/notes/anti-agency.md"
               }
             }
           },
@@ -206,34 +207,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1e65f77579d95fd7",
+  "active": "8818bf7bac60dfae",
   "lastOpenFiles": [
-    "content/notes/to-be-free.md",
+    "_private/life/2023/20-Jun-2023.md",
+    "content/notes/anti-agency.md",
+    "content/notes/principles.md",
+    "content/notes/practices.md",
+    "content/notes/i-write-for-thought-lego.md",
     "content/notes/104-days-of-summer-vacation.md",
-    "content/notes/magic-in-hand-holding-5.md",
-    "content/notes/full-circle-leadership.md",
-    "content/notes/play-fully-1.md",
-    "_private/_inbox/foresight-fellowship-application.md",
-    "_private/projects/happily-ever-after/hypercerts-funding-model.md",
+    "content/notes/to-be-free.md",
     "_private/projects/happily-ever-after/happily-ever-after.md",
-    "content/notes/evolutionary-organizations.md",
-    "content/notes/organizations-as-myth-and-ceremony.md",
-    "_private/_inbox/computational-irreducibility.md",
-    "_private/life/2023/31-May-2023.md",
-    "_private/_inbox/diverge-converge.md",
-    "content/notes/pattern-languages.md",
-    "_private/_inbox/path-to-30u30.md",
-    "_private/_inbox/market-feedback-is-all-you-need.md",
-    "content/notes/reversal-theory.md",
-    "content/notes/radical-design-and-technology-epiphanies.md",
-    "content/notes/microsolidarity.md",
-    "_private/life/2023/19-Jun-2023.md",
-    "content/notes/the-zuzalan-dream-2.md",
-    "content/notes/in-every-meaning-4.md",
-    "_private/life/2023/18-Jun-2023.md",
-    "content/notes/summer-2023.md",
-    "content/notes/on-doubt-and-distortion-fields-3.md",
-    "_private/life/2023/17-Jun-2023.md",
+    "_private/projects/happily-ever-after/intern-interviews-2023.md",
+    "_private/projects/happily-ever-after/proposal-to-chun.md",
+    "_private/projects/happily-ever-after/vital-design-drafts.md",
+    "_private/projects/happily-ever-after/hypercerts-funding-model-v2.md",
+    "_private/projects/happily-ever-after/hypercerts-funding-model-v1.md",
+    "orphaned files output.md",
+    "empty files.md",
+    "_private/_templates/Letter.md",
+    "_private/people/Shobana Sundaramahalingam.md",
+    "broken links output.md",
+    "_private/people/Nikita Vattas.md",
+    "content/notes/brands-can-be-meaningful.md",
+    "content/notes/multitemporality.md",
+    "content/notes/subtraction-is-a-virtue.md",
+    "content/notes/meaningful-cool-organizations.md",
+    "content/notes/market-protocol-fit.md",
+    "content/notes/failure-resume.md",
+    "_private/_inbox/jzhao.xyz.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",
