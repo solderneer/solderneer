@@ -65,12 +65,30 @@ body {
   }
 }
 
+/* Link styling */
+
+.rainbow-link a {
+  padding: 2px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: var(--beige-medium);
+}
+
 .rainbow-link a:hover {
   animation-name: rainbow;
   animation-duration: 4s;
   animation-iteration-count: infinite;
 }
 
+/* Reset for non-existent links */
+.rainbow-link .new {
+  pointer-events: none;
+  background-color: transparent;
+  font-weight: normal;
+}
+
+/* Button styling */
 .rainbow-button:active {
   transform: scale(0.95) !important;
   transition: transform 0.1s;

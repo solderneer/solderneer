@@ -1,23 +1,26 @@
-import type { AstroConfig, AstroIntegration } from "astro";
+import type { AstroIntegration } from "astro";
 import { fileURLToPath } from "node:url";
 import fs from "fs/promises";
 import cheerio from "cheerio";
 
+// Datatype to represent a link in d3.js
 interface Link {
   source: string;
   target: string;
 }
 
+// Datatype to represent a node in d3.js
 interface Node {
   id: string;
   name: string;
 }
 
+// The final exported JSON
 interface Index {
-  forwardLinks: Record<string, Link[]>;
-  backLinks: Record<string, Link[]>;
-  links: Link[];
-  nodes: Record<string, Node>;
+  forwardLinks: Record<string, Link[]>; // All the links going out of each node
+  backLinks: Record<string, Link[]>; // All the links coming into each node
+  links: Link[]; // All the links
+  nodes: Record<string, Node>; // All the nodes
 }
 
 function findLinksInHTML(source: string, html: string): [Link[], Node] {
@@ -29,10 +32,9 @@ function findLinksInHTML(source: string, html: string): [Link[], Node] {
 
   $(".md-block a").each((_, element) => {
     let link = $(element).attr("href");
-    const name = $(element).text();
     if (link) {
       // Filter out external links
-      link = link.replace(/^\/+/, "") + "/";
+      link = link.replace(/^\/+/, "");
       const regex = /^notes\//;
       if (source === link) {
         // The source and dest are the and and we can skip it
@@ -87,17 +89,17 @@ const createPlugin = (): AstroIntegration => {
         let nodeMap: Record<string, Node> = {};
         const regex = /^notes\//;
         for (const page of pages) {
-          if (!regex.test(page.pathname)) continue;
+          // Remove trailing slash in page.pathname
+          const source = page.pathname.slice(0, -1);
+          if (!regex.test(source)) continue;
 
-          const filePath = fileURLToPath(
-            new URL(page.pathname + "index.html", dir)
-          );
+          const filePath = fileURLToPath(new URL(source + "/index.html", dir));
 
           const data = await fs.readFile(filePath, { encoding: "utf-8" });
-          const [links, node] = findLinksInHTML(page.pathname, data);
+          const [links, node] = findLinksInHTML(source, data);
           linkList = [...linkList, ...links];
           console.log(node);
-          nodeMap[page.pathname] = node;
+          nodeMap[source] = node;
         }
 
         const index: Index = {

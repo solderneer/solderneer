@@ -1,6 +1,7 @@
 ---
 // Code heavily inspired by: https://github.com/jackyzha0/quartz/blob/hugo/assets/js/graph.js
 
+import { root } from "cheerio/lib/static";
 import { SITE_BASEURL } from "../consts";
 const { rootPath, indexPath = "mdindex.json", opacityScale = 2 } = Astro.props;
 
@@ -8,9 +9,10 @@ const { rootPath, indexPath = "mdindex.json", opacityScale = 2 } = Astro.props;
 const regex = /\/$/;
 let rootPathFix = "";
 if (regex.test(rootPath)) {
-  rootPathFix = rootPath;
+  // If there is a trailing slash, remove it before looking up the index
+  rootPathFix = rootPath.slice(0, -1);
 } else {
-  rootPathFix = rootPath.replace(/^\/+/, "") + "/";
+  rootPathFix = rootPath;
 }
 ---
 

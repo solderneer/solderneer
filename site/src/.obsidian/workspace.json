@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/anti-agency.md",
+                "file": "content/notes/principles.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -65,7 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/anti-agency.md",
+                "file": "content/notes/principles.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/anti-agency.md",
+                "file": "content/notes/principles.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/anti-agency.md",
+                "file": "content/notes/principles.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/anti-agency.md"
+                "file": "content/notes/principles.md"
               }
             }
           },
@@ -209,8 +209,9 @@
   },
   "active": "8818bf7bac60dfae",
   "lastOpenFiles": [
-    "_private/life/2023/20-Jun-2023.md",
+    "_private/life/2023/21-Jun-2023.md",
     "content/notes/anti-agency.md",
+    "_private/life/2023/20-Jun-2023.md",
     "content/notes/principles.md",
     "content/notes/practices.md",
     "content/notes/i-write-for-thought-lego.md",
@@ -234,7 +235,6 @@
     "content/notes/meaningful-cool-organizations.md",
     "content/notes/market-protocol-fit.md",
     "content/notes/failure-resume.md",
-    "_private/_inbox/jzhao.xyz.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",
