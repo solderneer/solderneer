@@ -9,7 +9,7 @@ tags: ["type/life"]
 It's interesting that it's been a while since I've sat down and set myself some goals. The last couple of summers have been a bit strange, I've mostly been committed to a single big idea which I've over identified with in each of those summer.
 
 **A quick recap of past summers:**
-The summer of 2019 and 2020 was no summer at all, because of my National Service 🖖. The summer of 2021, was my work on improved learning systems with [[axiom]]. The summer of 2022, was when my work on [[happily-ever-after]] begun. Before 2019, was high school and 2018 was marked with our fun startup-project, [Beep](https://beepvoice.app).
+The summer of 2019 and 2020 was no summer at all, because of my National Service 🖖. The summer of 2021, was my work on improving learning systems with [[axiom]]. The summer of 2022, was when my work on [[happily-ever-after]] begun. Before 2019, was high school and 2018 was marked with our fun startup-project, [Beep](https://beepvoice.app).
 
 For each of these summers, the OKRs for the startup have been the OKRs for me, and it was my underlying assumption that my personal growth would naturally follow. The results turn out to be mixed, while I'm confident I've grown through all these experiences, it's not legible to me, _how I've grown_. Mostly because I wasn't looking for it in anyway. [[you-get-what-you-measure]] so, I've decided to be more conscious about it this summer.
 

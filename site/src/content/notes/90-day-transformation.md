@@ -94,3 +94,11 @@ So, the path I took to get my weight back on the downer was. 1) I deployed a ref
 So on Tuesday, Thursday, Saturday and Sunday, I will do runs instead of weights as a form of active recovery. A run lasts about 20 minutes, and it's a pretty efficient form of maintaining metabolism without spending an hour walking.
 
 That's it for this log. Tune back in next week.
+
+## \[23 Jun 2023  - 21:35\] \[Weight: 64.75\]
+
+Progress has been stalling a little since I came to Singapore. Mostly because I keep getting asked out to eat, and eating outside makes it quite difficult to remain at my required calorie levels. I think a key factor here, is also that I've stopped weighing myself every day - [[you-get-what-you-measure]]. 
+
+Regardless, I've been maintaining the regularity of the workouts which is a good thing, and it is something I should continue to try to preserve. Tomorrow, I fly to India, and there will be a 1 week hiatus. When I get back, I will recalibrate my routine and diet, to get myself back on track.
+
+During this 1 week, the plan is to just eat conservatively and maintain my intermittent fast. I don't want to inadvertently reverse all my progress.
