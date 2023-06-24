@@ -4,20 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "33d1ff6b0adbad08",
+        "id": "b36b9bb323dd2976",
         "type": "tabs",
         "children": [
           {
-            "id": "2c9e9c5eeec124ca",
+            "id": "30b17db9f0ee7831",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/self-socratic-dialogues.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
+            }
+          },
+          {
+            "id": "5de3f3f7c0ebc75f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -65,7 +73,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/self-socratic-dialogues.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -145,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/self-socratic-dialogues.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/self-socratic-dialogues.md",
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/self-socratic-dialogues.md"
+                "file": "content/notes/104-days-of-summer-vacation.md"
               }
             }
           },
@@ -206,34 +214,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2c9e9c5eeec124ca",
+  "active": "30b17db9f0ee7831",
   "lastOpenFiles": [
-    "content/notes/most-days.md",
-    "_private/life/2023/23-Jun-2023.md",
-    "content/notes/90-day-transformation.md",
+    "content/notes/planes-going-places.md",
+    "content/notes/anti-agency.md",
     "content/notes/104-days-of-summer-vacation.md",
+    "content/notes/the-zuzalan-dream-2.md",
+    "content/notes/most-days.md",
+    "_private/life/2023/24-Jun-2023.md",
+    "_private/people/Nikita Vattas.md",
+    "_private/people/Sundaramahalingam Rajamanickam.md",
+    "_private/people/Shobana Sundaramahalingam.md",
+    "_private/people/Isaac Tay.md",
+    "_private/life/2022/2022-retrospective.md",
+    "_private/people/Shruthika Sundaramahalingam.md",
+    "_private/people/Adrien.md",
+    "_private/people/Dustin L.md",
+    "_private/people/Elizabeth Yeung.md",
+    "content/letters/answer-the-call.md",
+    "_private/life/2023/23-Jun-2023.md",
     "content/notes/summer-2023.md",
     "content/notes/self-socratic-dialogues.md",
+    "content/notes/90-day-transformation.md",
     "content/notes/understand-the-past.md",
     "content/notes/magic-in-hand-holding-5.md",
     "content/notes/in-every-meaning-4.md",
     "content/notes/on-doubt-and-distortion-fields-3.md",
-    "content/notes/the-zuzalan-dream-2.md",
     "content/notes/play-fully-1.md",
     "content/notes/internal-family-systems.md",
-    "content/notes/microsolidarity.md",
-    "content/notes/manufactured-normalcy.md",
-    "content/notes/i-write-for-thought-lego.md",
-    "content/notes/anti-agency.md",
-    "content/notes/a-study-can-prove-anything.md",
-    "content/notes/be-radically-skeptical.md",
-    "content/notes/principles.md",
-    "_private/life/2023/21-Jun-2023.md",
-    "_private/life/2023/20-Jun-2023.md",
-    "content/notes/practices.md",
-    "content/notes/to-be-free.md",
-    "_private/projects/happily-ever-after/happily-ever-after.md",
-    "_private/projects/happily-ever-after/intern-interviews-2023.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",

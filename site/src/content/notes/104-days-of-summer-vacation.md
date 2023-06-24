@@ -21,5 +21,6 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 9. Didn't write anything :(
 10. [[self-socratic-dialogues]] on 22-Jun-2023
 11. [[most-days]] on 23-Jun-2023
+12. [[planes-going-places]] on 24-Jun-2023
 
 Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)
