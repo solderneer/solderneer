@@ -13,19 +13,11 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/gdp-measures-our-making.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
-            }
-          },
-          {
-            "id": "5de3f3f7c0ebc75f",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
             }
           }
         ]
@@ -73,7 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/gdp-measures-our-making.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -153,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/gdp-measures-our-making.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/gdp-measures-our-making.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -182,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md"
+                "file": "content/notes/gdp-measures-our-making.md"
               }
             }
           },
@@ -216,9 +208,13 @@
   },
   "active": "30b17db9f0ee7831",
   "lastOpenFiles": [
-    "content/notes/planes-going-places.md",
-    "content/notes/anti-agency.md",
     "content/notes/104-days-of-summer-vacation.md",
+    "content/notes/gdp-measures-our-making.md",
+    "content/notes/planes-going-places.md",
+    "_private/life/2023/26-Jun-2023.md",
+    "_private/life/2022/2022-retrospective.md",
+    "content/notes/networked-branding-is-permissionless.md",
+    "content/notes/anti-agency.md",
     "content/notes/the-zuzalan-dream-2.md",
     "content/notes/most-days.md",
     "_private/life/2023/24-Jun-2023.md",
@@ -226,7 +222,6 @@
     "_private/people/Sundaramahalingam Rajamanickam.md",
     "_private/people/Shobana Sundaramahalingam.md",
     "_private/people/Isaac Tay.md",
-    "_private/life/2022/2022-retrospective.md",
     "_private/people/Shruthika Sundaramahalingam.md",
     "_private/people/Adrien.md",
     "_private/people/Dustin L.md",
@@ -239,9 +234,6 @@
     "content/notes/understand-the-past.md",
     "content/notes/magic-in-hand-holding-5.md",
     "content/notes/in-every-meaning-4.md",
-    "content/notes/on-doubt-and-distortion-fields-3.md",
-    "content/notes/play-fully-1.md",
-    "content/notes/internal-family-systems.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",
