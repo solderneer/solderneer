@@ -4,20 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "b36b9bb323dd2976",
+        "id": "10e82af6a3e91dfc",
         "type": "tabs",
         "children": [
           {
-            "id": "30b17db9f0ee7831",
+            "id": "13f80917860d3cdc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/notes/gdp-measures-our-making.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -65,7 +60,6 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/gdp-measures-our-making.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -100,7 +94,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "llms",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -109,7 +103,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -145,7 +140,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/gdp-measures-our-making.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +156,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/gdp-measures-our-making.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -173,9 +166,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "content/notes/gdp-measures-our-making.md"
-              }
+              "state": {}
             }
           },
           {
@@ -206,14 +197,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "30b17db9f0ee7831",
+  "active": "13f80917860d3cdc",
   "lastOpenFiles": [
+    "content/notes/write-simply.md",
+    "content/notes/writing-for-observance.md",
+    "content/notes/a-decentralized-brand-is-a-meme.md",
+    "content/notes/networked-branding-is-permissionless.md",
     "content/notes/104-days-of-summer-vacation.md",
     "content/notes/gdp-measures-our-making.md",
+    "content/notes/principles.md",
+    "content/notes/practices.md",
     "content/notes/planes-going-places.md",
+    "content/notes/biohacking-before-it-was-cool.md",
+    "_private/life/2023/27-Jun-2023.md",
     "_private/life/2023/26-Jun-2023.md",
     "_private/life/2022/2022-retrospective.md",
-    "content/notes/networked-branding-is-permissionless.md",
     "content/notes/anti-agency.md",
     "content/notes/the-zuzalan-dream-2.md",
     "content/notes/most-days.md",
@@ -227,13 +225,6 @@
     "_private/people/Dustin L.md",
     "_private/people/Elizabeth Yeung.md",
     "content/letters/answer-the-call.md",
-    "_private/life/2023/23-Jun-2023.md",
-    "content/notes/summer-2023.md",
-    "content/notes/self-socratic-dialogues.md",
-    "content/notes/90-day-transformation.md",
-    "content/notes/understand-the-past.md",
-    "content/notes/magic-in-hand-holding-5.md",
-    "content/notes/in-every-meaning-4.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",

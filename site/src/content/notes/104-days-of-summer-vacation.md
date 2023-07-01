@@ -24,5 +24,8 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 12. [[planes-going-places]] on 24-Jun-2023
 13. Didn't write anything :(
 14. [[gdp-measures-our-making]] on 26-Jun-2023
+15. [[biohacking-before-it-was-cool]] on 27-Jun-2023
+16. [[writing-for-observance]] on 28-Jun-2023
+17. [[write-simply]] on 29-Jun-2023
 
 Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)
