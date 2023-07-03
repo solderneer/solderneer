@@ -31,3 +31,4 @@ Principles are rules, beliefs, or ideas that remind me to be _me_. The principle
 14. [[random-walks-are-sqrtn]]
 15. [[anti-agency]]
 16. [[write-simply]]
+17. [[do-what-contributes]]

@@ -27,5 +27,9 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 15. [[biohacking-before-it-was-cool]] on 27-Jun-2023
 16. [[writing-for-observance]] on 28-Jun-2023
 17. [[write-simply]] on 29-Jun-2023
+18. [[grieving-otherselves]] on 30-Jun-2023
+19. [[do-what-contributes]] on 1-Jul-2023
+20. [[ineffective-impacts]] on 2-Jul-2023
+21. [[balanced-effectiveness]] on 3-Jul-2023
 
 Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)

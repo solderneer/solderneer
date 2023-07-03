@@ -44,7 +44,7 @@ I think what irks me, is that the rationalism subculture is all about encouragin
 
 This drawback gives the whole thing a somewhat elitist flavor, when I'm sure that's not the spirit of rationalism at all- the pursuit of truth should be a fundamental human right. And in that spirit, the language used should be inclusive to people from all domains. By this, I don't mean avoid formalism, formalism should be used where appropriate to convey an idea. 
 
-**But rather, say things as simply as possible.**  The Economist Style Guide says this:
+**But rather, say things as simply as possible.**  The Economist Style Guide echoes this:
 
 >The first requirement of The Economist is that it should be readily understandable. Clarity of writing usually follows clarity of thought. So think what you want to say, then say it as simply as possible.
 
