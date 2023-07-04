@@ -41,8 +41,7 @@ But there is lots of wisdom to take away, even disregarding the value judgements
 
 4. **Make great contributions.** If you do stellar work, you build your reputation and it allows you to meet other high achievers.
 
-
-Tomorrow, I'll be writing more about effective altruism and the specific value judgements that it makes. I'm also slowly working through the 80,000 hours exercises, to build more clarity for myself. You can find that note here: [[80000-hours]].
+Tomorrow, I'll be writing more about effective altruism and the specific value judgements that it makes. I'm also patiently working through the 80,000 hours exercises, to build more clarity for myself.
 
 In the meantime, I think I've spent long enough on the computer for today, it's a beautiful day in India. It's time to take a walk, perhaps even, for you too dear reader! See you tomorrow :)
 

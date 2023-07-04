@@ -58,3 +58,16 @@ const { title, description, emoji, image } = Astro.props;
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
 />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V7F3B1YVBS"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-V7F3B1YVBS");
+</script>
