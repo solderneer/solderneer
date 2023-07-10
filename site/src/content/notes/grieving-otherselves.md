@@ -30,7 +30,7 @@ This also begs the point, what about all those other visions that were real in m
 
 ---
 
-I want to take this time to offer gratitude to dreams unrealized. In my dreams, I published novel robotics research in a journal at 17. I went to study in MIT then, I was a college dropout scaling an impactful startup. In my dreams, I reformed the education system to finally be personalized. I helped lots of people adopt preventive healthcare._
+_I want to take this time to offer gratitude to dreams unrealized. In my dreams, I published novel robotics research in a journal at 17. I went to study in MIT then, I was a college dropout scaling an impactful startup. In my dreams, I reformed the education system to finally be personalized. I helped lots of people adopt preventive healthcare._
 
 _These dreams have shifted and transformed, and yet I feel thankful for the inspiration they have ignited in me. They were the audience cheering me along, the invisible hand gently pushing me ahead, the whisper in my ears which shaped my character. Every one of those dreams hold a special place in my heart, the lessons they have taught me are a lifetime long._
 

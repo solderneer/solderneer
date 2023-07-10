@@ -6,7 +6,7 @@ updatedDate: 13-Jun-2023
 tags: ["type/index", "project/104-days"]
 ---
 
-This is a writing series to write stream-of-consciousness type, lightly-edited letters, to improve my writing and get myself to express myself more frequently online. I tend to grapple with perfectionism and fear of publishing publicly, and this experiment will hopefully be an avenue to work past that during this summer.
+This is a writing series to write stream-of-consciousness type, lightly-edited letters, to improve my writing and get myself to express myself more frequently online. I tend to grapple with perfectionism and fear of publishing publicly, and this experiment will hopefully be an avenue to work on that during this summer.
 
 This is an experiment living and breathing in [[summer-2023]]. It also inspired by related works such as [spencerchang's 100 mini-essays](https://www.spencerchang.me/experiments/100posts/) and [visakenv's do 100 things](https://twitter.com/visakanv). 
 
@@ -29,7 +29,14 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 17. [[write-simply]] on 29-Jun-2023
 18. [[grieving-otherselves]] on 30-Jun-2023
 19. [[do-what-contributes]] on 1-Jul-2023
-20. [[ineffective-impacts]] on 2-Jul-2023
-21. [[balanced-effectiveness]] on 3-Jul-2023
+20. [[meditations-on-effective-altruism]] on 2-Jul-2023
+21. [[thoughtful-networking]] on 3-Jul-2023
+22. [[homecoming]] on 4-Jul-2023
+23. [[wisdom-of-elders]] on 5-Jul-2023
+24. [[fault-tolerant-biology]] on 6-Jul-2023
+25. [[to-dance-with-joy]] on 7-Jul-2023
+26. Didn't write anything :(
+27. [[fear-irrelevance]] on 9-Jul-2023
+28. [[most-days-2]] on 10-Jul-2023
 
 Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)

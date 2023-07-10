@@ -4,15 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "2ca9f371134a9365",
+        "id": "7b43ccb513ea49c5",
         "type": "tabs",
         "children": [
           {
-            "id": "e26050a3c219a34a",
+            "id": "25a5b5377afd551e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "content/notes/104-days-of-summer-vacation.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -60,6 +65,7 @@
             "state": {
               "type": "localgraph",
               "state": {
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -139,6 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,6 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "content/notes/104-days-of-summer-vacation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -165,7 +173,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "content/notes/104-days-of-summer-vacation.md"
+              }
             }
           },
           {
@@ -196,34 +206,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e26050a3c219a34a",
+  "active": "25a5b5377afd551e",
   "lastOpenFiles": [
+    "content/notes/most-days-2.md",
+    "content/notes/104-days-of-summer-vacation.md",
+    "content/notes/fear-irrelevance.md",
+    "content/notes/to-dance-with-joy.md",
+    "content/notes/fault-tolerant-biology.md",
+    "content/notes/wisdom-of-elders.md",
+    "content/notes/homecoming.md",
+    "content/notes/thoughtful-networking.md",
+    "content/notes/meditations-on-effective-altruism.md",
+    "content/notes/summer-2023.md",
+    "_private/life/2023/10-Jul-2023.md",
+    "_private/_inbox/crossroads.md",
+    "content/notes/most-days.md",
+    "_private/_inbox/Untitled.md",
+    "content/notes/to-be-free.md",
+    "content/notes/in-every-meaning-4.md",
     "content/notes/do-what-contributes.md",
+    "_private/_templates/Daily.md",
+    "_private/life/2023/09-Jul-2023.md",
+    "_private/life/2023/07-Jul-2023.md",
+    "_private/_inbox/dynacyte-notes.md",
+    "content/notes/progress-is-understudied.md",
+    "_private/life/2023/04-Jul-2023.md",
+    "content/notes/grieving-otherselves.md",
     "_private/_inbox/80000-hours.md",
     "content/notes/principles.md",
-    "content/notes/104-days-of-summer-vacation.md",
-    "content/notes/grieving-otherselves.md",
-    "content/notes/write-simply.md",
-    "_private/life/2023/03-Jul-2023.md",
-    "_private/people/Zachary Desker.md",
-    "_private/people/Yi Hein.md",
-    "_private/people/Yeshuai Yang.md",
-    "_private/people/Yegor Lisle.md",
-    "_private/people/Yang En.md",
-    "_private/people/William Khoo.md",
-    "_private/people/Wilgene Tan.md",
-    "_private/people/Vrinda.md",
-    "_private/people/Vishram Mishra.md",
-    "_private/people/Vishaal Ravi.md",
-    "_private/people/Ty Hagler.md",
-    "_private/people/Toby (Yui To) Wong.md",
-    "_private/people/Tatiana Rosa.md",
-    "_private/people/Sundaramahalingam Rajamanickam.md",
-    "_private/people/Steve Kerrison.md",
-    "_private/people/Sri Ayangar.md",
-    "_private/people/Sohum Sen.md",
-    "_private/people/Siddharth Krishnan.md",
-    "_private/people/Siddhant Shrivastava.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",
