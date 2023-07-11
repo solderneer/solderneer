@@ -1,9 +1,10 @@
 ---
-title: "Heterarchies are the ideal civil society"
-emoji: "🏡"
+title: Heterarchies are the ideal civil society
+emoji: 🏡
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 Heterarchic organizations are those that can be ranked in multiple ways and are not strictly hierarchical. Internet-enabled social networks often have the properties of heterarchic collaborative exchange, which emerge from peer-to-peer communication systems.

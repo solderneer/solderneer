@@ -1,9 +1,11 @@
 ---
-title: "Create systems not goals"
-emoji: "🦾"
-pubDate: "18-Nov-2022"
+title: Create systems not goals
+emoji: 🦾
+pubDate: 18-Nov-2022
 updatedDate: 05-Jan-2023
-tags: ["type/life", "type/principles"]
+tags:
+  - type/life
+  - type/principles
 ---
 
 Excerpts from [Atomic Habits](https://jamesclear.com/goals-systems)

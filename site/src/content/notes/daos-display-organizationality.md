@@ -1,9 +1,11 @@
 ---
-title: "DAOs display organizationality"
-emoji: "🕴"
+title: DAOs display organizationality
+emoji: 🕴
 pubDate: 2-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["topic/technology", "topic/social-sciences"]
+tags:
+  - topic/technology
+  - topic/social-sciences
 ---
 
 _Organisationality_ is a concept originally proposed by [Ahrne and Brunsson (2011)](https://journals.sagepub.com/doi/10.1177/1350508410376256) and was intended as a more granular definition for organisations than the existing binary one. Social collectives are organisational is they display the following criteria:

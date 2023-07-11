@@ -1,9 +1,10 @@
 ---
-title: "Bali, Indonesia"
-emoji: "🇮‍🇩"
+title: Bali, Indonesia
+emoji: 🇮‍🇩
 pubDate: 02-Nov-2022
 updatedDate: 02-Nov-2022
-tags: ["type/place"]
+tags:
+  - type/place
 ---
 
 Vacation time? 

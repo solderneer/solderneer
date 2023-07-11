@@ -1,6 +1,6 @@
 ---
-title: "Organizations that I feel are working on cool things"
-emoji: "🧠"
+title: Organizations that I feel are working on cool things
+emoji: 🧠
 pubDate: 05-Jan-2023
 updatedDate: 05-Jan-2023
 tags: []

@@ -1,9 +1,11 @@
 ---
-title: "Design Fictions"
-emoji: "📚"
+title: Design Fictions
+emoji: 📚
 pubDate: 31-May-2023
 updatedDate: 31-May-2023
-tags: ["topic/arts", "topic/technology"]
+tags:
+  - topic/arts
+  - topic/technology
 ---
 
 Design fictions are closely related to the idea of [[diegetic-prototypes]]. There were initially adopted as a pedagogical practice in design schools, to help students be more creative.

@@ -1,9 +1,10 @@
 ---
-title: "Break habits as you build them"
-emoji: "🧠"
+title: Break habits as you build them
+emoji: 🧠
 pubDate: 31-Oct-2022
 updatedDate: 20-Nov-2022
-tags: ["type/principles"]
+tags:
+  - type/principles
 ---
 
 Children have a more active imagination than adults, and young adults are less constrained by their own prior patterns of thought.

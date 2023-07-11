@@ -1,10 +1,11 @@
 ---
-title: "Droid Project"
-description: "Building the hexapod simulation"
-emoji: "🦿"
-pubDate: "May 30 2020"
-tags: ["topic/technology"]
-originalPost: "https://makerforce.io/droid-project-completed-body/"
+title: Droid Project
+description: Building the hexapod simulation
+emoji: 🦿
+pubDate: May 30 2020
+tags:
+  - topic/technology
+originalPost: https://makerforce.io/droid-project-completed-body/
 ---
 
 <iframe width="816" height="456" src="https://www.youtube.com/embed/MYIbnTOSr5M" title="Droid Project: Body IK Test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

@@ -1,9 +1,10 @@
 ---
-title: "Microsolidarity"
-emoji: "🤝"
+title: Microsolidarity
+emoji: 🤝
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 [Microsolidarity](https://www.microsolidarity.cc/) is a network working on building practices for community-building, especially in small groups.

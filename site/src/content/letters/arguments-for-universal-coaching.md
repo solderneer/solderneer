@@ -1,10 +1,12 @@
 ---
-title: "Arguments for Universal Coaching"
-description: "Why I think everyone should have access to a health coach."
-emoji: "🏋️"
-pubDate: "Apr 20 2023"
-tags: ["topic/social-sciences", "project/hea"]
-originalPost: "https://heacare.substack.com/p/arguments-for-universal-coaching"
+title: Arguments for Universal Coaching
+description: Why I think everyone should have access to a health coach.
+emoji: 🏋️
+pubDate: Apr 20 2023
+tags:
+  - topic/social-sciences
+  - project/hea
+originalPost: https://heacare.substack.com/p/arguments-for-universal-coaching
 ---
 
 _“Everyone should have access to a health coach.”_

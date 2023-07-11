@@ -1,9 +1,11 @@
 ---
-title: "The Zuzalan Dream"
-emoji: "🏳"
+title: The Zuzalan Dream
+emoji: 🏳
 pubDate: 14-Jun-2023
 updatedDate: 14-Jun-2023
-tags: ["type/life", "project/104-days"]
+tags:
+  - type/life
+  - project/104-days
 ---
 
 This note is the **second** letter in the [[104-days-of-summer-vacation]] series.

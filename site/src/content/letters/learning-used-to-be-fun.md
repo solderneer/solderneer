@@ -1,10 +1,11 @@
 ---
-title: "Learning used to be fun"
-description: "More... complaints on education"
-emoji: "🧠"
-pubDate: "Jul 25 2021"
-tags: ["project/axiom"]
-originalPost: "https://makerforce.io/learning-used-to-be-fun/"
+title: Learning used to be fun
+description: More... complaints on education
+emoji: 🧠
+pubDate: Jul 25 2021
+tags:
+  - project/axiom
+originalPost: https://makerforce.io/learning-used-to-be-fun/
 ---
 
 Think back to when you were just growing up. When you were 4, enjoying the little things you did. Maybe you loved to draw on paper, maybe you were more of a musical person or maybe you loved to dance- but it doesn't matter what you did. You were just having fun.

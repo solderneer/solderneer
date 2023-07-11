@@ -1,9 +1,12 @@
 ---
-title: "Technomorality"
-emoji: "🤖"
+title: Technomorality
+emoji: 🤖
 pubDate: 01-Jun-2023
 updatedDate: 01-Jun-2023
-tags: ["topic/technology", "topic/philosophy", "type/principles"]
+tags:
+  - topic/technology
+  - topic/philosophy
+  - type/principles
 ---
 
 In [[technology-is-ideology]], there was a discussion on the path-dependence of technology. That the technology itself, carries with it the agency and the will of the technologist. Naturally, that extends that the role of the technologist is beyond solving problems, to considering which ends are worth solving for.

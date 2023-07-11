@@ -1,9 +1,10 @@
 ---
-title: "A brand is a consensus system"
-emoji: "🤝"
+title: A brand is a consensus system
+emoji: 🤝
 pubDate: 2-Nov-2022
 updatedDate: 2-Nov-2022
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 **tldr; A brand operates like a consensus system by faciliating a consistent set of beliefs across people.**

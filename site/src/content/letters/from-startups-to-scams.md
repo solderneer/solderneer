@@ -1,10 +1,12 @@
 ---
-title: "From startups to scams"
-description: "The dark side to startup culture?"
-emoji: "📉"
-pubDate: "June 20 2016"
-tags: ["topic/technology", "type/young-shan"]
-originalPost: "https://makerforce.io/from-startups-to-scams/"
+title: From startups to scams
+description: The dark side to startup culture?
+emoji: 📉
+pubDate: June 20 2016
+tags:
+  - topic/technology
+  - type/young-shan
+originalPost: https://makerforce.io/from-startups-to-scams/
 ---
 
 Startups are all the rage these days. From simple Socio-enterprise startups, to software startups of apps and service people from all walks of life are creating startups . Entrepreneurs are also provided with a myriad of ways to fund their projects. Finding investors and a potential audience has never been easier with the internet and social media helping to spread ideas and word quickly across the globe. This kind of funding is unparalleled in the history of Mankind. Granted that the benefits of these types of technology is widespread, there is always a negative side to everything and in this post we will be looking at the ugly side of crowdfunding.

@@ -1,9 +1,10 @@
 ---
-title: "Vienna, Austria"
-emoji: "🇦‍🇹"
+title: Vienna, Austria
+emoji: 🇦‍🇹
 pubDate: 13-Nov-2022
 updatedDate: 13-Nov-2022
-tags: ["type/place"]
+tags:
+  - type/place
 ---
 
 I love Vienna. I loved everything about it, except the fact that no one understood me. In fact, I think Vienna is going to inspire me to learn German. The aesthetic short buildings, trams, the people, the food, the coffee, it was all incredible. Plus everything looks like this!

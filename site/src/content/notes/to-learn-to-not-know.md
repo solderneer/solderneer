@@ -1,9 +1,10 @@
 ---
-title: "To learn to not know"
-emoji: "🏫"
+title: To learn to not know
+emoji: 🏫
 pubDate: 28-May-2023
 updatedDate: 28-May-2023
-tags: ["type/principles"]
+tags:
+  - type/principles
 ---
 
 I've had many criticisms of education before, see [[learn-dont-study]] and [[learning-used-to-be-fun]]. But coming to university, has shifted the lens I used to wear. My view on education used to be highly pragmatic, I thought people should learn exactly what they needed, when they needed it. 

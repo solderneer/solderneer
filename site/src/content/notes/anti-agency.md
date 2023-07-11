@@ -1,9 +1,11 @@
 ---
-title: "Anti Agency"
-emoji: "💕"
+title: Anti Agency
+emoji: 💕
 pubDate: 20-Jun-2023
 updatedDate: 20-Jun-2023
-tags: ["type/principles", "project/104-days"]
+tags:
+  - type/principles
+  - project/104-days
 ---
 
 This note is the **seventh** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!

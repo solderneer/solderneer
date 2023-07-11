@@ -1,10 +1,11 @@
 ---
-title: "Hephaestus Project"
-description: "On organizing and facilitating a hacker house in Singapore"
-emoji: "🐱💻"
-pubDate: "Nov 01 2020"
-tags: ["type/life"]
-originalPost: "https://makerforce.io/hephaestus-project/"
+title: Hephaestus Project
+description: On organizing and facilitating a hacker house in Singapore
+emoji: 🐱💻
+pubDate: Nov 01 2020
+tags:
+  - type/life
+originalPost: https://makerforce.io/hephaestus-project/
 ---
 
 Hephaestus is the Greek God of design and creativity. More commonly known as the partner of Aphrodite, he was also the god of the Forge and was well known for creating some of the finest jewellery in Greek mythology. Hephaestus was banished from Mount Olympus, simply because he walked with a limp, and when he joined the mortals on Earth he taught them how to make art and the importance of doing so. Analogous to that, the Hephaestus project aims to cultivate unique people with different perspectives, spark creativity and dares the participants to propose the ideas people might dismiss out of hand.

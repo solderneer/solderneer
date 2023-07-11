@@ -1,9 +1,11 @@
 ---
-title: "Writing for Observance"
-emoji: "✍"
+title: Writing for Observance
+emoji: ✍
 pubDate: 28-Jun-2023
 updatedDate: 28-Jun-2023
-tags: ["type/life", "project/104-days"]
+tags:
+  - type/life
+  - project/104-days
 ---
 
 This note is the **thirteenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!

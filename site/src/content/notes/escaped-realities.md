@@ -1,9 +1,10 @@
 ---
-title: "Escaped Realities"
-emoji: "🚪"
+title: Escaped Realities
+emoji: 🚪
 pubDate: 11-Nov-2022
 updatedDate: 12-Nov-2022
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 The mystery of reality was cleverly illustrated by Roger Penrose as a triad.

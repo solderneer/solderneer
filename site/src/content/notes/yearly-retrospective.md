@@ -1,9 +1,10 @@
 ---
-title: "My yearly retrospective practice"
-emoji: "⏮"
+title: My yearly retrospective practice
+emoji: ⏮
 pubDate: 31-Dec-2022
 updatedDate: 31-Dec-2022
-tags: ["type/practices"]
+tags:
+  - type/practices
 ---
 
 It is important to start and end years with retrospectives that take time out to recognize how far I've come. This is my current working practice for end-of-year retrospectives.

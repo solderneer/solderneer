@@ -1,9 +1,10 @@
 ---
-title: "Failure Resume"
-emoji: "😞"
+title: Failure Resume
+emoji: 😞
 pubDate: 28-May-2023
 updatedDate: 7-Jun-2023
-tags: ["type/life"]
+tags:
+  - type/life
 ---
 
 > The nature of resumes means that most people only choose to highlight their successes and wins, but rarely the work, effort, and failures on the way. I think this creates an unhealthy culture of [idolizing perfection](https://jzhao.xyz/thoughts/idolization) and sets unrealistic standards for what ‘real success’ should look like.

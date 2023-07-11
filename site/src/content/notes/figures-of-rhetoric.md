@@ -1,9 +1,10 @@
 ---
-title: "Figures of Rhetoric"
-emoji: "💬"
+title: Figures of Rhetoric
+emoji: 💬
 pubDate: 15-Jan-2023
 updatedDate: 15-Jan-2023
-tags: ["topic/literature"]
+tags:
+  - topic/literature
 ---
 
 # Kinds of verse

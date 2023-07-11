@@ -1,10 +1,12 @@
 ---
-title: "DIY solder reflow oven"
-description: "Designing and building a DIY solder reflow oven"
-emoji: "🤖"
-pubDate: "May 07 2016"
-tags: ["topic/technology", "type/young-shan"]
-originalPost: "https://makerforce.io/building-a-diy-solder-reflow-oven/"
+title: DIY solder reflow oven
+description: Designing and building a DIY solder reflow oven
+emoji: 🤖
+pubDate: May 07 2016
+tags:
+  - topic/technology
+  - type/young-shan
+originalPost: https://makerforce.io/building-a-diy-solder-reflow-oven/
 ---
 
 So this will be the first post in a series of me making my own solder reflow oven. As you all know, the number of PCB related posts are increasing steadily with EdiCopter and our custom quadcopter boards on the way. I though that this would be the perfect time to get ourselves a solder reflow oven and maybe start small scale manufacture and went over to a nearby shop and grabbed myself the cheapest toaster money could buy.

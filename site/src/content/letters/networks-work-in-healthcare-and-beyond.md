@@ -1,10 +1,13 @@
 ---
-title: "Networks Work in Healthcare and Beyond"
-description: "Heterarchical organizations offer a novel approach to wicked problems in civic society"
-emoji: "🌐"
+title: Networks Work in Healthcare and Beyond
+description: Heterarchical organizations offer a novel approach to wicked
+  problems in civic society
+emoji: 🌐
 pubDate: 08-Jun-2023
-tags: ["topic/social-sciences", "project/hea"]
-originalPost: "https://heacare.substack.com/p/networks-work-in-healthcare-and-beyond"
+tags:
+  - topic/social-sciences
+  - project/hea
+originalPost: https://heacare.substack.com/p/networks-work-in-healthcare-and-beyond
 ---
 
 When I explain Happily Ever After, I say that we are a network of health and well-being spaces. Oftentimes, I receive questions about our spaces, what that entails and what our specific services are. This misses over a crucial part of what makes us special, the fact that Happily Ever After is a **network**, is what enables us to approach problems from a different lens than the typical healthcare organization or startup.

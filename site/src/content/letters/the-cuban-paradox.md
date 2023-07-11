@@ -1,10 +1,13 @@
 ---
-title: "The Cuban Paradox"
-description: "How can Cuba with so little, do so much for the healthcare of its citizens? The answer lies in a focus on universal preventive primary care."
-emoji: "🇨🇺"
-pubDate: "Sep 18 2022"
-tags: ["topic/social-sciences", "project/hea"]
-originalPost: "https://heacare.substack.com/p/the-cuban-paradox"
+title: The Cuban Paradox
+description: How can Cuba with so little, do so much for the healthcare of its
+  citizens? The answer lies in a focus on universal preventive primary care.
+emoji: 🇨🇺
+pubDate: Sep 18 2022
+tags:
+  - topic/social-sciences
+  - project/hea
+originalPost: https://heacare.substack.com/p/the-cuban-paradox
 ---
 
 The country of Cuba has a [GDP per capita of about 12,000 US Dollars (USD)](<https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)_per_capita>), coming in at 120th place in the world; an order of magnitude below developed nations such as Singapore _(130000 USD, 2nd)_ and the United States _(76000 USD, 8th)_. However, the average life expectancy of a Cuban resident tells a very different story, going toe to toe with venerable nations like Singapore and even outpacing the United States.

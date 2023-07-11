@@ -1,6 +1,6 @@
 ---
-title: "The opposite of a trap is a garden"
-emoji: "🌱"
+title: The opposite of a trap is a garden
+emoji: 🌱
 pubDate: 01-Dec-2022
 updatedDate: 04-Jan-2023
 tags: []

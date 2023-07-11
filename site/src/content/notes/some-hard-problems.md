@@ -1,9 +1,10 @@
 ---
-title: "Some hard problems"
-emoji: "❓"
+title: Some hard problems
+emoji: ❓
 pubDate: 04-Jun-2023
 updatedDate: 04-Jun-2023
-tags: ["type/index"]
+tags:
+  - type/index
 ---
 
 This is an evolving list of 10-20 hard problems that I'm currently stuck on. By keeping these [[top-of-mind]], I can always pounce and work on them when I see something that could be relevant to them.

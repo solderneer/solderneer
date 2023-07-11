@@ -1,9 +1,11 @@
 ---
-title: "Local care for global health"
-emoji: "💙"
+title: Local care for global health
+emoji: 💙
 pubDate: 25-Nov-2022
 updatedDate: 28-Nov-2022
-tags: ["topic/social-sciences", "project/hea"]
+tags:
+  - topic/social-sciences
+  - project/hea
 ---
 
 ## Cuba and local care

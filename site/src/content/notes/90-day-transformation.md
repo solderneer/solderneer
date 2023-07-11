@@ -1,9 +1,11 @@
 ---
-title: "90 Day Transformation"
-emoji: "🦾"
+title: 90 Day Transformation
+emoji: 🦾
 pubDate: 10-May-2023
 updatedDate: 29-May-2023
-tags: ["type/life", "project/90-day-transformation"]
+tags:
+  - type/life
+  - project/90-day-transformation
 ---
 
 _I started this on the 10th May 2023, and this will end on the 18th August 2023._

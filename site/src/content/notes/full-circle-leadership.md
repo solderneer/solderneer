@@ -1,9 +1,10 @@
 ---
-title: "Full Circle Leadership"
-emoji: "🟡"
+title: Full Circle Leadership
+emoji: 🟡
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 [Full Circle Leadership](https://medium.com/enspiral-tales/beyond-dreamers-vs-doers-full-circle-leadership-869557da1248) is a framework that beautifully articulates the different kinds of leadership, and how they all play an interdependent role with each other.

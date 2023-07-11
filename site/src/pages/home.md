@@ -1,5 +1,3 @@
----
----
 
 Hello, my name is [Shan](https://solderneer.me/), and welcome to my cozy corner of the internet!
 

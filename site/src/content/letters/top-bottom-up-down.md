@@ -1,9 +1,11 @@
 ---
-title: "Top Bottom Up Down"
-description: "How to balance product-market fit and iteration speed with community and governance?"
-emoji: "🔝"
-pubDate: "Jun 16 2022"
-tags: ["topic/technology"]
+title: Top Bottom Up Down
+description: How to balance product-market fit and iteration speed with
+  community and governance?
+emoji: 🔝
+pubDate: Jun 16 2022
+tags:
+  - topic/technology
 ---
 
 > **tldr:** Building web 3 startups is hard, as you have to balance product-market fit and iteration speed with community and governance. To achieve this balance, a mix of strategies must be deployed- using concepts from 20+ years of startup history, political science and human behavior.

@@ -1,10 +1,11 @@
 ---
-title: "Answer the Call"
-description: "On connectedness, beauty and meaning."
-emoji: "🥨"
+title: Answer the Call
+description: On connectedness, beauty and meaning.
+emoji: 🥨
 pubDate: 02-Jun-2023
-tags: ["type/life"]
-heroImage: "https://files.solderneer.me/edinburgh-uk/1.jpeg"
+tags:
+  - type/life
+heroImage: https://files.solderneer.me/edinburgh-uk/1.jpeg
 ---
 
 **Dearest Reader,**

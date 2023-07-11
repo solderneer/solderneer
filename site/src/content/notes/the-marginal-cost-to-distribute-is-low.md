@@ -1,6 +1,6 @@
 ---
-title: "The marginal cost to distribute an idea is low"
-emoji: "🚢"
+title: The marginal cost to distribute an idea is low
+emoji: 🚢
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
 tags: []

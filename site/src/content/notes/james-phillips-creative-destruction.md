@@ -1,9 +1,11 @@
 ---
-title: "James Phillips on creative destruction"
-emoji: "🇬‍🇧"
+title: James Phillips on creative destruction
+emoji: 🇬‍🇧
 pubDate: 22-May-2023
 updatedDate: 22-May-2023
-tags: ["topic/science", "topic/social-sciences"]
+tags:
+  - topic/science
+  - topic/social-sciences
 ---
 
 The following is my notes from a talk I attended in UCL by [James Phillips](https://jameswphillips.substack.com/) on Creative Destruction and reforming science in the United Kingdom.

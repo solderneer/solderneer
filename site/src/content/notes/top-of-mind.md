@@ -1,9 +1,10 @@
 ---
-title: "Top of Mind"
-emoji: "👋"
+title: Top of Mind
+emoji: 👋
 pubDate: 13-Nov-2022
 updatedDate: 28-May-2023
-tags: ["type/index"]
+tags:
+  - type/index
 ---
 
 > **A densely hyperlinked set of notes that slowly grows over time feels strangely alive and organic**

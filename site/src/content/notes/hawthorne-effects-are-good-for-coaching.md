@@ -1,9 +1,11 @@
 ---
-title: "Hawthorne effects are good for coaching"
-emoji: "🏃"
+title: Hawthorne effects are good for coaching
+emoji: 🏃
 pubDate: 08-Jun-2023
 updatedDate: 08-Jun-2023
-tags: ["topic/social-sciences", "topic/science"]
+tags:
+  - topic/social-sciences
+  - topic/science
 ---
 
 The [[hawthorne-effect]] causes people to respond positively from just being observed. This is a win for coaching, just the observer effect can have good impacts on a person's wellbeing. 

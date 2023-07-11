@@ -1,9 +1,10 @@
 ---
-title: "The Vibe Economy"
-emoji: "🌈"
+title: The Vibe Economy
+emoji: 🌈
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 > A whole new genre of content and creator has moved to the fore: one defined by curating a specific mood or feeling.

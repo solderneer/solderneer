@@ -1,6 +1,6 @@
 ---
-title: "Organize brains with tags, not folders"
-emoji: "🧠"
+title: Organize brains with tags, not folders
+emoji: 🧠
 pubDate: 16-Nov-2022
 updatedDate: 16-Nov-2022
 tags: []

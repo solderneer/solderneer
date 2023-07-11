@@ -1,9 +1,11 @@
 ---
-title: "Play Fully"
-emoji: "🛝"
+title: Play Fully
+emoji: 🛝
 pubDate: 13-Jun-2023
 updatedDate: 13-Jun-2023
-tags: ["type/life", "project/104-days"]
+tags:
+  - type/life
+  - project/104-days
 ---
 
 This note is the **first** letter in the [[104-days-of-summer-vacation]] series.

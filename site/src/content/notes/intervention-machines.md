@@ -1,9 +1,11 @@
 ---
-title: "Intervention machines"
-emoji: "🤖"
+title: Intervention machines
+emoji: 🤖
 pubDate: 30-May-2023
 updatedDate: 30-May-2023
-tags: ["topic/technology", "topic/social-sciences"]
+tags:
+  - topic/technology
+  - topic/social-sciences
 ---
 
 This is a peel-off through from thinking about [[wicked-problems]]. One of the key characteristics of [[wicked-problems]] is that, they are constantly evolving. And they don't really have solutions, they only have "interventions", which are stopgaps that work in a period of time.

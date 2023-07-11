@@ -1,9 +1,10 @@
 ---
-title: "My daily journalling practice"
-emoji: "🌻"
+title: My daily journalling practice
+emoji: 🌻
 pubDate: 18-Nov-2022
 updatedDate: 18-Nov-2022
-tags: ["type/practices"]
+tags:
+  - type/practices
 ---
 
 I think journalling is important, perhaps one of the most important things for anyone who cares about personal development. So much of achieving personal milestones comes down to maintaining _mind like water_ as mentioned by books like [Getting Things Done](https://gettingthingsdone.com/).

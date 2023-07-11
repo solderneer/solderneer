@@ -1,10 +1,12 @@
 ---
-title: "TKKYIA 2016"
-description: "Tan Kah Kee Young Inventor's Award"
-emoji: "🏅"
-pubDate: "Apr 14 2016"
-tags: ["topic/technology", "type/young-shan"]
-originalPost: "https://makerforce.io/tkkyia-2016/"
+title: TKKYIA 2016
+description: Tan Kah Kee Young Inventor's Award
+emoji: 🏅
+pubDate: Apr 14 2016
+tags:
+  - topic/technology
+  - type/young-shan
+originalPost: https://makerforce.io/tkkyia-2016/
 ---
 
 # TKKYIA 2016

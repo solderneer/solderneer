@@ -1,9 +1,10 @@
 ---
-title: "Muddling Through"
-emoji: "🏊"
+title: Muddling Through
+emoji: 🏊
 pubDate: 05-Jun-2023
 updatedDate: 05-Jun-2023
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 In [The Science of "Muddling Through"](https://www.jstor.org/stable/973677), Charles Lindblom offers an overview of the process of incrementalism. His central assertion is that, for [[wicked-problems]], the _rational comprehensive_ method of achieving solutions which examines every possible effect of an applied policy is desirable yet impossible in practice to achieve.

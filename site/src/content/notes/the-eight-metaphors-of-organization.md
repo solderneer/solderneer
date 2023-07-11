@@ -1,9 +1,10 @@
 ---
-title: "The Eight Metaphors of Organization"
-emoji: "💼"
+title: The Eight Metaphors of Organization
+emoji: 💼
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 > [!NOTE] This is not original

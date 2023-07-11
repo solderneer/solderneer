@@ -8,19 +8,33 @@
         "type": "tabs",
         "children": [
           {
-            "id": "25a5b5377afd551e",
+            "id": "17f1f186f47962da",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/super-obsidian.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "80bbf275fe939ad1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/notes/super-obsidian.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -51,6 +65,14 @@
               "type": "bookmarks",
               "state": {}
             }
+          },
+          {
+            "id": "ca683e42c9ac06df",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {}
+            }
           }
         ]
       },
@@ -65,7 +87,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/super-obsidian.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -100,7 +122,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "High School",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -109,7 +131,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -122,7 +145,7 @@
       {
         "id": "cbcca2cec69ebe26",
         "type": "tabs",
-        "dimension": 41.11111111111111,
+        "dimension": 48.10126582278481,
         "children": [
           {
             "id": "eb72978cd4a29ed5",
@@ -137,7 +160,7 @@
       {
         "id": "5bb875cb3e94d3a5",
         "type": "tabs",
-        "dimension": 58.88888888888889,
+        "dimension": 51.89873417721519,
         "children": [
           {
             "id": "dc912136a51e952f",
@@ -145,7 +168,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/super-obsidian.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +185,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md",
+                "file": "content/notes/super-obsidian.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +197,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/notes/104-days-of-summer-vacation.md"
+                "file": "content/notes/super-obsidian.md"
               }
             }
           },
@@ -194,7 +217,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 273.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,11 +229,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "25a5b5377afd551e",
+  "active": "80bbf275fe939ad1",
   "lastOpenFiles": [
-    "content/notes/most-days-2.md",
     "content/notes/104-days-of-summer-vacation.md",
+    "content/notes/super-obsidian.md",
+    "content/notes/most-days-2.md",
+    "_private/_templates/Note.md",
+    "_private/_templates/Daily.md",
+    "_private/_templates/Letter.md",
+    "content/notes/understand-the-past.md",
+    "_private/life/2023/01-Jun-2023.md",
+    "_private/people/Adrien.md",
+    "input.csv",
+    "_private/_inbox/dynacyte-notes.md",
     "content/notes/fear-irrelevance.md",
+    "content/notes/radical-design-and-technology-epiphanies.md",
+    "_private/life/2023/11-Jul-2023.md",
     "content/notes/to-dance-with-joy.md",
     "content/notes/fault-tolerant-biology.md",
     "content/notes/wisdom-of-elders.md",
@@ -221,19 +255,9 @@
     "_private/life/2023/10-Jul-2023.md",
     "_private/_inbox/crossroads.md",
     "content/notes/most-days.md",
-    "_private/_inbox/Untitled.md",
     "content/notes/to-be-free.md",
     "content/notes/in-every-meaning-4.md",
     "content/notes/do-what-contributes.md",
-    "_private/_templates/Daily.md",
-    "_private/life/2023/09-Jul-2023.md",
-    "_private/life/2023/07-Jul-2023.md",
-    "_private/_inbox/dynacyte-notes.md",
-    "content/notes/progress-is-understudied.md",
-    "_private/life/2023/04-Jul-2023.md",
-    "content/notes/grieving-otherselves.md",
-    "_private/_inbox/80000-hours.md",
-    "content/notes/principles.md",
     "_private/attachments/ens-airdrop.png",
     "_private/attachments/how-we-gather.pdf",
     "_private/attachments/IMG_5364.mov.mov",
@@ -248,7 +272,6 @@
     "pages/letters/index.astro",
     "pages/letters/[...slug].astro",
     "pages/letters",
-    "pages/notes/[...slug].astro",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas",

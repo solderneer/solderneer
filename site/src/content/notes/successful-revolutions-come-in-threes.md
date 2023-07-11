@@ -1,9 +1,11 @@
 ---
-title: "Successful revolutions come in threes"
-emoji: "✊"
+title: Successful revolutions come in threes
+emoji: ✊
 pubDate: 31-May-2023
 updatedDate: 31-May-2023
-tags: ["topic/social-sciences", "topic/technology"]
+tags:
+  - topic/social-sciences
+  - topic/technology
 ---
 
 These insights are from [Bluebird](https://www.amazon.co.uk/exec/obidos/ASIN/038533351X/mattwebbsinterco) by Kurt Vonnegut and highlighted by [Matt Webb's blog, Interconnected](https://interconnected.org/home/2003/01/22/the_following_is).

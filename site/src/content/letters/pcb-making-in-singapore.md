@@ -1,10 +1,12 @@
 ---
-title: "PCB making in Singapore"
-description: "My experience making PCBs in Singapore"
-emoji: "💾"
-pubDate: "Jan 15 2016"
-tags: ["topic/technology", "type/young-shan"]
-originalPost: "https://makerforce.io/pcb-making-in-singapore/"
+title: PCB making in Singapore
+description: My experience making PCBs in Singapore
+emoji: 💾
+pubDate: Jan 15 2016
+tags:
+  - topic/technology
+  - type/young-shan
+originalPost: https://makerforce.io/pcb-making-in-singapore/
 ---
 
 PCB making in Singapore is a topic I've seen not many people talk about. Being one of the bustling cities in South East Asia one would expect to receive quality PCB making services locally in Singapore. On contrary, PCB making in my experience has not exactly been a honeymoon experience one would hope for. In this post, I will share my experience with making PCB's in Singapore and talk about the pros and cons of making PCB's locally.

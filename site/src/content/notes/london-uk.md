@@ -1,9 +1,10 @@
 ---
-title: "London, United Kingdom"
-emoji: "🇬‍🇧"
+title: London, United Kingdom
+emoji: 🇬‍🇧
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["type/place"]
+tags:
+  - type/place
 ---
 
 > Since I am studying the Electrical and Engineering degree in [University College London](https://www.ucl.ac.uk/), I spend a good portion of my year here. This page is a mosaic of various reflections and lists related to London.

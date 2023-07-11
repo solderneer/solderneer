@@ -1,9 +1,10 @@
 ---
-title: "Wicked Problems"
-emoji: "❓"
+title: Wicked Problems
+emoji: ❓
 pubDate: 30-May-2023
 updatedDate: 30-May-2023
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 A wicked problem, is a problem that is difficult or impossible to solve, because of requirements that are dynamic, contradictory, incomplete or _interdependent_ in a way that is difficult to disentangle.

@@ -1,9 +1,11 @@
 ---
-title: "Destruction and Creation are path-dependent"
-emoji: "🤯"
+title: Destruction and Creation are path-dependent
+emoji: 🤯
 pubDate: 05-Nov-2022
 updatedDate: 15-Nov-2022
-tags: ["topic/technology", "topic/social-sciences"]
+tags:
+  - topic/technology
+  - topic/social-sciences
 ---
 
 Destruction is path-dependent as the specific situation of the collapse of a concept is hard to predict in a complex society. Unravelling scripts ([[society-is-scripted]]) rarely unravel in predictable ways, they have sensitive dependence on initial conditions.

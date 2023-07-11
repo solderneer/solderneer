@@ -1,10 +1,12 @@
 ---
-title: "EdiPlane board"
-description: "Building an Intel Edison based flight controller"
-emoji: "✈️"
-pubDate: "Jan 16 2016"
-tags: ["topic/technology", "type/young-shan"]
-originalPost: "https://makerforce.io/an-edison-based-flight-controller/"
+title: EdiPlane board
+description: Building an Intel Edison based flight controller
+emoji: ✈️
+pubDate: Jan 16 2016
+tags:
+  - topic/technology
+  - type/young-shan
+originalPost: https://makerforce.io/an-edison-based-flight-controller/
 ---
 
 #### Introduction

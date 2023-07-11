@@ -1,10 +1,12 @@
 ---
-title: "Maker Fair 2016"
-description: "Experience the Singapore maker scene"
-emoji: "🎡"
-pubDate: "July 14 2016"
-tags: ["type/life", "type/young-shan"]
-originalPost: "https://makerforce.io/maker-faire-2016/"
+title: Maker Fair 2016
+description: Experience the Singapore maker scene
+emoji: 🎡
+pubDate: July 14 2016
+tags:
+  - type/life
+  - type/young-shan
+originalPost: https://makerforce.io/maker-faire-2016/
 ---
 
 The second ever full fledged Maker Faire has made its pass this year and it was a really productive and enriching experience. We as MakerForce did have a booth there and we all had a lot of fun. In this post, I will be talking about the Maker Faire experience in Singapore , our booth and the interesting people we met there.

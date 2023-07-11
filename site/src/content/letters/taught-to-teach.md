@@ -1,10 +1,11 @@
 ---
-title: "Do you need to be taught to teach?"
-description: "Why is becoming a teacher so hard?"
-emoji: "🧑‍🏫"
-pubDate: "Aug 29 2021"
-tags: ["project/axiom"]
-originalPost: "https://makerforce.io/learning-used-to-be-fun/"
+title: Do you need to be taught to teach?
+description: Why is becoming a teacher so hard?
+emoji: 🧑‍🏫
+pubDate: Aug 29 2021
+tags:
+  - project/axiom
+originalPost: https://makerforce.io/learning-used-to-be-fun/
 ---
 
 I've always wondered why it was so difficult to become a teacher. Do you really need a school for teachers, where teachers teach students to teach? Are the licensing requirements to teach students, really that useful? Is there that much value to restricting the supply of teachers through regulation and compulsory education. And above all, isn't teaching something that is inherently human?

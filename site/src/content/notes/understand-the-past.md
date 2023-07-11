@@ -1,9 +1,11 @@
 ---
-title: "Understand the past"
-emoji: "⏲"
+title: Understand the past
+emoji: ⏲
 pubDate: 01-Jun-2023
 updatedDate: 01-Jun-2023
-tags: ["topic/history-and-geography", "type/principles"]
+tags:
+  - topic/history-and-geography
+  - type/principles
 ---
 
 [From the letters to a young technologist](https://letterstoayoungtechnologist.com/Study-the-Past-Create-the-Future):

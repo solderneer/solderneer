@@ -1,9 +1,11 @@
 ---
-title: "104 Days of Summer Vacation"
-emoji: "🌻"
+title: 104 Days of Summer Vacation
+emoji: 🌻
 pubDate: 13-Jun-2023
-updatedDate: 13-Jun-2023
-tags: ["type/index", "project/104-days"]
+updatedDate: 11-Jul-2023
+tags:
+  - type/index
+  - project/104-days
 ---
 
 This is a writing series to write stream-of-consciousness type, lightly-edited letters, to improve my writing and get myself to express myself more frequently online. I tend to grapple with perfectionism and fear of publishing publicly, and this experiment will hopefully be an avenue to work on that during this summer.
@@ -38,5 +40,6 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 26. Didn't write anything :(
 27. [[fear-irrelevance]] on 9-Jul-2023
 28. [[most-days-2]] on 10-Jul-2023
+29. [[super-obsidian]] on 11-Jul-2023
 
 Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)

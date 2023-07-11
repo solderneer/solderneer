@@ -1,9 +1,11 @@
 ---
-title: "Technology is Ideology"
-emoji: "🤔"
+title: Technology is Ideology
+emoji: 🤔
 pubDate: 01-Jun-2023
 updatedDate: 01-Jun-2023
-tags: ["topic/technology", "topic/philosophy"]
+tags:
+  - topic/technology
+  - topic/philosophy
 ---
 
 We've discussed related themes before in [[destruction-and-creation-are-path-dependent]] which is a specific outcome of this though. 

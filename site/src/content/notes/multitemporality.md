@@ -1,9 +1,10 @@
 ---
-title: "Multitemporality"
-emoji: "🕐"
+title: Multitemporality
+emoji: 🕐
 pubDate: 15-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 Multitemporality is the idea that we have lost coherent narratives to stand behind and that we are in the The Garden of Forking Memes.

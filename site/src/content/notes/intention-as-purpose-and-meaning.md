@@ -1,9 +1,11 @@
 ---
-title: "Intention as purpose and meaning"
-emoji: "🤝"
+title: Intention as purpose and meaning
+emoji: 🤝
 pubDate: 22-May-2023
 updatedDate: 22-May-2023
-tags: ["topic/philosophy", "type/life"]
+tags:
+  - topic/philosophy
+  - type/life
 ---
 
 This thread started because my flatmate wrote a wonderful summary of [Confession, by Tolstoy](https://en.wikipedia.org/wiki/Confession_(Leo_Tolstoy)) who struggled with the conception of the meaning of life. And earlier, I had spent some time thinking of goal-seeking behaviors and feedback loops as related to one's intention.

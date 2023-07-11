@@ -1,10 +1,12 @@
 ---
-title: "Institutionalized Learning"
-description: "Sometimes institutions are bad, and education may be one of those sometimes"
-emoji: "🎓"
-pubDate: "Aug 01 2021"
-tags: ["topic/social-sciences", "project/axiom"]
-originalPost: "https://makerforce.io/institutionalised-learning/"
+title: Institutionalized Learning
+description: Sometimes institutions are bad, and education may be one of those sometimes
+emoji: 🎓
+pubDate: Aug 01 2021
+tags:
+  - topic/social-sciences
+  - project/axiom
+originalPost: https://makerforce.io/institutionalised-learning/
 ---
 
 Since the industrial revolution, many public services have been institutionalised and organised into structures - of which the biggest two are healthcare and education. Healthcare gave rise to public hospital and health insurance while education gave rise to primary, secondary and tertiary schools.

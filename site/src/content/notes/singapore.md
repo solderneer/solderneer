@@ -1,9 +1,10 @@
 ---
-title: "Singapore"
-emoji: "🇸‍🇬"
+title: Singapore
+emoji: 🇸‍🇬
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["type/place"]
+tags:
+  - type/place
 ---
 
 Singapore is 🏠 home.

@@ -1,9 +1,10 @@
 ---
-title: "Bogota, Colombia"
-emoji: "🇨🇴"
-pubDate: "Jan 05 2023"
-updatedDate: "Jan 05 2023"
-tags: ["type/place"]
+title: Bogota, Colombia
+emoji: 🇨🇴
+pubDate: Jan 05 2023
+updatedDate: Jan 05 2023
+tags:
+  - type/place
 ---
 
 I visited [[bogota-colombia|Bogota]] to attend Devcon VI - which is one of the biggest [Ethereum](https://ethereum.org/) conferences held annually. The city itself is beautifully situated in a valley surrounded by mountains, which meant some pretty cool views. Since I was only there for a conference, unfortunately, most of my time was actually spent at the Devcon VI conference center.

@@ -1,9 +1,11 @@
 ---
-title: "Continuity of Care"
-emoji: "💗"
+title: Continuity of Care
+emoji: 💗
 pubDate: 14-Jun-2023
 updatedDate: 14-Jun-2023
-tags: ["topic/social-sciences", "project/hea"]
+tags:
+  - topic/social-sciences
+  - project/hea
 ---
 
 [Taken from AAFP:](https://www.aafp.org/about/policies/all/continuity-of-care-definition.html)

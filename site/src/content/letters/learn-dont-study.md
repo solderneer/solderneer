@@ -1,10 +1,12 @@
 ---
-title: "Learn don't study"
-description: "Complaints on education"
-emoji: "🧠"
-pubDate: "Apr 18 2016"
-tags: ["type/life", "type/young-shan"]
-originalPost: "https://makerforce.io/learn-dont-study/"
+title: Learn don't study
+description: Complaints on education
+emoji: 🧠
+pubDate: Apr 18 2016
+tags:
+  - type/life
+  - type/young-shan
+originalPost: https://makerforce.io/learn-dont-study/
 ---
 
 # Learn don't study

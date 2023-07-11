@@ -1,9 +1,10 @@
 ---
-title: "Coin voting is dangerous"
-emoji: "🧑‍⚖"
+title: Coin voting is dangerous
+emoji: 🧑‍⚖
 pubDate: 26-Nov-2022
 updatedDate: 26-Nov-2022
-tags: ["topic/technology"]
+tags:
+  - topic/technology
 ---
 
 The are two classes of problems with coin voting that cause worry:

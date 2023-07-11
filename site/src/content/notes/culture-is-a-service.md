@@ -1,9 +1,10 @@
 ---
-title: "Culture is a service"
-emoji: "🎁"
+title: Culture is a service
+emoji: 🎁
 pubDate: 2-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 **tldr; Culture is a service that is sold to brands to help them sell whatever they want to sell.**

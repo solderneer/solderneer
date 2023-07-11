@@ -1,9 +1,11 @@
 ---
-title: "Rules for standards-makers"
-emoji: "🗃"
+title: Rules for standards-makers
+emoji: 🗃
 pubDate: 31-May-2023
 updatedDate: 31-May-2023
-tags: ["topic/technology", "topic/computer-science"]
+tags:
+  - topic/technology
+  - topic/computer-science
 ---
 
 [This is a mirror version of the wonderful original post made by Dave Weiner](http://scripting.com/2017/05/09/rulesForStandardsmakers.html).

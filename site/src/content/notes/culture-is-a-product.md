@@ -1,9 +1,10 @@
 ---
-title: "Culture is a product"
-emoji: "🎧"
+title: Culture is a product
+emoji: 🎧
 pubDate: 2-Nov-2022
 updatedDate: 16-Nov-2022
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 > Systems of belief are sticky, compelling. Culture can be generational. This is both the opportunity and the risk. - [Life After Lifestyle](https://subpixel.space/entries/life-after-lifestyle/)

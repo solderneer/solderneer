@@ -1,10 +1,11 @@
 ---
-title: "The wellness industry is premium mediocre"
-emoji: "🌻"
+title: The wellness industry is premium mediocre
+emoji: 🌻
 pubDate: 13-Nov-2022
 updatedDate: 24-Nov-2022
 slug: wellness-is-premium-mediocre
-tags: ["topic/social-sciences"]
+tags:
+  - topic/social-sciences
 ---
 
 * In the same way that premium mediocrity describes our society as in a transition phase between industrialist modernity and digital post-scarcity, the wellness industry is a transition phase between institutional reactive modern healthcare and holistic post-modern preventive care.
