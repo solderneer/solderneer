@@ -1,8 +1,0 @@
-{
-  "alwaysUpdateLinks": true,
-  "spellcheck": true,
-  "vimMode": false,
-  "newFileLocation": "folder",
-  "newFileFolderPath": "_private/_inbox",
-  "attachmentFolderPath": "_private/attachments"
-}

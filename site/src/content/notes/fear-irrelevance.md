@@ -22,7 +22,7 @@ In a particularly memorable scene, a doctor named Harrison expresses a distaste 
 
 >Anybody that competes with slaves becomes a slave
 
-And in another scene the climax of the book, a revolutionary Paul proclaims,
+And in another scene near the climax of the book, a revolutionary Paul proclaims,
 
 >The main business of humanity is to do a good job of being human beings, not to serve as appendages to machines, institutions, and systems.
 
