@@ -12,34 +12,34 @@ This is a writing series to write stream-of-consciousness type, lightly-edited l
 
 This is an experiment living and breathing in [[summer-2023]]. It also inspired by related works such as [spencerchang's 100 mini-essays](https://www.spencerchang.me/experiments/100posts/) and [visakenv's do 100 things](https://twitter.com/visakanv). 
 
-1. [[play-fully-1]] on 13-Jun-2023
-2. [[the-zuzalan-dream-2]] on 14-Jun-2023
-3. [[on-doubt-and-distortion-fields-3]] on 15-Jun-2023
-4. [[in-every-meaning-4]] on 16-Jun-2023
-5. [[magic-in-hand-holding-5]] on 17-Jun-2023
-6. Didn't write anything :(
-7. [[to-be-free]] on 19-Jun-2023
-8. [[anti-agency]] on 20-Jun-2023
-9. Didn't write anything :(
-10. [[self-socratic-dialogues]] on 22-Jun-2023
-11. [[most-days]] on 23-Jun-2023
-12. [[planes-going-places]] on 24-Jun-2023
-13. Didn't write anything :(
-14. [[gdp-measures-our-making]] on 26-Jun-2023
-15. [[biohacking-before-it-was-cool]] on 27-Jun-2023
-16. [[writing-for-observance]] on 28-Jun-2023
-17. [[write-simply]] on 29-Jun-2023
-18. [[grieving-otherselves]] on 30-Jun-2023
-19. [[do-what-contributes]] on 1-Jul-2023
-20. [[meditations-on-effective-altruism]] on 2-Jul-2023
-21. [[thoughtful-networking]] on 3-Jul-2023
-22. [[homecoming]] on 4-Jul-2023
-23. [[wisdom-of-elders]] on 5-Jul-2023
-24. [[fault-tolerant-biology]] on 6-Jul-2023
-25. [[to-dance-with-joy]] on 7-Jul-2023
-26. Didn't write anything :(
-27. [[fear-irrelevance]] on 9-Jul-2023
-28. [[most-days-2]] on 10-Jul-2023
-29. [[super-obsidian]] on 11-Jul-2023
+1. [[play-fully]]
+2. [[the-zuzalan-dream]]
+3. [[on-doubt-and-distortion-fields]]
+4. [[in-every-meaning]]
+5. [[magic-in-hand-holding]]
+7. [[to-be-free]]
+8. [[anti-agency]]
+10. [[self-socratic-dialogues]]
+11. [[most-days]]
+12. [[planes-going-places]]
+14. [[gdp-measures-our-making]]
+15. [[biohacking-before-it-was-cool]]
+16. [[writing-for-observance]]
+17. [[write-simply]]
+18. [[grieving-otherselves]]
+19. [[do-what-contributes]]
+20. [[meditations-on-effective-altruism]]
+21. [[thoughtful-networking]]
+22. [[homecoming]]
+23. [[wisdom-of-elders]]
+24. [[fault-tolerant-biology]]
+25. [[to-dance-with-joy]]
+27. [[fear-irrelevance]]
+28. [[most-days-2]]
+29. [[super-obsidian]]
+30. [[finite-and-infinite-games]]
+31. [[hire-people-you-wanna-work-for]]
+32. [[why-ai-isnt-a-tool]]
+35. [[wireheaded]]
 
 Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)

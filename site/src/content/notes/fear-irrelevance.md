@@ -30,7 +30,7 @@ Player Piano depicts a world, where on the surface everything had gone right. A 
 
 Player Piano had no AI alignment problem, no existential risk, no major suppression of freedom of speech, and no dictatorial system, there was still a functioning democracy. And despite all that, the lack of meaningful work in Kurt Vonnegut's world still left people decidedly unhappy.
 
-Because if a machine can do everything you do, and do it better, what's the point of doing anything at all. One answer might be a greater focus on [[play-fully-1 |paratelic experiences]], but whether social structure could be reframed into a purely paratelic endeavor is still an open question.
+Because if a machine can do everything you do, and do it better, what's the point of doing anything at all. One answer might be a greater focus on [[play-fully|paratelic experiences]], but whether social structure could be reframed into a purely paratelic endeavor is still an open question.
 
 I think this is the key takeaway for me from this book, even if we execute technological post-scarcity right we still have some major philosophical and social questions to answer. How do we live in the world where there is no pursuit of happiness, because everyone is given everything they need?
 

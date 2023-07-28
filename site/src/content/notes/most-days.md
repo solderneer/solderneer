@@ -28,7 +28,7 @@ In [[summer-2023]], I outlined some key objectives for this summer. In general, 
 
 **Goal 5 and 6:** I haven't had time to start on these yet, but I probably will once I'm back from India.
 
-**Goal 7:** I went to [[the-zuzalan-dream-2|a social event]] last week, but haven't managed to go to one this week.
+**Goal 7:** I went to [[the-zuzalan-dream|a social event]] last week, but haven't managed to go to one this week.
 
 **Goal 8:** I've been trying to tweet more often, but again finding it very hard to remember.
 

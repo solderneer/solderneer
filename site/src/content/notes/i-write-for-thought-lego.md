@@ -24,3 +24,5 @@ With a repository of writing, I can pull on past threads and weave future ideas 
 **Note One:** The advances in Large Language Models, make this even more pertinent. Having a repository of written thoughts means that LLMs can interact, search and weave threads for me automatically! Probably an experiment to run at some point. 
 
 **Note Two:** I did this experiment in [[self-socratic-dialogues]]!
+
+**Note Three:** It turns out [Paul Graham thought about this too](http://www.paulgraham.com/read.html).

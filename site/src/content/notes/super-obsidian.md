@@ -34,7 +34,7 @@ Then, I looked through every single AI-enabled plugin in the Obsidian Community 
 
 Of all the ones I looked through, the only plugin I am considering using is [obsidian-copilot](https://github.com/logancyang/obsidian-copilot) and it is missing half of the wish list I laid out above. This is concerning because, if Obsidian fails to help people leverage the cognitive shortcuts enabled by LLMs, they **will** migrate to better integrated software like Notion. The increase in efficiency enabled by the features above is too significant to ignore.
 
-Fortunately, from my experiments two weeks ago in [[self-socratic-dialogues]], there doesn't seem to be any technical constraint preventing an elegant local embedding implementation for Obsidian. An embedding index running on my Macbook Pro 2016, runs fast enough for real-time responsive semantic search, and indexes locally at about 100 files every 10 minutes.
+Fortunately, from my experiments two weeks ago in [[self-socratic-dialogues]], there doesn't seem to be any technical constraint preventing an elegant local embedding implementation for Obsidian. An embedding index running on my Macbook Pro 2016, runs fast enough for real-time semantic search, and indexes locally at about 100 files every 10 minutes.
 
 There's definitely still space for anyone who wants to work on a be-all-end-all AI plugin for Obsidian, the space is very nascent. One of the reasons I was looking into this was because I wanted to build one myself - if you're interested in working on one, please reach out to me on [twitter](https://twitter.com/solderneer)!
 
