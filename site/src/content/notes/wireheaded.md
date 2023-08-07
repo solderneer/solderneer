@@ -9,6 +9,10 @@ tags:
 - project/104-days
 ---
 
+This note is the **twenty-ninth letter** in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
+
+---
+
 **Dearest Reader,**
 
 I've been coming across the concept of [_wireheading_](https://en.wikipedia.org/wiki/Wirehead_%28science_fiction%29) a lot in my reading. In [Superintelligence](https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies), Nick Bostrum uses it to refer to the idea of artificial intelligence systems which hack their own reward pathways, in effect lazily short-circuiting their intended behavior.
