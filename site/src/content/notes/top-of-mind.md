@@ -13,18 +13,13 @@ This notebook is a playground, a rough scratchpad for my thoughts and ideas, a p
 
 With that in mind, I want this digital space to be approachable for as many people as possible. So, to get you started, this page contains paths you might enjoy meandering along, by pulling together thoughts that are on the [[top-of-mind]].
 
-### I've been working on:
-- [[summer-2023]]
-- [[90-day-transformation]]
-- [[104-days-of-summer-vacation]]
+[[consciousness-as-consensus]]
+[[wireheaded]]
+[[why-ai-isnt-a-tool]]
+[[self-socratic-dialogues]]
+[[anti-agency]]
 
-### I've been thinking about:
-- [[hypercerts]]
-- [[daos-are-digital-organisms]]
-- [[local-care-for-global-health]]
-- [[evolutionary-organizations]]
-
-### Evergreen:
-- [[places-ive-been-to]]
-- [[principles]]
-- [[failure-resume]]
+[[places-ive-been-to]]
+[[principles]]
+[[failure-resume]]
+[[practices]]

@@ -1,5 +1,5 @@
 ---
-title: Hire people you want to work for
+title: People you want to work for
 emoji: ⁉
 pubDate: 13-Jul-2023
 updatedDate: 13-Jul-2023

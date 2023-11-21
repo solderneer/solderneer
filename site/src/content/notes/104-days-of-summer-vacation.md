@@ -38,11 +38,9 @@ This is an experiment living and breathing in [[summer-2023]]. It also inspired 
 24. [[most-days-2]]
 25. [[super-obsidian]]
 26. [[finite-and-infinite-games]]
-27. [[hire-people-you-wanna-work-for]]
+27. [[people-you-wanna-work-for]]
 28. [[why-ai-isnt-a-tool]]
 29. [[wireheaded]]
 30. [[baptist-and-bootleggers]]
 31. [[the-machiavelli-effect]]
 32. [[consciousness-as-consensus]]
-
-Link to [full twitter thread.](https://twitter.com/solderneer/status/1668911213810716672)

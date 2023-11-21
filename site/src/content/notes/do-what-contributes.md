@@ -48,3 +48,6 @@ Tomorrow, I'll be writing more about effective altruism and the specific value j
 In the meantime, I think I've spent long enough on the computer for today, it's a beautiful day in India. It's time to take a walk, perhaps even, for you too dear reader! See you tomorrow :)
 
 ~ Shan
+
+**PS: Tim Urban also wrote a good blog post:**
+https://waitbutwhy.com/2018/04/picking-career.html

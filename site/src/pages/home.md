@@ -1,7 +1,11 @@
 
 ## 👋  Hello there!
 
-My name is [Shan / Sudharshan / சுதர்சன்](https://solderneer.me/). You might also know me online as **@solderneer** on most platforms. I'm a final year student at [University College London](https://ucl.ac.uk), studying Electrical and Electronics Engineering.
+My name is [Shan / Sudharshan / சுதர்சன்](https://solderneer.me/). You might also know me online as **@solderneer** on most platforms.
+
+Currently, I'm working on **enabling human superintelligence**, with neurotech, at [Epiph](https://epiph.tech).
+I'm also a final year student at [University College London](https://ucl.ac.uk), studying Electrical and Electronics Engineering.
+
 
 ### tldr: 🤖 🧠 🦾 ☮️
 I want to contribute to frontier technologies which bring humans and machines into harmony. Currently, non-invasive neurotech has my fancy, but I'm also curious about other ways to achieve [man-computer symbiosis](https://en.wikipedia.org/wiki/Man-Computer_Symbiosis).
