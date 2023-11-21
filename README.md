@@ -1,9 +1,7 @@
-# Hi there, I'm Shan 👋
+### _👋 Hello there!_
+My name is [Shan / Sudharshan / சுதர்சன்](https://solderneer.me/). You might also know me online as **@solderneer** on most platforms. I'm a final year student at [University College London](https://ucl.ac.uk), studying Electrical and Electronics Engineering.
 
-I am an aspiring polymath, fiercely passionate about human well-being and flourishing.
+### _tldr: 🤖 🧠 🦾 ☮️_
+I want to contribute to frontier technologies which bring humans and machines into harmony. Currently, non-invasive neurotech has my fancy, but I'm also curious about other ways to achieve [man-computer symbiosis](https://en.wikipedia.org/wiki/Man-Computer_Symbiosis).
 
-I am also an advocate for [Veriditas](https://centuryofbio.substack.com/p/viriditas), and think that solving the hard problems around the human condition will bring paradigm shifts around how we function as a society. 
-
-Have a fascination (some might call it a problem) with brewing speciality coffee ☕.
-
-Currently interested in longevity science, decentralized systems (especially around web3)  and the philosophy of thought
+Previously, I've worked on projects ranging from [decentralized preventive healthcare](https://hea.care), [modular bioreactors](https://www.dynacyte.com/) and [swarm robotics platforms](https://github.com/makerforceio/Sentibots).
