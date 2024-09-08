@@ -2,7 +2,7 @@
 title: Top of Mind
 emoji: 👋
 pubDate: 13-Nov-2022
-updatedDate: 28-May-2023
+updatedDate: 08-Sep-2024
 tags:
   - type/index
 ---
@@ -21,5 +21,4 @@ With that in mind, I want this digital space to be approachable for as many peop
 
 [[places-ive-been-to]]
 [[principles]]
-[[failure-resume]]
 [[practices]]

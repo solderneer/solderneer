@@ -4,7 +4,6 @@ emoji: ⏲
 pubDate: 01-Jun-2023
 updatedDate: 01-Jun-2023
 tags:
-  - topic/history-and-geography
   - type/principles
 ---
 

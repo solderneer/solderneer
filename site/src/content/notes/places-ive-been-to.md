@@ -22,7 +22,6 @@ Other places I've been:
 - [[bogota-colombia]]
 - [[bali-indonesia]]
 - [[bonn-germany]]
-
 * Cambridge, UK
 - Virudhunagar, India
 - Madurai, India
