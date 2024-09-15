@@ -72,14 +72,14 @@ const yearsWithCounts = Object.entries(yearCounts)
           <NavLink href="/notes/about" emoji="😎">About Me</NavLink>
         </div>
 
-        <hr />
+        <hr class="lg:block hidden" />
         <!-- Recent Notes Section -->
-        <div class="mt-4 mb-4">
+        <div class="mt-4 mb-4 lg:block hidden">
           <h3 class="text-lg font-bold mb-2">Recent</h3>
           <ul class="space-y-2 rainbow-link">
             {
               recentNotes.map((note) => (
-                <li class="flex items-center text-xs">
+                <li class="flex items-center text-sm">
                   <a
                     href={`/notes/${note.slug}/`}
                     class="flex-grow-0 truncate mr-2"
@@ -87,7 +87,7 @@ const yearsWithCounts = Object.entries(yearCounts)
                   >
                     {note.data.emoji} {note.data.title}
                   </a>
-                  <div class="flex-shrink-0 text-xs font-bold secondary-color">
+                  <div class="flex-shrink-0 font-bold secondary-color">
                     <FormattedDate date={note.data.pubDate} />
                   </div>
                 </li>
@@ -95,8 +95,8 @@ const yearsWithCounts = Object.entries(yearCounts)
             }
           </ul>
         </div>
-        
-        <hr class="lg:block hidden"/>
+
+        <hr class="lg:block hidden" />
 
         <div class="mt-4 mb-4 lg:block hidden">
           <h3 class="text-lg font-bold mb-2">Archives</h3>
@@ -106,12 +106,36 @@ const yearsWithCounts = Object.entries(yearCounts)
       <!-- END NAV BAR -->
       <main class="max-w-3xl flex-grow"><slot /></main>
 
-        <hr class="sm:block lg:hidden"/>
+      <hr class="block lg:hidden" />
+      <!-- Recent Notes Section -->
+      <div class="mt-4 mb-4 block lg:hidden">
+        <h3 class="text-lg font-bold mb-2">Recent</h3>
+        <ul class="space-y-2 rainbow-link">
+          {
+            recentNotes.map((note) => (
+              <li class="flex items-center text-sm">
+                <a
+                  href={`/notes/${note.slug}/`}
+                  class="flex-grow-0 truncate mr-2"
+                  title={note.data.title}
+                >
+                  {note.data.emoji} {note.data.title}
+                </a>
+                <div class="flex-shrink-0 font-bold secondary-color">
+                  <FormattedDate date={note.data.pubDate} />
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
-        <div class="mt-4 mb-4 sm:block lg:hidden">
-          <h3 class="text-lg font-bold mb-2">Archives</h3>
-          <YearFilter yearsWithCounts={yearsWithCounts} />
-        </div>
+      <hr class="sm:block lg:hidden" />
+
+      <div class="mt-4 mb-4 sm:block lg:hidden">
+        <h3 class="text-lg font-bold mb-2">Archives</h3>
+        <YearFilter yearsWithCounts={yearsWithCounts} />
+      </div>
     </div>
     <footer class="text-xs text-beige-700 mt-8 text-center w-full">
       Copyright © 2024 Sudharshan Sundaramahalingam
