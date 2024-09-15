@@ -4,7 +4,7 @@ emoji: 🔎
 pubDate: 31-Jul-2023
 updatedDate: 31-Jul-2023
 tags:
-- topic/philosophy
+- philosophy
 ---
 
 **Dearest Reader,**

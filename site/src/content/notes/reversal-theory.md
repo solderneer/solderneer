@@ -4,7 +4,7 @@ emoji: ⏮
 pubDate: 01-Jun-2023
 updatedDate: 01-Jun-2023
 tags:
-  - topic/social-sciences
+  - society
 ---
 
 Reversal theory is a phenomenological framework in psychology focusing on personality, motivation and emotion. It uses dynamic qualities of human experience, emphasizing the constant shift in human emotions.

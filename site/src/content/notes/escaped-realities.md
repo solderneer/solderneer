@@ -4,7 +4,7 @@ emoji: 🚪
 pubDate: 11-Nov-2022
 updatedDate: 12-Nov-2022
 tags:
-  - topic/social-sciences
+  - society
 ---
 
 The mystery of reality was cleverly illustrated by Roger Penrose as a triad.

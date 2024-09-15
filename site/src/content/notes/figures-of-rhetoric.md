@@ -4,7 +4,7 @@ emoji: 💬
 pubDate: 15-Jan-2023
 updatedDate: 15-Jan-2023
 tags:
-  - topic/literature
+  - society
 ---
 
 # Kinds of verse

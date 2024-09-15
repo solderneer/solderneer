@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 
 import FormattedDate from "../components/FormattedDate.astro";
+import Callout from "../components/Callout.astro";
 import Tag from "../components/Tag.astro";
 
 import MarkdownBlock from "../components/MarkdownBlock.astro";
@@ -10,39 +11,79 @@ import LinkGraph from "../components/LinkGraph.astro";
 
 type Props = CollectionEntry<"notes">["data"];
 
-const { title, emoji, pubDate, updatedDate, tags } = Astro.props;
+const { title, description, emoji, pubDate, updatedDate, tags, originalPost, heroImage } = Astro.props;
 const { pathname } = Astro.url;
+
+// Extract hostname from original post
+let showOP = false;
+let hostname = "";
+if (originalPost != undefined) {
+  showOP = true;
+  hostname = new URL(originalPost).hostname;
+}
 ---
 
-<BaseLayout title={title} emoji={emoji}>
-  <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit">
-    {emoji}
-  </h1>
+<BaseLayout title={title} emoji={emoji} description={description} image={heroImage}>
+  {
+    heroImage != undefined ? (
+      <div
+        class="w-full h-64 bg-cover rounded-md mb-4"
+        style={`background-image: url(${heroImage})`}
+      />
+    ) : (
+      <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-4">
+        {emoji}
+      </h1>
+    )
+  }
+
   <h1 id="title" class="text-4xl lg:text-5xl font-bold mb-2">
     {title}
   </h1>
+  
+  {
+    description != undefined ? (
+      <h2 id="description" class="text-md lg:text-lg font-bold text-text-color/80 mb-2">
+        {description}
+      </h2>
+    ) : null
+  }
+
   <span class="text-md lg:text-lg italic text-text-color/80">
     <FormattedDate date={pubDate} /> • Updated <FormattedDate
       date={updatedDate}
     />
   </span>
+
   <ul class="flex gap-2 flex-wrap mt-2">
     {
-      tags.map((tag) => (
+      tags.map((tag: string) => (
         <li>
-          <a href={`/tags/${tag}`}>
+            <a href={`/tags/${tag}`}>
             <Tag name={`${tag}`} />
           </a>
         </li>
       ))
     }
   </ul>
+  
+  <!-- Original Post -->
+  {
+    showOP && (
+      <Callout color="bg-neutral-100" emoji="👀">
+        <p class="text-md">
+          Read the original post on{" "}
+          <a class="underline text-neutral-700" href={originalPost}>
+            {hostname}
+          </a>{" "}
+        </p>
+      </Callout>
+    )
+  }
 
   <MarkdownBlock>
     <slot />
   </MarkdownBlock>
 
-  <hr />
-  <h3 class="text-3xl font-bold mt-12">Related Notes</h3>
   <LinkGraph rootPath={pathname.substring(1)} />
 </BaseLayout>

@@ -4,8 +4,7 @@ emoji: 💙
 pubDate: 25-Nov-2022
 updatedDate: 28-Nov-2022
 tags:
-  - topic/social-sciences
-  - project/hea
+  - society
 ---
 
 ## Cuba and local care

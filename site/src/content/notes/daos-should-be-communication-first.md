@@ -4,8 +4,8 @@ emoji: 📢
 pubDate: 05-Nov-2022
 updatedDate: 15-Nov-2022
 tags:
-  - topic/technology
-  - topic/social-sciences
+  - technology
+  - society
 ---
 
 > When I imagine an organization I have in mind ... an interlocking network of communication processes” (Taylor, 2003: 12)

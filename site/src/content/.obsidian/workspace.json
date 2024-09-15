@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "37b973ae7d42ff7f",
+        "id": "499c66ce211f3a0b",
         "type": "tabs",
         "children": [
           {
-            "id": "f95ff1217f773a38",
+            "id": "63e3bbbe2fa1cc34",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -16,6 +16,18 @@
                 "file": "notes/top-of-mind.md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "3befe5180d4896f9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/vienna-austria.md",
+                "mode": "source",
+                "source": true
               }
             }
           }
@@ -48,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#ongoing",
+                "query": "top-o",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +77,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -146,33 +159,35 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f95ff1217f773a38",
+  "active": "63e3bbbe2fa1cc34",
   "lastOpenFiles": [
-    "notes/failure-resume.md",
+    "notes/clay-the-origin-story.md",
+    "notes/clay-burnout.md",
+    "notes/clay-build-time.md",
+    "notes/clay.md",
+    "().md",
     "notes/top-of-mind.md",
     "notes/vienna-austria.md",
-    "notes/destruction-and-creation-are-path-dependent.md",
-    "notes/technology-is-ideology.md",
-    "notes/the-opposite-of-a-trap-is-a-garden.md",
-    "notes/the-zuzalan-dream.md",
-    "notes/why-ai-isnt-a-tool.md",
-    "notes/wireheaded.md",
-    "notes/james-phillips-creative-destruction.md",
-    "notes/meaningful-cool-organizations.md",
-    "notes/meditations-on-effective-altruism.md",
-    "notes/microsolidarity.md",
-    "notes/most-days-2.md",
-    "letters/answer-the-call.md",
-    "notes/places-ive-been-to.md",
-    "notes/edinburgh-uk.md",
-    "notes/london-uk.md",
-    "notes/bonn-germany.md",
-    "notes/104-days-of-summer-vacation.md",
-    "notes/super-obsidian.md",
-    "notes/rules-for-standards-makers.md",
-    "notes/understand-the-past.md",
-    "notes/digital-maximalism.md",
-    "notes/a-brand-is-consensus.md",
-    "notes/a-study-can-prove-anything.md"
+    "notes/web2-is-for-self-expression-not-thought.md",
+    "notes/coin-voting-is-dangerous.md",
+    "notes/institutionalised-learning.md",
+    "notes/top-bottom-up-down.md",
+    "notes/grey-sour-soft-tranquil.md",
+    "notes/winter-daydream.md",
+    "notes/dream-song.md",
+    "notes/tkkyia-2016.md",
+    "notes/pcb-making-in-singapore.md",
+    "notes/maker-faire-2016.md",
+    "notes/learn-dont-study.md",
+    "notes/from-startups-to-scams.md",
+    "notes/building-a-diy-solder-oven.md",
+    "notes/an-edison-based-flight-controller.md",
+    "notes/hollow-promises.md",
+    "_drafts/thousand-words.md",
+    "_drafts/plans.md",
+    "notes/90-day-transformation.md",
+    "notes/the-one-man-brand.md",
+    "notes/data-composability-in-healthcare.mdx",
+    "_drafts"
   ]
 }

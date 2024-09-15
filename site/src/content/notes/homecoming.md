@@ -3,8 +3,7 @@ title: Homecoming
 emoji: 🏡
 pubDate: 04-Jul-2023
 updatedDate: 04-Jul-2023
-tags:
-  - project/104-days
+tags: []
 ---
 
 This note is the **nineteenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!

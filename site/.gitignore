@@ -21,4 +21,5 @@ pnpm-debug.log*
 .DS_Store
 
 # Personal files
-src/_private
+src/content/_drafts
+src/content/.obsidian

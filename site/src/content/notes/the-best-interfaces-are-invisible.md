@@ -4,7 +4,7 @@ emoji: 🖱
 pubDate: 28-May-2023
 updatedDate: 28-May-2023
 tags:
-  - topic/technology
+  - technology
 ---
 
 It stands to reason that the best interfaces are the ones that you can use (or learn to use) with the least amount of thought. In other words, the ultimate interface is one which you can use without explicit thought at all, at which point _the interface ceases to be an interface, it becomes invisible_.

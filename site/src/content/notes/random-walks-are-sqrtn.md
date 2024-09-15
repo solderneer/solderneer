@@ -4,8 +4,8 @@ emoji: 🚶
 pubDate: 08-Jun-2023
 updatedDate: 08-Jun-2023
 tags:
-  - topic/science
-  - type/principles
+  - science
+  - general
 ---
 
 **tldr;** The basic essence of this note is to demonstrate the importance of vision. Instead of blindly chasing everything that is shiny, a person with vision can walk in a straight line. This is important, a person walking in a straight line with N steps moves with $O(n)$ But a person walking in a random walk, only can move on the order, $O(\sqrt{n})$.

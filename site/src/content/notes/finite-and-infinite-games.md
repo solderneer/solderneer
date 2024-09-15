@@ -4,9 +4,8 @@ emoji: 🎲
 pubDate: 12-Jul-2023
 updatedDate: 12-Jul-2023
 tags:
-- topic/technology
-- topic/philosophy
-- project/104-days
+  - technology
+  - philosophy
 ---
 
 This note is the **twenty-sixth letter** in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!

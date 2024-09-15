@@ -1,81 +1,61 @@
 {
-  "topic/social-sciences": {
+  "society": {
     "description": "",
     "color": "var(--green)"
   },
-  "topic/technology": {
+  "technology": {
     "description": "",
     "color": "var(--blue)"
   },
-  "topic/philosophy": {
+  "life": {
     "description": "",
     "color": "var(--orange)"
   },
-  "topic/science": {
+  "general": {
     "description": "",
     "color": "var(--red)"
   },
-  "topic/arts": {
+  "travel": {
     "description": "",
     "color": "var(--yellow)"
   },
-  "topic/computer-science": {
+  "philosophy": {
     "description": "",
     "color": "var(--blue)"
   },
-  "topic/history-and-geography": {
+  "index": {
     "description": "",
     "color": "var(--blue)"
   },
-  "topic/literature": {
+  "science": {
     "description": "",
     "color": "var(--purple)"
   },
-  "type/life": {
+  "young-shan": {
     "description": "",
     "color": "var(--green)"
   },
-  "type/young-shan": {
+  "prose": {
     "description": "",
     "color": "var(--orange)"
   },
-  "type/principles": {
+  "design": {
     "description": "",
     "color": "var(--blue)"
   },
-  "type/place": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "type/practices": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "type/index": {
-    "description": "",
-    "color": "var(--red)"
-  },
-  "project/axiom": {
-    "description": "",
-    "color": "var(--purple)"
-  },
-  "project/hea": {
-    "description": "",
-    "color": "var(--red)"
-  },
-  "project/speechless": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "project/90-day-transformation": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "project/104-days": {
-    "description": "",
-    "color": "var(--blue)"
+  "education": {
+      "description": "",
+      "color": "var(--blue)"
   },
   "ongoing": {
+    "description": "",
+    "color": "var(--orange)"
+  },
+  "projects": {
+    "description": "",
+    "color": "var(--orange)"
+  },
+  "startups": {
     "description": "",
     "color": "var(--red)"
   }

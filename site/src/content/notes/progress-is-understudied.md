@@ -4,7 +4,7 @@ emoji: 🧢
 pubDate: 14-Nov-2022
 updatedDate: 15-Nov-2022
 tags:
-  - topic/science
+  - science
 ---
 
 >Progress itself is understudied. By “progress,” we mean the combination of economic, technological, scientific, cultural, and organizational advancement that has transformed our lives and raised standards of living over the past couple of centuries.

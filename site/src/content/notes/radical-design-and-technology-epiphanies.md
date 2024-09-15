@@ -4,8 +4,8 @@ emoji: 🚀
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023
 tags:
-  - topic/technology
-  - topic/social-sciences
+  - technology
+  - society
 ---
 
 >Scholars have often neglected some of the most intriguing forms of design, i.e., when design brings a radical perspective, when it contributes to the redeﬁnition of an industry, and the creation of a new paradigm. In this short note I hope to set the stage for this new frontier of research in design management. In particular I propose two ﬁelds of investigation: the role of design to radically innovate the meaning of products and services, and the interaction of radical design with radical technologies, which I call technology epiphanies, i.e., the identiﬁcation of the most powerful meaning enabled by a breakthrough technology.

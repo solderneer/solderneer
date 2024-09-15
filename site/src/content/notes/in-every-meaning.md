@@ -4,8 +4,7 @@ emoji: 🌲
 pubDate: 16-Jun-2023
 updatedDate: 16-Jun-2023
 tags:
-  - topic/social-sciences
-  - project/104-days
+  - society
 ---
 
 This note is the **fourth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672).

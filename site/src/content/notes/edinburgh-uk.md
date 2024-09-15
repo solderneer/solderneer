@@ -4,7 +4,7 @@ emoji: 🇬‍🇧
 pubDate: 22-May-2023
 updatedDate: 28-May-2023
 tags:
-  - type/place
+  - travel
 ---
 
 People have told me Edinburgh is a site to see, and I quote _one of the prettiest, if not the prettiest capital city of any country in the world_. So, I just had to go take a look, in a 4-day solo-trip :)

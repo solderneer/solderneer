@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import NoteItemMinimal from "../../../components/NoteItemMinimal.astro";
+import YearFilter from "../../../components/YearFilter.astro";
+
+export async function getStaticPaths() {
+  const allNotes = await getCollection("notes");
+  
+  // Get unique years
+  const years = [...new Set(allNotes.map(note => new Date(note.data.pubDate).getFullYear()))];
+  
+  // Generate paths for each year
+  return years.map(year => ({
+    params: { year: year.toString() },
+    props: { year }
+  }));
+}
+
+const { year } = Astro.props;
+const title = `Notes from ${year}`;
+const description = `All of Shan's notes from ${year}.`;
+
+// Fetch all notes
+const allNotes = await getCollection("notes");
+
+// Filter notes for the current year
+const notes = allNotes
+  .filter(note => new Date(note.data.pubDate).getFullYear() === year)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title={title} description={description}>
+  <h1 class="text-5xl lg:text-6xl font-bold">{year}</h1>
+  <h2 class="text-md lg:text-lg font-bold text-text-color/80 mt-4 mb-10">
+    All of Shan's notes from {year}.
+  </h2>
+
+  <ul class="flex flex-col gap-4">
+    {
+      notes.map((note) => (
+        <li>
+          <NoteItemMinimal slug={note.slug} note={note} />
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

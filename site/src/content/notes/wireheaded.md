@@ -4,9 +4,7 @@ emoji: 😵‍💫
 pubDate: 28-Jul-2023
 updatedDate: 28-Jul-2023
 tags:
-- topic/technology
-- topic/computer-science
-- project/104-days
+  - technology
 ---
 
 This note is the **twenty-ninth letter** in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!

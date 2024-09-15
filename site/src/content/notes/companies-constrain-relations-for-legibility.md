@@ -4,7 +4,7 @@ emoji: 🔍
 pubDate: 2-Nov-2022
 updatedDate: 16-Nov-2022
 tags:
-  - topic/social-sciences
+  - society
 ---
 
 Venkatesh Rao talks about legibility in his article [A Big Little Idea Called Legibility](https://www.ribbonfarm.com/2010/07/26/a-big-little-idea-called-legibility/), saying that

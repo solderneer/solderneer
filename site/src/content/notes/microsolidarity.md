@@ -4,7 +4,7 @@ emoji: 🤝
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023
 tags:
-  - topic/social-sciences
+  - society
 ---
 
 [Microsolidarity](https://www.microsolidarity.cc/) is a network working on building practices for community-building, especially in small groups.

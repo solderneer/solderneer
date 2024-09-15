@@ -4,8 +4,7 @@ emoji: 🛝
 pubDate: 13-Jun-2023
 updatedDate: 13-Jun-2023
 tags:
-  - type/life
-  - project/104-days
+  - life
 ---
 
 This note is the **first** letter in the [[104-days-of-summer-vacation]] series.

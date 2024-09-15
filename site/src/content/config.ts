@@ -17,32 +17,13 @@ function validateTags(tags: string[]): boolean {
   return true;
 }
 
-const letters = defineCollection({
-  // Type-check frontmatter using a schema
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    emoji: z.string(),
-    pubDate: z
-      .string()
-      .or(z.date())
-      .transform((val) => new Date(val)),
-    updatedDate: z
-      .string()
-      .optional()
-      .transform((str) => (str ? new Date(str) : undefined)),
-    tags: z.array(z.string()).refine((tags) => validateTags(tags), {
-      message: "Invalid tags",
-    }),
-    originalPost: z.string().optional(),
-    heroImage: z.string().optional(),
-  }),
-});
-
 const notes = defineCollection({
   schema: z.object({
     title: z.string(),
     emoji: z.string(),
+    description: z.string().optional(),
+    originalPost: z.string().optional(),
+    heroImage: z.string().optional(),
     pubDate: z
       .string()
       .or(z.date())
@@ -57,4 +38,4 @@ const notes = defineCollection({
   }),
 });
 
-export const collections = { letters, notes };
+export const collections = { notes };

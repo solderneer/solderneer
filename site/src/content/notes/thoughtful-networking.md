@@ -4,8 +4,7 @@ emoji: 🔮
 pubDate: 03-Jul-2023
 updatedDate: 03-Jul-2023
 tags:
-  - project/104-days
-  - type/life
+  - life
 ---
 
 This note is the **eighteenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!

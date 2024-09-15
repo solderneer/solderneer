@@ -4,21 +4,27 @@ emoji: 👋
 pubDate: 13-Nov-2022
 updatedDate: 08-Sep-2024
 tags:
-  - type/index
+  - index
+---
+My name is [Shan / Sudharshan / சுதர்சன்](https://solderneer.me/). Currently, I’m working on silent speech interfaces and human-machine interaction at [[clay|Clay]], backed by [1517 fund](https://www.1517fund.com/).
+
+I'm passionate about human-computer interaction, neural interfaces, bio-signals, consumer wearable hardware, and anything cybernetic.  
+  
+Previously, I studied Electrical Engineering at [University College London](https://ucl.ac.uk), and have worked on a variety of technical projects ranging from [decentralized preventive healthcare](https://heacare.substack.com/p/networks-work-in-healthcare-and-beyond), [modular bioreactors](https://www.dynacyte.com/) and [swarm robotics platforms](https://github.com/makerforceio/Sentibots).
+
 ---
 
 > **A densely hyperlinked set of notes that slowly grows over time feels strangely alive and organic**
 
-This notebook is a playground, a rough scratchpad for my thoughts and ideas, a place where I'm not afraid to get crazy and wild. So, it is often unstructured and messy, but I think thinking aloud in public is an important part of inviting open-minded discussion.
-
-With that in mind, I want this digital space to be approachable for as many people as possible. So, to get you started, this page contains paths you might enjoy meandering along, by pulling together thoughts that are on the [[top-of-mind]].
-
+**Top of mind:**  
+[[clay]]
 [[consciousness-as-consensus]]
 [[wireheaded]]
 [[why-ai-isnt-a-tool]]
 [[self-socratic-dialogues]]
 [[anti-agency]]
 
+**Evergreen:**  
 [[places-ive-been-to]]
 [[principles]]
 [[practices]]

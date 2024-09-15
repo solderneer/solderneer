@@ -4,7 +4,7 @@ emoji: 💁
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
 tags:
-  - topic/social-sciences
+  - society
 ---
 
 The proliferation of APIs and tooling for the supply chain like [Shopify](https://www.shopify.com/), [Squarespace](https://www.squarespace.com/) and [CA.LA](https://ca.la/) allows people to spin up fashion brands like a Digitalocean Droplet. This massively reduces the barrier to entry to starting a brand: micropreneurs can active their twitter audiences through selling t-shirts in a single day.

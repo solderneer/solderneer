@@ -4,8 +4,8 @@ emoji: 🧩
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023
 tags:
-  - topic/technology
-  - topic/arts
+  - technology
+  - design
 ---
 
  This idea of pattern languages originated in the 1977 book, [A Pattern Language](https://en.wikipedia.org/wiki/A_Pattern_Language) which is about architecture, urban design and community livability.

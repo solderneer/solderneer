@@ -1,61 +1,43 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 import MarkdownBlock from "../components/MarkdownBlock.astro";
-import LetterItemMinimal from "../components/LetterItemMinimal.astro";
-import NoteItemMinimal from "../components/NoteItemMinimal.astro";
 import LinkGraph from "../components/LinkGraph.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Tag from "../components/Tag.astro";
 
 import { getCollection } from "astro:content";
-import { Content } from "./home.md";
 
-const letters = (await getCollection("letters")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const notes = await getCollection("notes");
+const topOfMind = notes.find(note => note.slug === "top-of-mind");
 
-const notes = (await getCollection("notes")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+if (!topOfMind) {
+  throw new Error("Top of mind note not found");
+}
+
+const { Content } = await topOfMind.render();
+
+const { title, description, emoji, pubDate, updatedDate, tags } = topOfMind.data;
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} emoji="🏠">
-  <div
-    class="w-full h-64 bg-cover rounded-md mb-4"
-    style={`background-image: url(/main-art.jpeg)`}
-  >
-  </div>
-  <h1 class="text-5xl lg:text-6xl font-bold">Home</h1>
-  <h2 class="text-md lg:text-lg font-bold mt-4 text-text-color/80">
-    WaRNiNG: this website, like my life, is a work-in-progress.
-  </h2>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-4">
+    🏠
+  </h1>
+  <h1 id="title" class="text-4xl lg:text-5xl font-bold mb-2">
+    Home
+  </h1>
+
+  <span class="text-md lg:text-lg italic text-text-color/80">
+    Updated <FormattedDate
+      date={updatedDate}
+    />
+  </span>
+
 
   <MarkdownBlock>
     <Content />
-    <hr />
   </MarkdownBlock>
-
-  <h3 class="text-3xl font-bold mt-12">Recent Letters</h3>
-
-  <ul class="flex flex-col gap-4 my-6">
-    {
-      letters.slice(0, 3).map((letter) => (
-        <li>
-          <LetterItemMinimal slug={letter.slug} letter={letter} />
-        </li>
-      ))
-    }
-  </ul>
-
-  <a href="/letters" class="font-bold text-md"
-    >{`See ${letters.length} more →`}</a
-  >
-
-  <MarkdownBlock>
-    <hr />
-  </MarkdownBlock>
-
-  <h3 class="text-3xl font-bold mt-12">Recent Notes</h3>
 
   <LinkGraph rootPath="notes/top-of-mind/" />
 </BaseLayout>

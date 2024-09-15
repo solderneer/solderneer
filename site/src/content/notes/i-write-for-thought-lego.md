@@ -4,7 +4,7 @@ emoji: ✍
 pubDate: 28-May-2023
 updatedDate: 29-May-2023
 tags:
-  - type/practices
+  - general
 ---
 
 Writing is a way of capturing a moment in time, a specific pattern of neuronal firings, an idea frozen in the moment it is conceptualized. The invention of language is often credited with benefit of human-human communication, but early code designers like [Richard Hamming](https://en.wikipedia.org/wiki/Hamming_code) were quick to realize that any code (or language) can be transmitted through space (communication) and through time (storage).

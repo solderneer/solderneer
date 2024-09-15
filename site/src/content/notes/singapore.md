@@ -4,7 +4,7 @@ emoji: 🇸‍🇬
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
 tags:
-  - type/place
+  - travel
 ---
 
 Singapore is 🏠 home.

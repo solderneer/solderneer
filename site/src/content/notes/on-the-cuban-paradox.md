@@ -4,7 +4,7 @@ emoji: 🇨‍🇺
 pubDate: 25-Nov-2022
 updatedDate: 25-Nov-2022
 tags:
-  - topic/social-sciences
+  - society
 ---
 
 > How can Cuba with so little, do so much for the healthcare of its citizens? The answer lies in a focus on primary preventive care.

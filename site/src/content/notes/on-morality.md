@@ -4,8 +4,8 @@ emoji: 🤔
 pubDate: 01-Dec-2022
 updatedDate: 01-Dec-2022
 tags:
-  - type/life
-  - topic/philosophy
+  - life
+  - philosophy
 ---
 
 An exploration into my sense of morality.

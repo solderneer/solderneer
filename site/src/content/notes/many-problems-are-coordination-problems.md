@@ -4,7 +4,7 @@ emoji: 🤝
 pubDate: 01-Dec-2022
 updatedDate: 04-Jan-2023
 tags:
-  - topic/social-sciences
+  - society
 ---
 
 One of the reasons I think web3 and DAOs are a promising line of exploration, is because many problems in the world exist as coordination problems. See: [[malthusian-traps]].

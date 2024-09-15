@@ -4,8 +4,8 @@ emoji: 📐
 pubDate: 28-May-2023
 updatedDate: 29-May-2023
 tags:
-  - type/index
-  - type/principles
+  - index
+  - general
 ---
 
 Principles are rules, beliefs, or ideas that remind me to be _me_. The principles I follow shape my decisions and the lens through which I view the world. I don't claim to be adherent to them all the time, but I really try my very best.

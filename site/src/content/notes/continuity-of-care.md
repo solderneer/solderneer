@@ -4,8 +4,7 @@ emoji: 💗
 pubDate: 14-Jun-2023
 updatedDate: 14-Jun-2023
 tags:
-  - topic/social-sciences
-  - project/hea
+  - society
 ---
 
 [Taken from AAFP:](https://www.aafp.org/about/policies/all/continuity-of-care-definition.html)

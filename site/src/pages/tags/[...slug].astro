@@ -1,41 +1,32 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import LetterItemMinimal from "../../components/LetterItemMinimal.astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import type {
   InferGetStaticParamsType,
   InferGetStaticPropsType,
   GetStaticPaths,
 } from "astro";
-import { stringToPastelColor } from "../../utils";
+import NoteItemMinimal from "../../components/NoteItemMinimal.astro";
 
 export async function getStaticPaths() {
-  // Fetch all the content
-  const allLetters = (await getCollection("letters")).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-  );
   const allNotes = (await getCollection("notes")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
   );
 
   // List of dynamically generated tags
   const uniqueTags = [
-    ...new Set(allLetters.map((letter) => letter.data.tags).flat()),
     ...new Set(allNotes.map((note) => note.data.tags).flat()),
   ];
 
   return uniqueTags.map((tag) => {
-    const filteredLetters = allLetters.filter((letter) =>
-      letter.data.tags.includes(tag)
-    );
     const filteredNotes = allNotes.filter((note) =>
       note.data.tags.includes(tag)
     );
 
     return {
       params: { slug: tag },
-      props: { letters: filteredLetters, notes: filteredNotes },
+      props: { notes: filteredNotes },
     };
   });
 }
@@ -44,34 +35,24 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { slug } = Astro.params as Params;
-const { letters, notes } = Astro.props as Props;
+const { notes } = Astro.props as Props;
 
-const hue = stringToPastelColor(`#${slug!}`);
+const title = `Notes tagged ${slug}`;
+const description = `All of Shan's notes tagged ${slug}.`;
+
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <h1 class="text-5xl lg:text-3xl font-bold text-neutral-700">Tagged with:</h1>
-  <h1
-    class="py-1 px-2 text-3xl my-4 rounded-md italic"
-    style={`background-color: hsl(${hue}, 100%, 93%);color: hsla(${hue}, 100%, 15%, 0.7)`}
-  >
-    #{slug}
-  </h1>
-  <ul class="flex flex-col gap-6">
-    {
-      letters.map((letter) => (
-        <li>
-          <LetterItemMinimal slug={letter.slug} letter={letter} />
-        </li>
-      ))
-    }
-  </ul>
-  <h2>Notes</h2>
-  <ul class="flex flex-col gap-6">
+  <h1 class="text-5xl lg:text-6xl font-bold">{slug}</h1>
+  <h2 class="text-md lg:text-lg font-bold text-text-color/80 mt-4 mb-10">
+    All of Shan's notes tagged with {slug}.
+  </h2>
+
+  <ul class="flex flex-col gap-4">
     {
       notes.map((note) => (
         <li>
-          <LetterItemMinimal slug={note.slug} letter={note} />
+          <NoteItemMinimal slug={note.slug} note={note} />
         </li>
       ))
     }

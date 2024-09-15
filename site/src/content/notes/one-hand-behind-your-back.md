@@ -4,8 +4,8 @@ emoji: 💁‍♂
 pubDate: 08-Jun-2023
 updatedDate: 08-Jun-2023
 tags:
-  - topic/social-sciences
-  - type/life
+  - society
+  - life
 ---
 
 The good guys always fight with one hand behind their backs. Is this always true, I'll add on some examples here, if I remember to.

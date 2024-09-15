@@ -4,8 +4,8 @@ emoji: 📰
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
 tags:
-  - topic/social-sciences
-  - topic/technology
+  - society
+  - technology
 ---
 
 **History is written by the winners.** The perspectives we hear about most issues are drastically influenced by the ones who shape the narrative. Digital technologists today spread caution around fake news, but digital history is another medium that is constantly corrupted by the people the control the sites of data storage.

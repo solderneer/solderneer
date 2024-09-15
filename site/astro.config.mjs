@@ -25,7 +25,7 @@ let permalinks = [];
 
 try {
   const files = fs.readdirSync(absolutePath);
-  permalinks = files.map((filename) => filename.slice(0, -3));
+  permalinks = files.map((filename) => filename.replace(/\.(md|mdx)$/, ''));
 } catch (error) {
   console.error("Error reading directory:", error);
 }

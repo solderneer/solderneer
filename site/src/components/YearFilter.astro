@@ -1,0 +1,25 @@
+---
+interface YearCount {
+  year: number;
+  count: number;
+}
+
+const { yearsWithCounts } = Astro.props;
+const currentPath = Astro.url.pathname;
+const currentYear = currentPath.match(/\/year\/(\d{4})$/)?.[1];
+---
+
+<div class="grid grid-cols-3 gap-2">
+  {yearsWithCounts.map(({ year, count }: YearCount) => (
+    <a
+      href={`/notes/year/${year}`}
+      class={`px-1 py-1 text-sm rounded font-bold text-center ${
+        currentYear === year.toString()
+          ? 'bg-primary-color text-white border border-primary-color pointer-events-none cursor-default' 
+          : 'bg-beige-light border border-beige-dark hover:bg-beige-medium rainbow-button'
+      }`}
+    >
+      {year} ({count})
+    </a>
+  ))}
+</div>

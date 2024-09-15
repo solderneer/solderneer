@@ -4,7 +4,7 @@ emoji: 🪙
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
 tags:
-  - topic/technology
+  - technology
 ---
 
 When designing a token, it is essential to take the user into consideration.

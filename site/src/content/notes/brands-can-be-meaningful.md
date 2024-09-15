@@ -4,7 +4,7 @@ emoji: 👼
 pubDate: 2-Nov-2022
 updatedDate: 2-Nov-2022
 tags:
-  - topic/social-sciences
+  - society
 ---
 
 **Brands are currently driven by the consumerist profit-motive. But, they don't have to be and we can look at cults for some inspiration.**
