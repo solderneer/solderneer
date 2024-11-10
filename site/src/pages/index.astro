@@ -20,24 +20,13 @@ const { Content } = await topOfMind.render();
 const { title, description, emoji, pubDate, updatedDate, tags } = topOfMind.data;
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} emoji="🏠">
-  <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-4">
-    🏠
-  </h1>
-  <h1 id="title" class="text-4xl lg:text-5xl font-bold mb-2">
-    Home
-  </h1>
-
-  <span class="text-md lg:text-lg italic text-text-color/80">
-    Updated <FormattedDate
-      date={updatedDate}
-    />
-  </span>
-
-
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <MarkdownBlock>
+      <img
+        class="w-full max-w-5xl bg-contain bg-no-repeat bg-center mb-2"
+        src="/main-cover-lg.gif"
+      />
     <Content />
+    <LinkGraph rootPath="notes/top-of-mind/" />
   </MarkdownBlock>
-
-  <LinkGraph rootPath="notes/top-of-mind/" />
 </BaseLayout>

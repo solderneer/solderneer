@@ -1,0 +1,183 @@
+{
+  "main": {
+    "id": "ae9737a9efc793af",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f893efa81dae8e2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "04a19c60e7d81cad",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "top-of-mind.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "top-of-mind"
+            }
+          },
+          {
+            "id": "932cc18d664f14d3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "top-of-mind.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "top-of-mind"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1e08d7762119f685",
+    "type": "split",
+    "children": [
+      {
+        "id": "1fc2b583b9c38921",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "187a264c815352f2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c8a0eb1a02a5ab2b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "top-of-",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "25169f2e1a46c73c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "202bae57e0427896",
+    "type": "split",
+    "children": [
+      {
+        "id": "ddf4a979b4aa8d59",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "254fb78a51c67271",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "top-of-mind.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for top-of-mind"
+            }
+          },
+          {
+            "id": "c93b56b5b59f0b81",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "top-of-mind.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from top-of-mind"
+            }
+          },
+          {
+            "id": "3797be22492fe02b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "2e3eeb97adac6a83",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "top-of-mind.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of top-of-mind"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "932cc18d664f14d3",
+  "lastOpenFiles": []
+}

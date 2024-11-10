@@ -35,7 +35,7 @@ const yearsWithCounts = Object.entries(yearCounts)
       title={title}
       description={description}
       emoji={emoji}
-      image={image ?? "/main-art.jpeg"}
+      image={image ?? "/pfp-min.png"}
     />
   </head>
 
@@ -45,7 +45,7 @@ const yearsWithCounts = Object.entries(yearCounts)
   >
     <div class="flex flex-col lg:flex-row flex-grow">
       <!-- NAV BAR -->
-      <nav class="w-full lg:w-80 lg:sticky top-0 h-fit py-4 lg:mr-16">
+      <nav class="w-full max-w-2xl mx-auto lg:w-80 lg:sticky top-0 h-fit py-4 lg:mr-16">
         <h1 class="text-4xl lg:text-5xl font-bold rainbow-button font-writing">
           <a href="/">{SITE_TITLE}</a>
         </h1>
@@ -75,7 +75,7 @@ const yearsWithCounts = Object.entries(yearCounts)
         <hr class="lg:block hidden" />
         <!-- Recent Notes Section -->
         <div class="mt-4 mb-4 lg:block hidden">
-          <h3 class="text-lg font-bold mb-2">Recent</h3>
+          <h3 class="text-lg font-bold mb-2">Recent Notes</h3>
           <ul class="space-y-2 rainbow-link">
             {
               recentNotes.map((note) => (
@@ -104,12 +104,13 @@ const yearsWithCounts = Object.entries(yearCounts)
         </div>
       </nav>
       <!-- END NAV BAR -->
-      <main class="max-w-3xl flex-grow"><slot /></main>
+      
+      <main class="max-w-3xl flex-grow mx-auto"><slot /></main>
 
       <hr class="block lg:hidden" />
       <!-- Recent Notes Section -->
       <div class="mt-4 mb-4 block lg:hidden">
-        <h3 class="text-lg font-bold mb-2">Recent</h3>
+        <h3 class="text-lg font-bold mb-2">Recent Notes</h3>
         <ul class="space-y-2 rainbow-link">
           {
             recentNotes.map((note) => (

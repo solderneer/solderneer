@@ -13,7 +13,7 @@ export async function get(context) {
     description: SITE_DESCRIPTION,
     site: context.site,
     stylesheet: "/rss/pretty-feed-v3.xsl",
-    image: "/main-art.jpeg",
+    image: "/pfp-min.png",
     items: notes
       .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) // Sort latest first
       .slice(0, 20) //Get first 20

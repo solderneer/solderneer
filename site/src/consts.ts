@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = "solderneer";
 export const SITE_DESCRIPTION =
-  "A slice-of-life blog by Sudharshan, on technology with a little sprinkle of poetry.";
+  "A slice-of-life blog by Sudharshan, focused at the intersection of consumer electronics and neurotech.";
 
 const SITE_MODE = process.env.SITE_MODE ?? "PROD";
 export const SITE_BASEURL =

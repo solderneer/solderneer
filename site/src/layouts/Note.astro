@@ -41,36 +41,40 @@ if (originalPost != undefined) {
     {title}
   </h1>
   
-  {
-    description != undefined ? (
-      <h2 id="description" class="text-md lg:text-lg font-bold text-text-color/80 mb-2">
-        {description}
-      </h2>
-    ) : null
-  }
+  <div class="mt-4 mb-6">
+      {
+        description != undefined ? (
+          <h2 id="description" class="text-xl text-text-color/80 mb-1">
+            {description}
+          </h2>
+        ) : null
+      }
 
-  <span class="text-md lg:text-lg italic text-text-color/80">
-    <FormattedDate date={pubDate} /> • Updated <FormattedDate
-      date={updatedDate}
-    />
-  </span>
-
-  <ul class="flex gap-2 flex-wrap mt-2">
-    {
-      tags.map((tag: string) => (
-        <li>
-            <a href={`/tags/${tag}`}>
-            <Tag name={`${tag}`} />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+      <div class="flex flex-wrap items-center gap-2 text-md text-text-color/80">
+        <span class="italic">
+          <FormattedDate date={pubDate} /> • Updated <FormattedDate
+            date={updatedDate}
+          />
+        </span>
+        <ul class="flex gap-2 flex-wrap">
+          {
+            tags.map((tag: string) => (
+              <li>
+                •
+                <a href={`/tags/${tag}`}>
+                  <Tag name={`${tag}`} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+  </div>
   
   <!-- Original Post -->
   {
     showOP && (
-      <Callout color="bg-neutral-100" emoji="👀">
+      <Callout class="w-min" color="bg-neutral-100" emoji="👀">
         <p class="text-md">
           Read the original post on{" "}
           <a class="underline text-neutral-700" href={originalPost}>
@@ -82,8 +86,7 @@ if (originalPost != undefined) {
   }
 
   <MarkdownBlock>
-    <slot />
+    <slot /> 
+    <LinkGraph rootPath={pathname.substring(1)} />
   </MarkdownBlock>
-
-  <LinkGraph rootPath={pathname.substring(1)} />
 </BaseLayout>
