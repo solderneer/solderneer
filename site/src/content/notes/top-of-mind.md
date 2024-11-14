@@ -7,7 +7,7 @@ tags:
   - index
 ---
 
-**If all time were a single day, recorded human history would exist in its final second. How do we want to be tomorrow?**
+**If all of time were a single day, recorded human history would only exist in its final second. What do we want to be tomorrow?**
 
 I think about tools—not just their function, but the way they shape us. My favourite tools are extensions of thought: precise, responsive, alive in my hand. A soldering iron, a pencil, an electric screwdriver humming with purpose. There’s magic in the way a good tool bridges what is and what could be.
 
@@ -18,9 +18,10 @@ _What if our tools could make us better at being human?_
 ---
 # Shan / Sudharshan / சுதர்சன்
 
-I am a [research engineer at Opal](https://opalcamera.com/) where I develop next-generation consumer electronics. At night, I [explore human interfaces at Clay](https://clayinterface.com), a company I founded [backed by 1517 fund](https://www.1517fund.com/). 
+I am a [research engineer at Opal](https://opalcamera.com/) where I develop next-generation consumer electronics. In my free time, I conduct independent research on human interfaces, and neurotech.
 
 * Sigma Squared Fellow—founders under 26, collectively raised over 2B+ USD
+* CTO at Clay Interface, backed by leading US funds like 1517 fund
 * Graduated at the top of my class for EEE from University College London
 * Given talks alongside industry leaders like Anil Dash and Chad Fowler
 * Published research in swarm robotics at the age of 16
