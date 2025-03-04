@@ -24,20 +24,23 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
+        working-directory: ./site
         run: npm ci # Ensures clean install based on package-lock.json
 
       - name: Force install Astro v2.1.1
+        working-directory: ./site
         run: npm install astro@2.1.1
 
       - name: Build the Astro site
+        working-directory: ./site
         run: npm run build
         env:
           ASTRO_TELEMETRY_DISABLED: 1
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist # Ensure this matches your Astro output directory
+          path: ./site/dist # Ensure this matches your Astro output directory
 
   deploy:
     needs: build
