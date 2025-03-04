@@ -26,7 +26,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./site
-        run: npm ci # Ensures clean install based on package-lock.json
+        run: npm i # Ensures clean install based on package-lock.json
 
       - name: Force install Astro v2.1.1
         working-directory: ./site
