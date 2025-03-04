@@ -15,6 +15,8 @@ import wikiLinkPlugin from "@portaljs/remark-wiki-link";
 import { remarkReadingTime, remarkWordCount } from "./remarkPlugins.mjs";
 import remarkMath from "remark-math";
 
+import image from "@astrojs/image";
+
 // Rehype
 import rehypeKatex from "rehype-katex";
 
@@ -25,7 +27,7 @@ let permalinks = [];
 
 try {
   const files = fs.readdirSync(absolutePath);
-  permalinks = files.map((filename) => filename.replace(/\.(md|mdx)$/, ''));
+  permalinks = files.map((filename) => filename.replace(/\.(md|mdx)$/, ""));
 } catch (error) {
   console.error("Error reading directory:", error);
 }
@@ -49,5 +51,13 @@ export default defineConfig({
     extendDefaultPlugins: true,
   },
   site: SITE_BASEURL,
-  integrations: [mdx(), sitemap(), tailwind(), indexmd()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    tailwind(),
+    indexmd(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+  ],
 });

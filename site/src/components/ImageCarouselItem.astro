@@ -1,20 +1,24 @@
 ---
 import FormattedDate from "./FormattedDate.astro";
 import Tag from "./Tag.astro";
-
-interface Props {
-  image: ImageMetadata;
-  alt: string;
-  caption: string;
-}
+import { Image } from '@astrojs/image/components';
 
 const { image, alt, caption } = Astro.props;
+
+// Import all images eagerly
+const images = import.meta.glob('../assets/**/*.{jpg,jpeg,png,webp}', { eager: true });
+
+// Function to get the correct image dynamically
+const getImage = (path) => images[`../assets/${path}`]?.default;
+
+console.log(images);
+
 ---
 
-<div class="bg-beige-light border border-beige-dark flex flex-col max-w-md rounded-md">
+<div class="bg-beige-light border border-beige-dark flex flex-col max-w-md rounded-md mx-auto">
   <div class="relative mb-2">
-    <img
-      src={image || "/placeholder.svg"}
+    <Image
+      src={getImage(image)}
       alt={alt}
       class="object-cover rounded-md m-0"
     />
