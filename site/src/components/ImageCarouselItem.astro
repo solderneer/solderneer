@@ -11,11 +11,9 @@ const images = import.meta.glob('../assets/**/*.{jpg,jpeg,png,webp}', { eager: t
 // Function to get the correct image dynamically
 const getImage = (path) => images[`../assets/${path}`]?.default;
 
-console.log(images);
-
 ---
 
-<div class="bg-beige-light border border-beige-dark flex flex-col max-w-md rounded-md mx-auto">
+<div class="bg-beige-light border border-beige-dark flex flex-col max-w-sm w-full rounded-md mx-auto">
   <div class="relative mb-2">
     <Image
       src={getImage(image)}
