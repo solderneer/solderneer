@@ -18,13 +18,8 @@ _What if our tools could make us better at being human?_
 ---
 # Shan / Sudharshan / சுதர்சன்
 
-I am a [research engineer at Opal](https://opalcamera.com/) where I develop next-generation consumer electronics. In my free time, I conduct independent research on human interfaces, and neurotech.
+I am a research engineer at [Opal Electronics](https://opalcamera.com/) where I work on novel hardware interfaces for human-computer interaction. Previously, [[clay|co-founded a silent speech company]], a [Sigma Squared Fellow](https://www.sigma-squared.org/), and built projects ranging from swarm robotics to desktop bioreactors. 
 
-* Sigma Squared Fellow—founders under 26, collectively raised over 2B+ USD
-* CTO at Clay Interface, backed by leading US funds like 1517 fund
-* Graduated at the top of my class for EEE from University College London
-* Given talks alongside industry leaders like Anil Dash and Chad Fowler
-* Published research in swarm robotics at the age of 16
 
 ---
 

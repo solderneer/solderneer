@@ -1,5 +1,5 @@
 ---
-import ImageCarouselItem from './ImageCarouselItem.astro';
+import ImageCard from './ImageCard.astro';
 
 // Import Swiper components and styles
 import 'swiper/css';
@@ -17,11 +17,11 @@ interface CarouselImage {
 const { images = [] } = Astro.props;
 ---
 <div class="carousel-container">
-    <div class="swiper !h-fit">
+    <div class="swiper !h-fit !m-0">
       <div class="swiper-wrapper !flex">
           {images.length > 0 ? images.map((image) => (
-            <div class="swiper-slide !w-auto !h-full !flex !items-center !justify-center">
-                <ImageCarouselItem image={image.src} alt={image.alt} caption={image.caption} />
+            <div class="swiper-slide !w-full !max-w-sm !flex !items-center !justify-center">
+                <ImageCard image={image.src} alt={image.alt} caption={image.caption} />
             </div>
           )) : (
             <p class="no-images text-center text-gray-500">No images available</p>

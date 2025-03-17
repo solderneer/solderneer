@@ -13,12 +13,12 @@ const getImage = (path) => images[`../assets/${path}`]?.default;
 
 ---
 
-<div class="bg-beige-light border border-beige-dark flex flex-col max-w-sm w-full rounded-md mx-auto">
+<div class="bg-beige-light border border-beige-dark flex flex-col overflow-hidden rounded-md mx-auto">
   <div class="relative mb-2">
     <Image
       src={getImage(image)}
       alt={alt}
-      class="object-cover rounded-md m-0"
+      class="object-cover m-0"
     />
   </div>
   <p class="mt-2 text-sm text-center italic">{caption}</p>

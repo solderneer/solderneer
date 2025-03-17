@@ -50,7 +50,7 @@ const yearsWithCounts = Object.entries(yearCounts)
           <a href="/">{SITE_TITLE}</a>
         </h1>
 
-        <p class="mt-2 text-sm italic">
+        <p class="mt-2 text-md italic">
           {SITE_DESCRIPTION}
         </p>
 
@@ -72,14 +72,14 @@ const yearsWithCounts = Object.entries(yearCounts)
           <NavLink href="/notes/about" emoji="😎">About Me</NavLink>
         </div>
 
-        <hr class="lg:block hidden" />
+        <hr class="lg:block hidden my-8" />
         <!-- Recent Notes Section -->
-        <div class="mt-4 mb-4 lg:block hidden">
-          <h3 class="text-lg font-bold mb-2">Recent Notes</h3>
+        <div class="lg:block hidden">
+          <h3 class="text-xl font-bold mb-2">Recent Notes</h3>
           <ul class="space-y-2 rainbow-link">
             {
               recentNotes.map((note) => (
-                <li class="flex items-center text-sm">
+                <li class="flex items-center text-md">
                   <a
                     href={`/notes/${note.slug}/`}
                     class="flex-grow-0 truncate mr-2"
@@ -96,25 +96,26 @@ const yearsWithCounts = Object.entries(yearCounts)
           </ul>
         </div>
 
-        <hr class="lg:block hidden" />
+        <hr class="lg:block hidden my-8" />
 
-        <div class="mt-4 mb-4 lg:block hidden">
-          <h3 class="text-lg font-bold mb-2">Archives</h3>
+        <div class="lg:block hidden">
+          <h3 class="text-xl font-bold mb-2">Archives</h3>
           <YearFilter yearsWithCounts={yearsWithCounts} />
         </div>
       </nav>
       <!-- END NAV BAR -->
       
-      <main class="max-w-3xl flex-grow mx-auto"><slot /></main>
+      <main class="max-w-2xl w-full mx-auto my-4"><slot /></main>
 
-      <hr class="block lg:hidden" />
+      <hr class="block my-4 lg:hidden w-full max-w-2xl mx-auto" />
+
       <!-- Recent Notes Section -->
-      <div class="mt-4 mb-4 block lg:hidden">
-        <h3 class="text-lg font-bold mb-2">Recent Notes</h3>
+      <div class="mt-4 mb-4 block w-full max-w-2xl mx-auto lg:hidden">
+        <h3 class="text-xl font-bold mb-2">Recent Notes</h3>
         <ul class="space-y-2 rainbow-link">
           {
             recentNotes.map((note) => (
-              <li class="flex items-center text-sm">
+              <li class="flex items-center text-md">
                 <a
                   href={`/notes/${note.slug}/`}
                   class="flex-grow-0 truncate mr-2"
@@ -131,15 +132,15 @@ const yearsWithCounts = Object.entries(yearCounts)
         </ul>
       </div>
 
-      <hr class="sm:block lg:hidden" />
+      <hr class="sm:block my-4 max-w-2xl w-full mx-auto lg:hidden" />
 
-      <div class="mt-4 mb-4 sm:block lg:hidden">
-        <h3 class="text-lg font-bold mb-2">Archives</h3>
+      <div class="mt-4 mb-4 block max-w-2xl w-full mx-auto lg:hidden">
+        <h3 class="text-xl font-bold mb-2">Archives</h3>
         <YearFilter yearsWithCounts={yearsWithCounts} />
       </div>
     </div>
     <footer class="text-xs text-beige-700 mt-8 text-center w-full">
-      Copyright © 2024 Sudharshan Sundaramahalingam
+      Copyright © 2025 Sudharshan Sundaramahalingam
     </footer>
   </body>
 </html>

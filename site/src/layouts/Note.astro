@@ -31,26 +31,26 @@ if (originalPost != undefined) {
         style={`background-image: url(${heroImage})`}
       />
     ) : (
-      <h1 class="text-6xl lg:text-8xl p-5 px-0 rounded-md w-fit mb-4">
+      <h1 class="text-6xl hidden lg:block lg:text-8xl pb-2 rounded-md w-fit mb-4">
         {emoji}
       </h1>
     )
   }
 
-  <h1 id="title" class="text-4xl lg:text-5xl font-bold mb-2">
+  <h1 id="title" class="text-5xl lg:text-5xl font-bold mb-2 leading-tight">
     {title}
   </h1>
   
   <div class="mt-4 mb-6">
       {
         description != undefined ? (
-          <h2 id="description" class="text-md font-bold text-text-color/80 mb-1">
+          <h2 id="description" class="text-lg text-text-color/80 mb-1">
             {description}
           </h2>
         ) : null
       }
 
-      <div class="flex flex-wrap items-center gap-2 text-md text-text-color/80">
+      <div class="flex flex-wrap items-center gap-2 text-lg text-text-color/80">
         <span class="italic">
           <FormattedDate date={pubDate} /> • Updated <FormattedDate
             date={updatedDate}
@@ -84,6 +84,8 @@ if (originalPost != undefined) {
       </Callout>
     )
   }
+
+  <hr class="my-12"/>
 
   <MarkdownBlock>
     <slot /> 
