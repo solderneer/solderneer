@@ -52,7 +52,15 @@ export default defineConfig({
   },
   site: SITE_BASEURL,
   integrations: [
-    mdx(),
+    mdx({
+      remarkPlugins: [
+        remarkMath,
+        remarkReadingTime,
+        remarkWordCount,
+        [wikiLinkPlugin, wikiLinkOptions],
+      ],
+      rehypePlugins: [rehypeKatex],
+    }),
     sitemap(),
     tailwind(),
     indexmd(),

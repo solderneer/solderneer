@@ -18,6 +18,7 @@ function validateTags(tags: string[]): boolean {
 }
 
 const notes = defineCollection({
+  type: 'content',
   schema: z.object({
     title: z.string(),
     emoji: z.string(),
