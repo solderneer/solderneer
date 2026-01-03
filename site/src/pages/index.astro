@@ -5,18 +5,28 @@ import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
 
 // Get all notes, sorted by date
-const notes = await getCollection("notes");
-const sortedNotes = notes
+const allNotes = await getCollection("notes");
+const totalNotes = allNotes.length;
+const sortedNotes = allNotes
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 8);
+  .slice(0, 8)
+  .map((note, index) => ({
+    ...note,
+    refNum: totalNotes - index,  // newest gets totalNotes, next gets totalNotes-1, etc.
+  }));
 
 // Get essays when available (for now, placeholder)
 let essays: any[] = [];
 try {
   const essayCollection = await getCollection("essays");
+  const totalEssays = essayCollection.length;
   essays = essayCollection
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .slice(0, 4);
+    .slice(0, 4)
+    .map((essay, index) => ({
+      ...essay,
+      refNum: totalEssays - index,  // newest gets totalEssays, next gets totalEssays-1, etc.
+    }));
 } catch (e) {
   // Essays collection not yet created
 }
@@ -44,7 +54,10 @@ function formatDate(date: Date): string {
         <>
           <div class="essay-featured">
             <a href={`/essays/${essays[0].slug}/`}>
-              <h3 class="essay-featured-title">{essays[0].data.title}</h3>
+              <h3 class="essay-featured-title">
+                <span class="essay-ref">E{String(essays[0].refNum).padStart(3, '0')}</span>
+                {essays[0].data.title}
+              </h3>
               {essays[0].data.description && (
                 <p class="essay-featured-excerpt">{essays[0].data.description}</p>
               )}
@@ -61,7 +74,10 @@ function formatDate(date: Date): string {
             {essays.slice(1).map((essay) => (
               <li class="essay-item">
                 <a href={`/essays/${essay.slug}/`}>
-                  <h4 class="essay-title">{essay.data.title}</h4>
+                  <h4 class="essay-title">
+                    <span class="essay-ref">E{String(essay.refNum).padStart(3, '0')}</span>
+                    {essay.data.title}
+                  </h4>
                   {essay.data.description && (
                     <p class="essay-excerpt">{essay.data.description}</p>
                   )}
@@ -90,11 +106,11 @@ function formatDate(date: Date): string {
         <a href="/notes">View all →</a>
       </div>
       <ul class="notes-list">
-        {sortedNotes.map((note, index) => (
+        {sortedNotes.map((note) => (
           <li class="note-item">
             <a href={`/notes/${note.slug}/`}>
               <span class="note-title">
-                <span class="note-ref">N{String(index + 1).padStart(3, '0')}</span>
+                <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
                 {note.data.title}
               </span>
               <div class="note-meta">
@@ -225,6 +241,13 @@ function formatDate(date: Date): string {
 
   .essay-tag {
     color: var(--accent);
+  }
+
+  .essay-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-right: 8px;
   }
 
   /* Essay list */
