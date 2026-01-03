@@ -4,9 +4,17 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
 
-type Props = CollectionEntry<"notes">["data"];
+type Backlink = {
+  slug: string;
+  title: string;
+  description?: string;
+};
 
-const { title, description, pubDate, updatedDate, tags, originalPost, heroImage } = Astro.props;
+type Props = CollectionEntry<"notes">["data"] & {
+  backlinks?: Backlink[];
+};
+
+const { title, description, pubDate, updatedDate, tags, originalPost, heroImage, backlinks = [] } = Astro.props;
 
 // Extract hostname from original post
 let showOP = false;
@@ -68,6 +76,20 @@ if (originalPost != undefined) {
     <div class="prose">
       <slot />
     </div>
+
+    {backlinks.length > 0 && (
+      <section class="backlinks">
+        <h2>Backlinks</h2>
+        <ul class="backlink-list">
+          {backlinks.map((link) => (
+            <li class="backlink-item">
+              <a href={`/notes/${link.slug}/`}>{link.title}</a>
+              {link.description && <p>{link.description}</p>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
   </article>
 </BaseLayout>
 
@@ -278,13 +300,13 @@ if (originalPost != undefined) {
   }
 
   /* Backlinks section */
-  .prose :global(.backlinks) {
+  .backlinks {
     margin-top: 4em;
     padding-top: 2em;
     border-top: 1px solid var(--border);
   }
 
-  .prose :global(.backlinks h2) {
+  .backlinks h2 {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
     font-weight: 500;
@@ -294,27 +316,29 @@ if (originalPost != undefined) {
     margin-bottom: 1.5em;
   }
 
-  .prose :global(.backlink-list) {
+  .backlink-list {
     list-style: none;
     padding-left: 0;
   }
 
-  .prose :global(.backlink-item) {
+  .backlink-item {
     margin-bottom: 1.2em;
   }
 
-  .prose :global(.backlink-item a) {
+  .backlink-item a {
     font-weight: 500;
     text-decoration: none;
     display: block;
     margin-bottom: 4px;
+    color: var(--text);
   }
 
-  .prose :global(.backlink-item a:hover) {
+  .backlink-item a:hover {
     text-decoration: underline;
+    color: var(--accent);
   }
 
-  .prose :global(.backlink-item p) {
+  .backlink-item p {
     font-size: 0.85rem;
     color: var(--text-secondary);
     margin: 0;
