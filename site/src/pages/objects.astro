@@ -31,6 +31,7 @@ const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
         <div class="info-name" id="infoName"></div>
         <div class="info-meta" id="infoMeta"></div>
         <div class="info-blurb" id="infoBlurb"></div>
+        <div class="info-attribution" id="infoAttribution"></div>
       </div>
       <button class="info-close" id="closePanel">✕</button>
     </div>
@@ -208,6 +209,14 @@ const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
       document.getElementById('infoName').textContent = obj.name;
       document.getElementById('infoMeta').textContent = obj.brand + ' · ' + obj.year;
       document.getElementById('infoBlurb').textContent = obj.blurb;
+      const attrEl = document.getElementById('infoAttribution');
+      if (obj.attribution) {
+        const a = obj.attribution;
+        attrEl.innerHTML = `"<a href="${a.modelUrl}" target="_blank" rel="noopener">${a.modelName}</a>" by ${a.author} is licensed under <a href="${a.licenseUrl}" target="_blank" rel="noopener">${a.license}</a>`;
+        attrEl.style.display = 'block';
+      } else {
+        attrEl.style.display = 'none';
+      }
       panel.classList.add('visible');
 
       document.querySelectorAll('.object').forEach((el, i) => {
@@ -413,6 +422,25 @@ const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
     font-size: 0.75rem;
     color: var(--text-secondary);
     line-height: 1.5;
+  }
+
+  .info-attribution {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--text-tertiary);
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+
+  .info-attribution a {
+    color: var(--text-tertiary);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+  }
+
+  .info-attribution a:hover {
+    color: var(--accent);
   }
 
   .info-close {

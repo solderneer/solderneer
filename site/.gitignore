@@ -23,3 +23,6 @@ pnpm-debug.log*
 # Personal files
 src/content/_drafts
 src/content/.obsidian
+
+# 3D models (stored externally)
+public/models/
