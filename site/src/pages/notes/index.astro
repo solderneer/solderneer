@@ -7,18 +7,30 @@ import tagsJson from "../../content/_tags.json";
 const notes = await getCollection("notes");
 const sortedNotes = notes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+// Render notes to get word count and reading time from remark plugins
+const notesWithMeta = await Promise.all(
+  sortedNotes.map(async (note) => {
+    const { remarkPluginFrontmatter } = await note.render();
+    return {
+      ...note,
+      wordCount: remarkPluginFrontmatter.wordCount,
+      minutesRead: remarkPluginFrontmatter.minutesRead,
+    };
+  })
+);
+
 // Group notes by year
-const notesByYear = sortedNotes.reduce((acc, note) => {
+const notesByYear = notesWithMeta.reduce((acc, note) => {
   const year = note.data.pubDate.getFullYear();
   if (!acc[year]) acc[year] = [];
   acc[year].push(note);
   return acc;
-}, {} as Record<number, typeof sortedNotes>);
+}, {} as Record<number, typeof notesWithMeta>);
 
 const years = Object.keys(notesByYear).map(Number).sort((a, b) => b - a);
 
 // Get unique tags
-const allTags = [...new Set(sortedNotes.flatMap(note => note.data.tags))];
+const allTags = [...new Set(notesWithMeta.flatMap(note => note.data.tags))];
 
 // Format date for display
 function formatDate(date: Date): string {
@@ -80,15 +92,17 @@ function formatDate(date: Date): string {
                   <div class="note-date">{formatDate(note.data.pubDate)}</div>
                   <div class="note-content">
                     <span class="note-title">{note.data.title}</span>
-                    <div class="note-details">
+                    <div class="note-tags">
                       {note.data.tags.map((tag: string) => (
                         <span class="note-tag">{tag}</span>
                       ))}
-                      {note.data.wordCount && (
-                        <span class="note-words">{note.data.wordCount} words</span>
+                    </div>
+                    <div class="note-details">
+                      {note.wordCount && (
+                        <span class="note-words">{note.wordCount} words</span>
                       )}
-                      {note.data.minutesRead && (
-                        <span class="note-reading">{note.data.minutesRead}</span>
+                      {note.minutesRead && (
+                        <span class="note-reading">{note.minutesRead}</span>
                       )}
                     </div>
                   </div>
@@ -378,6 +392,19 @@ function formatDate(date: Date): string {
     color: var(--accent);
   }
 
+  .note-tags {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .note-tag {
+    color: var(--accent);
+  }
+
   .note-details {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
@@ -385,6 +412,7 @@ function formatDate(date: Date): string {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-top: 4px;
     opacity: 0;
     transform: translateY(-4px);
     transition: all 0.15s;
@@ -393,10 +421,6 @@ function formatDate(date: Date): string {
   .note-item a:hover .note-details {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  .note-tag {
-    color: var(--accent);
   }
 
   /* Search highlight */
