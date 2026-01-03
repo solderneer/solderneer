@@ -127,6 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'IBM Plex Serif', Georgia, serif;
   line-height: 1.7;
   color: var(--text);
+  counter-reset: figure;
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4 {
