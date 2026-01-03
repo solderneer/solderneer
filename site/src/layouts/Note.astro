@@ -28,7 +28,7 @@ if (originalPost != undefined) {
 <BaseLayout title={title} description={description} image={heroImage} showHeader={false}>
   <!-- Table of Contents (fixed on wide screens) -->
   <aside class="toc" id="toc">
-    <h4>Contents</h4>
+    <h4>CONTENTS</h4>
     <ul id="toc-list"></ul>
   </aside>
 
@@ -97,12 +97,14 @@ if (originalPost != undefined) {
   .note-article {
     max-width: 640px;
     position: relative;
+    margin: 0 auto; /* Default: centered */
   }
 
-  /* Shift content left on wide screens to make room for sidenotes */
+  /* Only offset when sidenotes are present */
   @media (min-width: 1100px) {
-    .note-article {
+    .note-article.has-sidenotes {
       margin-left: calc(50% - 320px - 140px);
+      margin-right: 0;
     }
   }
 
@@ -349,11 +351,16 @@ if (originalPost != undefined) {
   .toc {
     position: fixed;
     top: 120px;
-    left: calc(50% - 320px - 140px - 240px);
-    width: 180px;
+    left: calc(50% - 320px - 320px); /* Default: relative to centered content */
+    width: 200px;
     font-size: 0.8rem;
     line-height: 1.6;
     display: none;
+  }
+
+  /* TOC shifts left when content is offset for sidenotes */
+  .toc.has-sidenotes {
+    left: calc(50% - 320px - 140px - 320px);
   }
 
   @media (min-width: 1400px) {
@@ -366,26 +373,31 @@ if (originalPost != undefined) {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--text-tertiary);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .toc ul {
     list-style: none;
-    padding: 0;
+    padding-left: 24px;
     margin: 0;
   }
 
   .toc li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .toc a {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.15s;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .toc a:hover,
@@ -397,6 +409,13 @@ if (originalPost != undefined) {
 <script>
   // Build TOC from h1 headings in prose
   document.addEventListener('DOMContentLoaded', () => {
+    // Detect sidenotes and apply offset class for layout
+    const sidenotes = document.querySelectorAll('.sidenote');
+    if (sidenotes.length > 0) {
+      document.querySelector('.note-article')?.classList.add('has-sidenotes');
+      document.querySelector('.toc')?.classList.add('has-sidenotes');
+    }
+
     const tocList = document.getElementById('toc-list');
     const headings = document.querySelectorAll('.prose h1[id]');
 
