@@ -55,7 +55,59 @@ The site supports `[[note-slug]]` wiki-link syntax via `@portaljs/remark-wiki-li
 
 ### Styling
 
-- Tailwind CSS with custom typography plugin
 - Global styles in `site/src/styles/global.css`
-- Custom color scheme using CSS variables (beige/orange theme)
-- Fonts: Merriweather (body), Kalam (headings)
+- Custom color scheme using CSS variables
+- Fonts: IBM Plex Serif (body), IBM Plex Mono (UI/labels/code)
+
+## Frontend Design Preferences
+
+### Visual Identity
+- **Aesthetic**: Technical notebook / lab journal feel, not sterile minimalism
+- **Color palette**: Warm paper background (#faf9f7), navy accent (#1e3a5f), muted borders (#e5e3df)
+- **Typography**: IBM Plex Mono for UI/labels/code, IBM Plex Serif for body text
+- **Texture**: Subtle SVG noise grain overlay (2.5% opacity) on body::after
+
+### CSS Variables
+```css
+--text: #1a1a1a;
+--text-secondary: #555;
+--text-tertiary: #888;
+--bg: #faf9f7;
+--bg-code: #f3f2ef;
+--border: #e5e3df;
+--accent: #1e3a5f;
+--accent-light: #2d5a8b;
+```
+
+### Layout Principles
+- Max-width containers (640px for content, 1000px for full page)
+- Timeline-based archive layouts with date column (80px) + content
+- Grid layouts for object/card collections (auto-fill, minmax)
+- Left border accents (3px) on cards instead of full borders
+
+### Component Patterns
+- **Headers**: Animated "rune scroll" equation border (floating math symbols)
+- **Section headers**: Monospace, 0.75rem, uppercase, letter-spacing 0.08em, accent color
+- **Search**: Input with "/" icon, "press /" hint, keyboard shortcut support
+- **Tag filters**: Pill buttons, filled background when active, border highlight on hover
+- **Cards**: Transparent background, minimal borders, hover reveals additional details
+- **Stats/Graphs**: Stock ticker aesthetic with time range filters, gridlines, hover tooltips
+- **Info panels**: Fixed bottom, slide up animation
+
+### Interaction Details
+- Transitions: 0.15s for UI elements, 0.2s for content reveals
+- Hover states: translateY(-4px) + opacity fade for revealing details, color → accent
+- No emoji unless explicitly requested
+- Monospace for all metadata (dates, word counts, tags, stats, IDs)
+
+### Mobile Behavior
+- Stack layouts vertically
+- Maintain axis labels and gridlines on graphs (don't oversimplify)
+- Full-width graph containers with adequate height (100px minimum)
+
+### Things to Avoid
+- Excessive borders or box shadows
+- Generic "AI aesthetic" (gradients, glassmorphism, excessive roundedness)
+- Bullet points in prose content
+- Emoji icons on cards
+- Hiding information that aids comprehension on mobile
