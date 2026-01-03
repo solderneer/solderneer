@@ -52,8 +52,15 @@ const fpvGear = flightsData.gear.filter(g => g.category === 'fpv');
 
       <div class="flight-grid">
         {cinematicFlights.map(flight => (
-          <a href="#" class="flight-card">
-            <div class="flight-thumb-placeholder">thumbnail</div>
+          <div class="flight-card" data-video={flight.video}>
+            <video
+              class="flight-video"
+              src={flight.video}
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            />
             <div class="flight-info">
               <div class="flight-title">{flight.title}</div>
               <div class="flight-meta">
@@ -61,7 +68,7 @@ const fpvGear = flightsData.gear.filter(g => g.category === 'fpv');
                 <span class="flight-tag">{flight.tag}</span>
               </div>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>
@@ -91,8 +98,15 @@ const fpvGear = flightsData.gear.filter(g => g.category === 'fpv');
 
       <div class="flight-grid">
         {fpvFlights.map(flight => (
-          <a href="#" class="flight-card">
-            <div class="flight-thumb-placeholder">thumbnail</div>
+          <div class="flight-card" data-video={flight.video}>
+            <video
+              class="flight-video"
+              src={flight.video}
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            />
             <div class="flight-info">
               <div class="flight-title">{flight.title}</div>
               <div class="flight-meta">
@@ -100,7 +114,7 @@ const fpvGear = flightsData.gear.filter(g => g.category === 'fpv');
                 <span class="flight-tag">{flight.tag}</span>
               </div>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>
@@ -126,6 +140,60 @@ const fpvGear = flightsData.gear.filter(g => g.category === 'fpv');
           (section as HTMLElement).style.display = 'none';
         }
       });
+    });
+  });
+
+  // Video play on hover
+  const flightCards = document.querySelectorAll('.flight-card');
+
+  flightCards.forEach(card => {
+    const video = card.querySelector('.flight-video') as HTMLVideoElement;
+    if (!video) return;
+
+    card.addEventListener('mouseenter', () => {
+      if (!document.fullscreenElement) {
+        video.play().catch(() => {});
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (!document.fullscreenElement) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+
+    // Click to fullscreen with sound
+    card.addEventListener('click', () => {
+      video.muted = false;
+      video.controls = true;
+      video.play().catch(() => {});
+
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if ((video as any).webkitRequestFullscreen) {
+        (video as any).webkitRequestFullscreen();
+      }
+    });
+
+    // Reset when exiting fullscreen
+    const handleFullscreenExit = () => {
+      video.muted = true;
+      video.controls = false;
+      video.pause();
+      video.currentTime = 0;
+    };
+
+    video.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        handleFullscreenExit();
+      }
+    });
+
+    video.addEventListener('webkitfullscreenchange', () => {
+      if (!(document as any).webkitFullscreenElement) {
+        handleFullscreenExit();
+      }
     });
   });
 </script>
@@ -306,25 +374,21 @@ const fpvGear = flightsData.gear.filter(g => g.category === 'fpv');
     background: var(--bg-code);
     border: 1px solid var(--border);
     transition: border-color 0.15s;
+    cursor: pointer;
   }
 
   .flight-card:hover {
     border-color: var(--accent);
   }
 
-  .flight-card:hover .flight-thumb-placeholder {
+  .flight-card:hover .flight-video {
     transform: scale(1.03);
   }
 
-  .flight-thumb-placeholder {
+  .flight-video {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
+    object-fit: cover;
     background: linear-gradient(135deg, var(--bg-code) 0%, #e8e8e8 100%);
     transition: transform 0.3s ease;
   }

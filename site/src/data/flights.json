@@ -1,11 +1,8 @@
 {
   "flights": [
-    { "id": "F001", "title": "Golden Gate at Dawn", "date": "Jun 2025", "category": "cinematic", "tag": "DJI", "thumbnail": null },
-    { "id": "F002", "title": "Marin Headlands", "date": "May 2025", "category": "cinematic", "tag": "DJI", "thumbnail": null },
-    { "id": "F003", "title": "Sutro Baths Ruins", "date": "Apr 2025", "category": "cinematic", "tag": "DJI", "thumbnail": null },
-    { "id": "F004", "title": "Berkeley Hills Sunset", "date": "Mar 2025", "category": "cinematic", "tag": "DJI", "thumbnail": null },
-    { "id": "F005", "title": "Warehouse Session", "date": "Jun 2025", "category": "fpv", "tag": "5\" quad", "thumbnail": null },
-    { "id": "F006", "title": "Park Gaps", "date": "May 2025", "category": "fpv", "tag": "5\" quad", "thumbnail": null }
+    { "id": "F001", "title": "West Coast Park, Singapore", "date": "Jan 2026", "category": "cinematic", "tag": "DJI", "video": "/flights/westcoastpark-singapore-jan2026.mov" },
+    { "id": "F002", "title": "Raving in the Opal Office", "date": "Nov 2025", "category": "fpv", "tag": "Air65", "video": "/flights/raving-opal-office-nov2025.mp4" },
+    { "id": "F003", "title": "Racing in the Opal Office", "date": "Nov 2025", "category": "fpv", "tag": "Air65", "video": "/flights/racing-opal-office-nov2025.m4v" }
   ],
   "gear": [
     {

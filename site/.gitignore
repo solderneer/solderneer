@@ -26,3 +26,6 @@ src/content/.obsidian
 
 # 3D models (stored externally)
 public/models/
+
+# Flight videos (stored externally)
+public/flights/
