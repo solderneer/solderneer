@@ -6,6 +6,13 @@ import { getCollection } from "astro:content";
 const essays = await getCollection("essays");
 const sortedEssays = essays.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+// Add reference numbers (oldest = E001)
+const totalEssays = sortedEssays.length;
+const essaysWithRef = sortedEssays.map((essay, index) => ({
+  ...essay,
+  refNum: totalEssays - index,  // oldest gets 1, newest gets totalEssays
+}));
+
 // Get unique tags
 const allTags = [...new Set(sortedEssays.flatMap(essay => essay.data.tags))];
 
@@ -42,14 +49,17 @@ function formatDate(date: Date): string {
 
     <!-- Essays list -->
     <div class="essays-list" id="essays-list">
-      {sortedEssays.map((essay, index) => (
+      {essaysWithRef.map((essay) => (
         <article
           class="essay-item"
           data-tags={essay.data.tags.join(',')}
         >
           <a href={`/essays/${essay.slug}/`}>
             <div class="essay-content">
-              <h2 class="essay-title">{essay.data.title}</h2>
+              <h2 class="essay-title">
+                <span class="essay-ref">E{String(essay.refNum).padStart(3, '0')}</span>
+                {essay.data.title}
+              </h2>
               {essay.data.description && (
                 <p class="essay-excerpt">{essay.data.description}</p>
               )}
@@ -215,6 +225,13 @@ function formatDate(date: Date): string {
     margin-bottom: 8px;
     line-height: 1.3;
     transition: color 0.15s;
+  }
+
+  .essay-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-right: 8px;
   }
 
   .essay-item a:hover .essay-title {

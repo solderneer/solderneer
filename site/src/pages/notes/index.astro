@@ -8,13 +8,16 @@ const notes = await getCollection("notes");
 const sortedNotes = notes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 // Render notes to get word count and reading time from remark plugins
+// Also calculate reference numbers (oldest = N001)
+const totalNotes = sortedNotes.length;
 const notesWithMeta = await Promise.all(
-  sortedNotes.map(async (note) => {
+  sortedNotes.map(async (note, index) => {
     const { remarkPluginFrontmatter } = await note.render();
     return {
       ...note,
       wordCount: remarkPluginFrontmatter.wordCount,
       minutesRead: remarkPluginFrontmatter.minutesRead,
+      refNum: totalNotes - index,  // oldest gets 1, newest gets totalNotes
     };
   })
 );
@@ -93,7 +96,10 @@ function formatDate(date: Date): string {
                 <div class="note-date">{formatDate(note.data.pubDate)}</div>
                 <div class="note-content">
                   <a href={`/notes/${note.slug}/`}>
-                    <span class="note-title">{note.data.title}</span>
+                    <span class="note-title">
+                      <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
+                      {note.data.title}
+                    </span>
                     <span class="note-tag">{note.data.tags[0]}</span>
                     <div class="note-details">
                       {note.wordCount && (
@@ -456,6 +462,13 @@ function formatDate(date: Date): string {
     color: var(--text);
     margin-bottom: 4px;
     transition: color 0.15s;
+  }
+
+  .note-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-right: 8px;
   }
 
   .note-content a:hover .note-title {
