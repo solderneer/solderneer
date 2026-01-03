@@ -1,0 +1,8 @@
+[
+  { "id": "OBJ-001", "name": "Macintosh 128K", "brand": "Apple", "year": "1984", "blurb": "Warm beige plastics, calculated radii. The first mass-market GUI computer.", "color": "0xd4c8a8", "shape": "box", "model": null },
+  { "id": "OBJ-002", "name": "iMac G3", "brand": "Apple", "year": "1998", "blurb": "Translucent plastics revealing the machine inside. Design as competitive advantage.", "color": "0x4fb8c4", "shape": "sphere", "model": null },
+  { "id": "OBJ-003", "name": "Game Boy Color", "brand": "Nintendo", "year": "1998", "blurb": "Translucent variants showing the circuit board inside.", "color": "0x7b68c4", "shape": "box", "model": null },
+  { "id": "OBJ-004", "name": "Rocket Appartamento", "brand": "Rocket Espresso", "year": "2007", "blurb": "Polished steel, copper boiler, E61 group head. Pure thermodynamics.", "color": "0xc0c0c0", "shape": "cylinder", "model": null },
+  { "id": "OBJ-005", "name": "Braun T3", "brand": "Braun", "year": "1958", "blurb": "Dieter Rams' pocket radio. Less but better.", "color": "0xf5f5f0", "shape": "box", "model": null },
+  { "id": "OBJ-006", "name": "Leica M3", "brand": "Leica", "year": "1954", "blurb": "The rangefinder that defined a generation of photojournalism.", "color": "0x2a2a2a", "shape": "box", "model": null }
+]

@@ -1,0 +1,445 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RuneScroll from "../components/RuneScroll.astro";
+import objects from "../data/objects.json";
+
+const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
+---
+
+<BaseLayout title="Object Library" description="A catalog of beautiful products" showHeader={false}>
+  <div class="objects-page">
+    <header class="page-header">
+      <a href="/" class="back-link">← solderneer</a>
+      <div class="page-title">
+        <h1>Object Library</h1>
+        <div class="subtitle">hardware that earns its place</div>
+      </div>
+      <RuneScroll runes={objectRunes} />
+      <div class="intro">
+        <p>A catalog of products I find beautiful. Objects where form and function achieve something greater than either alone.</p>
+      </div>
+      <div class="hint">hover to explore · drag to rotate</div>
+    </header>
+
+    <div class="gallery" id="gallery"></div>
+  </div>
+
+  <div class="info-panel" id="infoPanel">
+    <div class="info-content">
+      <div class="info-id" id="infoId"></div>
+      <div class="info-main">
+        <div class="info-name" id="infoName"></div>
+        <div class="info-meta" id="infoMeta"></div>
+        <div class="info-blurb" id="infoBlurb"></div>
+      </div>
+      <button class="info-close" id="closePanel">✕</button>
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ objects }}>
+  // Three.js loaded via CDN
+  const script1 = document.createElement('script');
+  script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  script1.onload = () => {
+    const script2 = document.createElement('script');
+    script2.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
+    script2.onload = initGallery;
+    document.head.appendChild(script2);
+  };
+  document.head.appendChild(script1);
+
+  function initGallery() {
+    const gallery = document.getElementById('gallery');
+    const panel = document.getElementById('infoPanel');
+    const closeBtn = document.getElementById('closePanel');
+    const scenes = [];
+    let activeIndex = null;
+
+    // Create a scene for each object
+    objects.forEach((obj, index) => {
+      const container = document.createElement('div');
+      container.className = 'object';
+      container.dataset.index = index;
+      gallery.appendChild(container);
+
+      // Three.js setup
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.z = 3;
+
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
+      container.appendChild(renderer.domElement);
+
+      // Lighting
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(2, 3, 4);
+      scene.add(directionalLight);
+
+      const backLight = new THREE.DirectionalLight(0xffffff, 0.3);
+      backLight.position.set(-2, -1, -2);
+      scene.add(backLight);
+
+      // Geometry based on shape
+      let geometry;
+      let mesh;
+      const colorVal = parseInt(obj.color.replace('0x', ''), 16);
+
+      if (obj.shape === 'gltf' && obj.model) {
+        // Load GLTF model
+        const loader = new THREE.GLTFLoader();
+        loader.load('/models/' + obj.model, (gltf) => {
+          const model = gltf.scene;
+
+          // Center and scale the model
+          const box = new THREE.Box3().setFromObject(model);
+          const center = box.getCenter(new THREE.Vector3());
+          const size = box.getSize(new THREE.Vector3());
+          const maxDim = Math.max(size.x, size.y, size.z);
+          const scale = 1.5 / maxDim;
+
+          model.position.sub(center);
+          model.scale.setScalar(scale);
+
+          scene.add(model);
+          scenes[index].mesh = model;
+        }, undefined, (error) => {
+          console.error('Error loading model:', error);
+          // Fallback to box
+          const fallbackGeo = new THREE.BoxGeometry(1, 1, 1);
+          const fallbackMat = new THREE.MeshStandardMaterial({ color: colorVal, roughness: 0.4, metalness: 0.1 });
+          const fallbackMesh = new THREE.Mesh(fallbackGeo, fallbackMat);
+          scene.add(fallbackMesh);
+          scenes[index].mesh = fallbackMesh;
+        });
+
+        // Placeholder mesh for initial scenes array
+        mesh = new THREE.Object3D();
+      } else {
+        switch (obj.shape) {
+          case 'sphere':
+            geometry = new THREE.SphereGeometry(0.8, 32, 32);
+            break;
+          case 'cylinder':
+            geometry = new THREE.CylinderGeometry(0.6, 0.6, 1, 32);
+            break;
+          case 'cone':
+            geometry = new THREE.ConeGeometry(0.6, 1.2, 32);
+            break;
+          case 'torus':
+            geometry = new THREE.TorusGeometry(0.6, 0.25, 16, 100);
+            break;
+          default:
+            geometry = new THREE.BoxGeometry(1, 1, 1);
+        }
+
+        const material = new THREE.MeshStandardMaterial({
+          color: colorVal,
+          roughness: 0.4,
+          metalness: 0.1,
+        });
+
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+      }
+
+      // Store scene data
+      scenes.push({
+        scene,
+        camera,
+        renderer,
+        mesh,
+        container,
+        rotationSpeed: 0.003 + Math.random() * 0.002,
+        floatOffset: Math.random() * Math.PI * 2,
+        floatSpeed: 0.5 + Math.random() * 0.3,
+        isHovered: false,
+        isDragging: false,
+        previousMousePosition: { x: 0, y: 0 }
+      });
+
+      // Hover events
+      container.addEventListener('mouseenter', () => {
+        scenes[index].isHovered = true;
+        showInfo(index);
+      });
+      container.addEventListener('mouseleave', () => {
+        scenes[index].isHovered = false;
+        scenes[index].isDragging = false;
+      });
+      container.addEventListener('click', () => showInfo(index));
+
+      // Drag to rotate
+      container.addEventListener('mousedown', (e) => {
+        scenes[index].isDragging = true;
+        scenes[index].previousMousePosition = { x: e.clientX, y: e.clientY };
+        e.preventDefault();
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        const s = scenes[index];
+        if (s.isDragging && s.mesh) {
+          const deltaX = e.clientX - s.previousMousePosition.x;
+          const deltaY = e.clientY - s.previousMousePosition.y;
+
+          s.mesh.rotation.y += deltaX * 0.01;
+          s.mesh.rotation.x += deltaY * 0.01;
+
+          s.previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
+      });
+
+      container.addEventListener('mouseup', () => {
+        scenes[index].isDragging = false;
+      });
+    });
+
+    function showInfo(index) {
+      const obj = objects[index];
+      document.getElementById('infoId').textContent = obj.id;
+      document.getElementById('infoName').textContent = obj.name;
+      document.getElementById('infoMeta').textContent = obj.brand + ' · ' + obj.year;
+      document.getElementById('infoBlurb').textContent = obj.blurb;
+      panel.classList.add('visible');
+
+      document.querySelectorAll('.object').forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+      });
+      activeIndex = index;
+    }
+
+    function hideInfo() {
+      panel.classList.remove('visible');
+      document.querySelectorAll('.object').forEach(el => el.classList.remove('active'));
+      activeIndex = null;
+    }
+
+    closeBtn.addEventListener('click', hideInfo);
+
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.object') && !e.target.closest('.info-panel')) {
+        hideInfo();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') hideInfo();
+    });
+
+    // Resize handler
+    function handleResize() {
+      scenes.forEach(({ renderer, container }) => {
+        const rect = container.getBoundingClientRect();
+        renderer.setSize(rect.width, rect.height);
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+    setTimeout(handleResize, 100);
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      const time = Date.now() * 0.001;
+
+      scenes.forEach((s, i) => {
+        // Only animate if mesh exists
+        if (s.mesh) {
+          // Only rotate when not hovered
+          if (!s.isHovered) {
+            s.mesh.rotation.y += s.rotationSpeed;
+            s.mesh.rotation.x = Math.sin(time * 0.5) * 0.1;
+            s.mesh.position.y = Math.sin(time * s.floatSpeed + s.floatOffset) * 0.08;
+          }
+        }
+
+        s.renderer.render(s.scene, s.camera);
+      });
+    }
+
+    animate();
+  }
+</script>
+
+<style>
+  .objects-page {
+    position: relative;
+  }
+
+  .page-header {
+    max-width: 640px;
+    padding-top: 40px;
+  }
+
+  .back-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .page-title h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+    color: var(--text);
+  }
+
+  .subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+  }
+
+  .intro {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro p {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .hint {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    text-align: right;
+    padding: 12px 0;
+  }
+
+  /* Gallery grid */
+  .gallery {
+    padding: 24px 0 160px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    max-width: 1200px;
+  }
+
+  :global(.object) {
+    aspect-ratio: 1;
+    cursor: grab;
+    position: relative;
+    overflow: hidden;
+  }
+
+  :global(.object:active) {
+    cursor: grabbing;
+  }
+
+  :global(.object canvas) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Info panel */
+  .info-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    z-index: 200;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .info-panel.visible {
+    transform: translateY(0);
+  }
+
+  .info-content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .info-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    min-width: 60px;
+  }
+
+  .info-main {
+    flex: 1;
+  }
+
+  .info-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .info-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+
+  .info-blurb {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .info-close {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .info-close:hover {
+    color: var(--text);
+  }
+
+  @media (max-width: 600px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      padding: 24px 0 140px;
+    }
+    .info-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 16px;
+    }
+  }
+</style>

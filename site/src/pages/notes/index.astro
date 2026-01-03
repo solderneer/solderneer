@@ -1,0 +1,429 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import tagsJson from "../../content/_tags.json";
+
+// Get all notes
+const notes = await getCollection("notes");
+const sortedNotes = notes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Group notes by year
+const notesByYear = sortedNotes.reduce((acc, note) => {
+  const year = note.data.pubDate.getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(note);
+  return acc;
+}, {} as Record<number, typeof sortedNotes>);
+
+const years = Object.keys(notesByYear).map(Number).sort((a, b) => b - a);
+
+// Get unique tags
+const allTags = [...new Set(sortedNotes.flatMap(note => note.data.tags))];
+
+// Format date for display
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric'
+  });
+}
+---
+
+<BaseLayout title="Notes" description="Research notes and technical documentation">
+  <div class="notes-archive">
+    <header class="archive-header">
+      <a href="/" class="back-link">← solderneer</a>
+      <h1>Notes</h1>
+      <p class="subtitle">Research notes, technical documentation, and working thoughts.</p>
+    </header>
+
+    <!-- Search -->
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <span class="search-icon">/</span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search notes..."
+          autocomplete="off"
+        />
+        <span class="search-hint">Press / to focus</span>
+      </div>
+    </div>
+
+    <!-- Tags filter -->
+    <div class="tags-filter">
+      <button class="tag-btn active" data-tag="all">all</button>
+      {allTags.map((tag) => (
+        <button class="tag-btn" data-tag={tag}>{tag}</button>
+      ))}
+    </div>
+
+    <!-- Filter status -->
+    <div class="filter-status" id="filter-status">
+      Showing {sortedNotes.length} notes
+    </div>
+
+    <!-- Notes timeline -->
+    <div class="notes-timeline" id="notes-list">
+      {years.map((year) => (
+        <div class="year-group" data-year={year}>
+          <h2 class="year-label">{year}</h2>
+          <ul class="notes-list">
+            {notesByYear[year].map((note, index) => (
+              <li
+                class="note-item"
+                data-title={note.data.title.toLowerCase()}
+                data-tags={note.data.tags.join(',')}
+              >
+                <a href={`/notes/${note.slug}/`}>
+                  <div class="note-date">{formatDate(note.data.pubDate)}</div>
+                  <div class="note-content">
+                    <span class="note-title">{note.data.title}</span>
+                    <div class="note-details">
+                      {note.data.tags.map((tag: string) => (
+                        <span class="note-tag">{tag}</span>
+                      ))}
+                      {note.data.wordCount && (
+                        <span class="note-words">{note.data.wordCount} words</span>
+                      )}
+                      {note.data.minutesRead && (
+                        <span class="note-reading">{note.data.minutesRead}</span>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Search functionality
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const noteItems = document.querySelectorAll('.note-item');
+  const yearGroups = document.querySelectorAll('.year-group');
+  const filterStatus = document.getElementById('filter-status');
+  const tagButtons = document.querySelectorAll('.tag-btn');
+
+  let currentTag = 'all';
+  let currentSearch = '';
+
+  // Focus search on / key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== searchInput) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      currentSearch = '';
+      filterNotes();
+      searchInput.blur();
+    }
+  });
+
+  // Search on input
+  searchInput.addEventListener('input', (e) => {
+    currentSearch = (e.target as HTMLInputElement).value.toLowerCase();
+    filterNotes();
+  });
+
+  // Tag filtering
+  tagButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tagButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentTag = btn.getAttribute('data-tag') || 'all';
+      filterNotes();
+    });
+  });
+
+  function filterNotes() {
+    let visibleCount = 0;
+
+    noteItems.forEach(item => {
+      const title = item.getAttribute('data-title') || '';
+      const tags = item.getAttribute('data-tags') || '';
+
+      const matchesSearch = currentSearch === '' || title.includes(currentSearch);
+      const matchesTag = currentTag === 'all' || tags.includes(currentTag);
+
+      if (matchesSearch && matchesTag) {
+        (item as HTMLElement).style.display = '';
+        visibleCount++;
+
+        // Highlight search matches
+        if (currentSearch) {
+          const titleEl = item.querySelector('.note-title');
+          if (titleEl) {
+            const text = titleEl.textContent || '';
+            const regex = new RegExp(`(${currentSearch})`, 'gi');
+            titleEl.innerHTML = text.replace(regex, '<mark>$1</mark>');
+          }
+        } else {
+          const titleEl = item.querySelector('.note-title');
+          if (titleEl) {
+            titleEl.innerHTML = titleEl.textContent || '';
+          }
+        }
+      } else {
+        (item as HTMLElement).style.display = 'none';
+      }
+    });
+
+    // Hide empty year groups
+    yearGroups.forEach(group => {
+      const visibleItems = group.querySelectorAll('.note-item:not([style*="display: none"])');
+      (group as HTMLElement).style.display = visibleItems.length ? '' : 'none';
+    });
+
+    // Update status
+    if (filterStatus) {
+      filterStatus.textContent = `Showing ${visibleCount} notes`;
+    }
+  }
+</script>
+
+<style>
+  .notes-archive {
+    max-width: 800px;
+  }
+
+  .archive-header {
+    margin-bottom: 32px;
+  }
+
+  .back-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 24px;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  /* Search */
+  .search-container {
+    margin-bottom: 24px;
+  }
+
+  .search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+  }
+
+  #search-input {
+    width: 100%;
+    padding: 12px 80px 12px 36px;
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  #search-input:focus {
+    border-color: var(--accent);
+  }
+
+  #search-input::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .search-hint {
+    position: absolute;
+    right: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+  }
+
+  /* Tags filter */
+  .tags-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .tag-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    border-radius: 4px;
+  }
+
+  .tag-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .tag-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  /* Filter status */
+  .filter-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-bottom: 24px;
+  }
+
+  /* Notes timeline */
+  .year-group {
+    margin-bottom: 32px;
+  }
+
+  .year-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+
+  .notes-list {
+    list-style: none;
+  }
+
+  .note-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .note-item:last-child {
+    border-bottom: none;
+  }
+
+  .note-item a {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .note-item a:hover {
+    background: var(--bg-code);
+    margin: 0 -8px;
+    padding: 12px 8px;
+    border-radius: 4px;
+  }
+
+  .note-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    padding-top: 2px;
+  }
+
+  .note-content {
+    min-width: 0;
+  }
+
+  .note-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    display: block;
+    margin-bottom: 4px;
+    transition: color 0.15s;
+  }
+
+  .note-item a:hover .note-title {
+    color: var(--accent);
+  }
+
+  .note-details {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: all 0.15s;
+  }
+
+  .note-item a:hover .note-details {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .note-tag {
+    color: var(--accent);
+  }
+
+  /* Search highlight */
+  .note-title :global(mark) {
+    background: rgba(30, 58, 95, 0.15);
+    color: var(--accent);
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 500px) {
+    .note-item a {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .note-date {
+      font-size: 0.65rem;
+    }
+
+    .note-details {
+      opacity: 1;
+      transform: none;
+    }
+
+    .search-hint {
+      display: none;
+    }
+  }
+</style>

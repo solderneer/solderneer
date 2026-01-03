@@ -1,0 +1,34 @@
+{
+  "flights": [
+    { "id": "F001", "title": "Golden Gate at Dawn", "date": "Jun 2025", "category": "cinematic", "tag": "DJI", "thumbnail": null },
+    { "id": "F002", "title": "Marin Headlands", "date": "May 2025", "category": "cinematic", "tag": "DJI", "thumbnail": null },
+    { "id": "F003", "title": "Sutro Baths Ruins", "date": "Apr 2025", "category": "cinematic", "tag": "DJI", "thumbnail": null },
+    { "id": "F004", "title": "Berkeley Hills Sunset", "date": "Mar 2025", "category": "cinematic", "tag": "DJI", "thumbnail": null },
+    { "id": "F005", "title": "Warehouse Session", "date": "Jun 2025", "category": "fpv", "tag": "5\" quad", "thumbnail": null },
+    { "id": "F006", "title": "Park Gaps", "date": "May 2025", "category": "fpv", "tag": "5\" quad", "thumbnail": null }
+  ],
+  "gear": [
+    {
+      "name": "DJI Mini 4 Pro",
+      "subtitle": "Primary cinematic drone",
+      "category": "cinematic",
+      "specs": [
+        { "label": "Sensor", "value": "1/1.3\" CMOS" },
+        { "label": "Video", "value": "4K/60fps HDR" },
+        { "label": "Flight Time", "value": "34 min" },
+        { "label": "Weight", "value": "249g" }
+      ]
+    },
+    {
+      "name": "BetaFPV Air65",
+      "subtitle": "1S micro whoop for indoor/proximity flying",
+      "category": "fpv",
+      "specs": [
+        { "label": "Frame", "value": "65mm whoop" },
+        { "label": "Weight", "value": "24.2g" },
+        { "label": "Motors", "value": "0702 26000KV" },
+        { "label": "Camera", "value": "C02 w/ Walksnail" }
+      ]
+    }
+  ]
+}
