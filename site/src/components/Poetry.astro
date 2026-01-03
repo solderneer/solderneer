@@ -1,0 +1,48 @@
+---
+interface Props {
+  cite?: string;
+}
+
+const { cite } = Astro.props;
+---
+
+<div class="poetry">
+  <slot />
+  {cite && <cite>— {cite}</cite>}
+</div>
+
+<style>
+  .poetry {
+    margin: 2.5em 0;
+    padding: 2em;
+    background: linear-gradient(135deg, #f8f8f8 0%, #fafafa 100%);
+    border-radius: 4px;
+    font-style: italic;
+    line-height: 1.9;
+    color: var(--text-secondary);
+  }
+
+  .poetry :global(p) {
+    margin-bottom: 0.8em;
+  }
+
+  .poetry :global(p:last-of-type) {
+    margin-bottom: 0;
+  }
+
+  .poetry :global(.emphasis),
+  .poetry :global(strong) {
+    font-weight: 500;
+    color: var(--text);
+    font-style: normal;
+  }
+
+  cite {
+    display: block;
+    margin-top: 1.5em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-style: normal;
+    color: var(--text-tertiary);
+  }
+</style>
