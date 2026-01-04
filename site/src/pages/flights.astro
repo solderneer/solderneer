@@ -2,10 +2,27 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import RuneScroll from "../components/RuneScroll.astro";
 import flightsData from "../data/flights.json";
+import manifest from "../data/media-manifest.json";
 
 const flightRunes = "Φθψ↑Δhv=gtωrF=ma↻L=Iωθ°NESW";
-const cinematicFlights = flightsData.flights.filter(f => f.category === 'cinematic');
-const fpvFlights = flightsData.flights.filter(f => f.category === 'fpv');
+
+// Helper to resolve video URLs from manifest
+// Converts /flights/file.mp4 -> Blob URL or keeps original
+function resolveVideoUrl(videoPath: string): string {
+  // Remove leading slash and convert /flights/ to videos/
+  const normalizedPath = videoPath.replace(/^\//, '').replace('flights/', 'videos/');
+  const asset = manifest.assets[normalizedPath] as { blobUrl: string } | undefined;
+  return asset?.blobUrl || videoPath;
+}
+
+// Resolve video URLs for all flights
+const resolvedFlights = flightsData.flights.map(f => ({
+  ...f,
+  video: resolveVideoUrl(f.video)
+}));
+
+const cinematicFlights = resolvedFlights.filter(f => f.category === 'cinematic');
+const fpvFlights = resolvedFlights.filter(f => f.category === 'fpv');
 const cinematicGear = flightsData.gear.filter(g => g.category === 'cinematic');
 const fpvGear = flightsData.gear.filter(g => g.category === 'fpv');
 ---
