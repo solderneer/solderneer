@@ -170,6 +170,16 @@ function formatDate(date: Date): string {
       tagButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentTag = btn.getAttribute('data-tag') || 'all';
+
+      // Sync URL with tag state
+      const url = new URL(window.location.href);
+      if (currentTag === 'all') {
+        url.searchParams.delete('tag');
+      } else {
+        url.searchParams.set('tag', currentTag);
+      }
+      history.replaceState({}, '', url);
+
       filterNotes();
     });
   });
@@ -227,6 +237,25 @@ function formatDate(date: Date): string {
         filterStatus.textContent = visibleCount + ' note' + (visibleCount !== 1 ? 's' : '') +
           (parts.length ? ' matching ' + parts.join(' + ') : '');
       }
+    }
+  }
+
+  // On page load, check for tag parameter in URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const tagParam = urlParams.get('tag');
+  if (tagParam) {
+    // Validate against known tags to prevent XSS via querySelector
+    const validTags = Array.from(tagButtons).map(btn => btn.getAttribute('data-tag'));
+    if (validTags.includes(tagParam)) {
+      const tagBtn = document.querySelector(`.tag-btn[data-tag="${tagParam}"]`) as HTMLElement;
+      if (tagBtn) {
+        tagBtn.click();
+      }
+    } else {
+      // Invalid tag - clear the URL parameter
+      const url = new URL(window.location.href);
+      url.searchParams.delete('tag');
+      history.replaceState({}, '', url);
     }
   }
 </script>
