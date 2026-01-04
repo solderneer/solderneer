@@ -241,9 +241,18 @@ function formatDate(date: Date): string {
   const urlParams = new URLSearchParams(window.location.search);
   const tagParam = urlParams.get('tag');
   if (tagParam) {
-    const tagBtn = document.querySelector(`.tag-btn[data-tag="${tagParam}"]`) as HTMLElement;
-    if (tagBtn) {
-      tagBtn.click();
+    // Validate against known tags to prevent XSS via querySelector
+    const validTags = Array.from(tagButtons).map(btn => btn.getAttribute('data-tag'));
+    if (validTags.includes(tagParam)) {
+      const tagBtn = document.querySelector(`.tag-btn[data-tag="${tagParam}"]`) as HTMLElement;
+      if (tagBtn) {
+        tagBtn.click();
+      }
+    } else {
+      // Invalid tag - clear the URL parameter
+      const url = new URL(window.location.href);
+      url.searchParams.delete('tag');
+      history.replaceState({}, '', url);
     }
   }
 </script>
