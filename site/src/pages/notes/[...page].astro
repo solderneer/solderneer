@@ -1,39 +1,46 @@
 ---
+import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import tagsJson from "../../content/_tags.json";
 
-// Get all notes
-const notes = await getCollection("notes");
-const sortedNotes = notes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+export const getStaticPaths = (async ({ paginate }) => {
+  // Get all notes
+  const notes = await getCollection("notes");
+  const sortedNotes = notes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// Render notes to get word count and reading time from remark plugins
-// Also calculate reference numbers (oldest = N001)
-const totalNotes = sortedNotes.length;
-const notesWithMeta = await Promise.all(
-  sortedNotes.map(async (note, index) => {
-    const { remarkPluginFrontmatter } = await note.render();
-    return {
-      ...note,
-      wordCount: remarkPluginFrontmatter.wordCount,
-      minutesRead: remarkPluginFrontmatter.minutesRead,
-      refNum: totalNotes - index,  // oldest gets 1, newest gets totalNotes
-    };
-  })
-);
+  // Render notes to get word count and reading time from remark plugins
+  // Also calculate reference numbers (oldest = N001)
+  const totalNotes = sortedNotes.length;
+  const notesWithMeta = await Promise.all(
+    sortedNotes.map(async (note, index) => {
+      const { remarkPluginFrontmatter } = await note.render();
+      return {
+        ...note,
+        wordCount: remarkPluginFrontmatter.wordCount,
+        minutesRead: remarkPluginFrontmatter.minutesRead,
+        refNum: totalNotes - index,  // oldest gets 1, newest gets totalNotes
+      };
+    })
+  );
 
-// Group notes by year
-const notesByYear = notesWithMeta.reduce((acc, note) => {
+  return paginate(notesWithMeta, { pageSize: 25 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+
+// Group notes by year (for current page only)
+const notesByYear = page.data.reduce((acc, note) => {
   const year = note.data.pubDate.getFullYear();
   if (!acc[year]) acc[year] = [];
   acc[year].push(note);
   return acc;
-}, {} as Record<number, typeof notesWithMeta>);
+}, {} as Record<number, typeof page.data>);
 
 const years = Object.keys(notesByYear).map(Number).sort((a, b) => b - a);
 
-// Get unique tags
-const allTags = [...new Set(notesWithMeta.flatMap(note => note.data.tags))];
+// Get unique tags from current page
+const allTags = [...new Set(page.data.flatMap(note => note.data.tags))];
 
 // Format date for display
 function formatDate(date: Date): string {
@@ -118,6 +125,37 @@ function formatDate(date: Date): string {
         </div>
       ))}
     </div>
+
+    <!-- Pagination -->
+    <nav class="pagination">
+      <div class="pagination-info">
+        Page {page.currentPage} of {page.lastPage} • {page.total} notes total
+      </div>
+      <div class="pagination-links">
+        {page.url.prev ? (
+          <a href={page.url.prev} class="pagination-link">← Newer</a>
+        ) : (
+          <span class="pagination-link disabled">← Newer</span>
+        )}
+
+        <div class="pagination-pages">
+          {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((pageNum) => (
+            <a
+              href={pageNum === 1 ? '/notes/' : `/notes/${pageNum}/`}
+              class:list={['page-num', { active: pageNum === page.currentPage }]}
+            >
+              {pageNum}
+            </a>
+          ))}
+        </div>
+
+        {page.url.next ? (
+          <a href={page.url.next} class="pagination-link">Older →</a>
+        ) : (
+          <span class="pagination-link disabled">Older →</span>
+        )}
+      </div>
+    </nav>
   </div>
 </BaseLayout>
 
@@ -434,7 +472,7 @@ function formatDate(date: Date): string {
 
   /* Notes timeline */
   .notes-timeline {
-    padding: 24px 0 80px;
+    padding: 24px 0 40px;
   }
 
   .year-group {
@@ -556,6 +594,71 @@ function formatDate(date: Date): string {
     padding: 0 2px;
   }
 
+  /* Pagination */
+  .pagination {
+    padding: 24px 0 80px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .pagination-info {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-bottom: 16px;
+  }
+
+  .pagination-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .pagination-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .pagination-link:hover:not(.disabled) {
+    color: var(--accent);
+  }
+
+  .pagination-link.disabled {
+    color: var(--text-tertiary);
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .pagination-pages {
+    display: flex;
+    gap: 4px;
+  }
+
+  .page-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+  }
+
+  .page-num:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .page-num.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
   @media (max-width: 500px) {
     .note-item {
       grid-template-columns: 1fr;
@@ -573,6 +676,11 @@ function formatDate(date: Date): string {
 
     .search-hint {
       display: none;
+    }
+
+    .pagination-pages {
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 </style>
