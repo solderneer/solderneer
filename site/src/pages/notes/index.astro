@@ -174,11 +174,20 @@ function formatDate(date: Date): string {
   const searchHint = document.querySelector('.search-hint') as HTMLElement;
   const noteItems = document.querySelectorAll('.note-item');
   const yearGroups = document.querySelectorAll('.year-group');
-  const filterStatus = document.getElementById('filter-status');
+  const filterStatus = document.getElementById('filter-status') as HTMLElement | null;
   const tagButtons = document.querySelectorAll('.tag-btn');
 
   let currentTag = 'all';
   let currentSearch = '';
+  let searchTimeout: ReturnType<typeof setTimeout>;
+
+  // Store original HTML for each note title on page load
+  noteItems.forEach(item => {
+    const titleEl = item.querySelector('.note-title');
+    if (titleEl && !titleEl.hasAttribute('data-original-html')) {
+      titleEl.setAttribute('data-original-html', titleEl.innerHTML);
+    }
+  });
 
   // Focus search on / key
   document.addEventListener('keydown', (e) => {
@@ -205,10 +214,13 @@ function formatDate(date: Date): string {
     }
   });
 
-  // Search on input
+  // Search on input with debouncing for performance
   searchInput.addEventListener('input', (e) => {
-    currentSearch = (e.target as HTMLInputElement).value.toLowerCase();
-    filterNotes();
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      currentSearch = (e.target as HTMLInputElement).value.toLowerCase();
+      filterNotes();
+    }, 150);
   });
 
   // Tag filtering
@@ -221,9 +233,56 @@ function formatDate(date: Date): string {
     });
   });
 
+  // Safe text escaping to prevent XSS
+  function escapeHtml(text: string): string {
+    const htmlEscapes: Record<string, string> = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    };
+    return text.replace(/[&<>"']/g, (char) => htmlEscapes[char]);
+  }
+
+  // Safe search highlighting using DOM manipulation (prevents XSS)
+  function highlightSearchMatches(titleEl: Element, searchTerm: string): void {
+    const originalHtml = titleEl.getAttribute('data-original-html') || '';
+
+    // Extract the note-ref span and the title text
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = originalHtml;
+    const refSpan = tempDiv.querySelector('.note-ref');
+    const refHtml = refSpan ? refSpan.outerHTML : '';
+
+    // Get the text content after the ref span
+    const titleText = titleEl.textContent || '';
+    const refText = refSpan ? refSpan.textContent || '' : '';
+    const actualTitle = titleText.replace(refText, '').trim();
+
+    // Create escaped regex pattern from user input
+    const escapedSearch = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedSearch})`, 'gi');
+
+    // Split text by matches and rebuild with safe DOM manipulation
+    const parts = actualTitle.split(regex);
+
+    // Clear and rebuild the element safely
+    titleEl.innerHTML = refHtml;
+
+    parts.forEach((part) => {
+      if (part.toLowerCase() === searchTerm.toLowerCase()) {
+        const mark = document.createElement('mark');
+        mark.textContent = part;
+        titleEl.appendChild(mark);
+      } else if (part) {
+        titleEl.appendChild(document.createTextNode(part));
+      }
+    });
+  }
+
   function filterNotes() {
     let visibleCount = 0;
-    let totalWords = 0;
 
     noteItems.forEach(item => {
       const title = item.getAttribute('data-title') || '';
@@ -236,18 +295,17 @@ function formatDate(date: Date): string {
         (item as HTMLElement).style.display = '';
         visibleCount++;
 
-        // Highlight search matches
-        if (currentSearch) {
-          const titleEl = item.querySelector('.note-title');
-          if (titleEl) {
-            const text = titleEl.textContent || '';
-            const regex = new RegExp(`(${currentSearch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-            titleEl.innerHTML = text.replace(regex, '<mark>$1</mark>');
-          }
-        } else {
-          const titleEl = item.querySelector('.note-title');
-          if (titleEl) {
-            titleEl.innerHTML = titleEl.textContent || '';
+        const titleEl = item.querySelector('.note-title');
+        if (titleEl) {
+          if (currentSearch) {
+            // Use safe DOM-based highlighting
+            highlightSearchMatches(titleEl, currentSearch);
+          } else {
+            // Restore original HTML structure (preserves note-ref span)
+            const originalHtml = titleEl.getAttribute('data-original-html');
+            if (originalHtml) {
+              titleEl.innerHTML = originalHtml;
+            }
           }
         }
       } else {
@@ -261,14 +319,15 @@ function formatDate(date: Date): string {
       (group as HTMLElement).style.display = visibleItems.length ? '' : 'none';
     });
 
-    // Update status - only show when filtering
+    // Update status with aria-live for accessibility
     if (filterStatus) {
+      filterStatus.setAttribute('aria-live', 'polite');
       if (currentTag === 'all' && !currentSearch) {
         filterStatus.textContent = '';
       } else {
         const parts = [];
         if (currentTag !== 'all') parts.push('#' + currentTag);
-        if (currentSearch) parts.push('"' + currentSearch + '"');
+        if (currentSearch) parts.push('"' + escapeHtml(currentSearch) + '"');
         filterStatus.textContent = visibleCount + ' note' + (visibleCount !== 1 ? 's' : '') +
           (parts.length ? ' matching ' + parts.join(' + ') : '');
       }
@@ -277,7 +336,54 @@ function formatDate(date: Date): string {
 </script>
 
 <script define:vars={{ notesWithMeta }}>
-  // Graph code - use real data
+  // ============================================
+  // Graph Configuration Constants
+  // ============================================
+  const GRAPH_CONFIG = {
+    // Padding values for graph layout
+    PADDING_MOBILE: { top: 10, right: 10, bottom: 22, left: 32 },
+    PADDING_DESKTOP: { top: 10, right: 10, bottom: 25, left: 35 },
+    // Value range scaling factors
+    MIN_VALUE_SCALE: 0.9,
+    MAX_VALUE_SCALE: 1.05,
+    // Tick counts
+    Y_TICKS_MOBILE: 3,
+    Y_TICKS_DESKTOP: 4,
+    X_LABELS_MOBILE: 3,
+    X_LABELS_DESKTOP: 4,
+    // Mobile breakpoint
+    MOBILE_BREAKPOINT: 768,
+    // Resize debounce delay (ms)
+    RESIZE_DEBOUNCE: 100,
+    // Data points per range
+    DATA_POINTS: {
+      '1M': 30,
+      '6M': 26,
+      '1Y': 12,
+      '5Y': 20,
+      'DEFAULT': 20
+    }
+  };
+
+  const RANGE_TEXT = {
+    '1M': 'past month',
+    '6M': 'past 6 months',
+    '1Y': 'past year',
+    '5Y': 'past 5 years',
+    'YTD': 'year to date'
+  };
+
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // ============================================
+  // Optimized Data Generation
+  // ============================================
+
+  // Pre-sort notes by date once for efficient cumulative calculations
+  const sortedNotesByDate = [...notesWithMeta].sort((a, b) =>
+    new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime()
+  );
+
   function generateData(range, metric) {
     const now = new Date();
     let startDate;
@@ -288,124 +394,210 @@ function formatDate(date: Date): string {
       case '1Y': startDate = new Date(now); startDate.setFullYear(now.getFullYear() - 1); break;
       case '5Y': startDate = new Date(now); startDate.setFullYear(now.getFullYear() - 5); break;
       case 'YTD': startDate = new Date(now.getFullYear(), 0, 1); break;
-      default: startDate = new Date(0); // All time
+      default: startDate = new Date(0);
     }
 
     // Determine number of data points based on range
-    let numPoints;
-    switch(range) {
-      case '1M': numPoints = 30; break;
-      case '6M': numPoints = 26; break;
-      case '1Y': numPoints = 12; break;
-      case '5Y': numPoints = 20; break;
-      case 'YTD': numPoints = Math.max(12, Math.floor((now - startDate) / (1000 * 60 * 60 * 24 * 7))); break;
-      default: numPoints = 20;
+    let numPoints = GRAPH_CONFIG.DATA_POINTS[range];
+    if (range === 'YTD') {
+      numPoints = Math.max(12, Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 7)));
     }
+    if (!numPoints) numPoints = GRAPH_CONFIG.DATA_POINTS.DEFAULT;
 
-    const timeSpan = now - startDate;
+    const timeSpan = now.getTime() - startDate.getTime();
     const intervalMs = timeSpan / numPoints;
 
+    // Optimized: Use pre-sorted notes and iterate once with running totals
+    // instead of filtering all notes for each data point (O(n) vs O(n*m))
     const data = [];
+    let noteIndex = 0;
+    let wordSum = 0;
+
     for (let i = 0; i <= numPoints; i++) {
       const pointDate = new Date(startDate.getTime() + (intervalMs * i));
 
-      // Count ALL notes published up to this point (cumulative, all-time)
-      const notesUpToPoint = notesWithMeta.filter(note => new Date(note.data.pubDate) <= pointDate);
-      const notesCount = notesUpToPoint.length;
-      const wordsCount = notesUpToPoint.reduce((sum, note) => sum + (note.wordCount || 0), 0);
+      // Advance through sorted notes up to this point
+      while (noteIndex < sortedNotesByDate.length &&
+             new Date(sortedNotesByDate[noteIndex].data.pubDate) <= pointDate) {
+        wordSum += sortedNotesByDate[noteIndex].wordCount || 0;
+        noteIndex++;
+      }
 
       data.push({
         date: pointDate,
-        value: metric === 'notes' ? notesCount : wordsCount
+        value: metric === 'notes' ? noteIndex : wordSum
       });
     }
 
     return data;
   }
 
-  function formatDate(date, range) {
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    if (range === '1M') return date.getDate() + ' ' + months[date.getMonth()];
-    if (range === '5Y') return months[date.getMonth()] + ' ' + date.getFullYear();
-    return months[date.getMonth()] + ' ' + date.getFullYear().toString().slice(2);
+  // ============================================
+  // Formatting Functions (renamed to avoid conflict with server-side formatDate)
+  // ============================================
+
+  function formatGraphDate(date, range) {
+    if (range === '1M') return date.getDate() + ' ' + MONTHS[date.getMonth()];
+    if (range === '5Y') return MONTHS[date.getMonth()] + ' ' + date.getFullYear();
+    return MONTHS[date.getMonth()] + ' ' + date.getFullYear().toString().slice(2);
   }
-  function formatValue(value, metric) { return metric === 'notes' ? value : value >= 1000 ? (value/1000).toFixed(1) + 'k' : value; }
+
+  function formatValue(value, metric) {
+    return metric === 'notes' ? value : value >= 1000 ? (value/1000).toFixed(1) + 'k' : value;
+  }
+
+  // ============================================
+  // Graph Drawing
+  // ============================================
 
   function drawGraph(svgId, tooltipId, data, metric, range) {
     const svg = document.getElementById(svgId);
     const tooltip = document.getElementById(tooltipId);
+
+    // Error handling: check for required elements
+    if (!svg || !tooltip) {
+      console.warn(`Graph elements not found: ${svgId}, ${tooltipId}`);
+      return;
+    }
+
     const container = svg.parentElement;
+    if (!container) return;
+
+    // Error handling: check for empty data
+    if (data.length === 0) {
+      svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" class="graph-axis-label">No data available</text>';
+      return;
+    }
+
     const rect = container.getBoundingClientRect();
     const width = rect.width, height = rect.height;
-    const isMobile = window.innerWidth <= 768;
-    const padding = isMobile ? { top: 10, right: 10, bottom: 22, left: 32 } : { top: 10, right: 10, bottom: 25, left: 35 };
+    const isMobile = window.innerWidth <= GRAPH_CONFIG.MOBILE_BREAKPOINT;
+    const padding = isMobile ? GRAPH_CONFIG.PADDING_MOBILE : GRAPH_CONFIG.PADDING_DESKTOP;
     const chartWidth = width - padding.left - padding.right;
     const chartHeight = height - padding.top - padding.bottom;
     const values = data.map(d => d.value);
-    const minVal = Math.min(...values) * 0.9, maxVal = Math.max(...values) * 1.05;
-    const valueRange = maxVal - minVal;
-    const xScale = (i) => padding.left + (i / (data.length - 1)) * chartWidth;
+
+    // Error handling: handle case where all values are the same (avoid division by zero)
+    const rawMin = Math.min(...values);
+    const rawMax = Math.max(...values);
+    const minVal = rawMin * GRAPH_CONFIG.MIN_VALUE_SCALE;
+    const maxVal = rawMax * GRAPH_CONFIG.MAX_VALUE_SCALE;
+    const valueRange = maxVal - minVal || 1; // Prevent division by zero
+
+    const xScale = (i) => padding.left + (i / Math.max(data.length - 1, 1)) * chartWidth;
     const yScale = (v) => padding.top + chartHeight - ((v - minVal) / valueRange) * chartHeight;
 
+    // Build SVG content with accessibility attributes
     let svgContent = '<defs><linearGradient id="gradient-' + metric + '" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color: var(--accent); stop-opacity: 0.3"/><stop offset="100%" style="stop-color: var(--accent); stop-opacity: 0"/></linearGradient></defs>';
 
-    const yTicks = isMobile ? 3 : 4;
+    const yTicks = isMobile ? GRAPH_CONFIG.Y_TICKS_MOBILE : GRAPH_CONFIG.Y_TICKS_DESKTOP;
     for (let i = 0; i <= yTicks; i++) {
       const val = minVal + (valueRange * i / yTicks), y = yScale(val);
       svgContent += '<line class="graph-grid-line" x1="' + padding.left + '" y1="' + y + '" x2="' + (width - padding.right) + '" y2="' + y + '"/>';
       svgContent += '<text class="graph-axis-label" x="' + (padding.left - 5) + '" y="' + (y + 3) + '" text-anchor="end">' + formatValue(Math.round(val), metric) + '</text>';
     }
-    const xLabelCount = isMobile ? 3 : 4;
+
+    const xLabelCount = isMobile ? GRAPH_CONFIG.X_LABELS_MOBILE : GRAPH_CONFIG.X_LABELS_DESKTOP;
     for (let i = 0; i < xLabelCount; i++) {
-      const idx = Math.floor(i * (data.length - 1) / (xLabelCount - 1)), x = xScale(idx);
-      svgContent += '<text class="graph-axis-label" x="' + x + '" y="' + (height - 5) + '" text-anchor="middle">' + formatDate(data[idx].date, range) + '</text>';
+      const idx = Math.floor(i * (data.length - 1) / Math.max(xLabelCount - 1, 1)), x = xScale(idx);
+      svgContent += '<text class="graph-axis-label" x="' + x + '" y="' + (height - 5) + '" text-anchor="middle">' + formatGraphDate(data[idx].date, range) + '</text>';
     }
 
     let areaPath = 'M ' + xScale(0) + ' ' + yScale(data[0].value);
     let linePath = 'M ' + xScale(0) + ' ' + yScale(data[0].value);
-    for (let i = 1; i < data.length; i++) { areaPath += ' L ' + xScale(i) + ' ' + yScale(data[i].value); linePath += ' L ' + xScale(i) + ' ' + yScale(data[i].value); }
+    for (let i = 1; i < data.length; i++) {
+      areaPath += ' L ' + xScale(i) + ' ' + yScale(data[i].value);
+      linePath += ' L ' + xScale(i) + ' ' + yScale(data[i].value);
+    }
     areaPath += ' L ' + xScale(data.length - 1) + ' ' + (height - padding.bottom) + ' L ' + xScale(0) + ' ' + (height - padding.bottom) + ' Z';
     svgContent += '<path class="graph-area" d="' + areaPath + '" fill="url(#gradient-' + metric + ')"/>';
     svgContent += '<path class="graph-line" d="' + linePath + '"/>';
     svgContent += '<line class="graph-hover-line" id="' + metric + '-hover-line" x1="0" y1="' + padding.top + '" x2="0" y2="' + (height - padding.bottom) + '"/>';
     svgContent += '<circle class="graph-dot" id="' + metric + '-dot" cx="0" cy="0" r="4"/>';
+
     for (let i = 0; i < data.length; i++) {
       const x = xScale(i), segmentWidth = chartWidth / data.length;
-      svgContent += '<rect class="hover-area" x="' + (x - segmentWidth/2) + '" y="' + padding.top + '" width="' + segmentWidth + '" height="' + chartHeight + '" fill="transparent" data-index="' + i + '"/>';
+      svgContent += '<rect class="hover-area" x="' + (x - segmentWidth/2) + '" y="' + padding.top + '" width="' + segmentWidth + '" height="' + chartHeight + '" fill="transparent" data-index="' + i + '" tabindex="0" role="button" aria-label="Data point ' + (i + 1) + ': ' + formatValue(data[i].value, metric) + ' ' + metric + ' on ' + formatGraphDate(data[i].date, range) + '"/>';
     }
+
     svg.innerHTML = svgContent;
     svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', 'Graph showing ' + metric + ' over time for ' + (RANGE_TEXT[range] || range));
 
     const dot = document.getElementById(metric + '-dot');
     const hoverLine = document.getElementById(metric + '-hover-line');
+
     svg.querySelectorAll('.hover-area').forEach(area => {
-      area.addEventListener('mouseenter', (e) => {
-        const idx = parseInt(e.target.dataset.index), point = data[idx], x = xScale(idx), y = yScale(point.value);
-        dot.setAttribute('cx', x); dot.setAttribute('cy', y); dot.style.opacity = '1';
-        hoverLine.setAttribute('x1', x); hoverLine.setAttribute('x2', x); hoverLine.style.opacity = '1';
+      const showTooltip = (e) => {
+        const idx = parseInt(e.target.dataset.index);
+        const point = data[idx];
+        if (!point) return;
+        const x = xScale(idx), y = yScale(point.value);
+        if (dot) { dot.setAttribute('cx', x); dot.setAttribute('cy', y); dot.style.opacity = '1'; }
+        if (hoverLine) { hoverLine.setAttribute('x1', x); hoverLine.setAttribute('x2', x); hoverLine.style.opacity = '1'; }
         const unit = metric === 'notes' ? 'notes' : metric === 'words' ? 'words' : 'min';
-        tooltip.textContent = formatValue(point.value, metric) + ' ' + unit + ' · ' + formatDate(point.date, range);
+        tooltip.textContent = formatValue(point.value, metric) + ' ' + unit + ' · ' + formatGraphDate(point.date, range);
         tooltip.style.opacity = '1'; tooltip.style.left = x + 'px'; tooltip.style.top = (y - 35) + 'px'; tooltip.style.transform = 'translateX(-50%)';
-      });
-      area.addEventListener('mouseleave', () => { dot.style.opacity = '0'; hoverLine.style.opacity = '0'; tooltip.style.opacity = '0'; });
+      };
+      const hideTooltip = () => {
+        if (dot) dot.style.opacity = '0';
+        if (hoverLine) hoverLine.style.opacity = '0';
+        tooltip.style.opacity = '0';
+      };
+
+      // Mouse events
+      area.addEventListener('mouseenter', showTooltip);
+      area.addEventListener('mouseleave', hideTooltip);
+      // Keyboard accessibility
+      area.addEventListener('focus', showTooltip);
+      area.addEventListener('blur', hideTooltip);
     });
   }
+
+  // ============================================
+  // Graph Updates with Error Handling
+  // ============================================
 
   function updateGraphs(range) {
     ['notes', 'words'].forEach(metric => {
       const data = generateData(range, metric);
       drawGraph(metric + '-graph', metric + '-tooltip', data, metric, range);
-      const first = data[0].value, last = data[data.length - 1].value, diff = last - first;
-      const pct = ((diff / first) * 100).toFixed(1), isPositive = diff >= 0;
+
       const deltaEl = document.getElementById(metric + '-delta');
+      if (!deltaEl) return;
+
+      // Error handling: check for empty data or division by zero
+      if (data.length === 0) {
+        deltaEl.textContent = 'No data available';
+        deltaEl.className = 'graph-delta';
+        return;
+      }
+
+      const first = data[0].value, last = data[data.length - 1].value, diff = last - first;
+
+      // Handle division by zero when first value is 0
+      if (first === 0) {
+        deltaEl.textContent = diff > 0 ? '+' + formatValue(diff, metric) + ' ' + (RANGE_TEXT[range] || range) : 'No change';
+        deltaEl.className = 'graph-delta ' + (diff > 0 ? 'positive' : '');
+        return;
+      }
+
+      const pct = ((diff / first) * 100).toFixed(1), isPositive = diff >= 0;
       deltaEl.className = 'graph-delta ' + (isPositive ? 'positive' : 'negative');
-      const rangeText = { '1M': 'past month', '6M': 'past 6 months', '1Y': 'past year', '5Y': 'past 5 years', 'YTD': 'year to date' }[range];
+      const rangeText = RANGE_TEXT[range] || range;
       const diffDisplay = metric === 'notes' ? Math.abs(diff) : (Math.abs(diff) / 1000).toFixed(1) + 'k';
-      deltaEl.textContent = (isPositive ? '+' : '-') + diffDisplay + ' (' + Math.abs(pct) + '%) ' + (isPositive ? '↑' : '↓') + ' ' + rangeText;
+      deltaEl.textContent = (isPositive ? '+' : '-') + diffDisplay + ' (' + Math.abs(parseFloat(pct)) + '%) ' + (isPositive ? '↑' : '↓') + ' ' + rangeText;
     });
   }
 
+  // ============================================
+  // Event Listeners
+  // ============================================
+
   let currentRange = '1Y';
+  let resizeTimeout;
+
   document.querySelectorAll('.time-filter').forEach(filter => {
     filter.addEventListener('click', () => {
       if (filter.dataset.range) {
@@ -418,8 +610,10 @@ function formatDate(date: Date): string {
   });
 
   window.addEventListener('load', () => updateGraphs(currentRange));
-  let resizeTimeout;
-  window.addEventListener('resize', () => { clearTimeout(resizeTimeout); resizeTimeout = setTimeout(() => updateGraphs(currentRange), 100); });
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => updateGraphs(currentRange), GRAPH_CONFIG.RESIZE_DEBOUNCE);
+  });
 </script>
 
 <style>
