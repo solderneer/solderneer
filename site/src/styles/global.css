@@ -147,8 +147,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose h1::before {
   content: counter(h1-counter) ". ";
-  font-family: 'IBM Plex Mono', monospace;
-  color: var(--text-secondary);
 }
 
 /* H2: left-aligned, numbered "1.1" */
@@ -162,8 +160,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose h2::before {
   content: counter(h1-counter) "." counter(h2-counter) " ";
-  font-family: 'IBM Plex Mono', monospace;
-  color: var(--text-secondary);
 }
 
 /* H3: left-aligned, numbered "1.1.1" */
@@ -176,8 +172,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose h3::before {
   content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) " ";
-  font-family: 'IBM Plex Mono', monospace;
-  color: var(--text-secondary);
 }
 
 .prose p {
