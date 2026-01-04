@@ -25,12 +25,12 @@ const allHighlights = sortedNotes
 const shuffled = allHighlights.sort(() => Math.random() - 0.5);
 const highlightNotes = shuffled.slice(0, 2);
 
-// Recent notes for list (8 most recent)
+// Recent notes for list (next 8 after latest)
 const recentNotes = sortedNotes
-  .slice(0, 8)
+  .slice(1, 9)
   .map((note, index) => ({
     ...note,
-    refNum: totalNotes - index
+    refNum: totalNotes - (index + 1)
   }));
 
 // Format date for display
