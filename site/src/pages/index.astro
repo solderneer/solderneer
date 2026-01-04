@@ -13,14 +13,17 @@ const sortedNotes = allNotes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 const latestNote = sortedNotes[0];
 const latestNoteRef = totalNotes;
 
-// Highlight notes (tagged with 'highlight')
-const highlightNotes = sortedNotes
+// Highlight notes (tagged with 'highlight') - randomly select 2
+const allHighlights = sortedNotes
   .filter(note => note.data.tags.includes('highlight'))
-  .slice(0, 3)
   .map((note) => ({
     ...note,
     refNum: totalNotes - sortedNotes.indexOf(note)
   }));
+
+// Shuffle and take 2 random highlights
+const shuffled = allHighlights.sort(() => Math.random() - 0.5);
+const highlightNotes = shuffled.slice(0, 2);
 
 // Recent notes for list (8 most recent)
 const recentNotes = sortedNotes
@@ -41,80 +44,85 @@ function formatDate(date: Date): string {
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <!-- Featured Latest Note -->
-  <section class="featured-latest">
-    <a href={`/notes/${latestNote.slug}/`}>
-      <h2 class="featured-title">
-        <span class="note-ref">N{String(latestNoteRef).padStart(3, '0')}</span>
-        {latestNote.data.title}
-      </h2>
-      {latestNote.data.description && (
-        <p class="featured-excerpt">{latestNote.data.description}</p>
-      )}
-      <div class="featured-meta">
-        <span>{formatDate(latestNote.data.pubDate)}</span>
-        {latestNote.data.tags?.[0] && (
-          <span class="note-tag">{latestNote.data.tags[0]}</span>
-        )}
-      </div>
-    </a>
-  </section>
+  <div class="main-content">
+    <!-- Left Column: Latest + Highlights -->
+    <div class="left-column">
+      <!-- Featured Latest Note -->
+      <section class="featured-latest">
+        <a href={`/notes/${latestNote.slug}/`}>
+          <h2 class="featured-title">
+            <span class="note-ref">N{String(latestNoteRef).padStart(3, '0')}</span>
+            {latestNote.data.title}
+          </h2>
+          {latestNote.data.description && (
+            <p class="featured-excerpt">{latestNote.data.description}</p>
+          )}
+          <div class="featured-meta">
+            <span>{formatDate(latestNote.data.pubDate)}</span>
+            {latestNote.data.tags?.[0] && (
+              <span class="note-tag">{latestNote.data.tags[0]}</span>
+            )}
+          </div>
+        </a>
+      </section>
 
-  <!-- Highlights -->
-  {highlightNotes.length > 0 && (
-    <section class="highlights">
+      <!-- Highlights -->
+      {highlightNotes.length > 0 && (
+        <section class="highlights">
+          <div class="section-header">
+            <h2>Highlights</h2>
+          </div>
+          <ul class="highlights-list">
+            {highlightNotes.map((note) => (
+              <li class="highlight-item">
+                <a href={`/notes/${note.slug}/`}>
+                  <h3 class="highlight-title">
+                    <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
+                    {note.data.title}
+                  </h3>
+                  {note.data.description && (
+                    <p class="highlight-excerpt">{note.data.description}</p>
+                  )}
+                  <div class="highlight-meta">
+                    <span>{formatDate(note.data.pubDate)}</span>
+                    {note.data.tags?.filter(t => t !== 'highlight')[0] && (
+                      <span class="note-tag">{note.data.tags.filter(t => t !== 'highlight')[0]}</span>
+                    )}
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+
+    <!-- Right Column: Recent Notes -->
+    <div class="right-column">
       <div class="section-header">
-        <h2>Highlights</h2>
+        <h2>Recent Notes</h2>
+        <a href="/notes">View all →</a>
       </div>
-      <div class="highlights-grid">
-        {highlightNotes.map((note) => (
-          <div class="highlight-card">
+      <ul class="notes-list">
+        {recentNotes.map((note) => (
+          <li class="note-item">
             <a href={`/notes/${note.slug}/`}>
-              <h3 class="highlight-title">
+              <span class="note-title">
                 <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
                 {note.data.title}
-              </h3>
-              {note.data.description && (
-                <p class="highlight-excerpt">{note.data.description}</p>
-              )}
-              <div class="highlight-meta">
+              </span>
+              <div class="note-meta">
                 <span>{formatDate(note.data.pubDate)}</span>
-                {note.data.tags?.filter(t => t !== 'highlight')[0] && (
-                  <span class="note-tag">{note.data.tags.filter(t => t !== 'highlight')[0]}</span>
+                {note.data.tags?.[0] && (
+                  <span class="note-tag">{note.data.tags[0]}</span>
                 )}
               </div>
             </a>
-          </div>
+          </li>
         ))}
-      </div>
-    </section>
-  )}
-
-  <!-- Recent Notes -->
-  <section class="recent-notes">
-    <div class="section-header">
-      <h2>Recent Notes</h2>
-      <a href="/notes">View all →</a>
+      </ul>
     </div>
-    <ul class="notes-list">
-      {recentNotes.map((note) => (
-        <li class="note-item">
-          <a href={`/notes/${note.slug}/`}>
-            <span class="note-title">
-              <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
-              {note.data.title}
-            </span>
-            <div class="note-meta">
-              <span>{formatDate(note.data.pubDate)}</span>
-              {note.data.tags?.[0] && (
-                <span class="note-tag">{note.data.tags[0]}</span>
-              )}
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
+  </div>
 
   <!-- Collections Section -->
   <section class="collections">
@@ -135,11 +143,51 @@ function formatDate(date: Date): string {
 </BaseLayout>
 
 <style>
-  /* Featured Latest Note */
-  .featured-latest {
-    padding: 32px 0;
+  /* Main Content Grid */
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
     border-top: 1px solid var(--border);
     margin-top: 32px;
+  }
+
+  @media (min-width: 800px) {
+    .main-content {
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+    }
+  }
+
+  /* Left Column */
+  .left-column {
+    padding: 32px 0;
+  }
+
+  @media (min-width: 800px) {
+    .left-column {
+      padding-right: 48px;
+      border-right: 1px solid var(--border);
+    }
+  }
+
+  /* Right Column */
+  .right-column {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (min-width: 800px) {
+    .right-column {
+      border-top: none;
+    }
+  }
+
+  /* Featured Latest Note */
+  .featured-latest {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
   }
 
   .featured-latest a {
@@ -177,33 +225,23 @@ function formatDate(date: Date): string {
 
   /* Highlights Section */
   .highlights {
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
+    padding-top: 0;
   }
 
-  .highlights-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .highlights-list {
+    list-style: none;
   }
 
-  @media (min-width: 640px) {
-    .highlights-grid {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
+  .highlight-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
   }
 
-  .highlight-card {
-    border-left: 3px solid var(--accent);
-    padding-left: 16px;
-    transition: transform 0.15s;
+  .highlight-item:last-child {
+    border-bottom: none;
   }
 
-  .highlight-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .highlight-card a {
+  .highlight-item a {
     text-decoration: none;
     display: block;
   }
@@ -216,7 +254,7 @@ function formatDate(date: Date): string {
     transition: color 0.15s;
   }
 
-  .highlight-card a:hover .highlight-title {
+  .highlight-item a:hover .highlight-title {
     color: var(--accent);
   }
 
@@ -233,12 +271,6 @@ function formatDate(date: Date): string {
     color: var(--text-tertiary);
     display: flex;
     gap: 12px;
-  }
-
-  /* Recent Notes Section */
-  .recent-notes {
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
   }
 
   /* Section Header */
