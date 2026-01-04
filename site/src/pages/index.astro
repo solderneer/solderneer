@@ -7,29 +7,28 @@ import { getCollection } from "astro:content";
 // Get all notes, sorted by date
 const allNotes = await getCollection("notes");
 const totalNotes = allNotes.length;
-const sortedNotes = allNotes
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+const sortedNotes = allNotes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Latest note for featured section
+const latestNote = sortedNotes[0];
+const latestNoteRef = totalNotes;
+
+// Highlight notes (tagged with 'highlight')
+const highlightNotes = sortedNotes
+  .filter(note => note.data.tags.includes('highlight'))
+  .slice(0, 3)
+  .map((note) => ({
+    ...note,
+    refNum: totalNotes - sortedNotes.indexOf(note)
+  }));
+
+// Recent notes for list (8 most recent)
+const recentNotes = sortedNotes
   .slice(0, 8)
   .map((note, index) => ({
     ...note,
-    refNum: totalNotes - index,  // newest gets totalNotes, next gets totalNotes-1, etc.
+    refNum: totalNotes - index
   }));
-
-// Get essays when available (for now, placeholder)
-let essays: any[] = [];
-try {
-  const essayCollection = await getCollection("essays");
-  const totalEssays = essayCollection.length;
-  essays = essayCollection
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .slice(0, 4)
-    .map((essay, index) => ({
-      ...essay,
-      refNum: totalEssays - index,  // newest gets totalEssays, next gets totalEssays-1, etc.
-    }));
-} catch (e) {
-  // Essays collection not yet created
-}
 
 // Format date for display
 function formatDate(date: Date): string {
@@ -42,89 +41,80 @@ function formatDate(date: Date): string {
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <div class="main-content">
-    <!-- Essays Column -->
-    <div class="essays-column">
-      <div class="column-header">
-        <h2>Essays</h2>
-        <a href="/essays">View all →</a>
+  <!-- Featured Latest Note -->
+  <section class="featured-latest">
+    <a href={`/notes/${latestNote.slug}/`}>
+      <h2 class="featured-title">
+        <span class="note-ref">N{String(latestNoteRef).padStart(3, '0')}</span>
+        {latestNote.data.title}
+      </h2>
+      {latestNote.data.description && (
+        <p class="featured-excerpt">{latestNote.data.description}</p>
+      )}
+      <div class="featured-meta">
+        <span>{formatDate(latestNote.data.pubDate)}</span>
+        {latestNote.data.tags?.[0] && (
+          <span class="note-tag">{latestNote.data.tags[0]}</span>
+        )}
       </div>
+    </a>
+  </section>
 
-      {essays.length > 0 ? (
-        <>
-          <div class="essay-featured">
-            <a href={`/essays/${essays[0].slug}/`}>
-              <h3 class="essay-featured-title">
-                <span class="essay-ref">E{String(essays[0].refNum).padStart(3, '0')}</span>
-                {essays[0].data.title}
+  <!-- Highlights -->
+  {highlightNotes.length > 0 && (
+    <section class="highlights">
+      <div class="section-header">
+        <h2>Highlights</h2>
+      </div>
+      <div class="highlights-grid">
+        {highlightNotes.map((note) => (
+          <div class="highlight-card">
+            <a href={`/notes/${note.slug}/`}>
+              <h3 class="highlight-title">
+                <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
+                {note.data.title}
               </h3>
-              {essays[0].data.description && (
-                <p class="essay-featured-excerpt">{essays[0].data.description}</p>
+              {note.data.description && (
+                <p class="highlight-excerpt">{note.data.description}</p>
               )}
-              <div class="essay-featured-meta">
-                <span>{formatDate(essays[0].data.pubDate)}</span>
-                {essays[0].data.tags?.[0] && (
-                  <span class="essay-tag">{essays[0].data.tags[0]}</span>
+              <div class="highlight-meta">
+                <span>{formatDate(note.data.pubDate)}</span>
+                {note.data.tags?.filter(t => t !== 'highlight')[0] && (
+                  <span class="note-tag">{note.data.tags.filter(t => t !== 'highlight')[0]}</span>
                 )}
               </div>
             </a>
           </div>
-
-          <ul class="essay-list">
-            {essays.slice(1).map((essay) => (
-              <li class="essay-item">
-                <a href={`/essays/${essay.slug}/`}>
-                  <h4 class="essay-title">
-                    <span class="essay-ref">E{String(essay.refNum).padStart(3, '0')}</span>
-                    {essay.data.title}
-                  </h4>
-                  {essay.data.description && (
-                    <p class="essay-excerpt">{essay.data.description}</p>
-                  )}
-                  <div class="essay-meta">
-                    <span>{formatDate(essay.data.pubDate)}</span>
-                    {essay.data.tags?.[0] && (
-                      <span class="essay-tag">{essay.data.tags[0]}</span>
-                    )}
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : (
-        <div class="placeholder">
-          <p class="text-secondary">Essays coming soon. In the meantime, check out the notes.</p>
-        </div>
-      )}
-    </div>
-
-    <!-- Notes Column -->
-    <div class="notes-column">
-      <div class="column-header">
-        <h2>Notes</h2>
-        <a href="/notes">View all →</a>
-      </div>
-      <ul class="notes-list">
-        {sortedNotes.map((note) => (
-          <li class="note-item">
-            <a href={`/notes/${note.slug}/`}>
-              <span class="note-title">
-                <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
-                {note.data.title}
-              </span>
-              <div class="note-meta">
-                <span>{formatDate(note.data.pubDate)}</span>
-                {note.data.tags?.[0] && (
-                  <span class="note-tag">{note.data.tags[0]}</span>
-                )}
-              </div>
-            </a>
-          </li>
         ))}
-      </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- Recent Notes -->
+  <section class="recent-notes">
+    <div class="section-header">
+      <h2>Recent Notes</h2>
+      <a href="/notes">View all →</a>
     </div>
-  </div>
+    <ul class="notes-list">
+      {recentNotes.map((note) => (
+        <li class="note-item">
+          <a href={`/notes/${note.slug}/`}>
+            <span class="note-title">
+              <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
+              {note.data.title}
+            </span>
+            <div class="note-meta">
+              <span>{formatDate(note.data.pubDate)}</span>
+              {note.data.tags?.[0] && (
+                <span class="note-tag">{note.data.tags[0]}</span>
+              )}
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
 
   <!-- Collections Section -->
   <section class="collections">
@@ -145,73 +135,19 @@ function formatDate(date: Date): string {
 </BaseLayout>
 
 <style>
-  .main-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
+  /* Featured Latest Note */
+  .featured-latest {
+    padding: 32px 0;
     border-top: 1px solid var(--border);
     margin-top: 32px;
   }
 
-  @media (min-width: 800px) {
-    .main-content {
-      grid-template-columns: 1.4fr 1fr;
-      gap: 48px;
-    }
-  }
-
-  /* Essays column */
-  .essays-column {
-    padding: 32px 0;
-  }
-
-  @media (min-width: 800px) {
-    .essays-column {
-      padding-right: 48px;
-      border-right: 1px solid var(--border);
-    }
-  }
-
-  .column-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 24px;
-  }
-
-  .column-header h2 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-  }
-
-  .column-header a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
-    text-decoration: none;
-  }
-
-  .column-header a:hover {
-    color: var(--accent);
-  }
-
-  /* Featured essay */
-  .essay-featured {
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .essay-featured a {
+  .featured-latest a {
     text-decoration: none;
     display: block;
   }
 
-  .essay-featured-title {
+  .featured-title {
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--text);
@@ -220,18 +156,18 @@ function formatDate(date: Date): string {
     transition: color 0.15s;
   }
 
-  .essay-featured a:hover .essay-featured-title {
+  .featured-latest a:hover .featured-title {
     color: var(--accent);
   }
 
-  .essay-featured-excerpt {
+  .featured-excerpt {
     font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 12px;
   }
 
-  .essay-featured-meta {
+  .featured-meta {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
     color: var(--text-tertiary);
@@ -239,37 +175,40 @@ function formatDate(date: Date): string {
     gap: 12px;
   }
 
-  .essay-tag {
-    color: var(--accent);
+  /* Highlights Section */
+  .highlights {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
   }
 
-  .essay-ref {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
-    margin-right: 8px;
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  /* Essay list */
-  .essay-list {
-    list-style: none;
+  @media (min-width: 640px) {
+    .highlights-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
   }
 
-  .essay-item {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
+  .highlight-card {
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    transition: transform 0.15s;
   }
 
-  .essay-item:last-child {
-    border-bottom: none;
+  .highlight-card:hover {
+    transform: translateY(-4px);
   }
 
-  .essay-item a {
+  .highlight-card a {
     text-decoration: none;
     display: block;
   }
 
-  .essay-title {
+  .highlight-title {
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--text);
@@ -277,18 +216,18 @@ function formatDate(date: Date): string {
     transition: color 0.15s;
   }
 
-  .essay-item a:hover .essay-title {
+  .highlight-card a:hover .highlight-title {
     color: var(--accent);
   }
 
-  .essay-excerpt {
+  .highlight-excerpt {
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 8px;
   }
 
-  .essay-meta {
+  .highlight-meta {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
     color: var(--text-tertiary);
@@ -296,21 +235,46 @@ function formatDate(date: Date): string {
     gap: 12px;
   }
 
-  /* Placeholder */
-  .placeholder {
-    padding: 32px 0;
-  }
-
-  /* Notes column */
-  .notes-column {
+  /* Recent Notes Section */
+  .recent-notes {
     padding: 32px 0;
     border-top: 1px solid var(--border);
   }
 
-  @media (min-width: 800px) {
-    .notes-column {
-      border-top: none;
-    }
+  /* Section Header */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+
+  .section-header h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .section-header a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+  }
+
+  .section-header a:hover {
+    color: var(--accent);
+  }
+
+  /* Note Reference */
+  .note-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-right: 8px;
   }
 
   /* Notes list */
