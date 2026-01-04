@@ -1,146 +1,128 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseHead from "../components/BaseHead.astro";
-import NavLink from "../components/NavLink.astro";
-import YearFilter from "../components/YearFilter.astro";
-import FormattedDate from "../components/FormattedDate.astro";
-import { getCollection } from "astro:content";
+import Footer from "../components/Footer.astro";
+import RuneScroll from "../components/RuneScroll.astro";
 
-const { title, description, emoji, image } = Astro.props;
+const { title, description, emoji, image, showHeader = true } = Astro.props;
 
-// Fetch all notes
-const allNotes = await getCollection("notes");
-
-// Get the three most recent notes
-const recentNotes = allNotes
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5);
-
-// Extract years and count posts for each year
-const yearCounts = allNotes.reduce((acc, note) => {
-  const year = new Date(note.data.pubDate).getFullYear();
-  acc[year] = (acc[year] || 0) + 1;
-  return acc;
-}, {} as Record<number, number>);
-
-// Create an array of year-count pairs, sorted by year descending
-const yearsWithCounts = Object.entries(yearCounts)
-  .map(([year, count]) => ({ year: parseInt(year), count }))
-  .sort((a, b) => b.year - a.year);
+interface Props {
+  title: string;
+  description?: string;
+  emoji?: string;
+  image?: string;
+  showHeader?: boolean;
+}
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <BaseHead
       title={title}
-      description={description}
+      description={description ?? SITE_DESCRIPTION}
       emoji={emoji}
       image={image ?? "/pfp-min.png"}
     />
   </head>
 
-  <body
-    id="top"
-    class="flex flex-col min-h-screen p-4 lg:px-12 lg:pt-12 lg:pb-4 max-w-7xl mx-auto lining-nums"
-  >
-    <div class="flex flex-col lg:flex-row flex-grow">
-      <!-- NAV BAR -->
-      <nav class="w-full max-w-2xl mx-auto lg:w-80 lg:sticky top-0 h-fit py-4 lg:mr-16">
-        <h1 class="text-4xl lg:text-5xl font-bold rainbow-button font-writing">
-          <a href="/">{SITE_TITLE}</a>
-        </h1>
+  <body>
+    <div class="page-content">
+      <div class="container">
+        {showHeader && (
+          <header>
+            <div class="header-content">
+              <div class="title-block">
+                <h1><a href="/">{SITE_TITLE}</a></h1>
+                <div class="subtitle">{SITE_DESCRIPTION}</div>
+                <div class="location">san francisco</div>
+              </div>
+              <nav>
+                <a href="/notes">Notes</a>
+                <a href="/notes/about">About</a>
+                <a href="/rss.xml">RSS</a>
+              </nav>
+            </div>
+            <RuneScroll />
+          </header>
+        )}
 
-        <p class="mt-2 text-md italic">
-          {SITE_DESCRIPTION}
-        </p>
+        <main>
+          <slot />
+        </main>
 
-        <span class="text-2xl flex gap-3 mt-4">
-          <a href="https://twitter.com/solderneer"
-            ><i class="fa-brands fa-twitter rainbow-button"></i></a
-          >
-          <a href="https://www.linkedin.com/in/solderneer/"
-            ><i class="fa-brands fa-linkedin rainbow-button"></i></a
-          >
-          <a href="https://github.com/solderneer"
-            ><i class="fa-brands fa-github rainbow-button"></i></a
-          >
-          <a href="/rss.xml"><i class="fa-solid fa-rss rainbow-button"></i></a>
-        </span>
-
-        <div class="flex flex-col mt-4 mb-4">
-          <NavLink href="/" emoji="🏠">Home</NavLink>
-          <NavLink href="/notes/about" emoji="😎">About Me</NavLink>
-        </div>
-
-        <hr class="lg:block hidden my-8" />
-        <!-- Recent Notes Section -->
-        <div class="lg:block hidden">
-          <h3 class="text-xl font-bold mb-2">Recent Notes</h3>
-          <ul class="space-y-2 rainbow-link">
-            {
-              recentNotes.map((note) => (
-                <li class="flex items-center text-md">
-                  <a
-                    href={`/notes/${note.slug}/`}
-                    class="flex-grow-0 truncate mr-2"
-                    title={note.data.title}
-                  >
-                    {note.data.emoji} {note.data.title}
-                  </a>
-                  <div class="flex-shrink-0 font-bold secondary-color">
-                    <FormattedDate date={note.data.pubDate} />
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <hr class="lg:block hidden my-8" />
-
-        <div class="lg:block hidden">
-          <h3 class="text-xl font-bold mb-2">Archives</h3>
-          <YearFilter yearsWithCounts={yearsWithCounts} />
-        </div>
-      </nav>
-      <!-- END NAV BAR -->
-      
-      <main class="max-w-2xl w-full mx-auto my-4"><slot /></main>
-
-      <hr class="block my-4 lg:hidden w-full max-w-2xl mx-auto" />
-
-      <!-- Recent Notes Section -->
-      <div class="mt-4 mb-4 block w-full max-w-2xl mx-auto lg:hidden">
-        <h3 class="text-xl font-bold mb-2">Recent Notes</h3>
-        <ul class="space-y-2 rainbow-link">
-          {
-            recentNotes.map((note) => (
-              <li class="flex items-center text-md">
-                <a
-                  href={`/notes/${note.slug}/`}
-                  class="flex-grow-0 truncate mr-2"
-                  title={note.data.title}
-                >
-                  {note.data.emoji} {note.data.title}
-                </a>
-                <div class="flex-shrink-0 font-bold secondary-color">
-                  <FormattedDate date={note.data.pubDate} />
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-
-      <hr class="sm:block my-4 max-w-2xl w-full mx-auto lg:hidden" />
-
-      <div class="mt-4 mb-4 block max-w-2xl w-full mx-auto lg:hidden">
-        <h3 class="text-xl font-bold mb-2">Archives</h3>
-        <YearFilter yearsWithCounts={yearsWithCounts} />
+        <Footer />
       </div>
     </div>
-    <footer class="text-xs text-beige-700 mt-8 text-center w-full">
-      Copyright © 2025 Sudharshan Sundaramahalingam
-    </footer>
   </body>
 </html>
+
+<style>
+  .page-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  header {
+    padding: 40px 0 0;
+    max-width: 640px;
+  }
+
+  .title-block {
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+    color: var(--text);
+  }
+
+  h1 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1 a:hover {
+    color: var(--accent);
+  }
+
+  .subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .location {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-top: 3px;
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+    margin-top: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+  }
+
+  nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+  }
+
+  main {
+    margin-top: 32px;
+  }
+</style>

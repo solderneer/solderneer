@@ -1,4 +1,3 @@
-import { fileURLToPath } from "node:url";
 import fs from "fs";
 import path from "node:path";
 
@@ -6,16 +5,14 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import indexmd from "./integrations/astrojs-indexmd";
+import vercel from "@astrojs/vercel";
 
 import { SITE_BASEURL } from "./src/consts";
 
 // Remark
-import wikiLinkPlugin from "@portaljs/remark-wiki-link";
+import wikiLinkPlugin from "remark-wiki-link";
 import { remarkReadingTime, remarkWordCount } from "./remarkPlugins.mjs";
 import remarkMath from "remark-math";
-
-import image from "@astrojs/image";
 
 // Rehype
 import rehypeKatex from "rehype-katex";
@@ -36,10 +33,15 @@ const wikiLinkOptions = {
   hrefTemplate: (permalink) => `/notes/${permalink}`,
   permalinks: permalinks,
   pageResolver: (name) => [name.replace(/ /g, "-").toLowerCase()],
+  aliasDivider: '|',
 };
 
 // https://astro.build/config
 export default defineConfig({
+  output: "static",
+  adapter: vercel({
+    imageService: true,
+  }),
   markdown: {
     remarkPlugins: [
       remarkMath,
@@ -48,24 +50,11 @@ export default defineConfig({
       [wikiLinkPlugin, wikiLinkOptions],
     ],
     rehypePlugins: [rehypeKatex],
-    extendDefaultPlugins: true,
   },
   site: SITE_BASEURL,
   integrations: [
-    mdx({
-      remarkPlugins: [
-        remarkMath,
-        remarkReadingTime,
-        remarkWordCount,
-        [wikiLinkPlugin, wikiLinkOptions],
-      ],
-      rehypePlugins: [rehypeKatex],
-    }),
+    mdx(),
     sitemap(),
     tailwind(),
-    indexmd(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
   ],
 });

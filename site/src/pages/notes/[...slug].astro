@@ -2,6 +2,32 @@
 import Note from "../../layouts/Note.astro";
 import { CollectionEntry, getCollection } from "astro:content";
 
+// Build backlinks map at module level (computed once during build)
+const allNotes = await getCollection("notes");
+const backlinksMap = new Map<string, Array<{slug: string, title: string, description?: string}>>();
+
+// Extract wiki-links from each note and build reverse map
+for (const n of allNotes) {
+  const wikiLinkRegex = /\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g;
+  const rawContent = n.body || "";
+  let match;
+  while ((match = wikiLinkRegex.exec(rawContent)) !== null) {
+    const targetSlug = match[1].replace(/ /g, "-").toLowerCase();
+    if (!backlinksMap.has(targetSlug)) {
+      backlinksMap.set(targetSlug, []);
+    }
+    // Avoid duplicate entries
+    const existing = backlinksMap.get(targetSlug)!;
+    if (!existing.some(link => link.slug === n.slug)) {
+      existing.push({
+        slug: n.slug,
+        title: n.data.title,
+        description: n.data.description,
+      });
+    }
+  }
+}
+
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
   return notes.map((note) => ({
@@ -14,8 +40,11 @@ type Props = CollectionEntry<"notes">;
 
 const note = Astro.props;
 const { Content } = await note.render();
+
+// Get backlinks for current note
+const backlinks = backlinksMap.get(note.slug) || [];
 ---
 
-<Note {...note.data}>
+<Note {...note.data} backlinks={backlinks}>
   <Content />
 </Note>

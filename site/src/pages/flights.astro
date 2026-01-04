@@ -1,0 +1,445 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RuneScroll from "../components/RuneScroll.astro";
+import flightsData from "../data/flights.json";
+import manifest from "../data/media-manifest.json";
+
+const flightRunes = "Φθψ↑Δhv=gtωrF=ma↻L=Iωθ°NESW";
+
+// Helper to resolve video URLs from manifest
+// Converts /flights/file.mp4 -> Blob URL or keeps original
+function resolveVideoUrl(videoPath: string): string {
+  // Remove leading slash and convert /flights/ to videos/
+  const normalizedPath = videoPath.replace(/^\//, '').replace('flights/', 'videos/');
+  const asset = manifest.assets[normalizedPath] as { blobUrl: string } | undefined;
+  return asset?.blobUrl || videoPath;
+}
+
+// Resolve video URLs for all flights
+const resolvedFlights = flightsData.flights.map(f => ({
+  ...f,
+  video: resolveVideoUrl(f.video)
+}));
+
+const cinematicFlights = resolvedFlights.filter(f => f.category === 'cinematic');
+const fpvFlights = resolvedFlights.filter(f => f.category === 'fpv');
+const cinematicGear = flightsData.gear.filter(g => g.category === 'cinematic');
+const fpvGear = flightsData.gear.filter(g => g.category === 'fpv');
+---
+
+<BaseLayout title="Flights" description="Aerial perspectives" showHeader={false}>
+  <div class="flights-page">
+    <header class="page-header">
+      <a href="/" class="back-link">← solderneer</a>
+      <div class="page-title">
+        <h1>Flights</h1>
+        <div class="subtitle">aerial perspectives</div>
+      </div>
+      <RuneScroll runes={flightRunes} />
+    </header>
+
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="cinematic">Cinematic</button>
+      <button class="filter-tab" data-filter="fpv">FPV Racing</button>
+    </div>
+
+    <section class="flight-section" data-category="cinematic">
+      <div class="section-header">
+        <h2>Cinematic</h2>
+      </div>
+      <p class="section-desc">Slow, deliberate flights. Landscapes, architecture, and the patterns only visible from above.</p>
+
+      {cinematicGear.map(gear => (
+        <div class="gear-card">
+          <div class="gear-info">
+            <div class="gear-name">{gear.name}</div>
+            <div class="gear-subtitle">{gear.subtitle}</div>
+            <div class="gear-specs">
+              {gear.specs.map(spec => (
+                <div class="gear-spec">
+                  <span class="gear-spec-label">{spec.label}</span>
+                  <span class="gear-spec-value">{spec.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <div class="flight-grid">
+        {cinematicFlights.map(flight => (
+          <div class="flight-card" data-video={flight.video}>
+            <video
+              class="flight-video"
+              src={flight.video}
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            />
+            <div class="flight-info">
+              <div class="flight-title">{flight.title}</div>
+              <div class="flight-meta">
+                <span>{flight.date}</span>
+                <span class="flight-tag">{flight.tag}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="flight-section" data-category="fpv">
+      <div class="section-header">
+        <h2>FPV Racing</h2>
+      </div>
+      <p class="section-desc">Fast and raw. First-person racing footage, proximity flying, and the occasional crash.</p>
+
+      {fpvGear.map(gear => (
+        <div class="gear-card">
+          <div class="gear-info">
+            <div class="gear-name">{gear.name}</div>
+            <div class="gear-subtitle">{gear.subtitle}</div>
+            <div class="gear-specs">
+              {gear.specs.map(spec => (
+                <div class="gear-spec">
+                  <span class="gear-spec-label">{spec.label}</span>
+                  <span class="gear-spec-value">{spec.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <div class="flight-grid">
+        {fpvFlights.map(flight => (
+          <div class="flight-card" data-video={flight.video}>
+            <video
+              class="flight-video"
+              src={flight.video}
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            />
+            <div class="flight-info">
+              <div class="flight-title">{flight.title}</div>
+              <div class="flight-meta">
+                <span>{flight.date}</span>
+                <span class="flight-tag">{flight.tag}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  const tabs = document.querySelectorAll('.filter-tab');
+  const sections = document.querySelectorAll('.flight-section');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.getAttribute('data-filter');
+
+      sections.forEach(section => {
+        const category = section.getAttribute('data-category');
+        if (filter === 'all' || filter === category) {
+          (section as HTMLElement).style.display = 'block';
+        } else {
+          (section as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Video play on hover
+  const flightCards = document.querySelectorAll('.flight-card');
+
+  flightCards.forEach(card => {
+    const video = card.querySelector('.flight-video') as HTMLVideoElement;
+    if (!video) return;
+
+    card.addEventListener('mouseenter', () => {
+      if (!document.fullscreenElement) {
+        video.play().catch(() => {});
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (!document.fullscreenElement) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+
+    // Click to fullscreen with sound
+    card.addEventListener('click', () => {
+      video.muted = false;
+      video.controls = true;
+      video.play().catch(() => {});
+
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if ((video as any).webkitRequestFullscreen) {
+        (video as any).webkitRequestFullscreen();
+      }
+    });
+
+    // Reset when exiting fullscreen
+    const handleFullscreenExit = () => {
+      video.muted = true;
+      video.controls = false;
+      video.pause();
+      video.currentTime = 0;
+    };
+
+    video.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        handleFullscreenExit();
+      }
+    });
+
+    video.addEventListener('webkitfullscreenchange', () => {
+      if (!(document as any).webkitFullscreenElement) {
+        handleFullscreenExit();
+      }
+    });
+  });
+</script>
+
+<style>
+  .flights-page {
+    max-width: 720px;
+  }
+
+  .page-header {
+    padding-top: 40px;
+  }
+
+  .back-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .page-title h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+    color: var(--text);
+  }
+
+  .subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Filter tabs */
+  .filter-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 32px 0 24px;
+  }
+
+  .filter-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    border-radius: 4px;
+  }
+
+  .filter-tab:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .filter-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  /* Sections */
+  .flight-section {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+  }
+
+  .section-header h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .section-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    max-width: 480px;
+  }
+
+  /* Gear cards */
+  .gear-card {
+    display: block;
+    padding: 16px 20px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--text-tertiary);
+    margin-bottom: 28px;
+  }
+
+  .gear-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+  }
+
+  .gear-subtitle {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+
+  .gear-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+
+  .gear-spec {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .gear-spec-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-tertiary);
+  }
+
+  .gear-spec-label::after {
+    content: ':';
+  }
+
+  .gear-spec-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  /* Flight grid */
+  .flight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 540px) {
+    .flight-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .flight-card {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    transition: border-color 0.15s;
+    cursor: pointer;
+  }
+
+  .flight-card:hover {
+    border-color: var(--accent);
+  }
+
+  .flight-card:hover .flight-video {
+    transform: scale(1.03);
+  }
+
+  .flight-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--bg-code) 0%, #e8e8e8 100%);
+    transition: transform 0.3s ease;
+  }
+
+  .flight-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  }
+
+  .flight-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 2px;
+  }
+
+  .flight-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    gap: 8px;
+  }
+
+  .flight-tag {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    border-radius: 2px;
+  }
+</style>

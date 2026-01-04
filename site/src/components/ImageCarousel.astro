@@ -31,24 +31,25 @@ const { images = [] } = Astro.props;
   </div>
 </div>
 
-<style> 
+<style>
   .swiper {
     max-width: 90vw;
   }
 
   :global(.swiper-pagination-bullet) {
-    background-color: var(--primary-color) !important;
-    border: 2px solid var(--beight-dark) !important;
+    background-color: var(--border) !important;
+    border: none !important;
+    opacity: 1 !important;
   }
 
   :global(.swiper-pagination-bullet-active) {
-    background-color: var(--secondary-color) !important;
+    background-color: var(--accent) !important;
   }
 
   .swiper-pagination {
-    position: relative !important; /* Override default positioning */
-    margin-top: 10px !important; /* Add some space */
-    text-align: center !important; /* Center it horizontally */
+    position: relative !important;
+    margin-top: 10px !important;
+    text-align: center !important;
   }
 </style>
 
