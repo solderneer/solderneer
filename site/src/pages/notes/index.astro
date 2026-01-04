@@ -91,6 +91,7 @@ function formatDate(date: Date): string {
               <li
                 class="note-item"
                 data-title={note.data.title.toLowerCase()}
+                data-title-original={note.data.title}
                 data-tags={note.data.tags.join(',')}
               >
                 <div class="note-date">{formatDate(note.data.pubDate)}</div>
@@ -188,18 +189,20 @@ function formatDate(date: Date): string {
         (item as HTMLElement).style.display = '';
         visibleCount++;
 
-        // Highlight search matches
-        if (currentSearch) {
-          const titleEl = item.querySelector('.note-title');
-          if (titleEl) {
-            const text = titleEl.textContent || '';
+        // Highlight search matches - preserve the note-ref span
+        const titleEl = item.querySelector('.note-title');
+        const refEl = item.querySelector('.note-ref');
+        if (titleEl && refEl) {
+          const refHtml = refEl.outerHTML;
+          const originalTitle = item.getAttribute('data-title-original') || '';
+
+          if (currentSearch) {
             const regex = new RegExp(`(${currentSearch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-            titleEl.innerHTML = text.replace(regex, '<mark>$1</mark>');
-          }
-        } else {
-          const titleEl = item.querySelector('.note-title');
-          if (titleEl) {
-            titleEl.innerHTML = titleEl.textContent || '';
+            const highlightedTitle = originalTitle.replace(regex, '<mark>$1</mark>');
+            titleEl.innerHTML = refHtml + ' ' + highlightedTitle;
+          } else {
+            // Restore original structure
+            titleEl.innerHTML = refHtml + ' ' + originalTitle;
           }
         }
       } else {
