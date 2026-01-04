@@ -39,8 +39,8 @@ const notesByYear = page.data.reduce((acc, note) => {
 
 const years = Object.keys(notesByYear).map(Number).sort((a, b) => b - a);
 
-// Get unique tags from current page
-const allTags = [...new Set(page.data.flatMap(note => note.data.tags))];
+// Get ALL unique tags from tagsJson for the filter buttons
+const allTags = Object.keys(tagsJson);
 
 // Format date for display
 function formatDate(date: Date): string {
@@ -88,19 +88,17 @@ function formatDate(date: Date): string {
     <!-- Filter status -->
     <div class="filter-status" id="filter-status"></div>
 
-    <!-- Notes timeline -->
-    <div class="notes-timeline" id="notes-list">
+    <!-- Filtered results (shown when searching/filtering) -->
+    <div class="notes-timeline filtered-results" id="filtered-results" style="display: none;"></div>
+
+    <!-- Paginated notes timeline (shown by default) -->
+    <div class="notes-timeline" id="paginated-notes">
       {years.map((year) => (
         <div class="year-group" data-year={year}>
           <h2 class="year-label">{year}</h2>
           <ul class="notes-list">
-            {notesByYear[year].map((note, index) => (
-              <li
-                class="note-item"
-                data-title={note.data.title.toLowerCase()}
-                data-title-original={note.data.title}
-                data-tags={note.data.tags.join(',')}
-              >
+            {notesByYear[year].map((note) => (
+              <li class="note-item">
                 <div class="note-date">{formatDate(note.data.pubDate)}</div>
                 <div class="note-content">
                   <a href={`/notes/${note.slug}/`}>
@@ -126,8 +124,8 @@ function formatDate(date: Date): string {
       ))}
     </div>
 
-    <!-- Pagination -->
-    <nav class="pagination">
+    <!-- Pagination (hidden when filtering) -->
+    <nav class="pagination" id="pagination">
       <div class="pagination-info">
         Page {page.currentPage} of {page.lastPage} • {page.total} notes total
       </div>
@@ -160,16 +158,151 @@ function formatDate(date: Date): string {
 </BaseLayout>
 
 <script>
-  // Search functionality
+  interface Note {
+    slug: string;
+    title: string;
+    pubDate: string;
+    tags: string[];
+    wordCount: number;
+    minutesRead: string;
+    refNum: number;
+  }
+
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
   const searchHint = document.querySelector('.search-hint') as HTMLElement;
-  const noteItems = document.querySelectorAll('.note-item');
-  const yearGroups = document.querySelectorAll('.year-group');
   const filterStatus = document.getElementById('filter-status');
   const tagButtons = document.querySelectorAll('.tag-btn');
+  const paginatedNotes = document.getElementById('paginated-notes') as HTMLElement;
+  const filteredResults = document.getElementById('filtered-results') as HTMLElement;
+  const pagination = document.getElementById('pagination') as HTMLElement;
 
   let currentTag = 'all';
   let currentSearch = '';
+  let allNotesCache: Note[] | null = null;
+
+  // Format date for display
+  function formatDate(dateStr: string): string {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric'
+    });
+  }
+
+  // Escape HTML to prevent XSS
+  function escapeHtml(text: string): string {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Highlight search matches in text
+  function highlightMatch(text: string, search: string): string {
+    if (!search) return escapeHtml(text);
+    const escaped = escapeHtml(text);
+    const regex = new RegExp(`(${search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return escaped.replace(regex, '<mark>$1</mark>');
+  }
+
+  // Fetch all notes data
+  async function fetchAllNotes(): Promise<Note[]> {
+    if (allNotesCache) return allNotesCache;
+    const response = await fetch('/notes.json');
+    allNotesCache = await response.json();
+    return allNotesCache!;
+  }
+
+  // Render filtered notes
+  function renderFilteredNotes(notes: Note[]): void {
+    // Group by year
+    const notesByYear: Record<number, Note[]> = {};
+    notes.forEach(note => {
+      const year = new Date(note.pubDate).getFullYear();
+      if (!notesByYear[year]) notesByYear[year] = [];
+      notesByYear[year].push(note);
+    });
+
+    const years = Object.keys(notesByYear).map(Number).sort((a, b) => b - a);
+
+    let html = '';
+    years.forEach(year => {
+      html += `<div class="year-group">
+        <h2 class="year-label">${year}</h2>
+        <ul class="notes-list">`;
+
+      notesByYear[year].forEach(note => {
+        const refNum = String(note.refNum).padStart(3, '0');
+        const dateStr = formatDate(note.pubDate);
+        const titleHtml = highlightMatch(note.title, currentSearch);
+        const tag = note.tags[0] || '';
+
+        html += `<li class="note-item">
+          <div class="note-date">${dateStr}</div>
+          <div class="note-content">
+            <a href="/notes/${note.slug}/">
+              <span class="note-title">
+                <span class="note-ref">N${refNum}</span>
+                ${titleHtml}
+              </span>
+              <span class="note-tag">${escapeHtml(tag)}</span>
+              <div class="note-details">
+                ${note.wordCount ? `<span class="note-detail">${note.wordCount} words</span>` : ''}
+                ${note.minutesRead ? `<span class="note-detail">${escapeHtml(note.minutesRead)}</span>` : ''}
+              </div>
+            </a>
+          </div>
+        </li>`;
+      });
+
+      html += `</ul></div>`;
+    });
+
+    filteredResults.innerHTML = html;
+  }
+
+  // Filter and display notes
+  async function filterNotes(): Promise<void> {
+    const isFiltering = currentTag !== 'all' || currentSearch !== '';
+
+    if (!isFiltering) {
+      // Show paginated view
+      paginatedNotes.style.display = '';
+      filteredResults.style.display = 'none';
+      pagination.style.display = '';
+      if (filterStatus) filterStatus.textContent = '';
+      return;
+    }
+
+    // Show filtered view
+    paginatedNotes.style.display = 'none';
+    filteredResults.style.display = '';
+    pagination.style.display = 'none';
+
+    // Fetch all notes and filter
+    const allNotes = await fetchAllNotes();
+    const filtered = allNotes.filter(note => {
+      const titleLower = note.title.toLowerCase();
+      const tagsStr = note.tags.join(',').toLowerCase();
+
+      const matchesSearch = currentSearch === '' ||
+        titleLower.includes(currentSearch) ||
+        tagsStr.includes(currentSearch);
+      const matchesTag = currentTag === 'all' || note.tags.includes(currentTag);
+
+      return matchesSearch && matchesTag;
+    });
+
+    renderFilteredNotes(filtered);
+
+    // Update status
+    if (filterStatus) {
+      const parts = [];
+      if (currentTag !== 'all') parts.push('#' + currentTag);
+      if (currentSearch) parts.push('"' + currentSearch + '"');
+      filterStatus.textContent = filtered.length + ' note' + (filtered.length !== 1 ? 's' : '') +
+        (parts.length ? ' matching ' + parts.join(' + ') : '');
+    }
+  }
 
   // Focus search on / key
   document.addEventListener('keydown', (e) => {
@@ -221,62 +354,6 @@ function formatDate(date: Date): string {
       filterNotes();
     });
   });
-
-  function filterNotes() {
-    let visibleCount = 0;
-    let totalWords = 0;
-
-    noteItems.forEach(item => {
-      const title = item.getAttribute('data-title') || '';
-      const tags = item.getAttribute('data-tags') || '';
-
-      const matchesSearch = currentSearch === '' || title.includes(currentSearch) || tags.includes(currentSearch);
-      const matchesTag = currentTag === 'all' || tags.includes(currentTag);
-
-      if (matchesSearch && matchesTag) {
-        (item as HTMLElement).style.display = '';
-        visibleCount++;
-
-        // Highlight search matches - preserve the note-ref span
-        const titleEl = item.querySelector('.note-title');
-        const refEl = item.querySelector('.note-ref');
-        if (titleEl && refEl) {
-          const refHtml = refEl.outerHTML;
-          const originalTitle = item.getAttribute('data-title-original') || '';
-
-          if (currentSearch) {
-            const regex = new RegExp(`(${currentSearch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-            const highlightedTitle = originalTitle.replace(regex, '<mark>$1</mark>');
-            titleEl.innerHTML = refHtml + ' ' + highlightedTitle;
-          } else {
-            // Restore original structure
-            titleEl.innerHTML = refHtml + ' ' + originalTitle;
-          }
-        }
-      } else {
-        (item as HTMLElement).style.display = 'none';
-      }
-    });
-
-    // Hide empty year groups
-    yearGroups.forEach(group => {
-      const visibleItems = group.querySelectorAll('.note-item:not([style*="display: none"])');
-      (group as HTMLElement).style.display = visibleItems.length ? '' : 'none';
-    });
-
-    // Update status - only show when filtering
-    if (filterStatus) {
-      if (currentTag === 'all' && !currentSearch) {
-        filterStatus.textContent = '';
-      } else {
-        const parts = [];
-        if (currentTag !== 'all') parts.push('#' + currentTag);
-        if (currentSearch) parts.push('"' + currentSearch + '"');
-        filterStatus.textContent = visibleCount + ' note' + (visibleCount !== 1 ? 's' : '') +
-          (parts.length ? ' matching ' + parts.join(' + ') : '');
-      }
-    }
-  }
 
   // On page load, check for tag parameter in URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -475,15 +552,15 @@ function formatDate(date: Date): string {
     padding: 24px 0 40px;
   }
 
-  .year-group {
+  .notes-timeline :global(.year-group) {
     margin-bottom: 48px;
   }
 
-  .year-group:last-child {
+  .notes-timeline :global(.year-group:last-child) {
     margin-bottom: 0;
   }
 
-  .year-label {
+  .notes-timeline :global(.year-label) {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
     font-weight: 500;
@@ -494,11 +571,11 @@ function formatDate(date: Date): string {
     border-bottom: 1px solid var(--border);
   }
 
-  .notes-list {
+  .notes-timeline :global(.notes-list) {
     list-style: none;
   }
 
-  .note-item {
+  .notes-timeline :global(.note-item) {
     display: grid;
     grid-template-columns: 80px 1fr;
     gap: 20px;
@@ -506,27 +583,27 @@ function formatDate(date: Date): string {
     border-bottom: 1px solid var(--border);
   }
 
-  .note-item:last-child {
+  .notes-timeline :global(.note-item:last-child) {
     border-bottom: none;
   }
 
-  .note-item a {
+  .notes-timeline :global(.note-item a) {
     text-decoration: none;
     display: block;
   }
 
-  .note-date {
+  .notes-timeline :global(.note-date) {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
     color: var(--text-tertiary);
     padding-top: 2px;
   }
 
-  .note-content {
+  .notes-timeline :global(.note-content) {
     min-width: 0;
   }
 
-  .note-title {
+  .notes-timeline :global(.note-title) {
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--text);
@@ -534,25 +611,25 @@ function formatDate(date: Date): string {
     transition: color 0.15s;
   }
 
-  .note-ref {
+  .notes-timeline :global(.note-ref) {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
     color: var(--text-tertiary);
     margin-right: 8px;
   }
 
-  .note-content a:hover .note-title {
+  .notes-timeline :global(.note-content a:hover .note-title) {
     color: var(--accent);
   }
 
-  .note-tag {
+  .notes-timeline :global(.note-tag) {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
     color: var(--accent);
     text-transform: lowercase;
   }
 
-  .note-details {
+  .notes-timeline :global(.note-details) {
     display: flex;
     gap: 12px;
     margin-top: 4px;
@@ -561,12 +638,12 @@ function formatDate(date: Date): string {
     transition: opacity 0.2s, transform 0.2s;
   }
 
-  .note-item:hover .note-details {
+  .notes-timeline :global(.note-item:hover .note-details) {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .note-detail {
+  .notes-timeline :global(.note-detail) {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.6rem;
     color: var(--text-tertiary);
@@ -575,7 +652,7 @@ function formatDate(date: Date): string {
     gap: 4px;
   }
 
-  .note-detail::before {
+  .notes-timeline :global(.note-detail::before) {
     content: '';
     width: 3px;
     height: 3px;
@@ -583,12 +660,12 @@ function formatDate(date: Date): string {
     border-radius: 50%;
   }
 
-  .note-detail:first-child::before {
+  .notes-timeline :global(.note-detail:first-child::before) {
     display: none;
   }
 
   /* Search highlight */
-  .note-title :global(mark) {
+  .notes-timeline :global(mark) {
     background: rgba(30, 58, 95, 0.15);
     color: inherit;
     padding: 0 2px;
@@ -660,16 +737,16 @@ function formatDate(date: Date): string {
   }
 
   @media (max-width: 500px) {
-    .note-item {
+    .notes-timeline :global(.note-item) {
       grid-template-columns: 1fr;
       gap: 4px;
     }
 
-    .note-date {
+    .notes-timeline :global(.note-date) {
       padding-top: 0;
     }
 
-    .note-details {
+    .notes-timeline :global(.note-details) {
       opacity: 1;
       transform: none;
     }
