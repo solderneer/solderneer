@@ -127,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'IBM Plex Serif', Georgia, serif;
   line-height: 1.7;
   color: var(--text);
-  counter-reset: figure;
+  counter-reset: figure h1-counter h2-counter h3-counter;
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4 {
@@ -136,9 +136,49 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
-.prose h1 { font-size: 1.5rem; margin: 2em 0 0.8em; }
-.prose h2 { font-size: 1.3rem; margin: 2.5em 0 1em; }
-.prose h3 { font-size: 1.1rem; margin: 2em 0 0.8em; }
+/* H1: centered, numbered "1." */
+.prose h1 {
+  font-size: 1.5rem;
+  margin: 2em 0 0.8em;
+  text-align: center;
+  counter-increment: h1-counter;
+  counter-reset: h2-counter;
+}
+
+.prose h1::before {
+  content: counter(h1-counter) ". ";
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text-secondary);
+}
+
+/* H2: left-aligned, numbered "1.1" */
+.prose h2 {
+  font-size: 1.3rem;
+  margin: 2.5em 0 1em;
+  text-align: left;
+  counter-increment: h2-counter;
+  counter-reset: h3-counter;
+}
+
+.prose h2::before {
+  content: counter(h1-counter) "." counter(h2-counter) " ";
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text-secondary);
+}
+
+/* H3: left-aligned, numbered "1.1.1" */
+.prose h3 {
+  font-size: 1.1rem;
+  margin: 2em 0 0.8em;
+  text-align: left;
+  counter-increment: h3-counter;
+}
+
+.prose h3::before {
+  content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) " ";
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text-secondary);
+}
 
 .prose p {
   margin-bottom: 1.5em;
