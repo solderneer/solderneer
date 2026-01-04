@@ -2,8 +2,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import RuneScroll from "../components/RuneScroll.astro";
 import objects from "../data/objects.json";
+import manifest from "../data/media-manifest.json";
 
 const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
+
+// Create a map of model filenames to Blob URLs for client-side lookup
+const modelUrls: Record<string, string> = {};
+for (const [path, asset] of Object.entries(manifest.assets)) {
+  if (path.startsWith('models/')) {
+    // Extract just the filename for lookup
+    const filename = path.replace('models/', '');
+    modelUrls[filename] = (asset as { blobUrl: string }).blobUrl;
+  }
+}
 ---
 
 <BaseLayout title="Object Library" description="A catalog of beautiful products" showHeader={false}>
@@ -38,7 +49,7 @@ const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
   </div>
 </BaseLayout>
 
-<script define:vars={{ objects }}>
+<script define:vars={{ objects, modelUrls }}>
   // Three.js loaded via CDN
   const script1 = document.createElement('script');
   script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
@@ -49,6 +60,11 @@ const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
     document.head.appendChild(script2);
   };
   document.head.appendChild(script1);
+
+  // Helper to get model URL - tries Blob first, falls back to /models/
+  function getModelUrl(filename) {
+    return modelUrls[filename] || '/models/' + filename;
+  }
 
   function initGallery() {
     const gallery = document.getElementById('gallery');
@@ -95,9 +111,9 @@ const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
       const colorVal = parseInt(obj.color.replace('0x', ''), 16);
 
       if (obj.shape === 'gltf' && obj.model) {
-        // Load GLTF model
+        // Load GLTF model from Blob storage or fallback to /models/
         const loader = new THREE.GLTFLoader();
-        loader.load('/models/' + obj.model, (gltf) => {
+        loader.load(getModelUrl(obj.model), (gltf) => {
           const model = gltf.scene;
 
           // Center and scale the model

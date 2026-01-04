@@ -1,1 +1,10 @@
 site-beta/
+.DS_Store
+
+# Media staging directory (uploaded to Vercel Blob)
+media/
+
+# Environment variables
+.env.local
+.vercel
+.env*.local

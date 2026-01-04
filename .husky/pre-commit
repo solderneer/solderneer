@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Check if there are media files staged
+if git diff --cached --name-only | grep -qE "^media/"; then
+  echo "Media files detected. Uploading to Vercel Blob..."
+
+  # Run upload script
+  npm run upload-media
+
+  if [ $? -ne 0 ]; then
+    echo "Media upload failed. Commit aborted."
+    exit 1
+  fi
+
+  # Stage the updated manifest
+  git add site/src/data/media-manifest.json
+
+  echo "Media manifest updated and staged."
+fi

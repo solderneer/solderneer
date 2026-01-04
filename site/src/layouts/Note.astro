@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 
 import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
+import { getOptimizedImageUrl, isExternalUrl } from "../lib/media";
 
 type Backlink = {
   slug: string;
@@ -16,6 +17,17 @@ type Props = CollectionEntry<"notes">["data"] & {
 
 const { title, description, pubDate, updatedDate, tags, originalPost, heroImage, backlinks = [] } = Astro.props;
 
+// Resolve hero image URL - could be external URL or local manifest path
+let resolvedHeroImage: string | undefined;
+if (heroImage) {
+  if (isExternalUrl(heroImage)) {
+    resolvedHeroImage = heroImage;
+  } else {
+    // Local path - look up in manifest with optimization
+    resolvedHeroImage = getOptimizedImageUrl(heroImage, { width: 1280, quality: 80 }) || heroImage;
+  }
+}
+
 // Extract hostname from original post
 let showOP = false;
 let hostname = "";
@@ -25,7 +37,7 @@ if (originalPost != undefined) {
 }
 ---
 
-<BaseLayout title={title} description={description} image={heroImage} showHeader={false}>
+<BaseLayout title={title} description={description} image={resolvedHeroImage} showHeader={false}>
   <!-- Table of Contents (fixed on wide screens) -->
   <aside class="toc" id="toc">
     <h4>CONTENTS</h4>
@@ -34,10 +46,10 @@ if (originalPost != undefined) {
 
   <article class="note-article">
     <header class="note-header">
-      {heroImage && (
+      {resolvedHeroImage && (
         <div
           class="hero-image"
-          style={`background-image: url(${heroImage})`}
+          style={`background-image: url(${resolvedHeroImage})`}
         />
       )}
 
