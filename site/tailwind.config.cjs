@@ -28,9 +28,14 @@ module.exports = {
             "--tw-prose-captions": theme("colors.text-color"),
             "--tw-prose-code": theme("colors.text-color"),
             "--tw-prose-pre-code": theme("colors.text-color"),
-            "--tw-prose-pre-bg": theme("colors.text-color"),
+            "--tw-prose-pre-bg": "transparent",
             "--tw-prose-th-borders": theme("colors.text-color"),
             "--tw-prose-td-borders": theme("colors.text-color"),
+            // Remove background from blockquotes (poetry)
+            "blockquote": {
+              backgroundColor: "transparent",
+              background: "none",
+            },
             "--tw-prose-invert-body": theme("colors.pink[200]"),
             "--tw-prose-invert-headings": theme("colors.white"),
             "--tw-prose-invert-lead": theme("colors.pink[300]"),
