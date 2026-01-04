@@ -58,7 +58,6 @@ function formatDate(date: Date): string {
       </div>
     </header>
 
-    <!-- Search -->
     <div class="search-container">
       <span class="search-icon">/</span>
       <input
@@ -67,25 +66,22 @@ function formatDate(date: Date): string {
         id="search-input"
         placeholder="search notes..."
         autocomplete="off"
+        aria-label="Search notes"
       />
       <span class="search-hint">press /</span>
     </div>
 
-    <!-- Tags filter -->
-    <div class="tags-filter">
-      <a href="/notes/" class="tag-btn active">all</a>
+    <div class="tags-filter" role="navigation" aria-label="Filter by tag">
+      <a href="/notes/" class="tag-btn active" aria-current="page">all</a>
       {allTags.map((tag) => (
         <a href={`/notes/tag/${tag}/`} class="tag-btn">{tag}</a>
       ))}
     </div>
 
-    <!-- Filter status -->
-    <div class="filter-status" id="filter-status"></div>
+    <div class="filter-status" id="filter-status" aria-live="polite"></div>
 
-    <!-- Filtered results (shown when searching) -->
     <div class="notes-timeline filtered-results" id="filtered-results" style="display: none;"></div>
 
-    <!-- Paginated notes timeline -->
     <div class="notes-timeline" id="paginated-notes">
       {years.map((year) => (
         <div class="year-group" data-year={year}>
@@ -118,16 +114,15 @@ function formatDate(date: Date): string {
       ))}
     </div>
 
-    <!-- Pagination -->
-    <nav class="pagination" id="pagination">
+    <nav class="pagination" id="pagination" aria-label="Notes pagination">
       <div class="pagination-info">
         Page {page.currentPage} of {page.lastPage} • {page.total} notes total
       </div>
       <div class="pagination-links">
         {page.url.prev ? (
-          <a href={page.url.prev} class="pagination-link">← Newer</a>
+          <a href={page.url.prev} class="pagination-link" aria-label="Go to previous page">← Newer</a>
         ) : (
-          <span class="pagination-link disabled">← Newer</span>
+          <span class="pagination-link disabled" aria-disabled="true">← Newer</span>
         )}
 
         <div class="pagination-pages">
@@ -135,6 +130,8 @@ function formatDate(date: Date): string {
             <a
               href={pageNum === 1 ? '/notes/' : `/notes/${pageNum}/`}
               class:list={['page-num', { active: pageNum === page.currentPage }]}
+              aria-label={`Go to page ${pageNum}`}
+              aria-current={pageNum === page.currentPage ? 'page' : undefined}
             >
               {pageNum}
             </a>
@@ -142,9 +139,9 @@ function formatDate(date: Date): string {
         </div>
 
         {page.url.next ? (
-          <a href={page.url.next} class="pagination-link">Older →</a>
+          <a href={page.url.next} class="pagination-link" aria-label="Go to next page">Older →</a>
         ) : (
-          <span class="pagination-link disabled">Older →</span>
+          <span class="pagination-link disabled" aria-disabled="true">Older →</span>
         )}
       </div>
     </nav>
@@ -152,205 +149,8 @@ function formatDate(date: Date): string {
 </BaseLayout>
 
 <script>
-  interface Note {
-    slug: string;
-    title: string;
-    pubDate: string;
-    tags: string[];
-    wordCount: number;
-    minutesRead: string;
-    refNum: number;
-  }
-
-  const searchInput = document.getElementById('search-input') as HTMLInputElement;
-  const searchHint = document.querySelector('.search-hint') as HTMLElement;
-  const filterStatus = document.getElementById('filter-status');
-  const paginatedNotes = document.getElementById('paginated-notes') as HTMLElement;
-  const filteredResults = document.getElementById('filtered-results') as HTMLElement;
-  const pagination = document.getElementById('pagination') as HTMLElement;
-
-  let currentSearch = '';
-  let allNotesCache: Note[] | null = null;
-  let currentPage = 1;
-  const pageSize = 25;
-
-  function formatDate(dateStr: string): string {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  }
-
-  function escapeHtml(text: string): string {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
-  function highlightMatch(text: string, search: string): string {
-    if (!search) return escapeHtml(text);
-    const escaped = escapeHtml(text);
-    const regex = new RegExp(`(${search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    return escaped.replace(regex, '<mark>$1</mark>');
-  }
-
-  async function fetchAllNotes(): Promise<Note[]> {
-    if (allNotesCache) return allNotesCache;
-    const response = await fetch('/notes.json');
-    allNotesCache = await response.json();
-    return allNotesCache!;
-  }
-
-  function renderFilteredNotes(notes: Note[]): void {
-    const notesByYear: Record<number, Note[]> = {};
-    notes.forEach(note => {
-      const year = new Date(note.pubDate).getFullYear();
-      if (!notesByYear[year]) notesByYear[year] = [];
-      notesByYear[year].push(note);
-    });
-
-    const years = Object.keys(notesByYear).map(Number).sort((a, b) => b - a);
-
-    let html = '';
-    years.forEach(year => {
-      html += `<div class="year-group">
-        <h2 class="year-label">${year}</h2>
-        <ul class="notes-list">`;
-
-      notesByYear[year].forEach(note => {
-        const refNum = String(note.refNum).padStart(3, '0');
-        const dateStr = formatDate(note.pubDate);
-        const titleHtml = highlightMatch(note.title, currentSearch);
-        const tag = note.tags[0] || '';
-
-        html += `<li class="note-item">
-          <div class="note-date">${dateStr}</div>
-          <div class="note-content">
-            <a href="/notes/${note.slug}/">
-              <span class="note-title">
-                <span class="note-ref">N${refNum}</span>
-                ${titleHtml}
-              </span>
-              <span class="note-tag">${escapeHtml(tag)}</span>
-              <div class="note-details">
-                ${note.wordCount ? `<span class="note-detail">${note.wordCount} words</span>` : ''}
-                ${note.minutesRead ? `<span class="note-detail">${escapeHtml(note.minutesRead)}</span>` : ''}
-              </div>
-            </a>
-          </div>
-        </li>`;
-      });
-
-      html += `</ul></div>`;
-    });
-
-    filteredResults.innerHTML = html;
-  }
-
-  function renderPagination(totalNotes: number, currentPage: number): string {
-    const totalPages = Math.ceil(totalNotes / pageSize);
-    if (totalPages <= 1) return '';
-
-    let pagesHtml = '';
-    for (let i = 1; i <= totalPages; i++) {
-      pagesHtml += `<button class="page-num ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
-    }
-
-    return `
-      <div class="pagination-info">Page ${currentPage} of ${totalPages} • ${totalNotes} notes</div>
-      <div class="pagination-links">
-        <button class="pagination-link ${currentPage === 1 ? 'disabled' : ''}" data-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''}>← Newer</button>
-        <div class="pagination-pages">${pagesHtml}</div>
-        <button class="pagination-link ${currentPage === totalPages ? 'disabled' : ''}" data-page="${currentPage + 1}" ${currentPage === totalPages ? 'disabled' : ''}>Older →</button>
-      </div>
-    `;
-  }
-
-  async function filterNotes(): Promise<void> {
-    const isSearching = currentSearch !== '';
-
-    if (!isSearching) {
-      paginatedNotes.style.display = '';
-      filteredResults.style.display = 'none';
-      pagination.style.display = '';
-      if (filterStatus) filterStatus.textContent = '';
-      // Restore original pagination
-      location.reload();
-      return;
-    }
-
-    paginatedNotes.style.display = 'none';
-    filteredResults.style.display = '';
-
-    const allNotes = await fetchAllNotes();
-    const filtered = allNotes.filter(note => {
-      const titleLower = note.title.toLowerCase();
-      const tagsStr = note.tags.join(',').toLowerCase();
-      return titleLower.includes(currentSearch) || tagsStr.includes(currentSearch);
-    });
-
-    const totalPages = Math.ceil(filtered.length / pageSize);
-    if (currentPage > totalPages) currentPage = 1;
-
-    const startIdx = (currentPage - 1) * pageSize;
-    const pageNotes = filtered.slice(startIdx, startIdx + pageSize);
-
-    renderFilteredNotes(pageNotes);
-
-    pagination.innerHTML = renderPagination(filtered.length, currentPage);
-    pagination.style.display = '';
-
-    // Add click handlers for pagination
-    pagination.querySelectorAll('[data-page]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const newPage = parseInt((e.target as HTMLElement).dataset.page || '1');
-        if (newPage >= 1 && newPage <= totalPages) {
-          currentPage = newPage;
-          filterNotes();
-        }
-      });
-    });
-
-    if (filterStatus) {
-      filterStatus.textContent = `${filtered.length} note${filtered.length !== 1 ? 's' : ''} matching "${currentSearch}"`;
-    }
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === '/' && document.activeElement !== searchInput) {
-      e.preventDefault();
-      searchInput.focus();
-    }
-    if (e.key === 'Escape') {
-      searchInput.blur();
-      searchInput.value = '';
-      currentSearch = '';
-      currentPage = 1;
-      paginatedNotes.style.display = '';
-      filteredResults.style.display = 'none';
-      if (filterStatus) filterStatus.textContent = '';
-    }
-  });
-
-  searchInput.addEventListener('focus', () => {
-    searchHint.style.opacity = '0';
-  });
-
-  searchInput.addEventListener('blur', () => {
-    if (!searchInput.value) {
-      searchHint.style.opacity = '1';
-    }
-  });
-
-  searchInput.addEventListener('input', (e) => {
-    currentSearch = (e.target as HTMLInputElement).value.toLowerCase();
-    currentPage = 1;
-    if (currentSearch === '') {
-      paginatedNotes.style.display = '';
-      filteredResults.style.display = 'none';
-      if (filterStatus) filterStatus.textContent = '';
-    } else {
-      filterNotes();
-    }
-  });
+  import { NotesSearch } from '../../scripts/notes-search';
+  new NotesSearch();
 </script>
 
 <style>
@@ -642,6 +442,14 @@ function formatDate(date: Date): string {
     background: rgba(30, 58, 95, 0.15);
     color: inherit;
     padding: 0 2px;
+  }
+
+  .notes-timeline :global(.no-results) {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-align: center;
+    padding: 40px 0;
   }
 
   .pagination {
