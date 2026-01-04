@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import tagsJson from "../../content/_tags.json";
+import tagsJson from "../../../../content/_tags.json";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const notes = await getCollection("notes");
@@ -21,11 +21,21 @@ export const getStaticPaths = (async ({ paginate }) => {
     })
   );
 
-  return paginate(notesWithMeta, { pageSize: 25 });
+  const allTags = Object.keys(tagsJson);
+
+  return allTags.flatMap((tag) => {
+    const tagNotes = notesWithMeta.filter(note => note.data.tags.includes(tag));
+    return paginate(tagNotes, {
+      params: { tag },
+      pageSize: 25,
+    });
+  });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
+const { tag } = Astro.params;
 
+// Group notes by year
 const notesByYear = page.data.reduce((acc, note) => {
   const year = note.data.pubDate.getFullYear();
   if (!acc[year]) acc[year] = [];
@@ -45,7 +55,7 @@ function formatDate(date: Date): string {
 }
 ---
 
-<BaseLayout title="Notes" description="Research notes and technical documentation" showHeader={false}>
+<BaseLayout title={`Notes: #${tag}`} description={`Notes tagged with ${tag}`} showHeader={false}>
   <div class="notes-archive">
     <header class="archive-header">
       <a href="/" class="back-link">← solderneer</a>
@@ -73,14 +83,16 @@ function formatDate(date: Date): string {
 
     <!-- Tags filter -->
     <div class="tags-filter">
-      <a href="/notes/" class="tag-btn active">all</a>
-      {allTags.map((tag) => (
-        <a href={`/notes/tag/${tag}/`} class="tag-btn">{tag}</a>
+      <a href="/notes/" class="tag-btn">all</a>
+      {allTags.map((t) => (
+        <a href={`/notes/tag/${t}/`} class:list={["tag-btn", { active: t === tag }]}>{t}</a>
       ))}
     </div>
 
     <!-- Filter status -->
-    <div class="filter-status" id="filter-status"></div>
+    <div class="filter-status" id="filter-status">
+      {page.total} note{page.total !== 1 ? 's' : ''} tagged #{tag}
+    </div>
 
     <!-- Filtered results (shown when searching) -->
     <div class="notes-timeline filtered-results" id="filtered-results" style="display: none;"></div>
@@ -121,7 +133,7 @@ function formatDate(date: Date): string {
     <!-- Pagination -->
     <nav class="pagination" id="pagination">
       <div class="pagination-info">
-        Page {page.currentPage} of {page.lastPage} • {page.total} notes total
+        Page {page.currentPage} of {page.lastPage} • {page.total} notes
       </div>
       <div class="pagination-links">
         {page.url.prev ? (
@@ -133,7 +145,7 @@ function formatDate(date: Date): string {
         <div class="pagination-pages">
           {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((pageNum) => (
             <a
-              href={pageNum === 1 ? '/notes/' : `/notes/${pageNum}/`}
+              href={pageNum === 1 ? `/notes/tag/${tag}/` : `/notes/tag/${tag}/${pageNum}/`}
               class:list={['page-num', { active: pageNum === page.currentPage }]}
             >
               {pageNum}
@@ -150,6 +162,10 @@ function formatDate(date: Date): string {
     </nav>
   </div>
 </BaseLayout>
+
+<script define:vars={{ currentTag: tag }}>
+  window.__currentTag = currentTag;
+</script>
 
 <script>
   interface Note {
@@ -169,6 +185,7 @@ function formatDate(date: Date): string {
   const filteredResults = document.getElementById('filtered-results') as HTMLElement;
   const pagination = document.getElementById('pagination') as HTMLElement;
 
+  const currentTag = (window as any).__currentTag;
   let currentSearch = '';
   let allNotesCache: Note[] | null = null;
   let currentPage = 1;
@@ -199,7 +216,7 @@ function formatDate(date: Date): string {
     return allNotesCache!;
   }
 
-  function renderFilteredNotes(notes: Note[]): void {
+  function renderFilteredNotes(notes: Note[], page: number, totalPages: number): void {
     const notesByYear: Record<number, Note[]> = {};
     notes.forEach(note => {
       const year = new Date(note.pubDate).getFullYear();
@@ -271,9 +288,10 @@ function formatDate(date: Date): string {
       paginatedNotes.style.display = '';
       filteredResults.style.display = 'none';
       pagination.style.display = '';
-      if (filterStatus) filterStatus.textContent = '';
-      // Restore original pagination
-      location.reload();
+      if (filterStatus) {
+        const total = parseInt(pagination.querySelector('.pagination-info')?.textContent?.match(/(\d+) notes/)?.[1] || '0');
+        filterStatus.textContent = `${total} note${total !== 1 ? 's' : ''} tagged #${currentTag}`;
+      }
       return;
     }
 
@@ -283,8 +301,9 @@ function formatDate(date: Date): string {
     const allNotes = await fetchAllNotes();
     const filtered = allNotes.filter(note => {
       const titleLower = note.title.toLowerCase();
-      const tagsStr = note.tags.join(',').toLowerCase();
-      return titleLower.includes(currentSearch) || tagsStr.includes(currentSearch);
+      const matchesSearch = titleLower.includes(currentSearch);
+      const matchesTag = note.tags.includes(currentTag);
+      return matchesSearch && matchesTag;
     });
 
     const totalPages = Math.ceil(filtered.length / pageSize);
@@ -293,7 +312,7 @@ function formatDate(date: Date): string {
     const startIdx = (currentPage - 1) * pageSize;
     const pageNotes = filtered.slice(startIdx, startIdx + pageSize);
 
-    renderFilteredNotes(pageNotes);
+    renderFilteredNotes(pageNotes, currentPage, totalPages);
 
     pagination.innerHTML = renderPagination(filtered.length, currentPage);
     pagination.style.display = '';
@@ -310,7 +329,7 @@ function formatDate(date: Date): string {
     });
 
     if (filterStatus) {
-      filterStatus.textContent = `${filtered.length} note${filtered.length !== 1 ? 's' : ''} matching "${currentSearch}"`;
+      filterStatus.textContent = `${filtered.length} note${filtered.length !== 1 ? 's' : ''} matching "${currentSearch}" in #${currentTag}`;
     }
   }
 
@@ -324,9 +343,7 @@ function formatDate(date: Date): string {
       searchInput.value = '';
       currentSearch = '';
       currentPage = 1;
-      paginatedNotes.style.display = '';
-      filteredResults.style.display = 'none';
-      if (filterStatus) filterStatus.textContent = '';
+      filterNotes();
     }
   });
 
@@ -343,13 +360,7 @@ function formatDate(date: Date): string {
   searchInput.addEventListener('input', (e) => {
     currentSearch = (e.target as HTMLInputElement).value.toLowerCase();
     currentPage = 1;
-    if (currentSearch === '') {
-      paginatedNotes.style.display = '';
-      filteredResults.style.display = 'none';
-      if (filterStatus) filterStatus.textContent = '';
-    } else {
-      filterNotes();
-    }
+    filterNotes();
   });
 </script>
 
