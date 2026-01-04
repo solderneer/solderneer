@@ -1,32 +1,437 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import MarkdownBlock from "../components/MarkdownBlock.astro";
-import LinkGraph from "../components/LinkGraph.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Tag from "../components/Tag.astro";
-
 import { getCollection } from "astro:content";
 
-const notes = await getCollection("notes");
-const topOfMind = notes.find(note => note.slug === "top-of-mind");
+// Get all notes, sorted by date
+const allNotes = await getCollection("notes");
+const totalNotes = allNotes.length;
+const sortedNotes = allNotes
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 8)
+  .map((note, index) => ({
+    ...note,
+    refNum: totalNotes - index,  // newest gets totalNotes, next gets totalNotes-1, etc.
+  }));
 
-if (!topOfMind) {
-  throw new Error("Top of mind note not found");
+// Get essays when available (for now, placeholder)
+let essays: any[] = [];
+try {
+  const essayCollection = await getCollection("essays");
+  const totalEssays = essayCollection.length;
+  essays = essayCollection
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 4)
+    .map((essay, index) => ({
+      ...essay,
+      refNum: totalEssays - index,  // newest gets totalEssays, next gets totalEssays-1, etc.
+    }));
+} catch (e) {
+  // Essays collection not yet created
 }
 
-const { Content } = await topOfMind.render();
-
-const { title, description, emoji, pubDate, updatedDate, tags } = topOfMind.data;
+// Format date for display
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+}
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <MarkdownBlock>
-      <img
-        class="w-full max-w-5xl bg-contain bg-no-repeat bg-center mb-2"
-        src="/main-cover-lg.gif"
-      />
-    <Content />
-    <LinkGraph rootPath="notes/top-of-mind/" />
-  </MarkdownBlock>
+  <div class="main-content">
+    <!-- Essays Column -->
+    <div class="essays-column">
+      <div class="column-header">
+        <h2>Essays</h2>
+        <a href="/essays">View all →</a>
+      </div>
+
+      {essays.length > 0 ? (
+        <>
+          <div class="essay-featured">
+            <a href={`/essays/${essays[0].slug}/`}>
+              <h3 class="essay-featured-title">
+                <span class="essay-ref">E{String(essays[0].refNum).padStart(3, '0')}</span>
+                {essays[0].data.title}
+              </h3>
+              {essays[0].data.description && (
+                <p class="essay-featured-excerpt">{essays[0].data.description}</p>
+              )}
+              <div class="essay-featured-meta">
+                <span>{formatDate(essays[0].data.pubDate)}</span>
+                {essays[0].data.tags?.[0] && (
+                  <span class="essay-tag">{essays[0].data.tags[0]}</span>
+                )}
+              </div>
+            </a>
+          </div>
+
+          <ul class="essay-list">
+            {essays.slice(1).map((essay) => (
+              <li class="essay-item">
+                <a href={`/essays/${essay.slug}/`}>
+                  <h4 class="essay-title">
+                    <span class="essay-ref">E{String(essay.refNum).padStart(3, '0')}</span>
+                    {essay.data.title}
+                  </h4>
+                  {essay.data.description && (
+                    <p class="essay-excerpt">{essay.data.description}</p>
+                  )}
+                  <div class="essay-meta">
+                    <span>{formatDate(essay.data.pubDate)}</span>
+                    {essay.data.tags?.[0] && (
+                      <span class="essay-tag">{essay.data.tags[0]}</span>
+                    )}
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <div class="placeholder">
+          <p class="text-secondary">Essays coming soon. In the meantime, check out the notes.</p>
+        </div>
+      )}
+    </div>
+
+    <!-- Notes Column -->
+    <div class="notes-column">
+      <div class="column-header">
+        <h2>Notes</h2>
+        <a href="/notes">View all →</a>
+      </div>
+      <ul class="notes-list">
+        {sortedNotes.map((note) => (
+          <li class="note-item">
+            <a href={`/notes/${note.slug}/`}>
+              <span class="note-title">
+                <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
+                {note.data.title}
+              </span>
+              <div class="note-meta">
+                <span>{formatDate(note.data.pubDate)}</span>
+                {note.data.tags?.[0] && (
+                  <span class="note-tag">{note.data.tags[0]}</span>
+                )}
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Collections Section -->
+  <section class="collections">
+    <div class="section-header">
+      <h2>Collections</h2>
+    </div>
+    <div class="special-grid">
+      <a href="/flights" class="special-card">
+        <h3><span class="card-icon">◎</span> Flights</h3>
+        <p>Drone footage from above. Landscapes, cities, and the patterns only visible from the air.</p>
+      </a>
+      <a href="/objects" class="special-card">
+        <h3><span class="card-icon">◈</span> Object Library</h3>
+        <p>A catalog of beautiful products. Hardware that earns its place in the world.</p>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+  }
+
+  @media (min-width: 800px) {
+    .main-content {
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+    }
+  }
+
+  /* Essays column */
+  .essays-column {
+    padding: 32px 0;
+  }
+
+  @media (min-width: 800px) {
+    .essays-column {
+      padding-right: 48px;
+      border-right: 1px solid var(--border);
+    }
+  }
+
+  .column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+
+  .column-header h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .column-header a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+  }
+
+  .column-header a:hover {
+    color: var(--accent);
+  }
+
+  /* Featured essay */
+  .essay-featured {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .essay-featured a {
+    text-decoration: none;
+    display: block;
+  }
+
+  .essay-featured-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 12px;
+    transition: color 0.15s;
+  }
+
+  .essay-featured a:hover .essay-featured-title {
+    color: var(--accent);
+  }
+
+  .essay-featured-excerpt {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .essay-featured-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    display: flex;
+    gap: 12px;
+  }
+
+  .essay-tag {
+    color: var(--accent);
+  }
+
+  .essay-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-right: 8px;
+  }
+
+  /* Essay list */
+  .essay-list {
+    list-style: none;
+  }
+
+  .essay-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .essay-item:last-child {
+    border-bottom: none;
+  }
+
+  .essay-item a {
+    text-decoration: none;
+    display: block;
+  }
+
+  .essay-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+    transition: color 0.15s;
+  }
+
+  .essay-item a:hover .essay-title {
+    color: var(--accent);
+  }
+
+  .essay-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .essay-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    display: flex;
+    gap: 12px;
+  }
+
+  /* Placeholder */
+  .placeholder {
+    padding: 32px 0;
+  }
+
+  /* Notes column */
+  .notes-column {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (min-width: 800px) {
+    .notes-column {
+      border-top: none;
+    }
+  }
+
+  /* Notes list */
+  .notes-list {
+    list-style: none;
+  }
+
+  .note-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .note-item:last-child {
+    border-bottom: none;
+  }
+
+  .note-item a {
+    text-decoration: none;
+    display: block;
+  }
+
+  .note-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--text-tertiary);
+    margin-right: 6px;
+  }
+
+  .note-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+    transition: color 0.15s;
+    display: block;
+  }
+
+  .note-item a:hover .note-title {
+    color: var(--accent);
+  }
+
+  .note-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    display: flex;
+    gap: 10px;
+  }
+
+  .note-tag {
+    color: var(--accent);
+  }
+
+  /* Collections section */
+  .collections {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+
+  .section-header h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .special-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 500px) {
+    .special-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .special-card {
+    border: 1px solid var(--border);
+    padding: 24px;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .special-card:hover {
+    border-color: var(--accent);
+    background: #f5f7fa;
+  }
+
+  .special-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .special-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .card-icon {
+    font-size: 1.1rem;
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+</style>

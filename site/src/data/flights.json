@@ -1,0 +1,31 @@
+{
+  "flights": [
+    { "id": "F001", "title": "West Coast Park, Singapore", "date": "Jan 2026", "category": "cinematic", "tag": "DJI", "video": "/flights/westcoastpark-singapore-jan2026.mov" },
+    { "id": "F002", "title": "Raving in the Opal Office", "date": "Nov 2025", "category": "fpv", "tag": "Air65", "video": "/flights/raving-opal-office-nov2025.mp4" },
+    { "id": "F003", "title": "Racing in the Opal Office", "date": "Nov 2025", "category": "fpv", "tag": "Air65", "video": "/flights/racing-opal-office-nov2025.m4v" }
+  ],
+  "gear": [
+    {
+      "name": "DJI Mini 4 Pro",
+      "subtitle": "Primary cinematic drone",
+      "category": "cinematic",
+      "specs": [
+        { "label": "Sensor", "value": "1/1.3\" CMOS" },
+        { "label": "Video", "value": "4K/60fps HDR" },
+        { "label": "Flight Time", "value": "34 min" },
+        { "label": "Weight", "value": "249g" }
+      ]
+    },
+    {
+      "name": "BetaFPV Air65",
+      "subtitle": "1S micro whoop for indoor/proximity flying",
+      "category": "fpv",
+      "specs": [
+        { "label": "Frame", "value": "65mm whoop" },
+        { "label": "Weight", "value": "24.2g" },
+        { "label": "Motors", "value": "0702 26000KV" },
+        { "label": "Camera", "value": "C02 w/ Walksnail" }
+      ]
+    }
+  ]
+}
