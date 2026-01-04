@@ -9,29 +9,27 @@ const allNotes = await getCollection("notes");
 const totalNotes = allNotes.length;
 const sortedNotes = allNotes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+// Check if we have notes
+if (sortedNotes.length === 0) {
+  throw new Error("No notes found. Add at least one note to build the site.");
+}
+
+// Calculate refNum for all notes upfront (O(n) instead of O(n²))
+const notesWithRefNum = sortedNotes.map((note, index) => ({
+  ...note,
+  refNum: totalNotes - index
+}));
+
 // Latest note for featured section
-const latestNote = sortedNotes[0];
-const latestNoteRef = totalNotes;
+const latestNote = notesWithRefNum[0];
 
-// Highlight notes (tagged with 'highlight') - randomly select 2
-const allHighlights = sortedNotes
+// Highlight notes (tagged with 'highlight') - take 2 most recent
+const highlightNotes = notesWithRefNum
   .filter(note => note.data.tags.includes('highlight'))
-  .map((note) => ({
-    ...note,
-    refNum: totalNotes - sortedNotes.indexOf(note)
-  }));
-
-// Shuffle and take 2 random highlights
-const shuffled = allHighlights.sort(() => Math.random() - 0.5);
-const highlightNotes = shuffled.slice(0, 2);
+  .slice(0, 2);
 
 // Recent notes for list (next 8 after latest)
-const recentNotes = sortedNotes
-  .slice(1, 9)
-  .map((note, index) => ({
-    ...note,
-    refNum: totalNotes - (index + 1)
-  }));
+const recentNotes = notesWithRefNum.slice(1, 9);
 
 // Format date for display
 function formatDate(date: Date): string {
@@ -51,7 +49,7 @@ function formatDate(date: Date): string {
       <section class="featured-latest">
         <a href={`/notes/${latestNote.slug}/`}>
           <h2 class="featured-title">
-            <span class="note-ref">N{String(latestNoteRef).padStart(3, '0')}</span>
+            <span class="note-ref">N{String(latestNote.refNum).padStart(3, '0')}</span>
             {latestNote.data.title}
           </h2>
           {latestNote.data.description && (
@@ -328,13 +326,6 @@ function formatDate(date: Date): string {
     display: block;
   }
 
-  .note-ref {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
-    color: var(--text-tertiary);
-    margin-right: 6px;
-  }
-
   .note-title {
     font-size: 0.95rem;
     font-weight: 500;
@@ -364,22 +355,6 @@ function formatDate(date: Date): string {
   .collections {
     padding: 48px 0;
     border-top: 1px solid var(--border);
-  }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 24px;
-  }
-
-  .section-header h2 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
   }
 
   .special-grid {
