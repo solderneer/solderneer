@@ -1,11 +1,12 @@
 ---
-title: Technology’s ultimate purpose is vitality
+title: Technology's ultimate purpose is vitality
 description: If the proximate purpose of technology is flourishing, the ultimate purpose of technology is vitality.
 emoji: 🌻
 pubDate: Mar 09 2023
 tags:
   - society
   - philosophy
+  - highlight
 originalPost: https://heacare.substack.com/p/technologys-ultimate-purpose-is-vitality
 updatedDate: 09-Mar-2023
 ---

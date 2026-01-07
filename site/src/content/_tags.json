@@ -15,6 +15,10 @@
     "description": "",
     "color": "var(--red)"
   },
+  "highlight": {
+    "description": "",
+    "color": "var(--accent)"
+  },
   "travel": {
     "description": "",
     "color": "var(--yellow)"

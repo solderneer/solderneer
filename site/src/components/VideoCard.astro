@@ -1,0 +1,89 @@
+---
+import { getBlobUrl, isExternalUrl } from '../lib/media';
+
+interface Props {
+  video: string;
+  poster?: string;
+  caption?: string;
+  autoplay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  controls?: boolean;
+}
+
+const {
+  video,
+  poster,
+  caption,
+  autoplay = false,
+  loop = true,
+  muted = true,
+  controls = true
+} = Astro.props;
+
+// Resolve video URL
+const isExternal = isExternalUrl(video);
+const videoUrl = isExternal ? video : getBlobUrl(video);
+
+// Resolve poster image if provided
+let posterUrl: string | undefined;
+if (poster) {
+  posterUrl = isExternalUrl(poster) ? poster : (getBlobUrl(poster) || undefined);
+}
+
+const finalSrc = videoUrl || video;
+---
+
+{finalSrc ? (
+  <figure class="video-card">
+    <video
+      src={finalSrc}
+      poster={posterUrl}
+      autoplay={autoplay}
+      loop={loop}
+      muted={muted}
+      controls={controls}
+      playsinline
+      class="video-card-video"
+    />
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+) : (
+  <figure class="video-card video-card--missing">
+    <div class="placeholder">Video not found: {video}</div>
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+)}
+
+<style>
+  .video-card {
+    margin: 1.5em auto;
+    max-width: fit-content;
+  }
+
+  .video-card-video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-align: center;
+    padding: 0.5em 0;
+    letter-spacing: 0.02em;
+  }
+
+  .video-card--missing .placeholder {
+    padding: 2em;
+    background: var(--bg-code);
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+</style>

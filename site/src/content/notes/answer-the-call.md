@@ -5,6 +5,7 @@ emoji: 🥨
 pubDate: 02-Jun-2023
 tags:
   - life
+  - highlight
 heroImage: https://files.solderneer.me/edinburgh-uk/1.jpeg
 updatedDate: 02-Jun-2023
 ---
