@@ -4,8 +4,8 @@ emoji: ✊
 pubDate: 31-May-2023
 updatedDate: 31-May-2023
 tags:
-  - society
-  - technology
+  - "300"
+  - "600"
 ---
 
 These insights are from [Bluebird](https://www.amazon.co.uk/exec/obidos/ASIN/038533351X/mattwebbsinterco) by Kurt Vonnegut and highlighted by [Matt Webb's blog, Interconnected](https://interconnected.org/home/2003/01/22/the_following_is).

@@ -3,6 +3,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
+import tagsJson from "../content/_tags.json";
 
 // Get all notes, sorted by date
 const allNotes = await getCollection("notes");
@@ -20,16 +21,8 @@ const notesWithRefNum = sortedNotes.map((note, index) => ({
   refNum: totalNotes - index
 }));
 
-// Latest note for featured section
-const latestNote = notesWithRefNum[0];
-
-// Highlight notes (tagged with 'highlight') - take 2 most recent
-const highlightNotes = notesWithRefNum
-  .filter(note => note.data.tags.includes('highlight'))
-  .slice(0, 2);
-
-// Recent notes for list (next 8 after latest)
-const recentNotes = notesWithRefNum.slice(1, 9);
+// Recent notes for list
+const recentNotes = notesWithRefNum.slice(0, 10);
 
 // Format date for display
 function formatDate(date: Date): string {
@@ -43,60 +36,8 @@ function formatDate(date: Date): string {
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div class="main-content">
-    <!-- Left Column: Latest + Highlights -->
-    <div class="left-column">
-      <!-- Featured Latest Note -->
-      <section class="featured-latest">
-        <a href={`/notes/${latestNote.slug}/`}>
-          <h2 class="featured-title">
-            <span class="note-ref">N{String(latestNote.refNum).padStart(3, '0')}</span>
-            {latestNote.data.title}
-          </h2>
-          {latestNote.data.description && (
-            <p class="featured-excerpt">{latestNote.data.description}</p>
-          )}
-          <div class="featured-meta">
-            <span>{formatDate(latestNote.data.pubDate)}</span>
-            {latestNote.data.tags?.[0] && (
-              <span class="note-tag">{latestNote.data.tags[0]}</span>
-            )}
-          </div>
-        </a>
-      </section>
-
-      <!-- Highlights -->
-      {highlightNotes.length > 0 && (
-        <section class="highlights">
-          <div class="section-header">
-            <h2>Highlights</h2>
-          </div>
-          <ul class="highlights-list">
-            {highlightNotes.map((note) => (
-              <li class="highlight-item">
-                <a href={`/notes/${note.slug}/`}>
-                  <h3 class="highlight-title">
-                    <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
-                    {note.data.title}
-                  </h3>
-                  {note.data.description && (
-                    <p class="highlight-excerpt">{note.data.description}</p>
-                  )}
-                  <div class="highlight-meta">
-                    <span>{formatDate(note.data.pubDate)}</span>
-                    {note.data.tags?.filter(t => t !== 'highlight')[0] && (
-                      <span class="note-tag">{note.data.tags.filter(t => t !== 'highlight')[0]}</span>
-                    )}
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-    </div>
-
-    <!-- Right Column: Recent Notes -->
-    <div class="right-column">
+    <!-- Recent Notes -->
+    <section class="recent-notes">
       <div class="section-header">
         <h2>Recent Notes</h2>
         <a href="/notes">View all →</a>
@@ -112,14 +53,14 @@ function formatDate(date: Date): string {
               <div class="note-meta">
                 <span>{formatDate(note.data.pubDate)}</span>
                 {note.data.tags?.[0] && (
-                  <span class="note-tag">{note.data.tags[0]}</span>
+                  <span class="note-tag">{note.data.tags[0]} {tagsJson[note.data.tags[0] as keyof typeof tagsJson]?.name}</span>
                 )}
               </div>
             </a>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   </div>
 
   <!-- Collections Section -->
@@ -130,145 +71,25 @@ function formatDate(date: Date): string {
     <div class="special-grid">
       <a href="/flights" class="special-card">
         <h3><span class="card-icon">◎</span> Flights</h3>
-        <p>Drone footage from above. Landscapes, cities, and the patterns only visible from the air.</p>
+        <p>A collection of flight videos. Currently, drone videography and racing.</p>
       </a>
       <a href="/objects" class="special-card">
-        <h3><span class="card-icon">◈</span> Object Library</h3>
-        <p>A catalog of beautiful products. Hardware that earns its place in the world.</p>
+        <h3><span class="card-icon">◈</span> Object Museum</h3>
+        <p>A catalog of beautiful, iconic, intentional products to be studied</p>
       </a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Main Content Grid */
+  /* Main Content */
   .main-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
     border-top: 1px solid var(--border);
     margin-top: 32px;
   }
 
-  @media (min-width: 800px) {
-    .main-content {
-      grid-template-columns: 1.4fr 1fr;
-      gap: 48px;
-    }
-  }
-
-  /* Left Column */
-  .left-column {
+  .recent-notes {
     padding: 32px 0;
-  }
-
-  @media (min-width: 800px) {
-    .left-column {
-      padding-right: 48px;
-      border-right: 1px solid var(--border);
-    }
-  }
-
-  /* Right Column */
-  .right-column {
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  @media (min-width: 800px) {
-    .right-column {
-      border-top: none;
-    }
-  }
-
-  /* Featured Latest Note */
-  .featured-latest {
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .featured-latest a {
-    text-decoration: none;
-    display: block;
-  }
-
-  .featured-title {
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.3;
-    margin-bottom: 12px;
-    transition: color 0.15s;
-  }
-
-  .featured-latest a:hover .featured-title {
-    color: var(--accent);
-  }
-
-  .featured-excerpt {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-
-  .featured-meta {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
-    display: flex;
-    gap: 12px;
-  }
-
-  /* Highlights Section */
-  .highlights {
-    padding-top: 0;
-  }
-
-  .highlights-list {
-    list-style: none;
-  }
-
-  .highlight-item {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .highlight-item:last-child {
-    border-bottom: none;
-  }
-
-  .highlight-item a {
-    text-decoration: none;
-    display: block;
-  }
-
-  .highlight-title {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 6px;
-    transition: color 0.15s;
-  }
-
-  .highlight-item a:hover .highlight-title {
-    color: var(--accent);
-  }
-
-  .highlight-excerpt {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 8px;
-  }
-
-  .highlight-meta {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
-    display: flex;
-    gap: 12px;
   }
 
   /* Section Header */

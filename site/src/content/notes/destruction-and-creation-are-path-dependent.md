@@ -4,8 +4,8 @@ emoji: 🤯
 pubDate: 05-Nov-2022
 updatedDate: 15-Nov-2022
 tags:
-  - technology
-  - society
+  - "600"
+  - "300"
 ---
 
 Destruction is path-dependent as the specific situation of the collapse of a concept is hard to predict in a complex society. Unravelling scripts ([[society-is-scripted]]) rarely unravel in predictable ways, they have sensitive dependence on initial conditions.

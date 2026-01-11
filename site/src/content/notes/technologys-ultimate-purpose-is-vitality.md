@@ -4,9 +4,8 @@ description: If the proximate purpose of technology is flourishing, the ultimate
 emoji: 🌻
 pubDate: Mar 09 2023
 tags:
-  - society
-  - philosophy
-  - highlight
+  - "300"
+  - "100"
 originalPost: https://heacare.substack.com/p/technologys-ultimate-purpose-is-vitality
 updatedDate: 09-Mar-2023
 ---

@@ -4,7 +4,7 @@ emoji: 🧑‍⚖
 pubDate: 26-Nov-2022
 updatedDate: 26-Nov-2022
 tags:
-  - technology
+  - "600"
 ---
 
 The are two classes of problems with coin voting that cause worry:

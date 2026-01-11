@@ -4,7 +4,7 @@ description: More... complaints on education
 emoji: 🧠
 pubDate: Jul 25 2021
 tags:
-  - education
+  - "310"
 originalPost: https://makerforce.io/learning-used-to-be-fun/
 updatedDate: 25-Jul-2021
 ---

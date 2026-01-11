@@ -4,7 +4,7 @@ emoji: ❓
 pubDate: 30-May-2023
 updatedDate: 30-May-2023
 tags:
-  - society
+  - "300"
 ---
 
 A wicked problem, is a problem that is difficult or impossible to solve, because of requirements that are dynamic, contradictory, incomplete or _interdependent_ in a way that is difficult to disentangle.

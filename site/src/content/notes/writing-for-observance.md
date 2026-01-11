@@ -4,14 +4,12 @@ emoji: ✍
 pubDate: 28-Jun-2023
 updatedDate: 28-Jun-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **thirteenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 Today's letter will be a short one, and I will start by saying that I'm a terrible observer. My sister wastes no time in calling this out, I can be present in a room during an argument and not clock that the argument happened at all (there are many such missed observations in a large Indian family gathering).
 

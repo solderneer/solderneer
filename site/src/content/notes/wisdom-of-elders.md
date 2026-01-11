@@ -4,14 +4,12 @@ emoji: 🧙‍♂
 pubDate: 05-Jul-2023
 updatedDate: 05-Jul-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **twentieth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 I hope the week has been treating you well so far. After my first day interning at [Dynacyte](https://www.dynacyte.com/), there is a buzz of excitement over something new, like having activated a dormant set of neurons in my head.
 

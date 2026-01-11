@@ -4,8 +4,8 @@ emoji: 🦾
 pubDate: 18-Nov-2022
 updatedDate: 05-Jan-2023
 tags:
-  - life
-  - general
+  - "110"
+  - "000"
 ---
 
 Excerpts from [Atomic Habits](https://jamesclear.com/goals-systems)

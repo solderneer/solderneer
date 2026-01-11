@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
 import { getOptimizedImageUrl, isExternalUrl } from "../lib/media";
+import tagsJson from "../content/_tags.json";
 
 type Backlink = {
   slug: string;
@@ -70,8 +71,8 @@ if (originalPost != undefined) {
         </span>
         {tags && tags.length > 0 && (
           <div class="tags">
-            {tags.map((tag: string) => (
-              <a href={`/tags/${tag}`} class="tag">{tag}</a>
+            {tags.map((code: string) => (
+              <a href={`/notes/tag/${code}/`} class="tag">{code} {tagsJson[code]?.name}</a>
             ))}
           </div>
         )}
@@ -387,23 +388,23 @@ if (originalPost != undefined) {
     font-weight: 500;
     letter-spacing: 0.08em;
     color: var(--text-tertiary);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
   .toc ul {
     list-style: none;
-    padding-left: 24px;
+    padding-left: 0;
     margin: 0;
   }
 
   .toc li {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .toc a {
-    font-family: 'IBM Plex Serif', Georgia, serif;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
     text-decoration: none;
     transition: color 0.15s;
     display: block;
@@ -414,7 +415,7 @@ if (originalPost != undefined) {
 
   .toc a:hover,
   .toc a.active {
-    color: var(--text);
+    color: var(--accent);
   }
 </style>
 

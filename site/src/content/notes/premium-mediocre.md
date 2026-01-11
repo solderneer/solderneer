@@ -4,7 +4,7 @@ emoji: 🧢
 pubDate: 15-Nov-2022
 updatedDate: 16-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 [Premium mediocrity](https://www.ribbonfarm.com/2017/08/17/the-premium-mediocre-life-of-maya-millennial/) is a transitional civilisational state, that lies between industrial modernity and digital post-scarcity. **It is also a state that reflects a pattern of consumption signalling upward social mobility, while living in a reality of anxiety-ridden downward mobility.**

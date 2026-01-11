@@ -4,8 +4,8 @@ description: Complaints on education
 emoji: 🧠
 pubDate: 18-Apr-2016
 tags:
-  - young-shan
-  - education
+  - "200"
+  - "310"
 originalPost: https://makerforce.io/learn-dont-study/
 updatedDate: 18-Apr-2016
 ---

@@ -4,7 +4,7 @@ emoji: 😆
 pubDate: 3-Nov-2022
 updatedDate: 3-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 > We have moved away from centralized value creation firms to decentralized, permissionless, value-creation networks. - [Headless Brands](https://otherinter.net/research/headless-brands/)

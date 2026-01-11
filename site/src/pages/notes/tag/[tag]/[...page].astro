@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import LabStats from "../../../../components/LabStats.astro";
 import { getCollection } from "astro:content";
 import tagsJson from "../../../../content/_tags.json";
 
@@ -46,6 +47,19 @@ const years = Object.keys(notesByYear).map(Number).sort((a, b) => b - a);
 
 const allTags = Object.keys(tagsJson);
 
+// Fetch all notes for graph data
+const allNotes = await getCollection("notes");
+const allSortedNotes = allNotes.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+const allNotesWithMeta = await Promise.all(
+  allSortedNotes.map(async (note) => {
+    const { remarkPluginFrontmatter } = await note.render();
+    return {
+      ...note,
+      wordCount: remarkPluginFrontmatter.wordCount,
+    };
+  })
+);
+
 function formatDate(date: Date): string {
   return date.toLocaleDateString('en-US', {
     month: 'short',
@@ -82,17 +96,17 @@ function formatDate(date: Date): string {
 
     <div class="tags-filter" role="navigation" aria-label="Filter by tag">
       <a href="/notes/" class="tag-btn">all</a>
-      {allTags.map((t) => (
+      {allTags.map((code) => (
         <a
-          href={`/notes/tag/${t}/`}
-          class:list={["tag-btn", { active: t === tag }]}
-          aria-current={t === tag ? 'page' : undefined}
-        >{t}</a>
+          href={`/notes/tag/${code}/`}
+          class:list={["tag-btn", { active: code === tag }]}
+          aria-current={code === tag ? 'page' : undefined}
+        >{code} {tagsJson[code].name}</a>
       ))}
     </div>
 
     <div class="filter-status" id="filter-status" aria-live="polite">
-      {page.total} note{page.total !== 1 ? 's' : ''} tagged #{tag}
+      {page.total} note{page.total !== 1 ? 's' : ''} classified {tag} {tagsJson[tag]?.name}
     </div>
 
     <div class="notes-timeline filtered-results" id="filtered-results" style="display: none;"></div>
@@ -111,7 +125,7 @@ function formatDate(date: Date): string {
                       <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
                       {note.data.title}
                     </span>
-                    <span class="note-tag">{note.data.tags[0]}</span>
+                    <span class="note-tag">{note.data.tags[0]} {tagsJson[note.data.tags[0]]?.name}</span>
                     <div class="note-details">
                       {note.wordCount && (
                         <span class="note-detail">{note.wordCount} words</span>
@@ -160,6 +174,8 @@ function formatDate(date: Date): string {
         )}
       </div>
     </nav>
+
+    <LabStats allNotesWithMeta={allNotesWithMeta} />
   </div>
 </BaseLayout>
 
@@ -174,7 +190,8 @@ function formatDate(date: Date): string {
 
 <style>
   .notes-archive {
-    max-width: 720px;
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   .archive-header {
@@ -472,7 +489,7 @@ function formatDate(date: Date): string {
   }
 
   .pagination {
-    padding: 24px 0 80px;
+    padding: 24px 0;
     border-top: 1px solid var(--border);
     text-align: center;
   }

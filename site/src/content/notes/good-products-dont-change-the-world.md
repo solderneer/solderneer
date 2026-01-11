@@ -4,7 +4,7 @@ emoji: 🤔
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
 tags:
-  - technology
+  - "600"
 ---
 
 >successful products are precisely those that do _not_ attempt to move user experiences significantly, even if the underlying technology has shifted radically.

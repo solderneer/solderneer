@@ -4,14 +4,12 @@ emoji: 💕
 pubDate: 20-Jun-2023
 updatedDate: 20-Jun-2023
 tags:
-  - general
+  - "000"
 ---
 
 This note is the **seventh** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 I hope you are doing well today. I want to bring up a little bit of [[quantum-thought]] that I've had in my mind for a while. Briefly, [[quantum-thought]] is the ability to hold two opposing thoughts in mind, simultaneously acknowledging both of them.
 

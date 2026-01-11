@@ -4,7 +4,7 @@ emoji: 🤝
 pubDate: 2-Nov-2022
 updatedDate: 2-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 **tldr; A brand operates like a consensus system by faciliating a consistent set of beliefs across people.**

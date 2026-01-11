@@ -79,13 +79,6 @@
       "hash": "sha256:3979ec65033e7ac8d8603e2e83286c50d3934c08f91a305dce3901b5dfdc8765",
       "uploadedAt": "2026-01-04T13:10:42.127Z"
     },
-    "models/gba-sp-slate.glb": {
-      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/gba-sp-slate-hFYuWBi3qoxplWzz5jYEBiK196fTq0.glb",
-      "contentType": "model/gltf-binary",
-      "size": 2076008,
-      "hash": "sha256:7acd44c7d3c7da7b93a28579a89e350073afa7e00ad3e66a11211a3da568dd61",
-      "uploadedAt": "2026-01-04T13:14:20.501Z"
-    },
     "models/macintosh-classic.glb": {
       "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/macintosh-classic-T6ShXIJUPDU2um0GOLQRW9zxrVPhJO.glb",
       "contentType": "model/gltf-binary",

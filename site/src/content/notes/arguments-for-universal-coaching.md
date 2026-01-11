@@ -4,7 +4,7 @@ description: Why I think everyone should have access to a health coach.
 emoji: 🏋️
 pubDate: Apr 20 2023
 tags:
-  - society
+  - "300"
 originalPost: https://heacare.substack.com/p/arguments-for-universal-coaching
 updatedDate: 20-Apr-2023
 ---

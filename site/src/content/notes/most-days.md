@@ -4,14 +4,12 @@ emoji: 🎈
 pubDate: 23-Jun-2023
 updatedDate: 23-Jun-2023
 tags:
-  - technology
+  - "600"
 ---
 
 This note is the **ninth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 It's been slightly more than 1 week since I started the [[104-days-of-summer-vacation]] experiment, and it is almost 2 weeks into the start of my summer vacation proper. Tomorrow, I will be flying to India for a week, to spend some time with my grandparents, and so I felt that today would be a good time to do a retrospective.
 

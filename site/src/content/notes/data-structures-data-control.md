@@ -5,7 +5,7 @@ description: Global identity systems which power personal data stores could be
 emoji: 🗄️
 pubDate: Sep 11 2022
 tags:
-  - technology
+  - "600"
 updatedDate: 11-Sep-2022
 ---
 

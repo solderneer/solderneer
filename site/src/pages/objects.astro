@@ -17,19 +17,18 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 }
 ---
 
-<BaseLayout title="Object Library" description="A catalog of beautiful products" showHeader={false}>
+<BaseLayout title="Object Museum" description="A catalog of beautiful, iconic products" showHeader={false}>
   <div class="objects-page">
     <header class="page-header">
       <a href="/" class="back-link">← solderneer</a>
       <div class="page-title">
-        <h1>Object Library</h1>
-        <div class="subtitle">hardware that earns its place</div>
+        <h1>Object Museum</h1>
+        <div class="subtitle">beautiful, iconic products to be studied</div>
       </div>
       <RuneScroll runes={objectRunes} />
       <div class="intro">
-        <p>A catalog of products I find beautiful. Objects where form and function achieve something greater than either alone.</p>
       </div>
-      <div class="hint">hover to explore · drag to rotate</div>
+      <div class="hint" id="hint">hover to explore · drag to rotate · double-click to expand</div>
     </header>
 
     <div class="gallery" id="gallery"></div>
@@ -44,22 +43,47 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         <div class="info-blurb" id="infoBlurb"></div>
         <div class="info-attribution" id="infoAttribution"></div>
       </div>
-      <button class="info-close" id="closePanel">✕</button>
-    </div>
+          </div>
   </div>
 </BaseLayout>
 
 <script define:vars={{ objects, modelUrls }}>
+  // Environment texture for reflections
+  let envTexture = null;
+
   // Three.js loaded via CDN
   const script1 = document.createElement('script');
   script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
   script1.onload = () => {
     const script2 = document.createElement('script');
     script2.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
-    script2.onload = initGallery;
+    script2.onload = () => {
+      // Load RGBELoader for HDR environment maps
+      const script3 = document.createElement('script');
+      script3.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js';
+      script3.onload = () => {
+        loadEnvironment().then(initGallery);
+      };
+      document.head.appendChild(script3);
+    };
     document.head.appendChild(script2);
   };
   document.head.appendChild(script1);
+
+  // Load studio HDRI for reflections
+  function loadEnvironment() {
+    return new Promise((resolve) => {
+      const rgbeLoader = new THREE.RGBELoader();
+      rgbeLoader.load('/studio.hdr', (texture) => {
+        texture.mapping = THREE.EquirectangularReflectionMapping;
+        envTexture = texture;
+        resolve();
+      }, undefined, (error) => {
+        console.warn('Failed to load environment map:', error);
+        resolve(); // Continue without env map
+      });
+    });
+  }
 
   // Helper to get model URL - tries Blob first, falls back to /models/
   function getModelUrl(filename) {
@@ -69,9 +93,9 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
   function initGallery() {
     const gallery = document.getElementById('gallery');
     const panel = document.getElementById('infoPanel');
-    const closeBtn = document.getElementById('closePanel');
-    const scenes = [];
+        const scenes = [];
     let activeIndex = null;
+    let expandedIndex = null;
 
     // Create a scene for each object
     objects.forEach((obj, index) => {
@@ -82,6 +106,10 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
       // Three.js setup
       const scene = new THREE.Scene();
+      // Apply environment map for reflections on metallic surfaces
+      if (envTexture) {
+        scene.environment = envTexture;
+      }
       const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
       camera.position.z = 3;
 
@@ -91,19 +119,35 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
       });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setClearColor(0x000000, 0);
+      // Enable proper color output for PBR materials
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 0.9;
+      renderer.physicallyCorrectLights = true;
       container.appendChild(renderer.domElement);
 
-      // Lighting
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      // Studio-style lighting with high contrast for 3D definition
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
 
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-      directionalLight.position.set(2, 3, 4);
-      scene.add(directionalLight);
+      // Key light - main light source (warm, from upper right)
+      const keyLight = new THREE.DirectionalLight(0xfff5e8, 1.5);
+      keyLight.position.set(4, 6, 5);
+      scene.add(keyLight);
 
-      const backLight = new THREE.DirectionalLight(0xffffff, 0.3);
-      backLight.position.set(-2, -1, -2);
-      scene.add(backLight);
+      // Fill light - softer, from opposite side
+      const fillLight = new THREE.DirectionalLight(0xffffff, 0.6);
+      fillLight.position.set(-4, 2, 3);
+      scene.add(fillLight);
+
+      // Rim/back light - edge definition
+      const rimLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      rimLight.position.set(0, 3, -4);
+      scene.add(rimLight);
+
+      // Hemisphere light for natural ambient
+      const hemiLight = new THREE.HemisphereLight(0xffffff, 0xe8e4dc, 0.4);
+      scene.add(hemiLight);
 
       // Geometry based on shape
       let geometry;
@@ -116,18 +160,65 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         loader.load(getModelUrl(obj.model), (gltf) => {
           const model = gltf.scene;
 
-          // Center and scale the model
+          // Create pivot group for proper center rotation
+          const pivot = new THREE.Group();
+
+          // First, calculate scale factor
           const box = new THREE.Box3().setFromObject(model);
-          const center = box.getCenter(new THREE.Vector3());
           const size = box.getSize(new THREE.Vector3());
           const maxDim = Math.max(size.x, size.y, size.z);
-          const scale = 1.5 / maxDim;
+          const baseScale = 1.5 / maxDim;
+          const customScale = obj.scale || 1.0;
+          const finalScale = baseScale * customScale;
 
-          model.position.sub(center);
-          model.scale.setScalar(scale);
+          // Apply scale first
+          model.scale.setScalar(finalScale);
 
-          scene.add(model);
-          scenes[index].mesh = model;
+          // Recalculate bounding box after scaling
+          model.updateMatrixWorld(true);
+          const scaledBox = new THREE.Box3().setFromObject(model);
+          const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
+
+
+          // Center model within pivot using scaled coordinates
+          model.position.set(-scaledCenter.x, -scaledCenter.y, -scaledCenter.z);
+
+          pivot.add(model);
+
+          // Create shadow positioned at model's bottom
+          const scaledSize = scaledBox.getSize(new THREE.Vector3());
+          const shadowCanvas = document.createElement('canvas');
+          shadowCanvas.width = 64;
+          shadowCanvas.height = 64;
+          const shadowCtx = shadowCanvas.getContext('2d');
+          const gradient = shadowCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+          gradient.addColorStop(0, 'rgba(0, 0, 0, 0.04)');
+          gradient.addColorStop(0.6, 'rgba(0, 0, 0, 0.02)');
+          gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+          shadowCtx.fillStyle = gradient;
+          shadowCtx.fillRect(0, 0, 64, 64);
+          const shadowTexture = new THREE.CanvasTexture(shadowCanvas);
+          const shadowGeo = new THREE.PlaneGeometry(1.0, 1.0);
+          const shadowMat = new THREE.MeshBasicMaterial({
+            map: shadowTexture,
+            transparent: true,
+            depthWrite: false
+          });
+          const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+          shadowMesh.rotation.x = -Math.PI / 2;
+          // Position shadow below the centered model's bottom
+          shadowMesh.position.y = -(scaledSize.y / 2) - 0.05;
+          scene.add(shadowMesh);
+
+          // Apply initial rotation to pivot
+          if (obj.rotation) {
+            pivot.rotation.x = obj.rotation.x || 0;
+            pivot.rotation.y = obj.rotation.y || 0;
+            pivot.rotation.z = obj.rotation.z || 0;
+          }
+
+          scene.add(pivot);
+          scenes[index].mesh = pivot;
         }, undefined, (error) => {
           console.error('Error loading model:', error);
           // Fallback to box
@@ -180,7 +271,9 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         floatSpeed: 0.5 + Math.random() * 0.3,
         isHovered: false,
         isDragging: false,
-        previousMousePosition: { x: 0, y: 0 }
+        previousMousePosition: { x: 0, y: 0 },
+        initialRotation: obj.rotation || { x: 0, y: 0, z: 0 },
+        rotationOffset: 0
       });
 
       // Hover events
@@ -191,6 +284,10 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
       container.addEventListener('mouseleave', () => {
         scenes[index].isHovered = false;
         scenes[index].isDragging = false;
+        // Hide info panel when not expanded
+        if (expandedIndex === null) {
+          hideInfo();
+        }
       });
       container.addEventListener('click', () => showInfo(index));
 
@@ -217,6 +314,28 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
       container.addEventListener('mouseup', () => {
         scenes[index].isDragging = false;
       });
+
+      // Double-click to expand
+      container.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        if (expandedIndex === index) {
+          collapseObject();
+        } else {
+          expandObject(index);
+        }
+      });
+
+      // Scroll to zoom (only when expanded)
+      container.addEventListener('wheel', (e) => {
+        if (expandedIndex === index) {
+          e.preventDefault();
+          const s = scenes[index];
+          const zoomSpeed = 0.002;
+          s.camera.position.z += e.deltaY * zoomSpeed;
+          // Clamp zoom range
+          s.camera.position.z = Math.max(1.5, Math.min(6, s.camera.position.z));
+        }
+      }, { passive: false });
     });
 
     function showInfo(index) {
@@ -247,7 +366,68 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
       activeIndex = null;
     }
 
-    closeBtn.addEventListener('click', hideInfo);
+    function expandObject(index) {
+      expandedIndex = index;
+      const container = scenes[index].container;
+
+      // Store original parent for restoration
+      container.dataset.originalParent = 'gallery';
+
+      // Create fullscreen overlay
+      const overlay = document.createElement('div');
+      overlay.className = 'expanded-overlay';
+      overlay.id = 'expandedOverlay';
+
+      const hint = document.createElement('div');
+      hint.className = 'expanded-hint';
+      hint.textContent = 'drag to rotate · scroll to zoom · double-click or ESC to exit';
+
+      const objectContainer = document.createElement('div');
+      objectContainer.className = 'expanded-object-container';
+
+      overlay.appendChild(hint);
+      overlay.appendChild(objectContainer);
+      overlay.appendChild(panel); // Move info panel into overlay
+      document.body.appendChild(overlay);
+
+      // Move object into overlay
+      container.classList.add('expanded');
+      objectContainer.appendChild(container);
+
+      document.body.classList.add('object-expanded');
+
+      // Show info panel
+      showInfo(index);
+
+      // Resize renderer to new size after CSS transition
+      setTimeout(handleResize, 50);
+    }
+
+    function collapseObject() {
+      if (expandedIndex !== null) {
+        const container = scenes[expandedIndex].container;
+        container.classList.remove('expanded');
+
+        // Reset camera zoom to default
+        scenes[expandedIndex].camera.position.z = 3;
+
+        // Move object back to gallery
+        gallery.appendChild(container);
+
+        // Move info panel back to body
+        document.body.appendChild(panel);
+
+        // Remove overlay
+        const overlay = document.getElementById('expandedOverlay');
+        if (overlay) overlay.remove();
+      }
+      document.body.classList.remove('object-expanded');
+
+      expandedIndex = null;
+
+      // Resize renderer back after CSS transition
+      setTimeout(handleResize, 50);
+    }
 
     // Click outside to close
     document.addEventListener('click', (e) => {
@@ -257,7 +437,13 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') hideInfo();
+      if (e.key === 'Escape') {
+        if (expandedIndex !== null) {
+          collapseObject();
+        } else {
+          hideInfo();
+        }
+      }
     });
 
     // Resize handler
@@ -280,9 +466,10 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         // Only animate if mesh exists
         if (s.mesh) {
           // Only rotate when not hovered
-          if (!s.isHovered) {
-            s.mesh.rotation.y += s.rotationSpeed;
-            s.mesh.rotation.x = Math.sin(time * 0.5) * 0.1;
+          if (!s.isHovered && !s.isDragging) {
+            s.rotationOffset += s.rotationSpeed;
+            s.mesh.rotation.y = s.initialRotation.y + s.rotationOffset;
+            s.mesh.rotation.x = s.initialRotation.x + Math.sin(time * 0.5) * 0.1;
             s.mesh.position.y = Math.sin(time * s.floatSpeed + s.floatOffset) * 0.08;
           }
         }
@@ -302,6 +489,7 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
   .page-header {
     max-width: 640px;
+    margin: 0 auto;
     padding-top: 40px;
   }
 
@@ -361,14 +549,15 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 12px;
-    max-width: 1200px;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   :global(.object) {
     aspect-ratio: 1;
     cursor: grab;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
   }
 
   :global(.object:active) {
@@ -380,6 +569,50 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     height: 100% !important;
   }
 
+  :global(body.object-expanded) {
+    overflow: hidden;
+  }
+
+  :global(.expanded-overlay) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 160px;
+  }
+
+
+  :global(.expanded-hint) {
+    padding: 16px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  :global(.expanded-object-container) {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  :global(.object.expanded) {
+    width: 100vw !important;
+    height: 100vw !important;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: 1;
+  }
+
   /* Info panel */
   .info-panel {
     position: fixed;
@@ -388,7 +621,7 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     right: 0;
     background: var(--bg);
     border-top: 1px solid var(--border);
-    z-index: 200;
+    z-index: 1000;
     transform: translateY(100%);
     transition: transform 0.3s ease;
   }
@@ -457,20 +690,6 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
   .info-attribution a:hover {
     color: var(--accent);
-  }
-
-  .info-close {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-  }
-
-  .info-close:hover {
-    color: var(--text);
   }
 
   @media (max-width: 600px) {

@@ -4,7 +4,7 @@ description: Heterarchical organizations offer a novel approach to wicked proble
 emoji: 🌐
 pubDate: 08-Jun-2023
 tags:
-  - society
+  - "300"
 originalPost: https://heacare.substack.com/p/networks-work-in-healthcare-and-beyond
 updatedDate: 08-Jun-2023
 ---
