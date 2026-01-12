@@ -83,7 +83,13 @@ export function getBlobUrl(path: string): string | null {
 /**
  * Get an optimized image URL using Vercel Image Optimization.
  * For non-image media types, returns the direct Blob URL.
- * In dev/preview mode, returns direct Blob URL since /_vercel/image may not be available.
+ *
+ * NOTE: Currently returns direct Blob URLs always because:
+ * - Dev mode: /_vercel/image endpoint doesn't exist
+ * - Preview deployments: /_vercel/image returns 401 due to Vercel auth protection
+ *
+ * To re-enable Vercel Image Optimization for production, check for production domain
+ * or disable Vercel deployment protection on previews.
  */
 export function getOptimizedImageUrl(
   path: string,
@@ -92,47 +98,22 @@ export function getOptimizedImageUrl(
   const asset = getMediaAsset(path);
   if (!asset) return null;
 
-  const mediaType = getMediaType(path);
-
-  // Only apply Vercel Image Optimization for images
-  if (mediaType !== 'image') {
-    return asset.blobUrl;
-  }
-
-  // In dev mode, return direct blob URL since /_vercel/image is not available
-  if (import.meta.env.DEV) {
-    return asset.blobUrl;
-  }
-
-  const { width = 800, quality = 75 } = options;
-  const encodedUrl = encodeURIComponent(asset.blobUrl);
-
-  return `/_vercel/image?url=${encodedUrl}&w=${width}&q=${quality}`;
+  // Always return direct blob URL for now
+  // Vercel Image Optimization (/_vercel/image) doesn't work on previews due to auth
+  return asset.blobUrl;
 }
 
 /**
  * Generate a srcset string for responsive images.
- * Returns null in dev mode since we use direct blob URLs without resizing.
+ * Returns null since we're using direct blob URLs without Vercel Image Optimization.
  */
 export function getImageSrcSet(
   path: string,
   widths: number[] = [320, 640, 960, 1280, 1920],
   quality: number = 75
 ): string | null {
-  const asset = getMediaAsset(path);
-  if (!asset || getMediaType(path) !== 'image') return null;
-
-  // Skip srcset in dev mode - direct blob URLs don't support resizing
-  if (import.meta.env.DEV) {
-    return null;
-  }
-
-  return widths
-    .map(w => {
-      const url = getOptimizedImageUrl(path, { width: w, quality });
-      return `${url} ${w}w`;
-    })
-    .join(', ');
+  // Skip srcset - direct blob URLs don't support resizing
+  return null;
 }
 
 export function getImageDimensions(path: string): { width: number; height: number } | null {
