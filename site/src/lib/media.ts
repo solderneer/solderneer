@@ -83,6 +83,7 @@ export function getBlobUrl(path: string): string | null {
 /**
  * Get an optimized image URL using Vercel Image Optimization.
  * For non-image media types, returns the direct Blob URL.
+ * In dev/preview mode, returns direct Blob URL since /_vercel/image may not be available.
  */
 export function getOptimizedImageUrl(
   path: string,
@@ -98,6 +99,11 @@ export function getOptimizedImageUrl(
     return asset.blobUrl;
   }
 
+  // In dev mode, return direct blob URL since /_vercel/image is not available
+  if (import.meta.env.DEV) {
+    return asset.blobUrl;
+  }
+
   const { width = 800, quality = 75 } = options;
   const encodedUrl = encodeURIComponent(asset.blobUrl);
 
@@ -106,6 +112,7 @@ export function getOptimizedImageUrl(
 
 /**
  * Generate a srcset string for responsive images.
+ * Returns null in dev mode since we use direct blob URLs without resizing.
  */
 export function getImageSrcSet(
   path: string,
@@ -114,6 +121,11 @@ export function getImageSrcSet(
 ): string | null {
   const asset = getMediaAsset(path);
   if (!asset || getMediaType(path) !== 'image') return null;
+
+  // Skip srcset in dev mode - direct blob URLs don't support resizing
+  if (import.meta.env.DEV) {
+    return null;
+  }
 
   return widths
     .map(w => {

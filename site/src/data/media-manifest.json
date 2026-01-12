@@ -93,26 +93,33 @@
       "hash": "sha256:a96e8745edb79608ef4bb5e71ce688faab597b3cd8de652636a4e0b01cfab65a",
       "uploadedAt": "2026-01-04T13:14:24.935Z"
     },
-    "videos/racing-opal-office-nov2025.m4v": {
-      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/videos/racing-opal-office-nov2025-1Jjl90Xo8Jz4ibMSg4kqVeoDm85Ma5.m4v",
-      "contentType": "video/x-m4v",
-      "size": 305153603,
-      "hash": "sha256:2454ff6acacf4e7c545eb2129592439e3ed8ee9aae608ba7b9692a5bf80d6910",
-      "uploadedAt": "2026-01-04T13:15:21.921Z"
+    "models/rotring-pencil.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/rotring-pencil.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
     },
-    "videos/raving-opal-office-nov2025.mp4": {
-      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/videos/raving-opal-office-nov2025-LIrbcad9pEHL9MSJYdXsQDAt6ftoD5.mp4",
-      "contentType": "video/mp4",
-      "size": 253814624,
-      "hash": "sha256:6e47243e9519bce16c84d5182fe4001c07cb7c353800d4b02150254401d05122",
-      "uploadedAt": "2026-01-04T13:18:19.981Z"
+    "models/nike-af1-white.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/nike-af1-white.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
     },
-    "videos/westcoastpark-singapore-jan2026.mov": {
-      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/videos/westcoastpark-singapore-jan2026-OFUgavqCatteNWRATPBkDOS2yNVszB.mov",
-      "contentType": "video/quicktime",
-      "size": 9543694,
-      "hash": "sha256:7849c258c942b928dd6c9fa93a2840be72d4ceaac4413fb4f30f6421e6e7613a",
-      "uploadedAt": "2026-01-04T13:18:27.148Z"
+    "models/ipod-classic.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/ipod-classic.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/imac-g3.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/imac-g3.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
     }
   }
 }

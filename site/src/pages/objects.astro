@@ -411,8 +411,15 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         // Reset camera zoom to default
         scenes[expandedIndex].camera.position.z = 3;
 
-        // Move object back to gallery
-        gallery.appendChild(container);
+        // Move object back to gallery at correct position
+        const currentIndex = parseInt(container.dataset.index);
+        const children = Array.from(gallery.children);
+        const insertBefore = children.find(child => parseInt(child.dataset.index) > currentIndex);
+        if (insertBefore) {
+          gallery.insertBefore(container, insertBefore);
+        } else {
+          gallery.appendChild(container);
+        }
 
         // Move info panel back to body
         document.body.appendChild(panel);
