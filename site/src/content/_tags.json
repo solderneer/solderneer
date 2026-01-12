@@ -1,62 +1,17 @@
 {
-  "society": {
-    "description": "",
-    "color": "var(--green)"
-  },
-  "technology": {
-    "description": "",
-    "color": "var(--blue)"
-  },
-  "life": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "general": {
-    "description": "",
-    "color": "var(--red)"
-  },
-  "travel": {
-    "description": "",
-    "color": "var(--yellow)"
-  },
-  "philosophy": {
-    "description": "",
-    "color": "var(--blue)"
-  },
-  "index": {
-    "description": "",
-    "color": "var(--blue)"
-  },
-  "science": {
-    "description": "",
-    "color": "var(--purple)"
-  },
-  "young-shan": {
-    "description": "",
-    "color": "var(--green)"
-  },
-  "prose": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "design": {
-    "description": "",
-    "color": "var(--blue)"
-  },
-  "education": {
-      "description": "",
-      "color": "var(--blue)"
-  },
-  "ongoing": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "projects": {
-    "description": "",
-    "color": "var(--orange)"
-  },
-  "startups": {
-    "description": "",
-    "color": "var(--red)"
-  }
+  "000": { "name": "misc" },
+  "001": { "name": "index" },
+  "002": { "name": "wip" },
+  "100": { "name": "epistemics" },
+  "110": { "name": "journal" },
+  "200": { "name": "memoir" },
+  "300": { "name": "civics" },
+  "310": { "name": "pedagogy" },
+  "500": { "name": "science" },
+  "600": { "name": "tech" },
+  "610": { "name": "builds" },
+  "620": { "name": "ventures" },
+  "700": { "name": "design" },
+  "800": { "name": "poetry" },
+  "900": { "name": "travel" }
 }

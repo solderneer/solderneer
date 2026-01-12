@@ -4,14 +4,12 @@ emoji: ✈
 pubDate: 24-Jun-2023
 updatedDate: 24-Jun-2023
 tags:
-  - technology
+  - "600"
 ---
 
 This note is the **tenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 There are 1765 kilometers which separate Singapore and India, and I made that trip today in less than 4 hours. We take the speeds at which we can get around for granted these days, the opportunity to make new memories in old places is precious.
 

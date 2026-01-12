@@ -1,0 +1,68 @@
+{
+  "flights": [
+    {
+      "id": "F003",
+      "title": "West Coast Park",
+      "date": "2026-01-15",
+      "time": "18:30",
+      "location": "West Coast Park, Singapore",
+      "weather": "golden-hour",
+      "duration": "0:05",
+      "notes": "Early morning golden hour flight over the park. Captured the sunrise light filtering through the trees.",
+      "youtubeId": "t76oSnKG8z0",
+      "tag": "DJI"
+    },
+    {
+      "id": "F002",
+      "title": "Racing in the office again",
+      "date": "2025-11-25",
+      "time": "11:43",
+      "location": "Office",
+      "weather": "indoor",
+      "duration": "2:48",
+      "notes": "Another indoor FPV racing session through the office.",
+      "youtubeId": "yRJ9QTr4M1g",
+      "tag": "Air65"
+    },
+    {
+      "id": "F002",
+      "title": "Racing in the office",
+      "date": "2025-11-18",
+      "time": "13:30",
+      "location": "Office",
+      "weather": "indoor",
+      "duration": "2:47",
+      "notes": "Racing through the office corridors. Testing the whoop indoors for the first time.",
+      "youtubeId": "jIJafHRx0rQ",
+      "tag": "Air65"
+    }
+  ],
+  "gear": [
+    {
+      "name": "DJI Mini 5 Pro",
+      "subtitle": "Primary cinematic drone",
+      "description": "Slow, deliberate flights. Landscapes, architecture, cinematic cars and people.",
+      "category": "cinematic",
+      "status": "primary",
+      "specs": [
+        { "label": "Sensor", "value": "1\"", "unit": "CMOS" },
+        { "label": "Video", "value": "4K/120", "unit": "fps" },
+        { "label": "Flight Time", "value": "36", "unit": "min" },
+        { "label": "Weight", "value": "249", "unit": "g" }
+      ]
+    },
+    {
+      "name": "BetaFPV Air65",
+      "subtitle": "1S micro whoop for indoor flying",
+      "description": "Fast and raw. First-person racing footage, proximity flying, and the occasional crash.",
+      "category": "fpv",
+      "status": "active",
+      "specs": [
+        { "label": "Wheelbase", "value": "65", "unit": "mm" },
+        { "label": "Weight", "value": "17.3", "unit": "g" },
+        { "label": "Motors", "value": "0702SE", "unit": "27KV" },
+        { "label": "Camera", "value": "C03", "unit": "" }
+      ]
+    }
+  ]
+}

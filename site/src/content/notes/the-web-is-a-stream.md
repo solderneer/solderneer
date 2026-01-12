@@ -4,7 +4,7 @@ emoji: 🚰
 pubDate: 15-Nov-2022
 updatedDate: 16-Nov-2022
 tags:
-  - technology
+  - "600"
 ---
 
 Looking back at Vannevar Bush's original essay [As We May Think](https://en.wikipedia.org/wiki/As_We_May_Think), we read about a device called the memex. The memex was a networked tool for thought, that allowed humans to fork, comment, remix and generate new ideas from old ones. Many technologists today, imagine that to be the way the web enables thought today.

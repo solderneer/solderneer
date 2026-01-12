@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-01-04T13:18:27.148Z",
+  "assets": {
+    "images/general-magic-disease/palm-pilot.webp": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/general-magic-disease/palm-pilot-Z1Y3YNqXtRRcDhaRKeWeNqagzyTKKS.webp",
+      "contentType": "image/webp",
+      "size": 341236,
+      "hash": "sha256:38094500b511b76251c25f8eccb3bc0f1176bbccc075032003128b056d1e536f",
+      "uploadedAt": "2026-01-04T13:10:23.845Z"
+    },
+    "images/general-magic-disease/sony-magic-link.jpg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/general-magic-disease/sony-magic-link-ZPbjdmdvxi5FRJLSKcpW9sW0GltSOy.jpg",
+      "contentType": "image/jpeg",
+      "size": 57241,
+      "hash": "sha256:adf47c75eaae54fd4026a8d81f61abec1af117d9bb576f80abb820beb822fac6",
+      "uploadedAt": "2026-01-04T13:10:24.627Z"
+    },
+    "images/weeknotes-1/6.jpg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/6-uAMimtBfmR8FFvobJjrFhb0es4hh7q.jpg",
+      "contentType": "image/jpeg",
+      "size": 228656,
+      "hash": "sha256:cec72607596c34a2ca668de9db0fd4c6cd02dcb8174ee8d800506adf5cde638a",
+      "uploadedAt": "2026-01-04T13:10:26.045Z"
+    },
+    "images/weeknotes-1/close-mazhai-kili-cropped.jpg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/close-mazhai-kili-cropped-A1LaGdZt7y6pFivHXk8z3mRKGxptex.jpg",
+      "contentType": "image/jpeg",
+      "size": 355902,
+      "hash": "sha256:ff1e1a8aa70a4cf58b82f4098d32fd6fb1f458a7c9e1565026a003684ddac72f",
+      "uploadedAt": "2026-01-04T13:10:28.313Z"
+    },
+    "images/weeknotes-1/close-mazhai-kili.jpeg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/close-mazhai-kili-HNEzlIBaq9IoQGMk11uHptZgsCQ47g.jpeg",
+      "contentType": "image/jpeg",
+      "size": 361466,
+      "hash": "sha256:7a809d128b75e52160ad4501452347d40920456d162561e9131e0a67f171aaca",
+      "uploadedAt": "2026-01-04T13:10:29.614Z"
+    },
+    "images/weeknotes-1/far-mazhai-kili-cropped.jpg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/far-mazhai-kili-cropped-EvN4aGNQnFtvw7imhbdd0DVgFCO6ZL.jpg",
+      "contentType": "image/jpeg",
+      "size": 447154,
+      "hash": "sha256:21d0b232cc1d1e34651ff9b781c848886f769d0faeabc6352c5a8957f0d9b602",
+      "uploadedAt": "2026-01-04T13:10:30.797Z"
+    },
+    "images/weeknotes-1/far-mazhai-kili.jpeg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/far-mazhai-kili-k7xABkLCvVuRsogPODaZ4klQL7RHep.jpeg",
+      "contentType": "image/jpeg",
+      "size": 413169,
+      "hash": "sha256:d82f8f45d06ef849950aa833040f604ddd10f875ac624819682524cffba44164",
+      "uploadedAt": "2026-01-04T13:10:32.023Z"
+    },
+    "images/weeknotes-1/flowers.jpeg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/flowers-9LNvYsnuylgXwImPDmn2AhKASXI1wq.jpeg",
+      "contentType": "image/jpeg",
+      "size": 3082431,
+      "hash": "sha256:0689ebe1906d91a46636fd86dd3df3b216406de537f3b348fb1700f17b9cde0b",
+      "uploadedAt": "2026-01-04T13:10:34.914Z"
+    },
+    "images/weeknotes-1/lake.jpeg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/lake-jfnGB7uvRDSBFvR7sU7Hqliu8cC9gH.jpeg",
+      "contentType": "image/jpeg",
+      "size": 3421502,
+      "hash": "sha256:e43da1d8ea1d4c782c71158c01a2d9cdee987d25d5a177d82b06f4411166704a",
+      "uploadedAt": "2026-01-04T13:10:37.260Z"
+    },
+    "images/weeknotes-1/prom.jpeg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/prom-fFDz1eJ2kgwGzRbYnMaBqVc0vOkRBj.jpeg",
+      "contentType": "image/jpeg",
+      "size": 4272681,
+      "hash": "sha256:7e772374937d9acfedb9df6c39156b4f0974ffb5e0554f3997dfc8777baf666a",
+      "uploadedAt": "2026-01-04T13:10:39.886Z"
+    },
+    "images/weeknotes-1/rainbow.jpeg": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/images/weeknotes-1/rainbow-V8toLGCUp9BjwwL6dPjePOYxF9k6I5.jpeg",
+      "contentType": "image/jpeg",
+      "size": 2642559,
+      "hash": "sha256:3979ec65033e7ac8d8603e2e83286c50d3934c08f91a305dce3901b5dfdc8765",
+      "uploadedAt": "2026-01-04T13:10:42.127Z"
+    },
+    "models/macintosh-classic.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/macintosh-classic.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/tp7.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/tp7.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/rotring-pencil.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/rotring-pencil.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/nike-af1-white.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/nike-af1-white.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/ipod-classic.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/ipod-classic.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/imac-g3.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/imac-g3.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/dji-mini-3-pro.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/dji-mini-3-pro.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/sony-walkman.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/sony-walkman.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/mazda-mx5.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/mazda-mx5.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/casio-f91w.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/casio-f91w.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    }
+  }
+}

@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = "solderneer";
 export const SITE_DESCRIPTION =
-  "A slice-of-life blog by Sudharshan, focused at the intersection of consumer electronics and neurotech.";
+  "Portmanteau of soldering and engineer. A hardware engineer's notebook of assorted thoughts.";
 
 const SITE_MODE = process.env.SITE_MODE ?? "PROD";
 export const SITE_BASEURL =

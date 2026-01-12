@@ -4,7 +4,7 @@ emoji: 🤝
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023
 tags:
-  - society
+  - "300"
 ---
 
 [Microsolidarity](https://www.microsolidarity.cc/) is a network working on building practices for community-building, especially in small groups.

@@ -4,14 +4,12 @@ emoji: 🐔
 pubDate: 06-Jul-2023
 updatedDate: 06-Jul-2023
 tags:
-  - science
+  - "500"
 ---
 
 This note is the **twenty-first** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 Isn't it incredible how resilient biology is? All you need is water, air and sunlight to grow some cells and they will grow almost anywhere on the surface of Earth. Biology is fault-tolerant engineering, I've been getting a new found appreciation for that at [Dynacyte](https://www.dynacyte.com/).
 

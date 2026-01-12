@@ -4,8 +4,8 @@ description: Designing and building a DIY solder reflow oven
 emoji: 🤖
 pubDate: May 07 2016
 tags:
-  - young-shan
-  - projects
+  - "200"
+  - "610"
 originalPost: https://makerforce.io/building-a-diy-solder-reflow-oven/
 updatedDate: 07-May-2016
 ---

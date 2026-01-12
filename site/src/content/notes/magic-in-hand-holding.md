@@ -4,14 +4,12 @@ emoji: 👫
 pubDate: 17-Jun-2023
 updatedDate: 17-Jun-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **fifth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672).
 
 ---
-
-**Dearest Reader,**
 
 Life's not all about work, there are more dimensions to each of us than what we decidedly show others online. Especially in semi-professional spaces like blogs and twitter.
 

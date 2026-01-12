@@ -4,8 +4,8 @@ description: Experience the Singapore maker scene
 emoji: 🎡
 pubDate: July 14 2016
 tags:
-  - life
-  - young-shan
+  - "110"
+  - "200"
 originalPost: https://makerforce.io/maker-faire-2016/
 updatedDate: 14-Jul-2016
 ---

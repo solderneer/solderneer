@@ -10,8 +10,6 @@ This note is the **nineteenth** letter in the [[104-days-of-summer-vacation]] se
 
 ---
 
-**Dearest Reader,**
-
 I am terribly jet lagged today, so this will be a short one. My 10-day trip to India is over, and I am happy to finally be back home. It's funny how going to India has this time-dilation quality to it, the ten days feels like years but it was nice to spend some time with loved ones.
 
 I'm also excited to get back to routine, there are a number of changes coming up. Tomorrow, I am starting an internship with [Dynacyte Biosciences](https://www.dynacyte.com/), working on modular, scalable and small bioreactors. This wasn't in my original [[summer-2023]] plan, which means I'm going to have to scale back some of my goals to make extra time.

@@ -4,15 +4,13 @@ emoji: 🎲
 pubDate: 12-Jul-2023
 updatedDate: 12-Jul-2023
 tags:
-  - technology
-  - philosophy
+  - "600"
+  - "100"
 ---
 
 This note is the **twenty-sixth letter** in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 James Carse writes very simply, there are at least two kinds of games. **Finite games are games which are played with the goal of winning. And, infinite games are games played with the goal of continuing the play.**
 

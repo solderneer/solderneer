@@ -4,7 +4,7 @@ emoji: 🧑‍⚖
 pubDate: 30-May-2023
 updatedDate: 30-May-2023
 tags:
-  - society
+  - "300"
 ---
 
 Check out this piece of literature on public policy networks and their applications to [[wicked-problems]] - > [PUBLIC POLICY NETWORKS AND ‘WICKED PROBLEMS’: A NASCENT SOLUTION?](https://onlinelibrary.wiley.com/doi/10.1111/j.1467-9299.2010.01896.x)

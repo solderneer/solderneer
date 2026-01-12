@@ -4,7 +4,7 @@ emoji: 🇩🇪
 pubDate: 02-Nov-2022
 updatedDate: 16-Nov-2022
 tags:
-  - travel
+  - "900"
 ---
 
 I visited [[bonn-germany]] all the way back in 2017, on a school trip at [NUS High School](https://www.nushigh.edu.sg/). Since this note-taking practice was started in 2022, I do not have much recollection of takeways from Bonn, beyond the fact that it was a cool place.

@@ -1,32 +1,229 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import MarkdownBlock from "../components/MarkdownBlock.astro";
-import LinkGraph from "../components/LinkGraph.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Tag from "../components/Tag.astro";
-
 import { getCollection } from "astro:content";
+import tagsJson from "../content/_tags.json";
 
-const notes = await getCollection("notes");
-const topOfMind = notes.find(note => note.slug === "top-of-mind");
+// Get all notes, sorted by date
+const allNotes = await getCollection("notes");
+const totalNotes = allNotes.length;
+const sortedNotes = allNotes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-if (!topOfMind) {
-  throw new Error("Top of mind note not found");
+// Check if we have notes
+if (sortedNotes.length === 0) {
+  throw new Error("No notes found. Add at least one note to build the site.");
 }
 
-const { Content } = await topOfMind.render();
+// Calculate refNum for all notes upfront (O(n) instead of O(n²))
+const notesWithRefNum = sortedNotes.map((note, index) => ({
+  ...note,
+  refNum: totalNotes - index
+}));
 
-const { title, description, emoji, pubDate, updatedDate, tags } = topOfMind.data;
+// Recent notes for list
+const recentNotes = notesWithRefNum.slice(0, 10);
+
+// Format date for display
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+}
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <MarkdownBlock>
-      <img
-        class="w-full max-w-5xl bg-contain bg-no-repeat bg-center mb-2"
-        src="/main-cover-lg.gif"
-      />
-    <Content />
-    <LinkGraph rootPath="notes/top-of-mind/" />
-  </MarkdownBlock>
+  <div class="main-content">
+    <!-- Recent Notes -->
+    <section class="recent-notes">
+      <div class="section-header">
+        <h2>Recent Notes</h2>
+        <a href="/notes">View all →</a>
+      </div>
+      <ul class="notes-list">
+        {recentNotes.map((note) => (
+          <li class="note-item">
+            <a href={`/notes/${note.slug}/`}>
+              <span class="note-title">
+                <span class="note-ref">N{String(note.refNum).padStart(3, '0')}</span>
+                {note.data.title}
+              </span>
+              <div class="note-meta">
+                <span>{formatDate(note.data.pubDate)}</span>
+                {note.data.tags?.[0] && (
+                  <span class="note-tag">{note.data.tags[0]} {tagsJson[note.data.tags[0] as keyof typeof tagsJson]?.name}</span>
+                )}
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+
+  <!-- Collections Section -->
+  <section class="collections">
+    <div class="section-header">
+      <h2>Collections</h2>
+    </div>
+    <div class="special-grid">
+      <a href="/flights" class="special-card">
+        <h3><span class="card-icon">◎</span> Flights</h3>
+        <p>A collection of flight videos. Currently, drone videography and racing.</p>
+      </a>
+      <a href="/objects" class="special-card">
+        <h3><span class="card-icon">◈</span> Object Museum</h3>
+        <p>A catalog of beautiful, iconic, intentional products to be studied.</p>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* Main Content */
+  .main-content {
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+  }
+
+  .recent-notes {
+    padding: 32px 0;
+  }
+
+  /* Section Header */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+
+  .section-header h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .section-header a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+  }
+
+  .section-header a:hover {
+    color: var(--accent);
+  }
+
+  /* Note Reference */
+  .note-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-right: 8px;
+  }
+
+  /* Notes list */
+  .notes-list {
+    list-style: none;
+  }
+
+  .note-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .note-item:last-child {
+    border-bottom: none;
+  }
+
+  .note-item a {
+    text-decoration: none;
+    display: block;
+  }
+
+  .note-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+    transition: color 0.15s;
+    display: block;
+  }
+
+  .note-item a:hover .note-title {
+    color: var(--accent);
+  }
+
+  .note-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    display: flex;
+    gap: 10px;
+  }
+
+  .note-tag {
+    color: var(--accent);
+  }
+
+  /* Collections section */
+  .collections {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .special-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 500px) {
+    .special-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .special-card {
+    border: 1px solid var(--border);
+    padding: 24px;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .special-card:hover {
+    border-color: var(--accent);
+    background: #f5f7fa;
+  }
+
+  .special-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .special-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .card-icon {
+    font-size: 1.1rem;
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+</style>

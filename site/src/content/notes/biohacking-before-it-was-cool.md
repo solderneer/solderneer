@@ -4,14 +4,12 @@ emoji: 👨‍🔬
 pubDate: 27-Jun-2023
 updatedDate: 27-Jun-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **twelfth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 I think I know someone really well, and a reminder always comes along to give me a rude awakening. I hope this letter serves as an invitation for you to find out something new about someone you're close to.
 

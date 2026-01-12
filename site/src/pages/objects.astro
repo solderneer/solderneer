@@ -1,0 +1,736 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RuneScroll from "../components/RuneScroll.astro";
+import objects from "../data/objects.json";
+import manifest from "../data/media-manifest.json";
+
+const objectRunes = "◈φ:1.618r²πA:B∿μm◯△□";
+
+// Create a map of model filenames to Blob URLs for client-side lookup
+const modelUrls: Record<string, string> = {};
+for (const [path, asset] of Object.entries(manifest.assets)) {
+  if (path.startsWith('models/')) {
+    // Extract just the filename for lookup
+    const filename = path.replace('models/', '');
+    modelUrls[filename] = (asset as { blobUrl: string }).blobUrl;
+  }
+}
+---
+
+<BaseLayout title="Object Museum" description="A catalog of beautiful, iconic products" showHeader={false}>
+  <div class="objects-page">
+    <header class="page-header">
+      <a href="/" class="back-link">← solderneer</a>
+      <div class="page-title">
+        <h1>Object Museum</h1>
+        <div class="subtitle">beautiful, iconic products to be studied</div>
+      </div>
+      <RuneScroll runes={objectRunes} />
+      <div class="intro">
+      </div>
+      <div class="hint" id="hint">hover to explore · drag to rotate · double-click to expand</div>
+    </header>
+
+    <div class="gallery" id="gallery"></div>
+  </div>
+
+  <div class="info-panel" id="infoPanel">
+    <div class="info-content">
+      <div class="info-id" id="infoId"></div>
+      <div class="info-main">
+        <div class="info-name" id="infoName"></div>
+        <div class="info-meta" id="infoMeta"></div>
+        <div class="info-blurb" id="infoBlurb"></div>
+        <div class="info-attribution" id="infoAttribution"></div>
+      </div>
+          </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ objects, modelUrls }}>
+  // Environment texture for reflections
+  let envTexture = null;
+
+  // Three.js loaded via CDN
+  const script1 = document.createElement('script');
+  script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  script1.onload = () => {
+    const script2 = document.createElement('script');
+    script2.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
+    script2.onload = () => {
+      // Load RGBELoader for HDR environment maps
+      const script3 = document.createElement('script');
+      script3.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js';
+      script3.onload = () => {
+        loadEnvironment().then(initGallery);
+      };
+      document.head.appendChild(script3);
+    };
+    document.head.appendChild(script2);
+  };
+  document.head.appendChild(script1);
+
+  // Load studio HDRI for reflections
+  function loadEnvironment() {
+    return new Promise((resolve) => {
+      const rgbeLoader = new THREE.RGBELoader();
+      rgbeLoader.load('/studio.hdr', (texture) => {
+        texture.mapping = THREE.EquirectangularReflectionMapping;
+        envTexture = texture;
+        resolve();
+      }, undefined, (error) => {
+        console.error('Failed to load environment map:', error);
+        resolve();
+      });
+    });
+  }
+
+  // Helper to get model URL - tries Blob first, falls back to /models/
+  function getModelUrl(filename) {
+    return modelUrls[filename] || '/models/' + filename;
+  }
+
+  function initGallery() {
+    const gallery = document.getElementById('gallery');
+    const panel = document.getElementById('infoPanel');
+    const scenes = [];
+    let activeIndex = null;
+    let expandedIndex = null;
+
+    // Create a scene for each object
+    objects.forEach((obj, index) => {
+      const container = document.createElement('div');
+      container.className = 'object';
+      container.dataset.index = index;
+      gallery.appendChild(container);
+
+      // Three.js setup
+      const scene = new THREE.Scene();
+      // Don't set scene.environment - we'll apply envMap only to metallic materials
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.z = obj.cameraZ || 3;
+
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 0.9;
+      renderer.physicallyCorrectLights = true;
+      container.appendChild(renderer.domElement);
+
+      // Studio-style lighting with high contrast for 3D definition
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+
+      // Key light - main light source (warm, from upper right)
+      const keyLight = new THREE.DirectionalLight(0xfff5e8, 1.5);
+      keyLight.position.set(4, 6, 5);
+      scene.add(keyLight);
+
+      // Fill light - softer, from opposite side
+      const fillLight = new THREE.DirectionalLight(0xffffff, 0.6);
+      fillLight.position.set(-4, 2, 3);
+      scene.add(fillLight);
+
+      // Rim/back light - edge definition
+      const rimLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      rimLight.position.set(0, 3, -4);
+      scene.add(rimLight);
+
+      // Hemisphere light for natural ambient
+      const hemiLight = new THREE.HemisphereLight(0xffffff, 0xe8e4dc, 0.4);
+      scene.add(hemiLight);
+
+      // Geometry based on shape
+      let geometry;
+      let mesh;
+      const colorVal = parseInt(obj.color.replace('0x', ''), 16);
+
+      if (obj.shape === 'gltf' && obj.model) {
+        // Load GLTF model from Blob storage or fallback to /models/
+        const loader = new THREE.GLTFLoader();
+        loader.load(getModelUrl(obj.model), (gltf) => {
+          const model = gltf.scene;
+
+          // Apply envMap to metallic objects (iPod, Rotring, Miata)
+          if (obj.model === 'ipod-classic.glb' || obj.model === 'rotring-pencil.glb' || obj.model === 'mazda-mx5.glb') {
+            model.traverse((child) => {
+              if (child.isMesh && child.material) {
+                const materials = Array.isArray(child.material) ? child.material : [child.material];
+                materials.forEach((mat) => {
+                  if (mat.isMeshStandardMaterial || mat.isMeshPhysicalMaterial) {
+                    mat.envMap = envTexture;
+                    mat.envMapIntensity = 1.0;
+                    mat.needsUpdate = true;
+                  }
+                });
+              }
+            });
+          }
+
+          // Create pivot group for proper center rotation
+          const pivot = new THREE.Group();
+
+          // First, calculate scale factor
+          const box = new THREE.Box3().setFromObject(model);
+          const size = box.getSize(new THREE.Vector3());
+          const maxDim = Math.max(size.x, size.y, size.z);
+          const baseScale = 1.5 / maxDim;
+          const customScale = obj.scale || 1.0;
+          const finalScale = baseScale * customScale;
+
+          // Apply scale first
+          model.scale.setScalar(finalScale);
+
+          // Recalculate bounding box after scaling
+          model.updateMatrixWorld(true);
+          const scaledBox = new THREE.Box3().setFromObject(model);
+          const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
+
+
+          // Center model within pivot using scaled coordinates
+          model.position.set(-scaledCenter.x, -scaledCenter.y, -scaledCenter.z);
+
+          pivot.add(model);
+
+          // Create shadow positioned at model's bottom
+          const scaledSize = scaledBox.getSize(new THREE.Vector3());
+          const shadowCanvas = document.createElement('canvas');
+          shadowCanvas.width = 64;
+          shadowCanvas.height = 64;
+          const shadowCtx = shadowCanvas.getContext('2d');
+          const gradient = shadowCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+          gradient.addColorStop(0, 'rgba(0, 0, 0, 0.04)');
+          gradient.addColorStop(0.6, 'rgba(0, 0, 0, 0.02)');
+          gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+          shadowCtx.fillStyle = gradient;
+          shadowCtx.fillRect(0, 0, 64, 64);
+          const shadowTexture = new THREE.CanvasTexture(shadowCanvas);
+          const shadowGeo = new THREE.PlaneGeometry(1.0, 1.0);
+          const shadowMat = new THREE.MeshBasicMaterial({
+            map: shadowTexture,
+            transparent: true,
+            depthWrite: false
+          });
+          const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+          shadowMesh.rotation.x = -Math.PI / 2;
+          // Position shadow below the centered model's bottom
+          shadowMesh.position.y = -(scaledSize.y / 2) - 0.05;
+          scene.add(shadowMesh);
+
+          // Apply initial rotation to pivot
+          if (obj.rotation) {
+            pivot.rotation.x = obj.rotation.x || 0;
+            pivot.rotation.y = obj.rotation.y || 0;
+            pivot.rotation.z = obj.rotation.z || 0;
+          }
+
+          scene.add(pivot);
+          scenes[index].mesh = pivot;
+        }, undefined, (error) => {
+          console.error('Error loading model:', error);
+          // Fallback to box
+          const fallbackGeo = new THREE.BoxGeometry(1, 1, 1);
+          const fallbackMat = new THREE.MeshStandardMaterial({ color: colorVal, roughness: 0.4, metalness: 0.1 });
+          const fallbackMesh = new THREE.Mesh(fallbackGeo, fallbackMat);
+          scene.add(fallbackMesh);
+          scenes[index].mesh = fallbackMesh;
+        });
+
+        // Placeholder mesh for initial scenes array
+        mesh = new THREE.Object3D();
+      } else {
+        switch (obj.shape) {
+          case 'sphere':
+            geometry = new THREE.SphereGeometry(0.8, 32, 32);
+            break;
+          case 'cylinder':
+            geometry = new THREE.CylinderGeometry(0.6, 0.6, 1, 32);
+            break;
+          case 'cone':
+            geometry = new THREE.ConeGeometry(0.6, 1.2, 32);
+            break;
+          case 'torus':
+            geometry = new THREE.TorusGeometry(0.6, 0.25, 16, 100);
+            break;
+          default:
+            geometry = new THREE.BoxGeometry(1, 1, 1);
+        }
+
+        const material = new THREE.MeshStandardMaterial({
+          color: colorVal,
+          roughness: 0.4,
+          metalness: 0.1,
+        });
+
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+      }
+
+      // Store scene data
+      scenes.push({
+        scene,
+        camera,
+        renderer,
+        mesh,
+        container,
+        rotationSpeed: 0.003 + Math.random() * 0.002,
+        floatOffset: Math.random() * Math.PI * 2,
+        floatSpeed: 0.5 + Math.random() * 0.3,
+        isHovered: false,
+        isDragging: false,
+        previousMousePosition: { x: 0, y: 0 },
+        initialRotation: obj.rotation || { x: 0, y: 0, z: 0 },
+        rotationOffset: 0
+      });
+
+      // Hover events
+      container.addEventListener('mouseenter', () => {
+        scenes[index].isHovered = true;
+        showInfo(index);
+      });
+      container.addEventListener('mouseleave', () => {
+        scenes[index].isHovered = false;
+        scenes[index].isDragging = false;
+        // Hide info panel when not expanded
+        if (expandedIndex === null) {
+          hideInfo();
+        }
+      });
+      container.addEventListener('click', () => showInfo(index));
+
+      // Drag to rotate
+      container.addEventListener('mousedown', (e) => {
+        scenes[index].isDragging = true;
+        scenes[index].previousMousePosition = { x: e.clientX, y: e.clientY };
+        e.preventDefault();
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        const s = scenes[index];
+        if (s.isDragging && s.mesh) {
+          const deltaX = e.clientX - s.previousMousePosition.x;
+          const deltaY = e.clientY - s.previousMousePosition.y;
+
+          s.mesh.rotation.y += deltaX * 0.01;
+          s.mesh.rotation.x += deltaY * 0.01;
+
+          s.previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
+      });
+
+      container.addEventListener('mouseup', () => {
+        scenes[index].isDragging = false;
+      });
+
+      // Double-click to expand
+      container.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        if (expandedIndex === index) {
+          collapseObject();
+        } else {
+          expandObject(index);
+        }
+      });
+
+      // Scroll to zoom (only when expanded)
+      container.addEventListener('wheel', (e) => {
+        if (expandedIndex === index) {
+          e.preventDefault();
+          const s = scenes[index];
+          const zoomSpeed = 0.002;
+          s.camera.position.z += e.deltaY * zoomSpeed;
+          // Clamp zoom range
+          s.camera.position.z = Math.max(1.5, Math.min(6, s.camera.position.z));
+        }
+      }, { passive: false });
+    });
+
+    function showInfo(index) {
+      const obj = objects[index];
+      document.getElementById('infoId').textContent = obj.id;
+      document.getElementById('infoName').textContent = obj.name;
+      document.getElementById('infoMeta').textContent = obj.brand + ' · ' + obj.year;
+      document.getElementById('infoBlurb').textContent = obj.blurb;
+      const attrEl = document.getElementById('infoAttribution');
+      if (obj.attribution) {
+        const a = obj.attribution;
+        attrEl.innerHTML = `"<a href="${a.modelUrl}" target="_blank" rel="noopener">${a.modelName}</a>" by ${a.author} is licensed under <a href="${a.licenseUrl}" target="_blank" rel="noopener">${a.license}</a>`;
+        attrEl.style.display = 'block';
+      } else {
+        attrEl.style.display = 'none';
+      }
+      panel.classList.add('visible');
+
+      document.querySelectorAll('.object').forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+      });
+      activeIndex = index;
+    }
+
+    function hideInfo() {
+      panel.classList.remove('visible');
+      document.querySelectorAll('.object').forEach(el => el.classList.remove('active'));
+      activeIndex = null;
+    }
+
+    function expandObject(index) {
+      expandedIndex = index;
+      const container = scenes[index].container;
+
+      // Store original parent for restoration
+      container.dataset.originalParent = 'gallery';
+
+      // Create fullscreen overlay
+      const overlay = document.createElement('div');
+      overlay.className = 'expanded-overlay';
+      overlay.id = 'expandedOverlay';
+
+      const hint = document.createElement('div');
+      hint.className = 'expanded-hint';
+      hint.textContent = 'drag to rotate · scroll to zoom · double-click or ESC to exit';
+
+      const objectContainer = document.createElement('div');
+      objectContainer.className = 'expanded-object-container';
+
+      overlay.appendChild(hint);
+      overlay.appendChild(objectContainer);
+      overlay.appendChild(panel); // Move info panel into overlay
+      document.body.appendChild(overlay);
+
+      // Move object into overlay
+      container.classList.add('expanded');
+      objectContainer.appendChild(container);
+
+      document.body.classList.add('object-expanded');
+
+      // Set camera to expanded zoom level
+      const obj = objects[index];
+      scenes[index].camera.position.z = obj.expandedCameraZ || 5;
+
+      // Show info panel
+      showInfo(index);
+
+      // Resize renderer to new size after CSS transition
+      setTimeout(handleResize, 50);
+    }
+
+    function collapseObject() {
+      if (expandedIndex !== null) {
+        const container = scenes[expandedIndex].container;
+        container.classList.remove('expanded');
+
+        // Reset camera zoom to default
+        const obj = objects[expandedIndex];
+        scenes[expandedIndex].camera.position.z = obj.cameraZ || 3;
+
+        // Move object back to gallery at correct position
+        const currentIndex = parseInt(container.dataset.index);
+        const children = Array.from(gallery.children);
+        const insertBefore = children.find(child => parseInt(child.dataset.index) > currentIndex);
+        if (insertBefore) {
+          gallery.insertBefore(container, insertBefore);
+        } else {
+          gallery.appendChild(container);
+        }
+
+        // Move info panel back to body
+        document.body.appendChild(panel);
+
+        // Remove overlay
+        const overlay = document.getElementById('expandedOverlay');
+        if (overlay) overlay.remove();
+      }
+      document.body.classList.remove('object-expanded');
+
+      expandedIndex = null;
+
+      // Resize renderer back after CSS transition
+      setTimeout(handleResize, 50);
+    }
+
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.object') && !e.target.closest('.info-panel')) {
+        hideInfo();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (expandedIndex !== null) {
+          collapseObject();
+        } else {
+          hideInfo();
+        }
+      }
+    });
+
+    // Resize handler
+    function handleResize() {
+      scenes.forEach(({ renderer, container }) => {
+        const rect = container.getBoundingClientRect();
+        renderer.setSize(rect.width, rect.height);
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+    setTimeout(handleResize, 100);
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      const time = Date.now() * 0.001;
+
+      scenes.forEach((s, i) => {
+        // Only animate if mesh exists
+        if (s.mesh) {
+          // Only rotate when not hovered
+          if (!s.isHovered && !s.isDragging) {
+            s.rotationOffset += s.rotationSpeed;
+            s.mesh.rotation.y = s.initialRotation.y + s.rotationOffset;
+            s.mesh.rotation.x = s.initialRotation.x + Math.sin(time * 0.5) * 0.1;
+            s.mesh.position.y = Math.sin(time * s.floatSpeed + s.floatOffset) * 0.08;
+          }
+        }
+
+        s.renderer.render(s.scene, s.camera);
+      });
+    }
+
+    animate();
+  }
+</script>
+
+<style>
+  .objects-page {
+    position: relative;
+  }
+
+  .page-header {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-top: 40px;
+  }
+
+  .back-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .page-title h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+    color: var(--text);
+  }
+
+  .subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+  }
+
+  .intro {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro p {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .hint {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    text-align: right;
+    padding: 12px 0;
+  }
+
+  /* Gallery grid */
+  .gallery {
+    padding: 24px 0 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  :global(.object) {
+    aspect-ratio: 1;
+    cursor: grab;
+    position: relative;
+    overflow: visible;
+  }
+
+  :global(.object:active) {
+    cursor: grabbing;
+  }
+
+  :global(.object canvas) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  :global(body.object-expanded) {
+    overflow: hidden;
+  }
+
+  :global(.expanded-overlay) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 160px;
+  }
+
+
+  :global(.expanded-hint) {
+    padding: 16px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  :global(.expanded-object-container) {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  :global(.object.expanded) {
+    width: 100vw !important;
+    height: 100vw !important;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: 1;
+  }
+
+  /* Info panel */
+  .info-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .info-panel.visible {
+    transform: translateY(0);
+  }
+
+  :global(.expanded-overlay) .info-panel {
+    border-top: none;
+  }
+
+  .info-content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .info-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    min-width: 60px;
+  }
+
+  .info-main {
+    flex: 1;
+  }
+
+  .info-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .info-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+
+  .info-blurb {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .info-attribution {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--text-tertiary);
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+
+  .info-attribution a {
+    color: var(--text-tertiary);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+  }
+
+  .info-attribution a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      padding: 24px 0 140px;
+    }
+    .info-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 16px;
+    }
+  }
+</style>

@@ -4,7 +4,7 @@ emoji: 🤫
 pubDate: 15-Nov-2022
 updatedDate: 16-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 In traditional media, since [[a-brand-is-consensus]], there was a high degree of focus on "controlling the narrative". In a society with high information asymmetry, it was possible to position yourself as mediators of credibility that people had to trust.

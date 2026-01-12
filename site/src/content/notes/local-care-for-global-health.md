@@ -4,7 +4,7 @@ emoji: 💙
 pubDate: 25-Nov-2022
 updatedDate: 28-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 ## Cuba and local care
