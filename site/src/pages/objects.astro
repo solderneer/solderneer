@@ -404,32 +404,38 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
       container.addEventListener('touchmove', (e) => {
         const s = scenes[index];
+        const isExpanded = expandedIndex === index;
 
         if (e.touches.length === 1) {
-          // Single touch drag to rotate
-          e.preventDefault();
           const touch = e.touches[0];
+          const dx = touch.clientX - s.previousTouchPosition.x;
+          const dy = touch.clientY - s.previousTouchPosition.y;
 
           if (!s.isDragging) {
             // Check if moved enough to start dragging
-            const dx = touch.clientX - s.previousTouchPosition.x;
-            const dy = touch.clientY - s.previousTouchPosition.y;
             if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
-              s.isDragging = true;
-              s.lastTapTime = 0; // Cancel double-tap detection if dragging
+              // Only start drag if horizontal movement dominates OR if expanded
+              // This allows vertical scrolling when not expanded
+              if (isExpanded || Math.abs(dx) > Math.abs(dy)) {
+                s.isDragging = true;
+                s.lastTapTime = 0; // Cancel double-tap detection if dragging
+                // Reset position reference to current point when drag starts
+                s.previousTouchPosition = { x: touch.clientX, y: touch.clientY };
+                return; // Skip this frame to avoid jump
+              }
             }
           }
 
           if (s.isDragging && s.mesh) {
-            const deltaX = touch.clientX - s.previousTouchPosition.x;
-            const deltaY = touch.clientY - s.previousTouchPosition.y;
+            // Only prevent default when we're actually dragging to rotate
+            e.preventDefault();
 
-            s.mesh.rotation.y += deltaX * 0.01;
-            s.mesh.rotation.x += deltaY * 0.01;
+            s.mesh.rotation.y += dx * 0.01;
+            s.mesh.rotation.x += dy * 0.01;
 
             s.previousTouchPosition = { x: touch.clientX, y: touch.clientY };
           }
-        } else if (e.touches.length === 2 && expandedIndex === index) {
+        } else if (e.touches.length === 2 && isExpanded) {
           // Pinch zoom (only when expanded)
           e.preventDefault();
           const touch1 = e.touches[0];
@@ -701,10 +707,13 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     cursor: grab;
     position: relative;
     overflow: visible;
-    touch-action: none;
     -webkit-user-select: none;
     user-select: none;
     -webkit-touch-callout: none;
+  }
+
+  :global(.object.expanded) {
+    touch-action: none;
   }
 
   :global(.object:active) {
