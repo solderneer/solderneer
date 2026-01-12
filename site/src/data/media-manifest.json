@@ -80,18 +80,18 @@
       "uploadedAt": "2026-01-04T13:10:42.127Z"
     },
     "models/macintosh-classic.glb": {
-      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/macintosh-classic-T6ShXIJUPDU2um0GOLQRW9zxrVPhJO.glb",
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/macintosh-classic.glb",
       "contentType": "model/gltf-binary",
-      "size": 713352,
-      "hash": "sha256:30ed0edc62d15201deda98800af20dfdd332823f7daaa2ab1df902c5ea916e15",
-      "uploadedAt": "2026-01-04T13:14:22.413Z"
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
     },
     "models/tp7.glb": {
-      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/tp7-FmXxCyk3LpKAznRSBc1dsh6MpTevHV.glb",
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/tp7.glb",
       "contentType": "model/gltf-binary",
-      "size": 1693228,
-      "hash": "sha256:a96e8745edb79608ef4bb5e71ce688faab597b3cd8de652636a4e0b01cfab65a",
-      "uploadedAt": "2026-01-04T13:14:24.935Z"
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
     },
     "models/rotring-pencil.glb": {
       "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/rotring-pencil.glb",
