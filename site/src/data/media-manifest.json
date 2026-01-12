@@ -120,6 +120,34 @@
       "size": 0,
       "hash": "",
       "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/dji-mini-3-pro.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/dji-mini-3-pro.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/sony-walkman.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/sony-walkman.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/mazda-mx5.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/mazda-mx5.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
+    },
+    "models/casio-f91w.glb": {
+      "blobUrl": "https://rwkxlovnjjnmc9is.public.blob.vercel-storage.com/models/casio-f91w.glb",
+      "contentType": "model/gltf-binary",
+      "size": 0,
+      "hash": "",
+      "uploadedAt": "2026-01-11T00:00:00.000Z"
     }
   }
 }

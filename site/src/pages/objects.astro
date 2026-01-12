@@ -79,8 +79,8 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         envTexture = texture;
         resolve();
       }, undefined, (error) => {
-        console.warn('Failed to load environment map:', error);
-        resolve(); // Continue without env map
+        console.error('Failed to load environment map:', error);
+        resolve();
       });
     });
   }
@@ -93,7 +93,7 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
   function initGallery() {
     const gallery = document.getElementById('gallery');
     const panel = document.getElementById('infoPanel');
-        const scenes = [];
+    const scenes = [];
     let activeIndex = null;
     let expandedIndex = null;
 
@@ -106,12 +106,9 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
       // Three.js setup
       const scene = new THREE.Scene();
-      // Apply environment map for reflections on metallic surfaces
-      if (envTexture) {
-        scene.environment = envTexture;
-      }
+      // Don't set scene.environment - we'll apply envMap only to metallic materials
       const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-      camera.position.z = 3;
+      camera.position.z = obj.cameraZ || 3;
 
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -119,7 +116,6 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
       });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setClearColor(0x000000, 0);
-      // Enable proper color output for PBR materials
       renderer.outputEncoding = THREE.sRGBEncoding;
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 0.9;
@@ -159,6 +155,22 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         const loader = new THREE.GLTFLoader();
         loader.load(getModelUrl(obj.model), (gltf) => {
           const model = gltf.scene;
+
+          // Apply envMap to metallic objects (iPod, Rotring, Miata)
+          if (obj.model === 'ipod-classic.glb' || obj.model === 'rotring-pencil.glb' || obj.model === 'mazda-mx5.glb') {
+            model.traverse((child) => {
+              if (child.isMesh && child.material) {
+                const materials = Array.isArray(child.material) ? child.material : [child.material];
+                materials.forEach((mat) => {
+                  if (mat.isMeshStandardMaterial || mat.isMeshPhysicalMaterial) {
+                    mat.envMap = envTexture;
+                    mat.envMapIntensity = 1.0;
+                    mat.needsUpdate = true;
+                  }
+                });
+              }
+            });
+          }
 
           // Create pivot group for proper center rotation
           const pivot = new THREE.Group();
@@ -396,6 +408,10 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
       document.body.classList.add('object-expanded');
 
+      // Set camera to expanded zoom level
+      const obj = objects[index];
+      scenes[index].camera.position.z = obj.expandedCameraZ || 5;
+
       // Show info panel
       showInfo(index);
 
@@ -409,7 +425,8 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         container.classList.remove('expanded');
 
         // Reset camera zoom to default
-        scenes[expandedIndex].camera.position.z = 3;
+        const obj = objects[expandedIndex];
+        scenes[expandedIndex].camera.position.z = obj.cameraZ || 3;
 
         // Move object back to gallery at correct position
         const currentIndex = parseInt(container.dataset.index);
@@ -552,7 +569,7 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
   /* Gallery grid */
   .gallery {
-    padding: 24px 0 160px;
+    padding: 24px 0 48px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 12px;
@@ -635,6 +652,10 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
   .info-panel.visible {
     transform: translateY(0);
+  }
+
+  :global(.expanded-overlay) .info-panel {
+    border-top: none;
   }
 
   .info-content {
