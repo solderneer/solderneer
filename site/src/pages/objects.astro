@@ -31,7 +31,21 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
       <div class="hint" id="hint">hover to explore · drag to rotate · double-click to expand</div>
     </header>
 
-    <div class="gallery" id="gallery"></div>
+    <div class="gallery" id="gallery">
+      {objects.map((obj, i) => (
+        <div class="object object-loading" data-index={i}>
+          <div class="skeleton-shimmer"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Loading progress indicator -->
+    <div class="loading-progress" id="loadingProgress">
+      <div class="loading-bar">
+        <div class="loading-bar-fill" id="loadingBarFill"></div>
+      </div>
+      <div class="loading-text" id="loadingText">Loading museum...</div>
+    </div>
   </div>
 
   <div class="info-panel" id="infoPanel">
@@ -51,18 +65,68 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
   // Environment texture for reflections
   let envTexture = null;
 
-  // Three.js loaded via CDN
+  // Loading state management
+  const totalSteps = objects.length + 4; // 3 scripts + 1 environment + models
+  let loadedSteps = 0;
+  let modelsLoaded = 0;
+
+  function updateLoadingProgress(message) {
+    loadedSteps++;
+    const progress = Math.min((loadedSteps / totalSteps) * 100, 100);
+    const progressBar = document.getElementById('loadingBarFill');
+    const loadingText = document.getElementById('loadingText');
+
+    if (progressBar) {
+      progressBar.style.width = `${progress}%`;
+    }
+    if (loadingText && message) {
+      loadingText.textContent = message;
+    }
+  }
+
+  function hideLoadingProgress() {
+    const loadingProgress = document.getElementById('loadingProgress');
+    if (loadingProgress) {
+      loadingProgress.classList.add('complete');
+      setTimeout(() => {
+        loadingProgress.style.display = 'none';
+      }, 500);
+    }
+  }
+
+  function onModelLoaded(index) {
+    modelsLoaded++;
+    // Remove shimmer from inside the container
+    const container = document.querySelector(`.object[data-index="${index}"]`);
+    if (container) {
+      const shimmer = container.querySelector('.skeleton-shimmer');
+      if (shimmer) shimmer.remove();
+    }
+    updateLoadingProgress(`Loaded ${modelsLoaded}/${objects.length} objects`);
+
+    if (modelsLoaded === objects.length) {
+      hideLoadingProgress();
+    }
+  }
+
+  // Three.js loaded via CDN with loading progress tracking
   const script1 = document.createElement('script');
   script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
   script1.onload = () => {
+    updateLoadingProgress('Loading 3D engine...');
     const script2 = document.createElement('script');
     script2.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
     script2.onload = () => {
+      updateLoadingProgress('Loading model loader...');
       // Load RGBELoader for HDR environment maps
       const script3 = document.createElement('script');
       script3.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js';
       script3.onload = () => {
-        loadEnvironment().then(initGallery);
+        updateLoadingProgress('Loading lighting system...');
+        loadEnvironment().then(() => {
+          updateLoadingProgress('Preparing gallery...');
+          initGallery();
+        });
       };
       document.head.appendChild(script3);
     };
@@ -97,12 +161,9 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     let activeIndex = null;
     let expandedIndex = null;
 
-    // Create a scene for each object
+    // Initialize scene for each pre-rendered object container
     objects.forEach((obj, index) => {
-      const container = document.createElement('div');
-      container.className = 'object';
-      container.dataset.index = index;
-      gallery.appendChild(container);
+      const container = gallery.querySelector(`[data-index="${index}"]`);
 
       // Three.js setup
       const scene = new THREE.Scene();
@@ -231,6 +292,11 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
           scene.add(pivot);
           scenes[index].mesh = pivot;
+
+          // Model loaded successfully - show container and update progress
+          container.classList.remove('object-loading');
+          container.classList.add('object-loaded');
+          onModelLoaded(index);
         }, undefined, (error) => {
           console.error('Error loading model:', error);
           // Fallback to box
@@ -239,6 +305,11 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
           const fallbackMesh = new THREE.Mesh(fallbackGeo, fallbackMat);
           scene.add(fallbackMesh);
           scenes[index].mesh = fallbackMesh;
+
+          // Even on error, mark as loaded (with fallback)
+          container.classList.remove('object-loading');
+          container.classList.add('object-loaded');
+          onModelLoaded(index);
         });
 
         // Placeholder mesh for initial scenes array
@@ -269,6 +340,11 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
         mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
+
+        // Non-GLTF shapes load immediately
+        container.classList.remove('object-loading');
+        container.classList.add('object-loaded');
+        onModelLoaded(index);
       }
 
       // Store scene data
@@ -575,6 +651,102 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     gap: 12px;
     max-width: 1000px;
     margin: 0 auto;
+  }
+
+  /* Shimmer animation keyframes */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Shimmer overlay for loading state */
+  .skeleton-shimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.3) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(200, 200, 200, 0.3) 100%
+    );
+    animation: shimmer 1.5s infinite ease-in-out;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  :global(.dark) .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(50, 50, 50, 0.5) 0%,
+      rgba(80, 80, 80, 0.6) 50%,
+      rgba(50, 50, 50, 0.5) 100%
+    );
+  }
+
+  /* Loading progress bar */
+  .loading-progress {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    text-align: center;
+    transition: opacity 0.5s ease;
+  }
+
+  .loading-progress.complete {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loading-bar {
+    width: 200px;
+    height: 2px;
+    background: var(--border, #e0e0e0);
+    border-radius: 1px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .loading-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent, #0066cc);
+    border-radius: 1px;
+    transition: width 0.3s ease-out;
+  }
+
+  .loading-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+  }
+
+  /* Object loading and loaded states */
+  :global(.object.object-loading) {
+    opacity: 0;
+  }
+
+  :global(.object.object-loaded) {
+    animation: fadeIn 0.5s ease-out forwards;
   }
 
   :global(.object) {
