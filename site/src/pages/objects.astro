@@ -32,14 +32,9 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     </header>
 
     <div class="gallery" id="gallery">
-      <!-- Skeleton loaders shown while Three.js and models load -->
       {objects.map((obj, i) => (
-        <div class="object-skeleton" data-skeleton-index={i}>
+        <div class="object object-loading" data-index={i}>
           <div class="skeleton-shimmer"></div>
-          <div class="skeleton-label">
-            <div class="skeleton-text skeleton-text-id"></div>
-            <div class="skeleton-text skeleton-text-name"></div>
-          </div>
         </div>
       ))}
     </div>
@@ -99,17 +94,14 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     }
   }
 
-  function removeSkeleton(index) {
-    const skeleton = document.querySelector(`[data-skeleton-index="${index}"]`);
-    if (skeleton) {
-      skeleton.classList.add('loaded');
-      setTimeout(() => skeleton.remove(), 400);
-    }
-  }
-
   function onModelLoaded(index) {
     modelsLoaded++;
-    removeSkeleton(index);
+    // Remove shimmer from inside the container
+    const container = document.querySelector(`.object[data-index="${index}"]`);
+    if (container) {
+      const shimmer = container.querySelector('.skeleton-shimmer');
+      if (shimmer) shimmer.remove();
+    }
     updateLoadingProgress(`Loaded ${modelsLoaded}/${objects.length} objects`);
 
     if (modelsLoaded === objects.length) {
@@ -169,12 +161,9 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     let activeIndex = null;
     let expandedIndex = null;
 
-    // Create a scene for each object
+    // Initialize scene for each pre-rendered object container
     objects.forEach((obj, index) => {
-      const container = document.createElement('div');
-      container.className = 'object object-loading';
-      container.dataset.index = index;
-      gallery.appendChild(container);
+      const container = gallery.querySelector(`[data-index="${index}"]`);
 
       // Three.js setup
       const scene = new THREE.Scene();
@@ -685,19 +674,7 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     }
   }
 
-  /* Skeleton loading placeholders */
-  .object-skeleton {
-    aspect-ratio: 1;
-    background: var(--bg-secondary, #f5f5f5);
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
+  /* Shimmer overlay for loading state */
   .skeleton-shimmer {
     position: absolute;
     top: 0;
@@ -706,55 +683,22 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     bottom: 0;
     background: linear-gradient(
       90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.4) 50%,
-      transparent 100%
+      rgba(200, 200, 200, 0.3) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(200, 200, 200, 0.3) 100%
     );
     animation: shimmer 1.5s infinite ease-in-out;
+    z-index: 10;
+    pointer-events: none;
   }
 
   :global(.dark) .skeleton-shimmer {
     background: linear-gradient(
       90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.08) 50%,
-      transparent 100%
+      rgba(50, 50, 50, 0.5) 0%,
+      rgba(80, 80, 80, 0.6) 50%,
+      rgba(50, 50, 50, 0.5) 100%
     );
-  }
-
-  .skeleton-label {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    z-index: 1;
-  }
-
-  .skeleton-text {
-    background: var(--border, #e0e0e0);
-    border-radius: 4px;
-    margin-bottom: 6px;
-  }
-
-  .skeleton-text-id {
-    width: 50px;
-    height: 10px;
-  }
-
-  .skeleton-text-name {
-    width: 80%;
-    height: 14px;
-  }
-
-  .object-skeleton.loaded {
-    animation: fadeOut 0.4s ease-out forwards;
-  }
-
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-      transform: scale(0.95);
-    }
   }
 
   /* Loading progress bar */
