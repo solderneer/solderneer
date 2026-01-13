@@ -416,7 +416,8 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
             if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
               // Only start drag if horizontal movement dominates OR if expanded
               // This allows vertical scrolling when not expanded
-              if (isExpanded || Math.abs(dx) > Math.abs(dy)) {
+              // Require 20% more horizontal movement to avoid diagonal edge cases
+              if (isExpanded || Math.abs(dx) > Math.abs(dy) * 1.2) {
                 s.isDragging = true;
                 s.lastTapTime = 0; // Cancel double-tap detection if dragging
                 // Reset position reference to current point when drag starts
@@ -452,24 +453,20 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         }
       }, { passive: false });
 
-      container.addEventListener('touchend', (e) => {
-        const s = scenes[index];
-        s.isDragging = false;
-
-        // Reset pinch state
-        if (e.touches.length < 2) {
-          s.pinchStartDistance = 0;
-        }
-
-        // Keep isHovered true to maintain info panel visibility
-        // Info panel will hide when user taps elsewhere
-      });
-
-      container.addEventListener('touchcancel', (e) => {
+      container.addEventListener('touchend', () => {
         const s = scenes[index];
         s.isDragging = false;
         s.pinchStartDistance = 0;
-      });
+
+        // Keep isHovered true to maintain info panel visibility
+        // Info panel will hide when user taps elsewhere
+      }, { passive: true });
+
+      container.addEventListener('touchcancel', () => {
+        const s = scenes[index];
+        s.isDragging = false;
+        s.pinchStartDistance = 0;
+      }, { passive: true });
     });
 
     function showInfo(index) {
