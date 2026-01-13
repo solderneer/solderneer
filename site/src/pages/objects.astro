@@ -28,7 +28,7 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
       <RuneScroll runes={objectRunes} />
       <div class="intro">
       </div>
-      <div class="hint" id="hint">hover to explore · drag to rotate · double-click to expand</div>
+      <div class="hint" id="hint">tap to explore · drag to rotate · double-tap to expand</div>
     </header>
 
     <div class="gallery" id="gallery"></div>
@@ -96,6 +96,15 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     const scenes = [];
     let activeIndex = null;
     let expandedIndex = null;
+
+    // Update hint text based on device type
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const hintEl = document.getElementById('hint');
+    if (hintEl) {
+      hintEl.textContent = isTouchDevice
+        ? 'tap to explore · drag to rotate · double-tap to expand'
+        : 'hover to explore · drag to rotate · double-click to expand';
+    }
 
     // Create a scene for each object
     objects.forEach((obj, index) => {
@@ -284,8 +293,12 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
         isHovered: false,
         isDragging: false,
         previousMousePosition: { x: 0, y: 0 },
+        previousTouchPosition: { x: 0, y: 0 },
         initialRotation: obj.rotation || { x: 0, y: 0, z: 0 },
-        rotationOffset: 0
+        rotationOffset: 0,
+        lastTapTime: 0,
+        pinchStartDistance: 0,
+        initialCameraZ: 0
       });
 
       // Hover events
@@ -348,6 +361,112 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
           s.camera.position.z = Math.max(1.5, Math.min(6, s.camera.position.z));
         }
       }, { passive: false });
+
+      // Touch events for mobile support
+      container.addEventListener('touchstart', (e) => {
+        const s = scenes[index];
+        const now = Date.now();
+
+        if (e.touches.length === 1) {
+          // Single touch - could be tap, double-tap, or start of drag
+          const touch = e.touches[0];
+          s.previousTouchPosition = { x: touch.clientX, y: touch.clientY };
+          s.isDragging = false; // Will be set to true on touchmove
+          s.isHovered = true;
+
+          // Check for double-tap
+          if (now - s.lastTapTime < 300) {
+            e.preventDefault();
+            if (expandedIndex === index) {
+              collapseObject();
+            } else {
+              expandObject(index);
+            }
+            s.lastTapTime = 0;
+            return;
+          }
+          s.lastTapTime = now;
+
+          // Show info on touch
+          showInfo(index);
+        } else if (e.touches.length === 2 && expandedIndex === index) {
+          // Pinch zoom start (only when expanded)
+          e.preventDefault();
+          const touch1 = e.touches[0];
+          const touch2 = e.touches[1];
+          s.pinchStartDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          );
+          s.initialCameraZ = s.camera.position.z;
+        }
+      }, { passive: false });
+
+      container.addEventListener('touchmove', (e) => {
+        const s = scenes[index];
+        const isExpanded = expandedIndex === index;
+
+        if (e.touches.length === 1) {
+          const touch = e.touches[0];
+          const dx = touch.clientX - s.previousTouchPosition.x;
+          const dy = touch.clientY - s.previousTouchPosition.y;
+
+          if (!s.isDragging) {
+            // Check if moved enough to start dragging
+            if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+              // Only start drag if horizontal movement dominates OR if expanded
+              // This allows vertical scrolling when not expanded
+              // Require 20% more horizontal movement to avoid diagonal edge cases
+              if (isExpanded || Math.abs(dx) > Math.abs(dy) * 1.2) {
+                s.isDragging = true;
+                s.lastTapTime = 0; // Cancel double-tap detection if dragging
+                // Reset position reference to current point when drag starts
+                s.previousTouchPosition = { x: touch.clientX, y: touch.clientY };
+                return; // Skip this frame to avoid jump
+              }
+            }
+          }
+
+          if (s.isDragging && s.mesh) {
+            // Only prevent default when we're actually dragging to rotate
+            e.preventDefault();
+
+            s.mesh.rotation.y += dx * 0.01;
+            s.mesh.rotation.x += dy * 0.01;
+
+            s.previousTouchPosition = { x: touch.clientX, y: touch.clientY };
+          }
+        } else if (e.touches.length === 2 && isExpanded) {
+          // Pinch zoom (only when expanded)
+          e.preventDefault();
+          const touch1 = e.touches[0];
+          const touch2 = e.touches[1];
+          const currentDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          );
+
+          if (s.pinchStartDistance > 0) {
+            const scale = s.pinchStartDistance / currentDistance;
+            s.camera.position.z = Math.max(1.5, Math.min(6, s.initialCameraZ * scale));
+          }
+        }
+      }, { passive: false });
+
+      container.addEventListener('touchend', () => {
+        const s = scenes[index];
+        s.isDragging = false;
+        s.pinchStartDistance = 0;
+
+        // Keep isHovered true to maintain info panel visibility
+        // Info panel will hide when user taps elsewhere
+      }, { passive: true });
+
+      container.addEventListener('touchcancel', () => {
+        const s = scenes[index];
+        s.isDragging = false;
+        s.pinchStartDistance = 0;
+      }, { passive: true });
     });
 
     function showInfo(index) {
@@ -392,7 +511,10 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
       const hint = document.createElement('div');
       hint.className = 'expanded-hint';
-      hint.textContent = 'drag to rotate · scroll to zoom · double-click or ESC to exit';
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      hint.textContent = isTouchDevice
+        ? 'drag to rotate · pinch to zoom · double-tap or back to exit'
+        : 'drag to rotate · scroll to zoom · double-click or ESC to exit';
 
       const objectContainer = document.createElement('div');
       objectContainer.className = 'expanded-object-container';
@@ -582,6 +704,13 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
     cursor: grab;
     position: relative;
     overflow: visible;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  :global(.object.expanded) {
+    touch-action: none;
   }
 
   :global(.object:active) {
