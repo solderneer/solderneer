@@ -742,7 +742,8 @@ for (const [path, asset] of Object.entries(manifest.assets)) {
 
   /* Object loading and loaded states */
   :global(.object.object-loading) {
-    opacity: 0;
+    background: var(--bg-code, #f3f2ef);
+    border-radius: 4px;
   }
 
   :global(.object.object-loaded) {
