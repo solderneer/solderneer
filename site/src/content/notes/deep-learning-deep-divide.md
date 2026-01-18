@@ -5,7 +5,7 @@ emoji: 🧠
 pubDate: Mar 29 2023
 updatedDate: Mar 29 2023
 tags:
-  - technology
+  - "600"
 ---
 
 It took ChatGPT just two months to reach a hundred million global active users. For reference, TikTok took nine months and Instagram took a comparative eternity of two and a half years [^1] . The age of widespread artificial intelligence (AI) is not a distant future, it has arrived and is growing at record pace. This growth is primarily driven by deep learning companies like OpenAI and DeepMind who deliver improvements to their models on the timescale of months rather than years. The whole scene is reminiscent of the early dot-com companies where every week brings new technological leaps, prompting the CEO of OpenAI, Sam Altman, to respond with grandeur visions of a post-AI civilisation [^2] .

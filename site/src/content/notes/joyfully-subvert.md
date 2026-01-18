@@ -4,7 +4,7 @@ emoji: 🌈
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
 tags:
-  - general
+  - "000"
 ---
 
 The concept of Joyful Subversion is elegantly simple. The world is messed up in so many ways but trying to tackle all of them is futile, exhausting and **sad**. Instead, joyful subversion advocates for rebellion in a way that allows you to have a little bit of fun along the way.

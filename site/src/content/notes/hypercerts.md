@@ -4,7 +4,7 @@ emoji: 🏎
 pubDate: 14-Jun-2023
 updatedDate: 14-Jun-2023
 tags:
-  - technology
+  - "600"
 ---
 
 [hypercerts](https://hypercerts.org/) are essentially a way to bring the carbon credits market structure to any arbitrary set of impact goals. The key goal here, is to develop newer funding models to support _public goods_.

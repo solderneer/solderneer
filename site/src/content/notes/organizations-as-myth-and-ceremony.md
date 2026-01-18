@@ -4,7 +4,7 @@ emoji: 🤝
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023
 tags:
-  - society
+  - "300"
 ---
 
 This note is a rendition of the paper [Institutionalized Organizations: Formal Structure as Myth and Ceremony](https://www.journals.uchicago.edu/doi/10.1086/226550).

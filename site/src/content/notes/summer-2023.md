@@ -4,7 +4,7 @@ emoji: ☀
 pubDate: 12-Jun-2023
 updatedDate: 12-Jun-2023
 tags:
-  - life
+  - "110"
 ---
 
 It's interesting that it's been a while since I've sat down and set myself some goals. The last couple of summers have been a bit strange, I've mostly been committed to a single big idea which I've over identified with in each of those summer.

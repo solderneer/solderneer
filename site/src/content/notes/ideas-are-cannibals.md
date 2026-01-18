@@ -4,7 +4,7 @@ emoji: 💡
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 When collective scripts as described in [[society-is-scripted]] are working correctly, we get harmonious social order where people evolve in a predictable and synchronized way.

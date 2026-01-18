@@ -4,14 +4,12 @@ emoji: 🦋
 pubDate: 19-Jun-2023
 updatedDate: 19-Jun-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **sixth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 I find that Monday is always a good time to reorient after a period of relaxation. I'm sitting in [The Book Cafe](https://www.thebookcafesg.com/) today, in what feels like either a creative flow state, or the buzz from the third coffee of the day.
 

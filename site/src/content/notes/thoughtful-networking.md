@@ -4,14 +4,12 @@ emoji: 🔮
 pubDate: 03-Jul-2023
 updatedDate: 03-Jul-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **eighteenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 I'm thinking about how I dislike networking. To me it feels like an unauthentic front for people to pursue their own selfish goals, perhaps due to the failures on the part of people who've 'networked' with me. 
 

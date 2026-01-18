@@ -4,8 +4,8 @@ description: Tan Kah Kee Young Inventor's Award
 emoji: 🏅
 pubDate: Apr 14 2016
 tags:
-  - technology
-  - young-shan
+  - "600"
+  - "200"
 originalPost: https://makerforce.io/tkkyia-2016/
 updatedDate: 14-Apr-2016
 ---

@@ -4,14 +4,12 @@ emoji: ☠
 pubDate: 30-Jun-2023
 updatedDate: 30-Jun-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **fifteenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 Being in your twenties is so weird. If you're in your twenties too, I hope this piece is relatable. If you're past your twenties, I hope this piece makes you smile fondly. And if you haven't reached your twenties yet, I hope this piece is a preview of what might lie ahead.
 

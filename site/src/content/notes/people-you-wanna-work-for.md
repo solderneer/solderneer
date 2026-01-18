@@ -4,14 +4,12 @@ emoji: ⁉
 pubDate: 13-Jul-2023
 updatedDate: 13-Jul-2023
 tags:
-  - startups
+  - "620"
 ---
 
 This note is the **twenty-seventh letter** in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 Today, I listened to a fascinating podcast episode between [Mark Zuckerberg and Lex Fridman](https://www.youtube.com/watch?v=Ff4fRgnuFgQ). A lot of the conversation was around personal LLMs, and Meta's vision for open-source models, but one quote in particular stood out to me.
 

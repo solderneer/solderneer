@@ -4,7 +4,7 @@ emoji: ♻
 pubDate: 28-Nov-2022
 updatedDate: 28-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 The idea of Evolutionary or "Teal" Organizations, was first popularized in the book [Reinventing Organizations](https://reinventingorganizationswiki.com/en/). 

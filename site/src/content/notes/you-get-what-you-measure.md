@@ -4,7 +4,7 @@ emoji: ⌛
 pubDate: 04-Jun-2023
 updatedDate: 04-Jun-2023
 tags:
-  - general
+  - "000"
 ---
 
 It's as simple as it says: _you get what you measure_. The act of measuring in a sense influences the result being measured. A classic example is that of a fisherman and the net. The fisherman concludes that the smallest fish is the size of the net spacing, when in effect his data was confounded by the act of measurement.

@@ -4,8 +4,8 @@ description: An exploration of predictive, preventive, point-of-care healthcare.
 emoji: 💜
 pubDate: 20-Apr-2022
 tags:
-- index
-- projects
+- "001"
+- "610"
 updatedDate: 20-Apr-2022
 ---
 

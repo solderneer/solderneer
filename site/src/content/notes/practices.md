@@ -4,7 +4,7 @@ emoji: 🛠
 pubDate: 04-Jun-2023
 updatedDate: 04-Jun-2023
 tags:
-  - index
+  - "001"
 ---
 
 If [[principles]] are the things I believe in the abstract, [[practices]] are the things I do which reflect them. Practices are the actions that I take (or try to take) which refers to my beliefs. Practices tend to be ritualistic, and form some core habits that I believe I should maintain.

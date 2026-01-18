@@ -4,8 +4,8 @@ description: Sometimes institutions are bad, and education may be one of those s
 emoji: 🎓
 pubDate: Aug 01 2021
 tags:
-  - society
-  - education
+  - "300"
+  - "310"
 originalPost: https://makerforce.io/institutionalised-learning/
 updatedDate: 01-Aug-2021
 ---

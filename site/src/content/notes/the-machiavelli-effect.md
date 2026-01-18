@@ -4,8 +4,8 @@ emoji: 🤿
 pubDate: 31-Jul-2023
 updatedDate: 31-Jul-2023
 tags:
-- society
-- technology
+- "300"
+- "600"
 ---
 
 In one of my new favorite books of all time, [Where's My Flying Car](), J. Storrs Hall introduces the Machiavelli Effect.

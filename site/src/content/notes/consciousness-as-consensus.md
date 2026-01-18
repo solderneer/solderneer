@@ -4,10 +4,8 @@ emoji: 🔎
 pubDate: 31-Jul-2023
 updatedDate: 31-Jul-2023
 tags:
-- philosophy
+- "100"
 ---
-
-**Dearest Reader,**
 
 Thinking about consciousness on a Monday night while sitting in bed is more enjoyable than you might think. I've read a number of books on the topic and I do recommend [Godel, Escher, Bach](https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach), [How The Mind Works](https://en.wikipedia.org/wiki/How_the_Mind_Works)  and [Other Minds](https://en.wikipedia.org/wiki/Other_Minds:_The_Octopus,_the_Sea,_and_the_Deep_Origins_of_Consciousness) as good places to start.
 

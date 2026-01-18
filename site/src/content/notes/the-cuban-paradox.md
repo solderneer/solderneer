@@ -4,7 +4,7 @@ description: How can Cuba with so little, do so much for the healthcare of its c
 emoji: 🇨🇺
 pubDate: Sep 18 2022
 tags:
-  - society
+  - "300"
 originalPost: https://heacare.substack.com/p/the-cuban-paradox
 updatedDate: 18-Sep-2022
 ---

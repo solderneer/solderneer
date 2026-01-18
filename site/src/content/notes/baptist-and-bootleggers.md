@@ -4,7 +4,7 @@ emoji: 🍺
 pubDate: 30-Jul-2023
 updatedDate: 30-Jul-2023
 tags:
-  - society
+  - "300"
 ---
 
 On January 16th 1919, the 18th Amendment to the Constitution prohibited the production and sale of alcohol in the United States for almost a decade and a half. Prohibition was supported by two groups that could not be more diametrically opposed. On one side were the Baptists and other evangelical Christians who saw Prohibition as ridding society of ills such as alcoholism and domestic violence. On the other side were the Bootleggers, whose moonshine prices were driven up by the regulation against alcohol.

@@ -4,14 +4,12 @@ emoji: 📖
 pubDate: 29-Jun-2023
 updatedDate: 29-Jun-2023
 tags:
-  - general
+  - "000"
 ---
 
 This note is the **fourteenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 The book [Superintelligence](https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies) by Nick Bostrum, has been on my reading list for a while now.
 

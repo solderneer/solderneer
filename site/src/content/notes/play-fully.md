@@ -4,14 +4,12 @@ emoji: 🛝
 pubDate: 13-Jun-2023
 updatedDate: 13-Jun-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **first** letter in the [[104-days-of-summer-vacation]] series.
 
 ---
-
-**Dearest Reader,**
 
 I hope you are well today, and I am grateful for your presence here amidst my lightly-edited but mostly raw thoughts. This is the very first installment, into a series of letters I'm titling after one of my favourite TV shows as a kid - [Phineas and Ferb (P&F)](https://www.youtube.com/watch?v=NkQrKxTFARM). 
 

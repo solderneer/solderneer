@@ -4,7 +4,7 @@ emoji: 🍂
 pubDate: 01-Jan-2023
 updatedDate: 05-Jan-2023
 tags:
-  - general
+  - "000"
 ---
 
 I want to know everything, but being a polymath is hard and unfocused. I often feel like I know an insufficient amount about everything. It's likely because I read topics from a cross-section of fields (economics, politics, healthcare) within the same day, which leaves me overwhelmed.

@@ -4,7 +4,7 @@ emoji: 🌇
 pubDate: 08-Jun-2023
 updatedDate: 08-Jun-2023
 tags:
-  - technology
+  - "600"
 ---
 
 Another addition to the DAO notes, alongside [[daos-are-digital-organisms]]. It seems there are tons of lenses to use to view DAOs, which also makes sense - [[the-eight-metaphors-of-organization]].

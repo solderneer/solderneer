@@ -4,8 +4,8 @@ description: The dark side to startup culture?
 emoji: 📉
 pubDate: June 20 2016
 tags:
-  - technology
-  - young-shan
+  - "600"
+  - "200"
 originalPost: https://makerforce.io/from-startups-to-scams/
 updatedDate: 20-Jun-2016
 ---

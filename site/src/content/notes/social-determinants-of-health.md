@@ -4,7 +4,7 @@ emoji: 🫀
 pubDate: 29-Nov-2022
 updatedDate: 29-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 The social determinants of health (SDOH) are non-clinical factors that contribute to an individual's health and well-being. Various institutions have different determinant definitions, but there is general consensus that most of an individual's well-being is not attributed directly to the healthcare system.

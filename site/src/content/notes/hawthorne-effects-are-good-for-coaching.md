@@ -4,8 +4,8 @@ emoji: 🏃
 pubDate: 08-Jun-2023
 updatedDate: 08-Jun-2023
 tags:
-  - society
-  - science
+  - "300"
+  - "500"
 ---
 
 The [[hawthorne-effect]] causes people to respond positively from just being observed. This is a win for coaching, just the observer effect can have good impacts on a person's wellbeing. 

@@ -5,7 +5,7 @@ description: This article talks about my personal principles for well-being, and
 emoji: 💪
 pubDate: Aug 28 2022
 tags:
-  - life
+  - "110"
 updatedDate: 28-Aug-2022
 ---
 

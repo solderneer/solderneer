@@ -4,8 +4,8 @@ description: My experience making PCBs in Singapore
 emoji: 💾
 pubDate: Jan 15 2016
 tags:
-  - technology
-  - young-shan
+  - "600"
+  - "200"
 originalPost: https://makerforce.io/pcb-making-in-singapore/
 updatedDate: 15-Jan-2016
 ---

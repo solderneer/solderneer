@@ -4,7 +4,7 @@ emoji: 🗃
 pubDate: 31-May-2023
 updatedDate: 31-May-2023
 tags:
-  - technology
+  - "600"
 ---
 
 [This is a mirror version of the wonderful original post made by Dave Weiner](http://scripting.com/2017/05/09/rulesForStandardsmakers.html).

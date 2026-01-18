@@ -4,14 +4,12 @@ emoji: 🤪
 pubDate: 10-Jul-2023
 updatedDate: 10-Jul-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **twenty-fourth letter** in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 Welcome to another Monday, and I wish for a beautiful week ahead in your life. This letter is going to be another progress checkin, similar to [[most-days]], where I review the goals that I had set at the start of summer. We're now about a month into summer, and there are some big changes in my summer plans that I have to account for.
 

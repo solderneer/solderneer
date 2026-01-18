@@ -4,7 +4,7 @@ emoji: 🇮‍🇩
 pubDate: 02-Nov-2022
 updatedDate: 02-Nov-2022
 tags:
-  - travel
+  - "900"
 ---
 
 Vacation time? 

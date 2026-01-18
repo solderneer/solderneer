@@ -4,14 +4,12 @@ emoji: 🥊
 pubDate: 01-Jul-2023
 updatedDate: 01-Jul-2023
 tags:
-  - general
+  - "000"
 ---
 
 This note is the **sixteenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 Yesterday, I wrote about [[grieving-otherselves|grieving our unrealized dreams]]. The whole process really made me think about how people decide what kind of work to do, since as I've discussed before, vision is super important ([[random-walks-are-sqrtn]]). Fortunately, the effective altruist community, and the associated organization [80,000 hours](https://80000hours.org/career-guide/), have been thinking about this extensively.
 

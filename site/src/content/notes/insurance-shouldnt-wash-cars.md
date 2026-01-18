@@ -4,7 +4,7 @@ description: We don't expect car insurance to subsidize car washes or tyre repai
 emoji: 🚗
 pubDate: Feb 09 2023
 tags:
-  - society
+  - "300"
 originalPost: https://heacare.substack.com/p/insurance-shouldnt-wash-cars
 updatedDate: 09-Feb-2023
 ---

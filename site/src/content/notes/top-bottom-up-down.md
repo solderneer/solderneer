@@ -5,7 +5,7 @@ description: How to balance product-market fit and iteration speed with
 emoji: 🔝
 pubDate: Jun 16 2022
 tags:
-  - technology
+  - "600"
 updatedDate: 16-Jun-2022
 ---
 

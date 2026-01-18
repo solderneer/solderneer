@@ -1,0 +1,58 @@
+---
+interface Props {
+  number: number;
+}
+
+const { number } = Astro.props;
+---
+
+<span class="sidenote-wrapper">
+  <span class="sidenote-number">{number}</span>
+  <span class="sidenote" data-number={number}>
+    <slot />
+  </span>
+</span>
+
+<style>
+  .sidenote-wrapper {
+    position: relative;
+  }
+
+  .sidenote-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    vertical-align: super;
+    cursor: pointer;
+  }
+
+  .sidenote {
+    position: absolute;
+    right: -240px;
+    width: 200px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .sidenote::before {
+    content: attr(data-number) ". ";
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+  }
+
+  /* Mobile: inline notes */
+  @media (max-width: 1100px) {
+    .sidenote {
+      position: relative;
+      right: auto;
+      width: 100%;
+      margin: 1em 0;
+      padding: 1em;
+      background: var(--bg-code);
+      border-radius: 4px;
+      display: block;
+    }
+  }
+</style>

@@ -4,8 +4,8 @@ emoji: ❓
 pubDate: 29-Nov-2022
 updatedDate: 29-Nov-2022
 tags:
-  - philosophy
-  - general
+  - "100"
+  - "000"
 ---
 
 **Radical skepticism** is the idea of _Do Your Own Research_ (DYOR). Statistical tools and hygiene are important tools to approach truth in the world. Always think about things statistically.

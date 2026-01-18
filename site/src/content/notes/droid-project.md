@@ -4,7 +4,7 @@ emoji: 🕷️
 originalPost: https://makerforce.io/droid-project-completed-body/
 pubDate: 30-May-2020
 tags:
-  - technology
+  - "600"
 title: Droid Project
 updatedDate: 12-Sep-2024
 ---
