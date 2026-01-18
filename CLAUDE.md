@@ -62,10 +62,12 @@ The site supports `[[note-slug]]` wiki-link syntax via `@portaljs/remark-wiki-li
 ## Frontend Design Preferences
 
 ### Visual Identity
-- **Aesthetic**: Technical notebook / lab journal feel, not sterile minimalism
-- **Color palette**: Warm paper background (#faf9f7), navy accent (#1e3a5f), muted borders (#e5e3df)
+- **Aesthetic**: Technical notebook / lab journal feel with Indian heritage influences
+- **Color palette**: Warm paper background (#faf9f7), indigo accent (#2c4a7c), muted borders (#e5e3df)
+- **Ethnic border**: Left-side book binding pattern inspired by Ajrakh block printing (geometric diamonds, temple triangles)
 - **Typography**: IBM Plex Mono for UI/labels/code, IBM Plex Serif for body text
 - **Texture**: Subtle SVG noise grain overlay (2.5% opacity) on body::after
+- **Heritage note**: Indigo chosen for its deep connection to Indian history - the dye was called "blue gold" and its name literally means "from India"
 
 ### CSS Variables
 ```css
@@ -75,8 +77,9 @@ The site supports `[[note-slug]]` wiki-link syntax via `@portaljs/remark-wiki-li
 --bg: #faf9f7;
 --bg-code: #f3f2ef;
 --border: #e5e3df;
---accent: #1e3a5f;
---accent-light: #2d5a8b;
+--accent: #2c4a7c;        /* Indigo - India's "blue gold" */
+--accent-light: #3d5f94;
+--accent-faint: rgba(44, 74, 124, 0.08);
 ```
 
 ### Layout Principles
