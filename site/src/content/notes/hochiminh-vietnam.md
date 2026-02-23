@@ -4,7 +4,7 @@ emoji: 🇻‍🇳
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
 tags:
-  - travel
+  - "900"
 ---
 
 **Ho Chi Minh is a beautifully chaotic place, with an ambience of ambition and fast-paced culture. The street food is a must-try, with the streetside Banh Mi, Pho and Com tam, being my favourites.**

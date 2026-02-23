@@ -4,7 +4,7 @@ emoji: 📈
 pubDate: 13-Nov-2022
 updatedDate: 16-Nov-2022
 tags:
-  - ongoing
+  - "002"
 ---
 
 This page is an ongoing thought, I am trying to stitch together an argument for digital maximalism from different disciplines. This will be an index page on viewing my progress on that.

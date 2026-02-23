@@ -4,14 +4,12 @@ emoji: 🙏
 pubDate: 02-Jul-2023
 updatedDate: 02-Jul-2023
 tags:
-  - society
+  - "300"
 ---
 
 This note is the **seventeenth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 _Doing good is good_, it makes us happy to be of service to others. So, it could be small or big but I hope that you get the opportunity to help someone else today. The principle of doing good is also the core of [Effective Altruism](https://www.effectivealtruism.com/), I wrote about some of their career advice yesterday in [[do-what-contributes]].
 

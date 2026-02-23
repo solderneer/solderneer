@@ -1,104 +1,263 @@
-@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
 :root {
-  font-family: "Merriweather", serif;
-
-  --bg-color: #f9f5eb;
-  --text-color: #454545;
-  --primary-color: #ff6000;
-  --secondary-color: #ffa559;
-
-  --beige-light: #f6efe0;
-  --beige-medium: #f3ebd8;
-  --beige-dark: #ede2c4;
-
-  --green: #5ebd3e;
-  --yellow: #ffb900;
-  --orange: #f78200;
-  --red: #e23838;
-  --purple: #973999;
-  --blue: #009cdf;
+  --text: #1a1a1a;
+  --text-secondary: #555;
+  --text-tertiary: #888;
+  --bg: #faf9f7;
+  --bg-code: #f3f2ef;
+  --border: #e5e3df;
+  /* Indigo - named for India, the original source of "blue gold" */
+  --accent: #2c4a7c;
+  --accent-light: #3d5f94;
+  --accent-faint: rgba(44, 74, 124, 0.08);
+  --link: #1a1a1a;
 }
 
-.font-writing {
-  font-family: "Kalam", cursive;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
 }
 
-@keyframes rainbow {
-  0% {
-    color: var(--green);
-  }
-  10% {
-    color: var(--yellow);
-  }
-  20% {
-    color: var(--orange);
-  }
-  30% {
-    color: var(--red);
-  }
-  40% {
-    color: var(--purple);
-  }
-  50% {
-    color: var(--blue);
-  }
-  60% {
-    color: var(--purple);
-  }
-  70% {
-    color: var(--red);
-  }
-  80% {
-    color: var(--orange);
-  }
-  90% {
-    color: var(--yellow);
-  }
-  100% {
-    color: var(--green);
-  }
-}
-
-/* Link styling */
-
-.rainbow-link a {
-  padding: 2px;
-  border-radius: 4px;
-  font-weight: bold;
-  text-decoration: none;
-  background-color: var(--beige-medium);
-}
-
-.rainbow-link a:hover {
-  animation-name: rainbow;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-}
-
-/* Reset for non-existent links */
-.rainbow-link .new {
+/* Subtle paper grain */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  background-color: transparent;
-  font-weight: normal;
+  opacity: 0.025;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-/* Button styling */
-.rainbow-button:active {
-  transform: scale(0.95) !important;
-  transition: transform 0.1s;
+/* Monospace utility */
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
 }
 
-.rainbow-button:hover {
-  animation-name: rainbow;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-
-  transform: scale(1.05);
-  transition: transform 0.1s;
+/* Selection */
+::selection {
+  background: rgba(44, 74, 124, 0.2);
 }
+
+/* Link styles */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Rune scroll animation */
+.rune-scroll {
+  display: flex;
+  gap: 0;
+  animation: scroll 40s linear infinite;
+  white-space: nowrap;
+}
+
+.rune-scroll span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  opacity: 0.55;
+  display: inline-block;
+  animation: float 2s ease-in-out infinite;
+  letter-spacing: 0.4em;
+}
+
+.rune-scroll span:nth-child(4n) { animation-delay: 0s; animation-duration: 1.8s; }
+.rune-scroll span:nth-child(4n+1) { animation-delay: 0.15s; animation-duration: 2.1s; }
+.rune-scroll span:nth-child(4n+2) { animation-delay: 0.3s; animation-duration: 1.6s; }
+.rune-scroll span:nth-child(4n+3) { animation-delay: 0.5s; animation-duration: 2.3s; }
+.rune-scroll span:nth-child(5n) { animation-delay: 0.1s; animation-duration: 1.9s; }
+.rune-scroll span:nth-child(7n) { animation-delay: 0.25s; animation-duration: 2.4s; }
+.rune-scroll span:nth-child(11n) { animation-delay: 0.4s; animation-duration: 1.7s; }
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-3px); }
+  50% { transform: translateY(1px); }
+  75% { transform: translateY(-2px); }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Section headers */
+.section-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+/* Prose styling for markdown content */
+.prose {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  line-height: 1.7;
+  color: var(--text);
+  counter-reset: figure h1-counter h2-counter h3-counter;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* H1: centered, numbered "1." */
+.prose h1 {
+  font-size: 1.5rem;
+  margin: 2em 0 0.8em;
+  text-align: center;
+  counter-increment: h1-counter;
+  counter-reset: h2-counter;
+}
+
+.prose h1::before {
+  content: counter(h1-counter) ". ";
+}
+
+/* H2: left-aligned, numbered "1.1" */
+.prose h2 {
+  font-size: 1.3rem;
+  margin: 2.5em 0 1em;
+  text-align: left;
+  counter-increment: h2-counter;
+  counter-reset: h3-counter;
+}
+
+.prose h2::before {
+  content: counter(h1-counter) "." counter(h2-counter) " ";
+}
+
+/* H3: left-aligned, numbered "1.1.1" */
+.prose h3 {
+  font-size: 1.1rem;
+  margin: 2em 0 0.8em;
+  text-align: left;
+  counter-increment: h3-counter;
+}
+
+.prose h3::before {
+  content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) " ";
+}
+
+.prose p {
+  margin-bottom: 1.5em;
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--accent-light);
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5em;
+  margin: 2em 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.prose code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  background: var(--bg-code);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+.prose pre {
+  background: var(--bg-code);
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.prose ul, .prose ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+/* Keep KaTeX styling working */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+

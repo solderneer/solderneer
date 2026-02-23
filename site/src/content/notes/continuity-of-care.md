@@ -4,7 +4,7 @@ emoji: 💗
 pubDate: 14-Jun-2023
 updatedDate: 14-Jun-2023
 tags:
-  - society
+  - "300"
 ---
 
 [Taken from AAFP:](https://www.aafp.org/about/policies/all/continuity-of-care-definition.html)

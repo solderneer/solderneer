@@ -4,14 +4,12 @@ emoji: 📈
 pubDate: 26-Jun-2023
 updatedDate: 26-Jun-2023
 tags:
-  - society
+  - "300"
 ---
 
 This note is the **eleventh** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 Cheers to a new week of love and life, I hope you are looking forward to the upcoming days. There's a strange time dilation effect to visiting India, perhaps the effect of not being able to do much. I feel like everyday lasts forever, and the general atmosphere keeps me from doing much at all.
 

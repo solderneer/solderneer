@@ -4,7 +4,7 @@ emoji: 🌻
 pubDate: 13-Jun-2023
 updatedDate: 11-Jul-2023
 tags:
-  - index
+  - "001"
 ---
 
 This is a writing series to write stream-of-consciousness type, lightly-edited letters, to improve my writing and get myself to express myself more frequently online. I tend to grapple with perfectionism and fear of publishing publicly, and this experiment will hopefully be an avenue to work on that during this summer.

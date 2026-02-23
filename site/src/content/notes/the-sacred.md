@@ -4,7 +4,7 @@ emoji: 👼
 pubDate: 08-Jun-2023
 updatedDate: 08-Jun-2023
 tags:
-  - society
+  - "300"
 ---
 
 The Sacred is a feeling of **connectedness, beauty and meaning**, as mentioned by [Ellie Hain](https://twitter.com/ellie__hain) in [Exiting The Void](https://www.youtube.com/watch?v=BqB-1ABZJSM).

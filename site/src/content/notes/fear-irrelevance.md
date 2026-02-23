@@ -4,14 +4,12 @@ emoji: 🐴
 pubDate: 09-Jul-2023
 updatedDate: 09-Jul-2023
 tags:
-  - technology
+  - "600"
 ---
 
 This note is the **twenty-third** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 In [Player Piano](https://www.goodreads.com/book/show/9597.Player_Piano), Kurt Vonnegut paints a terrifyingly real picture of industrial capitalist America gone all in on automation, a world where there is nothing for most people to do. In Player Piano's world, humanity trades off agency and work, for a centrally planned but highly convenient form of life.
 

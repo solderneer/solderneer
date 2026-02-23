@@ -4,14 +4,12 @@ emoji: 🌲
 pubDate: 16-Jun-2023
 updatedDate: 16-Jun-2023
 tags:
-  - society
+  - "300"
 ---
 
 This note is the **fourth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672).
 
 ---
-
-**Dearest Reader,**
 
 Today, I wish for you, new memories which build on old ones. It's hard to describe the feeling of meeting people who you used to spend all your time with, after a long time. I had the lucky fortune to have the opportunity to catch up with old friends, teachers, and mentors from my high school and it felt like for a moment, I was back to being the 16 year old boy with not a care in the world.
 

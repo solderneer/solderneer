@@ -4,14 +4,12 @@ emoji: 🔮
 pubDate: 22-Jun-2023
 updatedDate: 22-Jun-2023
 tags:
-  - technology
+  - "600"
 ---
 
 This note is the **eighth** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 This letter is backlogged, I am writing this on the 23rd of June, but in my defense, there is incredible joy in getting fully absorbed into making something work. That's what consumed me for the most of yesterday, and I hope that a similar kind of focus state might bless you as well.
 

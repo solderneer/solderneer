@@ -4,14 +4,12 @@ emoji: 🧰
 pubDate: 14-Jul-2023
 updatedDate: 20-Jul-2023
 tags:
-  - technology
+  - "600"
 ---
 
 This note is the **twenty-eighth letter** in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672), and leave any thoughts and comments that might come up!
 
 ---
-
-**Dearest Reader,**
 
 People talk about how artificial intelligence is a tool. It seems to me that these people who claim so, are either ignorant of intelligence's potential or are specifically referring to artificial intelligence in its current form today. I think artificial intelligence, in its general sense, cannot be a tool.
 

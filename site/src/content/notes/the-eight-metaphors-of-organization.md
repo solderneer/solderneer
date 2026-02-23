@@ -4,7 +4,7 @@ emoji: 💼
 pubDate: 14-Nov-2022
 updatedDate: 14-Nov-2022
 tags:
-  - society
+  - "300"
 ---
 
 > [!NOTE] This is not original

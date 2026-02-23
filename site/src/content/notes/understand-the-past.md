@@ -4,7 +4,7 @@ emoji: ⏲
 pubDate: 01-Jun-2023
 updatedDate: 01-Jun-2023
 tags:
-  - general
+  - "000"
 ---
 
 [From the letters to a young technologist](https://letterstoayoungtechnologist.com/Study-the-Past-Create-the-Future):

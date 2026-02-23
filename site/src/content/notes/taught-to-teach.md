@@ -4,7 +4,7 @@ description: Why is becoming a teacher so hard?
 emoji: 🧑‍🏫
 pubDate: Aug 29 2021
 tags:
-  - education
+  - "310"
 originalPost: https://makerforce.io/learning-used-to-be-fun/
 updatedDate: 29-Aug-2021
 ---

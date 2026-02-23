@@ -4,8 +4,8 @@ emoji: 📮
 pubDate: 08-Jun-2023
 updatedDate: 08-Jun-2023
 tags:
-  - technology
-  - general
+  - "600"
+  - "000"
 ---
 
 This is an interesting community I found called [Indieweb](https://indieweb.org/POSSE) who are focused on online data ownership and personal blogging. The POSSE ideology is that you should first publish your content on your own site, and then cross post it to all the social media platforms.

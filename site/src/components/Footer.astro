@@ -1,0 +1,163 @@
+---
+import { SITE_TITLE } from "../consts";
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-about">
+      <h3>shan / sudharshan / சுதர்சன்</h3>
+      <p>
+      I'm a research engineer at Opal Electronics, working on the vogue of consumer hardware devices.
+      </p>
+      <div class="footer-subscribe">
+        <a href="/rss.xml">RSS Feed</a>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/notes">Notes</a></li>
+        <li><a href="/objects">Object Museum</a></li>
+        <li><a href="/flights">Flights</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav">
+      <h4>Meta</h4>
+      <ul>
+        <li><a href="/notes/about">About</a></li>
+        <li><a href="/notes/now">Now</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copyright">&copy; 2026 Sudharshan Sundaramahalingam</span>
+    <div class="footer-social">
+      <a href="https://github.com/solderneer">GitHub</a>
+      <a href="https://twitter.com/solderneer">Twitter</a>
+      <a href="https://linkedin.com/in/solderneer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: 60px;
+    padding: 48px 0 60px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 640px) {
+    .footer-content {
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+    }
+  }
+
+  .footer-about h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .footer-about p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .footer-subscribe {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .footer-subscribe a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+
+  .footer-subscribe a:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+
+  .footer-nav h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    margin-bottom: 16px;
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav li {
+    margin-bottom: 10px;
+  }
+
+  .footer-nav a {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-nav a:hover {
+    color: var(--text);
+  }
+
+  .footer-bottom {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-copyright {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-social a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-social a:hover {
+    color: var(--text);
+  }
+</style>

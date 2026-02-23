@@ -4,12 +4,10 @@ description: On connectedness, beauty and meaning.
 emoji: 🥨
 pubDate: 02-Jun-2023
 tags:
-  - life
+  - "110"
 heroImage: https://files.solderneer.me/edinburgh-uk/1.jpeg
 updatedDate: 02-Jun-2023
 ---
-
-**Dearest Reader,**
 
 I hope for a meaningful moment of resonance in your life today. The kind that comes from meeting a long-lost best friend and talking late into the night. I want to share that it's okay to feel lost, feeling lost is the first step to finding a new path. And a reminder, that _every beginning is another beginning's end_.
 

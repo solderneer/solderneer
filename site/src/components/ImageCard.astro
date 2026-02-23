@@ -1,26 +1,93 @@
 ---
-import FormattedDate from "./FormattedDate.astro";
-import Tag from "./Tag.astro";
-import { Image } from '@astrojs/image/components';
+import {
+  getOptimizedImageUrl,
+  getImageSrcSet,
+  getImageDimensions,
+  isExternalUrl
+} from '../lib/media';
 
-const { image, alt, caption } = Astro.props;
+interface Props {
+  image: string;
+  alt: string;
+  caption?: string;
+  width?: number;
+  quality?: number;
+}
 
-// Import all images eagerly
-const images = import.meta.glob('../assets/**/*.{jpg,jpeg,png,webp}', { eager: true });
+const { image, alt, caption, width = 800, quality = 75 } = Astro.props;
 
-// Function to get the correct image dynamically
-const getImage = (path) => images[`../assets/${path}`]?.default;
+// Handle external URLs directly
+const isExternal = isExternalUrl(image);
 
+// Get optimized URL and metadata from manifest
+const optimizedUrl = isExternal ? image : getOptimizedImageUrl(image, { width, quality });
+const srcSet = isExternal ? null : getImageSrcSet(image, [320, 640, 960, 1280], quality);
+const dimensions = isExternal ? null : getImageDimensions(image);
+
+// Final source URL
+const finalSrc = optimizedUrl || image;
+const hasImage = Boolean(finalSrc);
 ---
 
-<div class="bg-beige-light border border-beige-dark flex flex-col overflow-hidden rounded-md mx-auto">
-  <div class="relative mb-2">
-    <Image
-      src={getImage(image)}
+{hasImage ? (
+  <figure class="image-card">
+    <img
+      src={finalSrc}
+      srcset={srcSet || undefined}
+      sizes="(max-width: 640px) 100vw, 640px"
       alt={alt}
-      class="object-cover m-0"
+      width={dimensions?.width}
+      height={dimensions?.height}
+      loading="lazy"
+      decoding="async"
+      class="image-card-img"
     />
-  </div>
-  <p class="mt-2 text-sm text-center italic">{caption}</p>
-</div>
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+) : (
+  <figure class="image-card image-card--missing">
+    <div class="placeholder">Image not found: {image}</div>
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+)}
+
+<style>
+  .image-card {
+    margin: 1.5em auto;
+    max-width: fit-content;
+    counter-increment: figure;
+  }
+
+  .image-card-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 4px;
+  }
+
+  figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-align: center;
+    padding: 0.5em 0;
+    letter-spacing: 0.02em;
+  }
+
+  figcaption::before {
+    content: "Fig " counter(figure) ": ";
+    font-weight: 500;
+  }
+
+  .image-card--missing .placeholder {
+    padding: 2em;
+    background: var(--bg-code);
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+</style>
 

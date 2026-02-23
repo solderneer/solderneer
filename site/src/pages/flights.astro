@@ -1,0 +1,526 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RuneScroll from "../components/RuneScroll.astro";
+import flightsData from "../data/flights.json";
+
+const flightRunes = "Φθψ↑Δhv=gtωrF=ma↻L=Iωθ°NESW";
+
+// Weather icon mapping
+const weatherIcons: Record<string, string> = {
+  'sunny': '☀',
+  'cloudy': '☁',
+  'overcast': '◐',
+  'windy': '≋',
+  'golden-hour': '◐',
+  'blue-hour': '◑',
+  'indoor': '⌂'
+};
+
+// Format date for display
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// Add IDs to gear and create flights mapping
+const gearWithIds = flightsData.gear.map((gear, index) => ({
+  ...gear,
+  id: `GR-${String(index + 1).padStart(3, '0')}`,
+  tag: gear.name.includes('DJI') ? 'DJI' : gear.name.includes('Air65') ? 'Air65' : gear.name
+}));
+
+// Group flights by gear tag
+const flightsByGear = new Map<string, typeof flightsData.flights>();
+flightsData.flights.forEach(flight => {
+  const existing = flightsByGear.get(flight.tag) || [];
+  existing.push(flight);
+  flightsByGear.set(flight.tag, existing);
+});
+---
+
+<BaseLayout title="Flights" description="A collection of flight videos" showHeader={false}>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.2/src/lite-yt-embed.min.css" />
+
+  <div class="flights-page">
+    <header class="page-header">
+      <a href="/" class="back-link">← solderneer</a>
+      <div class="page-title">
+        <h1>Flights</h1>
+        <div class="subtitle">a collection of flight videos</div>
+      </div>
+      <RuneScroll runes={flightRunes} />
+    </header>
+
+    {gearWithIds.map((gear, gearIndex) => {
+      const gearFlights = flightsByGear.get(gear.tag) || [];
+      return (
+        <section class="gear-section">
+          <div class="gear-card">
+            <div class="gear-card-inner">
+              <div class="gear-card-header">
+                <span class="gear-category">{gear.category}</span>
+                <span class="gear-status"><span class="status-dot"></span>{gear.status}</span>
+              </div>
+
+              <h2 class="gear-name">{gear.name}</h2>
+              <div class="gear-subtitle">{gear.subtitle}</div>
+
+              <p class="gear-description">{gear.description}</p>
+
+              <div class="gear-stats">
+                {gear.specs.map(spec => (
+                  <div class="stat-cell">
+                    <div class="stat-label">{spec.label}</div>
+                    <div class="stat-value">
+                      <span class="stat-number">{spec.value}</span>
+                      <span class="stat-unit">{spec.unit}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {gearFlights.length > 0 && (
+                <div class="flight-log">
+                  <div class="flight-log-header">
+                    Flight Log ({gearFlights.length} {gearFlights.length === 1 ? 'entry' : 'entries'})
+                  </div>
+
+                  <div class="flight-log-entries">
+                    {gearFlights.map((flight, flightIndex) => (
+                      <div class="flight-entry" data-expanded={flightIndex === 0 ? "true" : "false"}>
+                        <button class="flight-entry-row">
+                          <span class="entry-id">{flight.id}</span>
+                          <span class="entry-title">{flight.title}</span>
+                          <span class="entry-date">{formatDate(flight.date)}</span>
+                          <span class="entry-duration">{flight.duration}</span>
+                          <span class="entry-toggle-icon">{flightIndex === 0 ? '▼' : '▶'}</span>
+                        </button>
+
+                        <div class="flight-entry-details" style={flightIndex === 0 ? "" : "display: none;"}>
+                          <div class="flight-meta-row">
+                            <span class="weather-badge" data-weather={flight.weather}>
+                              {weatherIcons[flight.weather] || '?'} {flight.weather}
+                            </span>
+                            <span class="meta-separator">·</span>
+                            <span>{flight.time}</span>
+                            <span class="meta-separator">·</span>
+                            <span>{flight.duration}</span>
+                          </div>
+
+                          <div class="flight-video-container">
+                            {flight.youtubeId && flight.youtubeId !== 'PLACEHOLDER' ? (
+                              <lite-youtube videoid={flight.youtubeId} playlabel={`Play: ${flight.title}`}></lite-youtube>
+                            ) : (
+                              <div class="video-placeholder">
+                                <span class="placeholder-icon">▶</span>
+                                <span>YouTube video coming soon</span>
+                              </div>
+                            )}
+                          </div>
+
+                          <p class="flight-notes">{flight.notes}</p>
+                          <div class="flight-date">{formatDate(flight.date)}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</BaseLayout>
+
+<script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.2/src/lite-yt-embed.min.js" defer></script>
+
+<script>
+  // Expand/Collapse Individual Flight Entries (accordion)
+  const entryRows = document.querySelectorAll('.flight-entry-row');
+
+  entryRows.forEach(row => {
+    row.addEventListener('click', () => {
+      const entry = row.closest('.flight-entry') as HTMLElement;
+      const details = entry.querySelector('.flight-entry-details') as HTMLElement;
+      const icon = row.querySelector('.entry-toggle-icon') as HTMLElement;
+      const isExpanded = entry.dataset.expanded === 'true';
+
+      // Collapse all other entries in the same flight log
+      const log = entry.closest('.flight-log-entries');
+      if (log) {
+        log.querySelectorAll('.flight-entry').forEach(otherEntry => {
+          if (otherEntry !== entry) {
+            (otherEntry as HTMLElement).dataset.expanded = 'false';
+            const otherDetails = otherEntry.querySelector('.flight-entry-details') as HTMLElement;
+            const otherIcon = otherEntry.querySelector('.entry-toggle-icon') as HTMLElement;
+            if (otherDetails) otherDetails.style.display = 'none';
+            if (otherIcon) otherIcon.textContent = '▶';
+          }
+        });
+      }
+
+      // Toggle current entry
+      if (isExpanded) {
+        entry.dataset.expanded = 'false';
+        details.style.display = 'none';
+        icon.textContent = '▶';
+      } else {
+        entry.dataset.expanded = 'true';
+        details.style.display = 'block';
+        icon.textContent = '▼';
+      }
+    });
+  });
+</script>
+
+<style>
+  .flights-page {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    padding-top: 40px;
+  }
+
+  .back-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .page-title h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+    color: var(--text);
+  }
+
+  .subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Gear Sections */
+  .gear-section {
+    padding: 32px 0;
+  }
+
+  .gear-section:first-of-type {
+    margin-top: 32px;
+  }
+
+  .gear-card-inner {
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent);
+    padding: 24px;
+    background: var(--bg);
+  }
+
+  .gear-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .gear-category {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .gear-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #2d8a4e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: #2d8a4e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .gear-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .gear-subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-bottom: 16px;
+  }
+
+  .gear-description {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* Stats Grid */
+  .gear-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+    background: #fbfaf9;
+  }
+
+  .stat-cell {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-cell:nth-child(even) {
+    border-right: none;
+  }
+
+  .stat-cell:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .stat-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .stat-unit {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  /* Flight Log */
+  .flight-log {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .flight-log-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    padding-bottom: 12px;
+  }
+
+  /* Flight Entries */
+  .flight-log-entries {
+  }
+
+  .flight-entry {
+    border-top: 1px solid var(--border);
+  }
+
+  .flight-entry-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: left;
+    transition: background 0.15s;
+  }
+
+  .flight-entry-row:hover {
+    background: rgba(30, 58, 95, 0.03);
+  }
+
+  .entry-id {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .entry-title {
+    font-size: 0.8rem;
+    color: var(--text);
+    flex-grow: 1;
+  }
+
+  .entry-date {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  .entry-duration {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  .entry-toggle-icon {
+    font-size: 0.55rem;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  /* Flight Entry Details */
+  .flight-entry-details {
+    padding: 0 14px 16px;
+    background: var(--bg-code);
+  }
+
+  .flight-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+  }
+
+  .meta-separator {
+    color: var(--text-tertiary);
+  }
+
+  .weather-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-transform: capitalize;
+  }
+
+  .weather-badge[data-weather="sunny"] {
+    color: var(--accent);
+  }
+
+  .weather-badge[data-weather="golden-hour"] {
+    color: #c9871a;
+  }
+
+  .weather-badge[data-weather="cloudy"],
+  .weather-badge[data-weather="overcast"] {
+    color: #7a8b99;
+  }
+
+  .weather-badge[data-weather="blue-hour"] {
+    color: #4a6fa5;
+  }
+
+  .weather-badge[data-weather="indoor"] {
+    color: var(--text-secondary);
+  }
+
+  /* Video Container */
+  .flight-video-container {
+    margin: 8px 0;
+    aspect-ratio: 16/9;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .flight-video-container lite-youtube {
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-tertiary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+  }
+
+  .placeholder-icon {
+    font-size: 1.5rem;
+    opacity: 0.5;
+  }
+
+  .flight-notes {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .flight-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+  }
+
+
+  /* lite-youtube-embed overrides */
+  lite-youtube {
+    background-color: var(--bg-code);
+  }
+
+  lite-youtube::before {
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
+  }
+</style>

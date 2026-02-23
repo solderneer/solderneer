@@ -4,16 +4,14 @@ emoji: 🤩
 pubDate: 15-Jun-2023
 updatedDate: 15-Jun-2023
 tags:
-  - life
+  - "110"
 ---
 
 This note is the **third** letter in the [[104-days-of-summer-vacation]] series. You can also follow the full twitter thread [here](https://twitter.com/solderneer/status/1668911213810716672).
 
 ---
 
-**Dearest Reader,**
-
-I hope you’re feeling confident. Whoever you may be, I believe that you are amazing, and I’m sincerely rooting for support, positivity and love to come your way today. I say this because I’ve been thinking about the reality distortion fields that many founders, visionaries and even professors sometimes seem to exude.
+I hope you're feeling confident. Whoever you may be, I believe that you are amazing, and I’m sincerely rooting for support, positivity and love to come your way today. I say this because I’ve been thinking about the reality distortion fields that many founders, visionaries and even professors sometimes seem to exude.
 
 In [The Art of doing Science and Engineering](https://www.goodreads.com/book/show/530415.The_Art_of_Doing_Science_and_Engineering), Richard Hamming talks about the importance of having a vision for the world. It even came with a neat mathematical proof, that a random walk on a line after N steps has an expected distance from the origin proportional to the square root of N, while a directed walk in either direction has expected distance proportional to N. You can read the proof here: [[random-walks-are-sqrtn]]
 

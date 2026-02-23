@@ -4,8 +4,8 @@ emoji: 📈
 pubDate: 26-Nov-2022
 updatedDate: 27-Nov-2022
 tags:
-  - society
-  - technology
+  - "300"
+  - "600"
 ---
 
 Futarchy is a decision making framework that I first came across, while reading [a post on the Ethereum Blog](https://blog.ethereum.org/2014/08/21/introduction-futarchy). It is a futuristic form of government proposed by Robin Hanson. Vitalik here outlines the general principle of furatchy: using two prediction markets "for" and "against" a written proposal to make decisions.
